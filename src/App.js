@@ -1,8 +1,8 @@
-import List from './List';
+import Layout from './Layout';
 
 function App() {
   return (
-    <List />
+    <Layout />
   );
 }
 
