@@ -1,11 +1,8 @@
-import './App.css';
-import Button from '@material-ui/core/Button';
+import List from './List';
 
 function App() {
   return (
-    <Button variant="contained" color="primary">
-      Hola Mundo!
-    </Button>
+    <List />
   );
 }
 
