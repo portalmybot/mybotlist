@@ -13,7 +13,6 @@
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },
-  "homepage": "https://portalmybot.com/react",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
