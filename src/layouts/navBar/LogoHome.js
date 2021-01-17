@@ -2,6 +2,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
+import Link from '@material-ui/core/Link';
 import Logo from './logo.png';
 
 const useStyles = makeStyles((theme) => ({
@@ -12,8 +13,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LogoHome() {
   const classes = useStyles();
+  const preventDefault = (event) => event.preventDefault()
 
   return (
-    <Avatar className={classes.icon} alt="Logo MyBOT List" src={Logo} />
+    <Link href="#" onClick={preventDefault}>
+      <Avatar className={classes.icon} alt="Logo MyBOT List" src={Logo} />
+    </Link>
+    
   );
 }
