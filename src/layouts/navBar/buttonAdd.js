@@ -6,6 +6,7 @@ import AddToPhotosIcon from '@material-ui/icons/AddToPhotos';
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(2),
+    marginRight: theme.spacing(5)
   },
 }));
 
