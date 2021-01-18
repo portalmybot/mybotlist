@@ -18,7 +18,7 @@ export default function LogoHome() {
   const preventDefault = (event) => event.preventDefault()
 
   return (
-    <Link href="#" onClick={preventDefault}>
+    <Link href="/" onClick={preventDefault}>
       <Avatar className={classes.icon} alt="Logo MyBOT List" src={Logo} />
     </Link>
     

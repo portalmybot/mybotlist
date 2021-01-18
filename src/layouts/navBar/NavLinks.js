@@ -18,10 +18,10 @@ export default function NavLinks() {
 
   return (
     <Typography className={classes.root}>
-      <Link href="#" onClick={preventDefault} color="inherit">
+      <Link href="/portal" onClick={preventDefault} color="inherit">
         {'Portal '}
       </Link>
-      <Link href="#" onClick={preventDefault} color="inherit">
+      <Link href="/codes" onClick={preventDefault} color="inherit">
         {'Códigos'}
       </Link>
 

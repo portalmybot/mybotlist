@@ -3,11 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import DehazeIcon from '@material-ui/icons/Dehaze';
+import Link from '@material-ui/core/Link';
 
 import LogoHome from './navBar/LogoHome';
 import Search from './navBar/Search';
@@ -41,15 +40,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PrimarySearchAppBar() {
   const classes = useStyles();
+  const preventDefault = (event) => event.preventDefault();
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -96,20 +93,16 @@ export default function PrimarySearchAppBar() {
         <ButtonAdd />
       </MenuItem>
       <MenuItem>
-        <LoginLinks />
+        <Link href="/login" onClick={preventDefault} color="inherit">
+          {'Login'}
+        </Link>
+      </MenuItem>
+      <MenuItem>
+        <Link href="/register" onClick={preventDefault} color="inherit">
+          {'Registrar'}
+        </Link>
       </MenuItem>
 
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
     </Menu>
   );
 
@@ -128,7 +121,6 @@ export default function PrimarySearchAppBar() {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <ButtonAdd />
-
           </div>
           <div className={classes.sectionDesktop}>
             <LoginLinks />

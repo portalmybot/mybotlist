@@ -18,10 +18,10 @@ export default function LoginLink() {
 
   return (
     <Typography className={classes.root}>
-      <Link href="#" onClick={preventDefault} color="inherit">
+      <Link href="/login" onClick={preventDefault} color="inherit">
         {'Login'}
       </Link>
-      <Link href="#" onClick={preventDefault} color="inherit">
+      <Link href="/register" onClick={preventDefault} color="inherit">
         {'Registrar'}
       </Link>
     </Typography>
