@@ -7,13 +7,12 @@ import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
+import DehazeIcon from '@material-ui/icons/Dehaze';
 
 import LogoHome from './navBar/LogoHome';
 import Search from './navBar/Search';
 import NavLinks from './navBar/NavLinks';
+import LoginLinks from './navBar/LoginLinks';
 import ButtonAdd from './navBar/ButtonAdd';
 
 const useStyles = makeStyles((theme) => ({
@@ -92,22 +91,14 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+     
       <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
+        <ButtonAdd />
       </MenuItem>
       <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
+        <LoginLinks />
       </MenuItem>
+
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -127,33 +118,27 @@ export default function PrimarySearchAppBar() {
       <AppBar position="static">
         <Toolbar>
           <LogoHome />
-          <Search />
-          <NavLinks />
+          <div className={classes.sectionDesktop}>
+            <Search />
+          </div>
+          <div className={classes.sectionDesktop}>
+            <NavLinks />
+          </div>
+          
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <ButtonAdd />
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
+
+          </div>
+          <div className={classes.sectionDesktop}>
+            <LoginLinks />
+          </div>
+
+          <div className={classes.sectionMobile}>
+             <NavLinks />
           </div>
           <div className={classes.sectionMobile}>
+           
             <IconButton
               aria-label="show more"
               aria-controls={mobileMenuId}
@@ -161,7 +146,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <MoreIcon />
+              <DehazeIcon />
             </IconButton>
           </div>
         </Toolbar>
