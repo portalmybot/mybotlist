@@ -13,6 +13,7 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 
 import LogoHome from './navBar/LogoHome';
 import Search from './navBar/Search';
+import NavLinks from './navBar/NavLinks';
 import ButtonAdd from './navBar/ButtonAdd';
 
 const useStyles = makeStyles((theme) => ({
@@ -127,6 +128,7 @@ export default function PrimarySearchAppBar() {
         <Toolbar>
           <LogoHome />
           <Search />
+          <NavLinks />
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <ButtonAdd />
