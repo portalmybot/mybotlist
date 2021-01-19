@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
   },
+  navBar: {
+    backgroundColor: theme.palette.background.paper,
+  },
   title: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
@@ -107,8 +110,8 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <div className={classes.grow}>
-      <AppBar position="static">
+    <div className={classes.grow} >
+      <AppBar position="static" className={classes.navBar}>
         <Toolbar>
           <LogoHome />
           <div className={classes.sectionDesktop}>

@@ -17,7 +17,7 @@ export default function ButtonAdd() {
     <div>
       <Button
         variant="contained"
-        color="secondary"
+        color="primary"
         className={classes.button}
         startIcon={<AddToPhotosIcon />}
       >
