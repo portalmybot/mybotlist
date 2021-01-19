@@ -5,8 +5,9 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
-    padding: theme.spacing(5, 0, 5),
-    width: '60%',
+    padding: theme.spacing(5, 0, 2),
+    width: '100%',
+    maxWidth: 900,
     margin: theme.spacing(0, 'auto')
     
   },
