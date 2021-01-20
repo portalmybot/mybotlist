@@ -1,5 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-const font = "'Fredoka One', cursive";
+const font = "'Lexend Deca', sans-serif";
 
 // A custom theme for this app
 const theme = createMuiTheme({
