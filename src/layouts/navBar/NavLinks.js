@@ -3,6 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
+import CodeIcon from '@material-ui/icons/Code';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,14 +15,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NavLinks() {
   const classes = useStyles();
-  const preventDefault = (event) => event.preventDefault();
 
   return (
     <Typography className={classes.root}>
-      <Link href="/portal" onClick={preventDefault} color="inherit">
-        {'Portal '}
+    
+      <Link href="/portal" color="inherit">
+        {'Portal '} <CodeIcon />
       </Link>
-      <Link href="/codes" onClick={preventDefault} color="inherit">
+      <Link href="/codes" color="inherit">
         {'Códigos'}
       </Link>
 
