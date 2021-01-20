@@ -11,6 +11,14 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: theme.spacing(2),
     },
   },
+  link: {
+    display: 'flex',
+  },
+  icon: {
+    marginRight: theme.spacing(0.5),
+    width: 20,
+    height: 20,
+  },
 }));
 
 export default function NavLinks() {
@@ -20,10 +28,12 @@ export default function NavLinks() {
     <Typography className={classes.root}>
     
       <Link href="/portal" color="inherit">
-        {'Portal '} <CodeIcon />
+        <CodeIcon  className={classes.icon} />
+        Portal
       </Link>
       <Link href="/codes" color="inherit">
-        {'Códigos'}
+        <CodeIcon  className={classes.icon} />
+        Códigos
       </Link>
 
     </Typography>
