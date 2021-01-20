@@ -22,7 +22,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://portalmybot.com">
-        MyBOT List
+        PortalMyBOT
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
