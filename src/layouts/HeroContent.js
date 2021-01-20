@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -18,7 +18,10 @@ export default function HeroContent() {
    return (
     <div className={classes.heroContent}>
       <Typography component="h1" variant="h3" align="center" color="inherit" gutterBottom>
-        MyBOT List
+        
+        <Box fontWeight="fontWeightBold" m={1}>
+          MyBOT List
+        </Box>
       </Typography>
       <Typography variant="h5" align="center" color="inherit" paragraph>
         Una plataforma para el listado de Bots publicos de discord en español,
