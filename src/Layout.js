@@ -67,11 +67,11 @@ export default function Album() {
       <NavBar />
       <main>
         <HeroContent />
-        <Container className={classes.cardGrid} maxWidth="md">
+        <Container className={classes.cardGrid} maxWidth="lg">
           {/* End hero unit */}
-          <Grid container spacing={4}>
+          <Grid container spacing={5}>
             {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+              <Grid item key={card} xs={12} sm={6} md={3}>
                 <CardList />
               </Grid>
             ))}
