@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import HomeTags from './TagsHome.js';
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -28,6 +29,12 @@ export default function HeroContent() {
         Lista de Bots publicos de Discord en español, descubre nuevos Bots desarrollados por los miembros
         de la comunidad MyBOT Team
       </Typography>
+  
+        <Box m={1}>
+          <HomeTags />
+        </Box>
+
+      
     </div>
    )
   
