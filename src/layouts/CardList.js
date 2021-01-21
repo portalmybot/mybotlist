@@ -15,10 +15,12 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Chip from '@material-ui/core/Chip';
 import LabelIcon from '@material-ui/icons/Label';
 import Button from '@material-ui/core/Button';
+import StarIcon from '@material-ui/icons/Star';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+    
   },
   media: {
     height: 0,
@@ -30,13 +32,16 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: red[500],
   },
+  title: {
+    fontSize: 21,
+  },
 }));
 
 export default function RecipeReviewCard() {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} >
       <CardHeader
         avatar={
           <Avatar alt="Image title" src="https://source.unsplash.com/random" className={classes.avatar}/>
@@ -46,10 +51,15 @@ export default function RecipeReviewCard() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Facefun"
-        subheader={
-          <Chip label='Social' component="a" color="secondary" size="small" icon={<LabelIcon />}/>
+        title={
+        <Typography className={classes.title} color="secondary" gutterBottom>
+          MyBOT 
+        </Typography>
         }
+        subheader={
+          <Chip label='Social' component="a" color="secondary" size="small" style={{fontSize: 10}}/>
+        }
+        
         
       />
 
@@ -61,7 +71,7 @@ export default function RecipeReviewCard() {
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+          <StarIcon />
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
