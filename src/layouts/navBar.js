@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
   navBar: {
     backgroundColor: theme.palette.background.paper,
+    boxShadow: 0,
   },
   title: {
     display: 'none',
@@ -110,7 +111,7 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <div className={classes.grow} >
+    <div className={classes.grow}>
       <AppBar position="static" className={classes.navBar}>
         <Toolbar>
           <LogoHome />

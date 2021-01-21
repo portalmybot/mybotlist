@@ -7,10 +7,12 @@ const useStyles = makeStyles((theme) => ({
   heroContent: {
     padding: theme.spacing(5, 0, 2),
     width: '100%',
-    maxWidth: 900,
-    margin: theme.spacing(0, 'auto')
-    
+    backgroundColor: theme.palette.background.paper,
   },
+  textCotent: {
+    maxWidth: 900,
+    margin: theme.spacing(0, 'auto'),
+  }
  })
 )
 export default function HeroContent() {
@@ -23,7 +25,7 @@ export default function HeroContent() {
           MyBOT List
         </Box>
       </Typography>
-      <Typography variant="h5" align="center" color="inherit" paragraph>
+      <Typography variant="h5" align="center" color="inherit" className={classes.textCotent} paragraph>
         Una plataforma para el listado de Bots publicos de discord en español,
         puede usar nuestra lista para descubrir nuevos bots desarrollados por los miembros
         de la comunidad MyBOT Team.
