@@ -30,7 +30,10 @@ export default function FooterHome() {
   return (
    <footer className={classes.footer}>
       <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-        Todos los derechos reservados, Desarrollado por @cratermaik
+        Todos los derechos reservados, Desarrollado por {' '}
+        <Link color="secondary" target="_blank" href="https://github.com/craterMaik/" rel="noopener">
+          @CraterMaik
+        </Link>
       </Typography>
       <Copyright />
     </footer>
