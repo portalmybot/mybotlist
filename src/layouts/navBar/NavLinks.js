@@ -3,7 +3,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
+
 import CodeIcon from '@material-ui/icons/Code';
+import AmpStoriesIcon from '@material-ui/icons/AmpStories';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,26 +14,30 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   link: {
-    display: 'flex',
+    display: 'inline-flex',
+    alignItems: 'center',
+    flexWrap: 'wrap',
   },
   icon: {
     marginRight: theme.spacing(0.5),
     width: 20,
     height: 20,
+    
   },
 }));
+
 
 export default function NavLinks() {
   const classes = useStyles();
 
   return (
-    <Typography className={classes.root}>
+    <Typography className={classes.root} >
     
-      <Link href="/portal" color="inherit">
-        <CodeIcon  className={classes.icon} />
+      <Link href="/portal" color="inherit" className={classes.link}>
+        <AmpStoriesIcon className={classes.icon} />
         Portal
       </Link>
-      <Link href="/codes" color="inherit">
+      <Link href="/codes" color="inherit" className={classes.link}>
         <CodeIcon  className={classes.icon} />
         Códigos
       </Link>
