@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(0.5),
     },
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(5),
     maxWidth: 600,
     margin: theme.spacing(0, 'auto'),
   },
@@ -45,7 +45,7 @@ export default function Chips() {
   return (
     <div className={classes.root}>
       {tags.map((tag) => (
-      <Chip label={tag} component="a" color="default" style={{backgroundColor: stringToColor(tag), fontSize: 15}} icon={<LabelIcon />} href={'tag/'+tag} clickable/>
+      <Chip key={tag} label={tag} component="a" color="default" style={{backgroundColor: stringToColor(tag), fontSize: 15}} icon={<LabelIcon />} href={'tag/'+tag} clickable/>
       ))}
     </div>
   );

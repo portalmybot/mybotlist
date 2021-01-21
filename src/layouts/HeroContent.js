@@ -6,7 +6,7 @@ import HomeTags from './TagsHome.js';
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
-    padding: theme.spacing(5, 5, 10, 5),
+    padding: theme.spacing(5, 5, 20, 5),
     width: '100%',
     backgroundColor: theme.palette.background.paper,
   },
@@ -29,12 +29,8 @@ export default function HeroContent() {
         Lista de Bots publicos de Discord en español, descubre nuevos Bots desarrollados por los miembros
         de la comunidad MyBOT Team
       </Typography>
-  
-        <Box m={1}>
-          <HomeTags />
-        </Box>
-
       
+      <HomeTags />
     </div>
    )
   
