@@ -5,7 +5,7 @@ import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
-    padding: theme.spacing(5, 0, 2),
+    padding: theme.spacing(5, 5, 10, 5),
     width: '100%',
     backgroundColor: theme.palette.background.paper,
   },
@@ -20,15 +20,13 @@ export default function HeroContent() {
    return (
     <div className={classes.heroContent}>
       <Typography component="h1" variant="h3" align="center" color="inherit" gutterBottom>
-        
         <Box fontWeight="fontWeightBold" m={1}>
           MyBOT List
         </Box>
       </Typography>
-      <Typography variant="h5" align="center" color="inherit" className={classes.textCotent} paragraph>
-        Una plataforma para el listado de Bots publicos de discord en español,
-        puede usar nuestra lista para descubrir nuevos bots desarrollados por los miembros
-        de la comunidad MyBOT Team.
+      <Typography variant="h6" align="center" color="inherit" className={classes.textCotent} paragraph>
+        Lista de Bots publicos de Discord en español, descubre nuevos Bots desarrollados por los miembros
+        de la comunidad MyBOT Team
       </Typography>
     </div>
    )
