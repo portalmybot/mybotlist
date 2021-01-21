@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   }
  })
 )
+
 export default function HeroContent() {
   const classes = useStyles();
    return (
