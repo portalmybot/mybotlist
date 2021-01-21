@@ -20,7 +20,6 @@ import StarIcon from '@material-ui/icons/Star';
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
-    
   },
   media: {
     height: 0,
@@ -47,7 +46,7 @@ export default function RecipeReviewCard() {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root} >
+    <Card>
       <CardHeader
         avatar={
           <Avatar alt="Image title" src="https://source.unsplash.com/random" className={classes.avatar}/>
