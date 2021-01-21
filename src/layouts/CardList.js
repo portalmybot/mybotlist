@@ -19,7 +19,9 @@ import StarIcon from '@material-ui/icons/Star';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+  /*     maxWidth: 345, */
+    border: '1px solid',
+    borderColor: theme.palette.background.paper,
   },
   media: {
     height: 0,
@@ -46,7 +48,7 @@ export default function RecipeReviewCard() {
   const classes = useStyles();
 
   return (
-    <Card>
+    <Card className={classes.root}>
       <CardHeader
         avatar={
           <Avatar alt="Image title" src="https://source.unsplash.com/random" className={classes.avatar}/>
@@ -64,8 +66,6 @@ export default function RecipeReviewCard() {
         subheader={
           <Chip label='Social' component="a" color="secondary" size="small" style={{fontSize: 10}}/>
         }
-        
-        
       />
 
       <CardContent>

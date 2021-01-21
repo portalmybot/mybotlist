@@ -32,6 +32,7 @@ export default function HeroContent() {
       </Typography>
       
       <HomeTags />
+      
     </div>
    )
   
