@@ -22,6 +22,11 @@ const useStyles = makeStyles((theme) => ({
   /*     maxWidth: 345, */
     border: '1px solid',
     borderColor: theme.palette.background.paper,
+     '@media (min-width: 960px)': {
+       root: {
+         maxWidth: 345,
+       },
+     },
   },
   media: {
     height: 0,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+
 import Box from '@material-ui/core/Box';
 import HomeTags from './TagsHome.js';
 
@@ -8,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   heroContent: {
     padding: theme.spacing(5, 5, 20, 5),
     width: '100%',
-    backgroundColor: theme.palette.background.paper,
+    background: theme.palette.background.paper,
   },
   textCotent: {
     maxWidth: 900,
@@ -20,7 +21,8 @@ const useStyles = makeStyles((theme) => ({
 export default function HeroContent() {
   const classes = useStyles();
    return (
-    <div className={classes.heroContent}>
+    <div className={classes.heroContent} zIndex="modal">
+      
       <Typography component="h1" variant="h3" align="center" color="inherit" gutterBottom>
         <Box fontWeight="fontWeightBold" m={1}>
           MyBOT List
@@ -32,7 +34,6 @@ export default function HeroContent() {
       </Typography>
       
       <HomeTags />
-      
     </div>
    )
   

@@ -5,15 +5,20 @@ import NavBar from './layouts/navBar.js';
 import HeroContent from './layouts/HeroContent.js';
 import ContainerList from './layouts/ContainerList.js';
 import FooterHome from './layouts/FooterHome.js';
+import ParticlesModeil from './layouts/ParticlesModel.js';
 
 export default function Album() {
   return (
     <React.Fragment>
+      <ParticlesModeil />
       <CssBaseline />
       <NavBar />
       <main>
+
         <HeroContent />
+        
         <ContainerList />
+        
       </main>
       <FooterHome />
     </React.Fragment>
