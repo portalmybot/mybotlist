@@ -8,11 +8,17 @@ import {
 } from '@material-ui/core/styles';
 import App from './App';
 import theme from './theme';
-
+import Particles from 'react-particles-js';
+/* import ParticlesModel from './layouts/ParticlesModel.js';
+ */
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <React.StrictMode>
-    <App />
+      {/* <ParticlesModel /> */}
+      <App />
+      {/* <Particles 
+        className='example1'/>  */}
+
   </React.StrictMode>
   </ThemeProvider>,
   document.getElementById('root')

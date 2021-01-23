@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 export default function HeroContent() {
   const classes = useStyles();
    return (
-    <div className={classes.heroContent} zIndex="modal">
+    <div className={classes.heroContent}>
       
       <Typography component="h1" variant="h3" align="center" color="inherit" gutterBottom>
         <Box fontWeight="fontWeightBold" m={1}>
