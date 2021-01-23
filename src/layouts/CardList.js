@@ -9,14 +9,14 @@ import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
+import { red, green  } from '@material-ui/core/colors';
 
 import ShareIcon from '@material-ui/icons/Share';
 import Chip from '@material-ui/core/Chip';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import Button from '@material-ui/core/Button';
 import StarIcon from '@material-ui/icons/Star';
-
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontSize: 21,
+    marginBottom:0,
   },
   large: {
     width: theme.spacing(7),
@@ -75,9 +76,9 @@ export default function RecipeReviewCard() {
           MyBOT 
         </Typography>
         }
-   /*      subheader={
-          
-        } */
+        subheader= {
+          <CheckCircleIcon style={{ color: green[500] }}/>
+        }
         style={{
             marginTop: '-120px',
             marginBottom: '20px',
