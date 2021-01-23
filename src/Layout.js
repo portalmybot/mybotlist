@@ -13,7 +13,7 @@ export default function Album() {
       <CssBaseline />
       <NavBar />
       <main>
-        <ParticlesModel / >
+        <ParticlesModel />
         <HeroContent />
        
         <ContainerList />

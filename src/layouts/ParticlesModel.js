@@ -5,14 +5,14 @@ export default function ParticlesModel() {
   return (
   
     <Particles
-      canvasClassName = "canvasIMG"
+      canvasClassName = "example1"
       params={{
         "particles": {
             "number": {
-                "value": 8,
+                "value": 10,
                 "density": {
                     "enable": true,
-                    "value_area": 800
+                    "value_area": 700
                 }
             },
             "line_linked": {
