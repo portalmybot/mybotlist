@@ -4,16 +4,18 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-
+import CardMedia from '@material-ui/core/CardMedia';
+import Box from '@material-ui/core/Box';
+import Badge from '@material-ui/core/Badge';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 
 import ShareIcon from '@material-ui/icons/Share';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import Chip from '@material-ui/core/Chip';
 
+import Chip from '@material-ui/core/Chip';
+import ImportExportIcon from '@material-ui/icons/ImportExport';
 import Button from '@material-ui/core/Button';
 import StarIcon from '@material-ui/icons/Star';
 
@@ -37,8 +39,8 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     backgroundColor: red[500],
-    width: theme.spacing(7),
-    height: theme.spacing(7),
+    width: theme.spacing(10),
+    height: theme.spacing(10),
   },
   title: {
     fontSize: 21,
@@ -54,13 +56,21 @@ export default function RecipeReviewCard() {
 
   return (
     <Card className={classes.root}>
+      <CardMedia
+        component="img"
+        alt="Contemplative Reptile"
+        height="120"
+        image="https://portalmybot.com/assets/img/bg/bgportal.png"
+        title="Contemplative Reptile"
+      />
       <CardHeader
         avatar={
           <Avatar alt="Image title" src="https://source.unsplash.com/random" className={classes.avatar}/>
         }
         action={
           <IconButton aria-label="settings">
-            <MoreVertIcon />
+            <Badge color="secondary" badgeContent="10" max={999}>
+            </Badge>
           </IconButton>
         }
         title={
@@ -68,15 +78,24 @@ export default function RecipeReviewCard() {
           MyBOT 
         </Typography>
         }
-        subheader={
-          <Chip label='Social' component="a" color="secondary" size="small" style={{fontSize: 10}}/>
-        }
+   /*      subheader={
+          
+        } */
+        style={{
+            marginTop: '-120px',
+            marginBottom: '20px',
+        }}
       />
-
+      
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           This impressive paella is a perfect party dish and a fun meal to cooke.
         </Typography>
+
+        <Box variant="body2" component="p">
+          <Chip label='Social' component="a" color="secondary" size="small" style={{fontSize: 10}}/>
+        </Box>
+        
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
