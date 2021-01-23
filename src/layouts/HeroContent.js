@@ -22,18 +22,18 @@ export default function HeroContent() {
   const classes = useStyles();
    return (
     <div className={classes.heroContent}>
-      
-      <Typography component="h1" variant="h3" align="center" color="inherit" gutterBottom>
+      <Typography component="h1" variant="h3" align="center" color="inherit"  gutterBottom>
         <Box fontWeight="fontWeightBold" m={1}>
           MyBOT List
         </Box>
       </Typography>
+      
       <Typography variant="h6" align="center" color="inherit" className={classes.textCotent} paragraph>
         Lista de Bots publicos de Discord en español, descubre nuevos Bots desarrollados por los miembros
         de la comunidad MyBOT Team
       </Typography>
-      
-      <HomeTags />
+     
+      <HomeTags/>
     </div>
    )
   
