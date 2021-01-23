@@ -3,7 +3,9 @@ import Particles from 'react-particles-js';
 
 export default function ParticlesModel() {
   return (
+    
     <Particles
+      className=''
       params={{
         "particles": {
             "number": {
