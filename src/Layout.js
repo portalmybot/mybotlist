@@ -5,7 +5,7 @@ import NavBar from './layouts/navBar.js';
 import HeroContent from './layouts/HeroContent.js';
 import ContainerList from './layouts/ContainerList.js';
 import FooterHome from './layouts/FooterHome.js';
-
+import ParticlesModel from './layouts/ParticlesModel.js';
 export default function Album() {
   return (
     <React.Fragment>
@@ -13,7 +13,7 @@ export default function Album() {
       <CssBaseline />
       <NavBar />
       <main>
-
+        <ParticlesModel / >
         <HeroContent />
        
         <ContainerList />
