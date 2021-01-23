@@ -6,18 +6,17 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import CardMedia from '@material-ui/core/CardMedia';
 import Box from '@material-ui/core/Box';
-import Badge from '@material-ui/core/Badge';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 
 import ShareIcon from '@material-ui/icons/Share';
-
 import Chip from '@material-ui/core/Chip';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import Button from '@material-ui/core/Button';
 import StarIcon from '@material-ui/icons/Star';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -68,10 +67,8 @@ export default function RecipeReviewCard() {
           <Avatar alt="Image title" src="https://source.unsplash.com/random" className={classes.avatar}/>
         }
         action={
-          <IconButton aria-label="settings">
-            <Badge color="secondary" badgeContent="10" max={999}>
-            </Badge>
-          </IconButton>
+          <Chip label="99" icon={<ImportExportIcon />} component="a" href="/vote" clickable variant="outlined"/>
+      
         }
         title={
         <Typography className={classes.title} color="secondary" gutterBottom>
