@@ -56,10 +56,10 @@ export default function RecipeReviewCard() {
     <Card className={classes.root}>
       <CardMedia
         component="img"
-        alt="Contemplative Reptile"
+        alt="Bot MyBOT"
         height="120"
         image="https://portalmybot.com/assets/img/bg/bgportal.png"
-        title="Contemplative Reptile"
+        title="Bot MyBOT"
       />
       <CardHeader
         avatar={
