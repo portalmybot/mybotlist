@@ -132,9 +132,6 @@ export default function PrimarySearchAppBar() {
           </div>
 
           <div className={classes.sectionMobile}>
-             <NavLinks />
-          </div>
-          <div className={classes.sectionMobile}>
            
             <IconButton
               aria-label="show more"
