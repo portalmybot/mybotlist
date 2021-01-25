@@ -19,7 +19,6 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-  /*     maxWidth: 345, */
     border: '1px solid',
     borderColor: theme.palette.background.paper,
      '@media (min-width: 960px)': {
@@ -30,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     height: 0,
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '56.25%',
   },
   expand: {
     marginLeft: 'auto',
