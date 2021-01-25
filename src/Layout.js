@@ -1,10 +1,10 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import NavBar from './layouts/navBar.js';
+import NavBar from './layouts/Home/navBar.js';
 
-import HeroContent from './layouts/HeroContent.js';
-import ContainerList from './layouts/ContainerList.js';
-import FooterHome from './layouts/FooterHome.js';
+import HeroContent from './layouts/Home/HeroContent.js';
+import ContainerList from './layouts/Home/ContainerList.js';
+import FooterHome from './layouts/Home/FooterHome.js';
 
 export default function Album() {
   return (
