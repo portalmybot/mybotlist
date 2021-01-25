@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import LabelIcon from '@material-ui/icons/Label';
 
+
 const tags = ['Anime', 'Economía', 'Soporte', 'Admin', 'Social', 'Videos', 'Moderación'];
 
 function stringToColor(string) {
@@ -45,7 +46,7 @@ export default function Chips() {
   return (
     <div className={classes.root}>
       {tags.map((tag) => (
-      <Chip key={tag} label={tag} component="a" color="default" style={{backgroundColor: stringToColor(tag), fontSize: 15}} icon={<LabelIcon />} href={'tag/'+tag} clickable/>
+        <Chip key={tag} label={tag} component="a" color="default" style={{backgroundColor: stringToColor(tag), fontSize: 15}} icon={<LabelIcon />} href={'tag/'+tag} clickable/>
       ))}
     </div>
   );
