@@ -11,6 +11,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from './assets/theme';
 import Home from './pages/Home';
 import Register from './pages/Register';
+import AppBot from './pages/AddBot';
 
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path="/register">
             <Register />
+          </Route>
+          <Route path="/add">
+            <AppBot />
           </Route>
           <Redirect to="/" />
         </Switch>
