@@ -3,6 +3,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
+import { Link as RouterLink } from 'react-router-dom';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,7 +23,7 @@ export default function LoginLink() {
       <Link href="/login" onClick={preventDefault} color="inherit">
         {'Login'}
       </Link>
-      <Link href="/register" onClick={preventDefault} color="inherit">
+      <Link component={RouterLink} to="/register" color="inherit">
         {'Registrar'}
       </Link>
     </Typography>
