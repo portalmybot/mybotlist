@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const Register = () => {
+import Layout from '../components/Layout';
+
+export default function Home() {
   return (
-    <div>
-      Hola mundo
-    </div>
-  )
+    <Layout >
+      
+    </Layout>
+  );
 }
-
-export default Register;

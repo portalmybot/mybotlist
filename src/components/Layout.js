@@ -1,8 +1,6 @@
 import React from 'react';
-import NavBar from '../components/navBar.js';
 
-import HeroContent from '../layouts/Home/HeroContent.js';
-import ContainerList from '../layouts/Home/ContainerList.js';
+import NavBar from '../components/navBar.js';
 import FooterHome from '../layouts/Home/FooterHome.js';
 
 const Layout = ({ children, backUrl, title,}) => {
@@ -10,11 +8,7 @@ const Layout = ({ children, backUrl, title,}) => {
     <React.Fragment>
       <NavBar />
       <main>
-        
-        <HeroContent />
-       
-        <ContainerList />
-        
+        {children}
       </main>
       <FooterHome />
     </React.Fragment>
