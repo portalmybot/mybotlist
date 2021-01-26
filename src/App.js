@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Redirect
 } from "react-router-dom";
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -26,6 +26,7 @@ function App() {
           <Route path="/register">
             <Register />
           </Route>
+          <Redirect to="/" />
         </Switch>
       </Router>
 
