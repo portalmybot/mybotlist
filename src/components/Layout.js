@@ -5,10 +5,9 @@ import HeroContent from '../layouts/Home/HeroContent.js';
 import ContainerList from '../layouts/Home/ContainerList.js';
 import FooterHome from '../layouts/Home/FooterHome.js';
 
-export default function Home() {
+const Layout = ({ children, backUrl, title,}) => {
   return (
     <React.Fragment>
-
       <NavBar />
       <main>
         
@@ -21,3 +20,4 @@ export default function Home() {
     </React.Fragment>
   );
 }
+export default Layout;
