@@ -30,8 +30,7 @@ export default function HeroContent() {
       </Typography>
       
       <Typography variant="h6" align="center" color="inherit" className={classes.textCotent} paragraph>
-        Publica y descubre Bots de Discord desarrollados por los miembros
-        de la comunidad MyBOT Team
+        ¡Publica y explora los Bots desarrollados por la comunidad de MyBOT Team!
       </Typography>
       <ButtonRegister />
     </div>

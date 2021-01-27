@@ -1,15 +1,19 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import { green } from '@material-ui/core/colors';
+import theme from '../assets/theme';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 import Layout from '../components/Layout';
 
@@ -24,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
+  colorNote: {
+    borderColor: green,
+    borderWidth: 2,
+  },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(3),
@@ -33,72 +41,230 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const Tags = [{
+    value: '1',
+    label: 'Adminstración',
+  },
+  {
+    value: '2',
+    label: 'Memes',
+  },
+  {
+    value: '3',
+    label: 'Musica',
+  },
+  {
+    value: '4',
+    label: 'Util',
+  },
+  {
+    value: '5',
+    label: 'Moderación',
+  },
+  {
+    value: '6',
+    label: 'Imagenes',
+  },
+];
+const Libs = [{
+    value: '1',
+    label: 'Discord.js',
+  },
+  {
+    value: '2',
+    label: 'discord.php',
+  },
+  {
+    value: '3',
+    label: 'discord.py',
+  },
+  {
+    value: '4',
+    label: 'Eris',
+  },
+  {
+    value: '5',
+    label: 'DiscordRB',
+  },
+  {
+    value: '6',
+    label: 'discordUnity',
+  },
+];
+
 export default function SignUp() {
   const classes = useStyles();
 
+  const [state, setState] = React.useState({
+    tag: '',
+    lib: ''
+  }); 
+
+   const handleChange = (event) => {
+    const name = event.target.name;
+    setState({
+      ...state,
+      [name]: event.target.value,
+    });
+  };
+
+
   return (
     <Layout>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="md">
      
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
+       
         <Typography component="h1" variant="h5">
-          Sign up
+          Ingrese la información de su bot
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate autoComplete="off">
           <Grid container spacing={2}>
             <Grid item xs={12} >
               <TextField
-                autoComplete="fname"
-                name="firstName"
+                autoComplete="idbot"
+                name="idBot"
                 variant="outlined"
                 required
                 fullWidth
-                id="firstName"
-                label="First Name"
+                id="idBot"
+                label="ID BOT (550712806543065108)"
                 autoFocus
               />
             </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="prefixBOT"
+                label="Prefix BOT"
+                name="prefixBOT"
+                autoComplete="prefixBOT"
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField
+                label="Servidor Discord (Soporte)"
+                id="outlined-start-adornment"
+                InputProps={{
+                  startAdornment: <InputAdornment position="start">https://discord.gg/</InputAdornment>,
+                }}
+                variant="outlined"
+                fullWidth
+              />
+            </Grid>
+
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
                 fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
+                id="TitleBOT"
+                label="Un breve titulo de su BOT"
+                name="TitleBOT"
+                autoComplete="TitleBOT"
               />
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField
+                id="outlined-multiline-static"
+                label="Descripción de su BOT"
+                multiline
+                rows={4}
+                defaultValue="Bot Multifunciones"
+                variant="outlined"
+                fullWidth
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <Select
+                id="outlined-select-tag"
+                displayEmpty
+                fullWidth
+                inputProps={{
+                  name: 'tag',
+                  id: 'tag-simple',
+                }}
+                value={state.tag}
+                onChange={handleChange}
+                variant="outlined"
+              > 
+                <MenuItem value="" disabled>
+                  Categoria
+                </MenuItem>
+                {Tags.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </Select>
+              <FormHelperText>Seleccione una Categoria</FormHelperText>
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              
+              <Select
+                id="outlined-select-lib"
+                inputProps={{
+                  name: 'lib',
+                  id: 'lib-simple',
+                }}
+                displayEmpty
+                fullWidth
+                value={state.lib}
+                onChange={handleChange}
+                variant="outlined"
+              > 
+              <MenuItem value="" disabled>
+                Libreria
+              </MenuItem>
+                {Libs.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </Select>
+              <FormHelperText>Seleccione una Libreria</FormHelperText>
             </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="LinkBOT"
+                label="Enlace de invitación de u BOT"
+                name="LinkBOT"
+                autoComplete = "LinkBOT"
               />
             </Grid>
+
             <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
+              <ThemeProvider theme={theme}>
+                <TextField
+                  id="outlined-multiline-static"
+                  label="Nota Extra de su BOT"
+                  required
+                  multiline
+                  rows={4}
+                  defaultValue="Bot funciona solo con permisos de Administrador, como dato."
+                  variant="outlined"
+                  fullWidth
+                  
+                />
+              </ThemeProvider>
+              
             </Grid>
+           
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
                 label="I want to receive inspiration, marketing promotions and updates via email."
+                required
               />
             </Grid>
           </Grid>

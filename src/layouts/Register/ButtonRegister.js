@@ -20,10 +20,12 @@ export default function ButtonRegister() {
   return (
     <div className={classes.root}>
       
-      <Button variant="contained" color="primary" href="/login">
-        Registrate via Discord
+      <Button variant="contained" target="_blank"
+      rel="noopener noreferrer" color="primary" href="/login">
+        Registrate vía Discord
       </Button>
-      <Button variant="contained" color="secondary" href="https://discord.gg/g6ssSmK">
+      <Button variant="contained" target="_blank"
+      rel="noopener noreferrer" color="secondary" href="https://discord.gg/g6ssSmK">
         Comunidad
       </Button>
     </div>
