@@ -63,7 +63,9 @@ export default function RecipeReviewCard() {
       />
       <CardHeader
         avatar={
-          <Avatar alt="Image title" src="https://source.unsplash.com/random" className={classes.avatar}/>
+          <Avatar alt="Image title" /* src="https://source.unsplash.com/random" */ className={classes.avatar}>
+            BOT
+          </Avatar>
         }
         action={
           <Chip label="99" icon={<ImportExportIcon />} component="a" href="/vote" clickable variant="outlined"/>
