@@ -18,8 +18,6 @@ export default function LoginLink() {
 
   return (
     <Typography className={classes.root}>
-    
-      
       <Link component={RouterLink} to="/login" color="inherit">
         {'login'}
       </Link>
