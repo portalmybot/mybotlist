@@ -5,7 +5,6 @@ import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import { Link as RouterLink } from 'react-router-dom';
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > * + *': {
@@ -16,12 +15,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LoginLink() {
   const classes = useStyles();
-  const preventDefault = (event) => event.preventDefault();
 
   return (
     <Typography className={classes.root}>
-      <Link href="/login" onClick={preventDefault} color="inherit">
-        {'Login'}
+    
+      
+      <Link component={RouterLink} to="/login" color="inherit">
+        {'login'}
       </Link>
       <Link component={RouterLink} to="/register" color="inherit">
         {'Registrar'}
