@@ -22,8 +22,6 @@ export default class LoginGoogle extends Component {
       throw new Error('¡Algo salió mal!');
     })
     .then((data) => {
-      
-      console.log(data);
       this.setState({ loading: false, data });
     })
     .catch((error) => {
@@ -48,12 +46,10 @@ export default class LoginGoogle extends Component {
     return (
       <div>
         <div>
-            <details>
-              {/* <summary>Welcome {data.user.name}</summary> */}
-              <p>Here is your info: </p>
-              <code>{JSON.stringify(data, null, 2)}</code>
-            </details>
-          </div>
+          <p>Here is your info: </p>
+          <code>{JSON.stringify(data, null, 2)}</code>
+           
+        </div>
       </div>
     )
   }
