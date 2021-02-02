@@ -10,7 +10,7 @@ export default class LoginGoogle extends Component {
     };
   }
   componentDidMount() {
-    fetch(`http://127.0.0.1:8000/api/auth/google/callback/${this.props.location.search}`, {
+    fetch(`/api/auth/discord/callback/${this.props.location.search}`, {
       headers: new Headers({
         accept: 'application/json'
       })

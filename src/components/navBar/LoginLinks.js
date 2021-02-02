@@ -22,7 +22,7 @@ export default class LoginLink extends Component {
   }
   componentDidMount() {
     
-    fetch('http://127.0.0.1:8000/api/auth/google/url', {
+    fetch('/api/auth/discord/login', {
         headers: new Headers({
           accept: 'application/json'
         })

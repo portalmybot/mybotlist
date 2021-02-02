@@ -31,7 +31,7 @@ function App() {
           <Route path="/add">
             <AppBot />
           </Route> */}
-          <Route exact path="/auth/google" component={LoginGoogle} />
+          <Route exact path="/auth/discord" component={LoginGoogle} />
           <Redirect to="/" />
         </Switch>
       </Router>
