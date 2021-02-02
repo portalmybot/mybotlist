@@ -30,7 +30,7 @@ const LoginLink = () => {
   }, []);
  
   const classes = useStyles();
-
+  console.log(login);
   return (
     <Typography className={classes.root}>
         {login && (
