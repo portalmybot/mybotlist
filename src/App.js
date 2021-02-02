@@ -12,7 +12,7 @@ import theme from './assets/theme';
 import Home from './pages/Home';
 /* import Register from './pages/Register';
 import AppBot from './pages/AddBot'; */
-import LoginGoogle from './LoginGoogle';
+import Login from './Login';
 
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
           <Route path="/add">
             <AppBot />
           </Route> */}
-          <Route exact path="/auth/discord" component={LoginGoogle} />
+          <Route exact path="/auth/discord" component={Login} />
           <Redirect to="/" />
         </Switch>
       </Router>
