@@ -37,7 +37,6 @@ const LoginLink = () => {
           <Link href={login} color="inherit">
             Login
           </Link>
-          
         )}
         <Link component={RouterLink} to="/register" color="inherit">
             Registrar 
