@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import useToken from './components/useToken';
 
-
-
 export default function Login(props) {
   
   const { token, setToken } = useToken();
@@ -23,29 +21,20 @@ export default function Login(props) {
 
           if(!token) {
             setToken(data.access_token)
-            
-          }
-          
 
-          /* this.setState({
-            loading: false,
-            data
-          }); */
+          }
 
         })
         .catch((error) => {
-          /* this.setState({
-            loading: false,
-            error
-          }); */
           console.log(error);
+
         })
 
   }, [props, token, setToken]);
 
   return (
     <div>
-        Hola
+        Test
     </div>
   );
 }
