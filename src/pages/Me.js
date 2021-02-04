@@ -24,10 +24,8 @@ const Me = () => {
       })
       .then(res => {
         if(res.ok) {
-         // setIsLoading(true);
           return res.json()
         }
-        //setIsLoading(true);
         setIsLoading(false);
         setError(true)
       })
@@ -35,10 +33,7 @@ const Me = () => {
         setData(json.success)
         setIsLoading(false);
       })
-      .catch((error) => {
-       // setIsLoading(true);
-       // setError(true)
-      });
+      .catch((error) => {});
   }, [token]);
    
 
