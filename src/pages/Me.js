@@ -1,19 +1,26 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
+import { Redirect } from 'react-router';
+import useToken from '../components/useToken';
 
-function getToken() {
+/* function getToken() {
   const tokenString = localStorage.getItem('token');
   const userToken = JSON.parse(tokenString);
   return userToken ? userToken : false
-}
-
-let token = getToken()
-console.log(token);
+} */
 
 const Me = () => {
+  
+  const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState([{
     username: null
   }])
+  const {token} = useToken();
+
   useEffect(() => {
+    
+    if(!token) {
+      Redirect('/')
+    }
     fetch('/api/app/details', {
         headers: new Headers({
           Authorization: "Bearer " + token,
@@ -27,13 +34,22 @@ const Me = () => {
         setUser({
           username: json.success.name
         })
+        setIsLoading(true);
       });
-  }, []);
+  }, [token]);
    
  
   const { username } = user;
   return (
-    <h2>Hola {username}</h2>
+    <div>
+      {!isLoading ? (
+        "Cargando...."
+      ): null}
+      {isLoading ? (
+        <h2>Hola {username}</h2>
+      ):null}
+      
+    </div>
   )
 };
 

@@ -1,22 +1,13 @@
 import React, { useEffect } from 'react'
+import useToken from './components/useToken';
 
-function setToken(userToken) {
-  localStorage.setItem('token', JSON.stringify(userToken));
-  
-}
 
-/* function getToken() {
-  const tokenString = localStorage.getItem('token');
-  
-  const userToken = JSON.parse(tokenString);
-  console.log(userToken)
-  return userToken.length ? true : false
-} */
 
 export default function Login(props) {
-   useEffect(() => {
-
-      fetch(`/api/auth/discord/callback/${props.location.search}`, {
+  
+  const { token, setToken } = useToken();
+  useEffect(() => {
+    fetch(`/api/auth/discord/callback/${props.location.search}`, {
           headers: new Headers({
             accept: 'application/json',
           })
@@ -28,7 +19,11 @@ export default function Login(props) {
           throw new Error('¡Algo salió mal!');
         })
         .then((data) => {
-          setToken(data.access_token)
+          console.log(token);
+          if(!token) {
+            setToken(data.access_token)
+          }
+          
 
           /* this.setState({
             loading: false,
@@ -44,7 +39,7 @@ export default function Login(props) {
           console.log(error);
         })
 
-  }, [props]);
+  }, [props, token, setToken]);
 
   return (
     <div>
