@@ -2,18 +2,12 @@ import React, {useEffect, useState} from 'react'
 import { Redirect } from 'react-router';
 import useToken from '../components/useToken';
 
-/* function getToken() {
-  const tokenString = localStorage.getItem('token');
-  const userToken = JSON.parse(tokenString);
-  return userToken ? userToken : false
-} */
-
 const Me = () => {
   
-  const [isLoading, setIsLoading] = useState(false);
-  const [user, setUser] = useState([{
-    username: null
-  }])
+  const [data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
+
   const {token} = useToken();
 
   useEffect(() => {
@@ -28,27 +22,41 @@ const Me = () => {
         }),
         method: "POST"
       })
-      .then(res => res.json())
+      .then(res => {
+        if(res.ok) {
+         // setIsLoading(true);
+          return res.json()
+        }
+        //setIsLoading(true);
+        setIsLoading(false);
+        setError(true)
+      })
       .then(json => {
-        console.log(json);
-        setUser({
-          username: json.success.name
-        })
-        setIsLoading(true);
+        setData(json.success)
+        setIsLoading(false);
+      })
+      .catch((error) => {
+       // setIsLoading(true);
+       // setError(true)
       });
   }, [token]);
    
- 
-  const { username } = user;
+
   return (
     <div>
-      {!isLoading ? (
-        "Cargando...."
-      ): null}
+
       {isLoading ? (
-        <h2>Hola {username}</h2>
-      ):null}
-      
+        "Cargando...."
+        ): null}
+
+      {!isLoading && error ? (
+          <h2>¡Oh, no, algo salió mal!</h2>
+        ): null}
+
+      {data ? (
+        <h2>Hola {data.name}</h2>
+      ): null}
+
     </div>
   )
 };

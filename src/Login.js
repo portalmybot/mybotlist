@@ -6,6 +6,7 @@ import useToken from './components/useToken';
 export default function Login(props) {
   
   const { token, setToken } = useToken();
+
   useEffect(() => {
     fetch(`/api/auth/discord/callback/${props.location.search}`, {
           headers: new Headers({
@@ -19,9 +20,10 @@ export default function Login(props) {
           throw new Error('¡Algo salió mal!');
         })
         .then((data) => {
-          console.log(token);
+
           if(!token) {
             setToken(data.access_token)
+            
           }
           
 
