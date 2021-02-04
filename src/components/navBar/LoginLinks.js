@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
@@ -19,6 +20,12 @@ const LoginLink = () => {
     url: null
   }]);
 
+ /*  const [token, setToken] = useState();
+
+  if(!token) {
+    return <Login setToken={setToken} />
+  }
+   */
   useEffect(() => {
     fetch("/api/auth/discord/login")
       .then(data => {

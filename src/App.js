@@ -13,9 +13,10 @@ import Home from './pages/Home';
 import Register from './pages/Register';
 import AppBot from './pages/AddBot';
 import Login from './Login';
-
+import Me from './pages/Me';
 
 function App() {
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/register">
             <Register />
+          </Route>
+          <Route path="/me">
+            <Me />
           </Route>
           <Route path="/add">
             <AppBot />
