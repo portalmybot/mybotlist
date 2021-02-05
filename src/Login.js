@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
+import { Redirect } from 'react-router';
 import useToken from './components/useToken';
+import useIdUser from './components/useIdUser';
 
 export default function Login(props) {
   
   const { token, setToken } = useToken();
+  const { id, setId } = useIdUser();
 
   useEffect(() => {
     fetch(`/api/auth/discord/callback/${props.location.search}`, {
@@ -21,7 +24,8 @@ export default function Login(props) {
 
           if(!token) {
             setToken(data.access_token)
-
+            setId(data.id_discord)
+            
           }
 
         })
@@ -30,11 +34,11 @@ export default function Login(props) {
 
         })
 
-  }, [props, token, setToken]);
+  }, [props, token, setToken, id, setId]);
 
   return (
     <div>
-        Test
+        <Redirect to="/me" />
     </div>
   );
 }

@@ -16,22 +16,17 @@ const useStyles = makeStyles((theme) => ({
 
 const LoginLink = () => {
   const [login, setLogin] = useState([{
-    isAuth: false,
     url: null
   }]);
 
- /*  const [token, setToken] = useState();
-
-  if(!token) {
-    return <Login setToken={setToken} />
-  }
-   */
   useEffect(() => {
     fetch("/api/auth/discord/login")
       .then(data => {
+        
         return data.json();
       })
       .then(data => {
+        
         setLogin({
           url: data.url,
         });
@@ -39,25 +34,18 @@ const LoginLink = () => {
       .catch(err => {
         console.log(err);
       });
+
   }, []);
  
   const classes = useStyles();
-  const { isAuth, url } = login;
-  let LinkAuth = !!isAuth ? (
-    <Link href="#" color="inherit">
-        Perfil
-    </Link>
-  ) :
-  (
-    <Link href={url} color="inherit">
-      Login
-    </Link>
-  );
-   
+  const { url } = login;
+  
   return (
       
     <Typography className={classes.root}>
-        { LinkAuth }
+        <Link href={url} color="inherit">
+          Login
+        </Link>
         <Link component={RouterLink} to="/register" color="inherit">
             Registrar 
         </Link>

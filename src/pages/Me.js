@@ -7,15 +7,17 @@ const Me = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [very, setVery] = useState(false);
 
   const {token} = useToken();
 
   useEffect(() => {
     
     if(!token) {
-      Redirect('/')
+      return setVery(true);
     }
-    fetch('/api/app/details', {
+
+    fetch('/api/v1/details', {
         headers: new Headers({
           Authorization: "Bearer " + token,
           Accept: 'application/json',
@@ -39,6 +41,9 @@ const Me = () => {
 
   return (
     <div>
+      {very ? (
+        <Redirect to="/" />
+      ): null}
 
       {isLoading ? (
         "Cargando...."
@@ -46,6 +51,8 @@ const Me = () => {
 
       {!isLoading && error ? (
           <h2>¡Oh, no, algo salió mal!</h2>
+          
+          
         ): null}
 
       {data ? (
