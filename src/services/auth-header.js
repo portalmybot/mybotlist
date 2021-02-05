@@ -3,8 +3,8 @@ export default function authHeader() {
 
   if (token) {
     return {
+      Accept: 'application/json',
       Authorization: 'Bearer ' + token,
-      Accept: 'application/json'
     };
   } else {
     return {};

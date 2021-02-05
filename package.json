@@ -24,6 +24,16 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "src/**/*.stories.js"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ],
     "extends": [
       "react-app",
       "react-app/jest"
@@ -41,4 +51,5 @@
       "last 1 safari version"
     ]
   }
+
 }

@@ -1,9 +1,12 @@
 import axios from "axios";
 import authHeader from "./auth-header";
-import API_URL from "./api-url";
+import Url from "./api-url";
+
+const API_URL = Url();
+console.log(API_URL);
 
 const getUserProfile = () => {
-  return axios.get(API_URL + "user", {
+  return axios.post("http://127.0.0.1:8000/api/v1/details", {
     headers: authHeader()
   });
 };
