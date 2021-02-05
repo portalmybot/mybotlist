@@ -8,7 +8,7 @@ const Me = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
- // const [very, setVery] = useState(false);
+ // const [very, setVery] = useStasetIsLoading(false)te(false);
 
   const {token} = useToken();
 
@@ -27,10 +27,11 @@ const Me = () => {
       .then(response => {
         
           if(response.status === 200) {
+            setIsLoading(false)
             return setData(response.data.success)
 
           }
-          setIsLoading(false)
+          
           setError(true)
       });
     
