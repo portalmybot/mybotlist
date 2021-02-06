@@ -1,75 +1,28 @@
 import React, {useEffect, useState} from 'react'
-//import MeService from '../services/me';
-import axios from "axios";
-import useToken from '../components/useToken';
+import MeService from '../services/me';
 
 const Me = () => {
   
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
- // const [very, setVery] = useStasetIsLoading(false)te(false);
-
-  const {token} = useToken();
 
   useEffect(() => {
 
-    const article = {
-      title: 'React POST Request Example'
-    };
-    const headers = {
-      'Authorization': 'Bearer ' + token,
-      'Accept': 'application/json'
-    };
-    axios.post('/api/v1/details', article, {
-        headers
-      })
-      .then(response => {
-        
-          if(response.status === 200) {
-            setIsLoading(false)
-            return setData(response.data.success)
-
-          }
-          
-          setError(true)
-      });
-    
-    /* if(!token) {
-      return setVery(true);
-    } */
-    /* MeService.getUserProfile().then(
+    MeService().then(
       (response) => {
-        setData(response.success)
+        console.log(response);
+        setData(response.data.success)
         setIsLoading(false);
       },
       (error) => {
-        const _content = error.toString();
-        setData(_content);
+      
         setError(true);
         
       }
-    ) */
-  /*   fetch('/api/v1/details', {
-        headers: new Headers({
-          Authorization: "Bearer " + token,
-          Accept: 'application/json',
-        }),
-        method: "POST"
-      })
-      .then(res => {
-        if(res.ok) {
-          return res.json()
-        }
-        setIsLoading(false);
-        setError(true)
-      })
-      .then(json => {
-        setData(json.success)
-        setIsLoading(false);
-      })
-      .catch((error) => {}); */
-  }, [token]);
+    )
+ 
+  }, []);
    
 
   return (
