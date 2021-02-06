@@ -11,14 +11,17 @@ const Me = () => {
 
     MeService().then(
       (response) => {
-        console.log(response);
-        setData(response.data.success)
+        if(response.status === 200) {
+         setIsLoading(false);
+         return setData(response.data.success)
+
+        }
         setIsLoading(false);
+        
       },
       (error) => {
-      
+        setIsLoading(false);
         setError(true);
-        
       }
     )
  
@@ -27,10 +30,6 @@ const Me = () => {
 
   return (
     <div>
-      {/* {very ? (
-        <Redirect to="/" />
-      ): null} */}
-
       {isLoading ? (
         "Cargando...."
         ): null}
