@@ -11,7 +11,7 @@ const Me = () => {
 
     MeService().then(
       (response) => {
-        console.log(response)
+        console.log(response.data)
         if(response.status === 200) {
          setIsLoading(false);
          return setData(response.data.success)
