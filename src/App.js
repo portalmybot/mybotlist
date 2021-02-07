@@ -14,6 +14,15 @@ import Register from './pages/Register';
 import AppBot from './pages/AddBot';
 import Login from './Login';
 import Me from './pages/Me';
+import Tos from './pages/Tos';
+
+import axios from "axios";
+const tokenString = localStorage.getItem('token');
+const userToken = JSON.parse(tokenString);
+
+axios.defaults.baseURL = 'http://127.0.0.1:8000/api/v1/';
+axios.defaults.headers.common['Authorization'] = userToken;
+axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 function App() {
 
@@ -31,6 +40,9 @@ function App() {
           </Route>
           <Route path="/me">
             <Me />
+          </Route>
+          <Route path="/tos">
+            <Tos />
           </Route>
           <Route path="/add">
             <AppBot />

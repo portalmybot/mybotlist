@@ -21,8 +21,9 @@ export default function Login(props) {
           throw new Error('¡Algo salió mal!');
         })
         .then((data) => {
-
+          console.log();
           if(!token) {
+            
             setToken(data.access_token)
             setId(data.id_discord)
             
@@ -38,7 +39,7 @@ export default function Login(props) {
 
   return (
     <div>
-        <Redirect to="/me" />
+        <Redirect to="/tos" />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import MeService from '../services/me';
+import MeService from '../services/me.service';
 
 const Me = () => {
   
@@ -11,6 +11,7 @@ const Me = () => {
 
     MeService().then(
       (response) => {
+        console.log(response)
         if(response.status === 200) {
          setIsLoading(false);
          return setData(response.data.success)
@@ -20,6 +21,7 @@ const Me = () => {
         
       },
       (error) => {
+        console.log(error);
         setIsLoading(false);
         setError(true);
       }

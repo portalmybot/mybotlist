@@ -1,9 +1,8 @@
 import axios from "axios";
-import API_URL from "./api-url";
 
 const login = (email, passport) => {
   return axios
-    .post(API_URL + "login", {
+    .post("login", {
       email,
       passport,
     })
