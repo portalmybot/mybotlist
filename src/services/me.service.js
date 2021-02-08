@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const getUserProfile = () => {
-  return axios.post('details', {});
+  return axios.get('user');
 };
 
 export default getUserProfile;

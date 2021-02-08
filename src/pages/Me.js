@@ -11,10 +11,11 @@ const Me = () => {
 
     MeService().then(
       (response) => {
-        console.log(response.data)
+        console.log(response)
         if(response.status === 200) {
          setIsLoading(false);
-         return setData(response.data.success)
+         
+         return setData(response.data.user.social_provider)
 
         }
         setIsLoading(false);
@@ -41,7 +42,7 @@ const Me = () => {
         ): null}
 
       {data ? (
-        <h2>Hola {data.name}</h2>
+        <h2>Hola {data}</h2>
       ): null}
 
     </div>
