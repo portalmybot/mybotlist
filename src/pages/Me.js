@@ -14,10 +14,8 @@ const Me = () => {
     
     MeService().then(
       (response) => {
-       // console.log(response)
         if(response.status === 200) {
          setIsLoading(false);
-         
          return setData(response.data.user.social_provider)
 
         }
@@ -38,7 +36,7 @@ const Me = () => {
       <Layout>
 
           <MeContent data={[data, isLoading, error]} />
-          
+
       </Layout>
      </div>
 
