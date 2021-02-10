@@ -36,19 +36,9 @@ const Me = () => {
   return (
      <div>
       <Layout>
-        {/* {isLoading ? (
-            "Cargando...."
-          ): null}
-        
-        {!isLoading && error ? (
-            <h2>¡Oh, no, algo salió mal!</h2>
-          ): null}
-        
-        {data ? ( */}
-        
+
           <MeContent data={[data, isLoading, error]} />
           
-       {/*  ): null} */}
       </Layout>
      </div>
 
