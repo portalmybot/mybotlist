@@ -31,7 +31,7 @@ const MeContent = ({data}) => {
     
     <div className={classes.meContent}>
       <Typography component="h1" variant="h3" align="center" color="inherit"  gutterBottom>
-        <Avatar alt="Image title" align="center" /* src="https://source.unsplash.com/random" */ className={classes.avatar}>
+        <Avatar alt="Image title" align="center" className={classes.avatar}>
               BOT
         </Avatar>
         <Box fontWeight="fontWeightBold" m={1}>
