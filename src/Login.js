@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react'
 import { Redirect } from 'react-router';
+import { useHistory } from "react-router-dom";
+
 import useToken from './components/useToken';
 import useIdUser from './components/useIdUser';
+import AuthService from './services/AuthService';
 
 export default function Login(props) {
   
@@ -21,13 +24,14 @@ export default function Login(props) {
           throw new Error('¡Algo salió mal!');
         })
         .then((data) => {
-          console.log();
+          AuthService.handleLoginSuccess(data, false)
+          /* console.log();
           if(!token) {
             
             setToken(data.access_token)
             setId(data.id_discord)
             
-          }
+          } */
 
         })
         .catch((error) => {
@@ -35,7 +39,7 @@ export default function Login(props) {
 
         })
 
-  }, [props, token, setToken, id, setId]);
+  }, [props]);
 
   return (
     <div>

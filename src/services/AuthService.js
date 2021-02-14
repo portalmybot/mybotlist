@@ -17,6 +17,8 @@ class AuthService {
 
     CookieService.set("access_token", response.access_token, options);
     return true;
-    
+
   }
 }
+
+export default new AuthService();
