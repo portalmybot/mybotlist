@@ -35,7 +35,7 @@ const Me = () => {
      <div>
       <Layout>
 
-          <MeContent data={[data, isLoading, error]} />
+          <MeContent data={data} />
 
       </Layout>
      </div>
