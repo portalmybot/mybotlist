@@ -1,4 +1,3 @@
-import AuthService from "../../services/AuthService";
 import CookieService from "../../services/CookieService";
 
 class Auth {
@@ -14,6 +13,7 @@ class Auth {
   }
 
   isAuthenticated() {
+    console.log(this.authenticated);
     return this.authenticated;
   }
 
