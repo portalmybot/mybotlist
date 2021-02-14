@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     marginLeft: theme.spacing(3),
     marginRight: theme.spacing(1),
-    
+    cursor: 'pointer',
   },
 }));
 
