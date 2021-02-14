@@ -15,6 +15,7 @@ const login = (email, passport) => {
     });
 };
 
+
 const logout = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("iduser_discord");
