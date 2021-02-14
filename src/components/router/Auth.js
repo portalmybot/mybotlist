@@ -13,7 +13,6 @@ class Auth {
   }
 
   isAuthenticated() {
-    console.log(this.authenticated);
     return this.authenticated;
   }
 
