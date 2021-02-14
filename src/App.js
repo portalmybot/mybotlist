@@ -14,7 +14,7 @@ import { ProtectedRoute } from "./components/router/Protected";
 import theme from './assets/theme';
 import Home from './pages/Home';
 import Register from './pages/Register';
-import AppBot from './pages/AddBot';
+import Add from './pages/AddBot';
 import Login from './Login';
 import Me from './pages/Me';
 /* import Tos from './pages/Tos';
@@ -27,7 +27,7 @@ const guestRoutes = [
 
 const protectedRoutes = [
   { path: "/me", component: Me, exact: true },
-  { path: "/add", component: AppBot, exact: true },
+  { path: "/add", component: Add, exact: true },
 ];
 
 function App() {
