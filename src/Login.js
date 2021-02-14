@@ -24,7 +24,7 @@ export default function Login(props) {
           throw new Error('¡Algo salió mal!');
         })
         .then((data) => {
-          AuthService.handleLoginSuccess(data, false)
+          AuthService.handleLoginSuccess(data, true)
           /* console.log();
           if(!token) {
             
