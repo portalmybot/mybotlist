@@ -40,7 +40,8 @@ const MeContent = ({data}) => {
       </Typography>
       
       <Typography variant="h6" align="center" color="inherit" className={classes.textContent} paragraph>
-        {data[1] ? (
+         {"Hola " + data}
+        {/* {data[1] ? (
             "Cargando...."
           ): null}
 
@@ -48,10 +49,10 @@ const MeContent = ({data}) => {
             "¡Oh, no, algo salió mal!"
           ): null}
 
-          {data[0] ? ( 
-            "Hola "+ data[0]
+          {data[0] ? (  */}
+           
 
-          ): null}
+          {/* ): null} */}
       </Typography>
     </div>
 

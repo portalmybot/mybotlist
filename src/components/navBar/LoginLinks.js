@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import { Link as RouterLink } from 'react-router-dom';
-import useToken from '../../components/useToken';
+/* import useToken from '../../components/useToken'; */
 
 
 const useStyles = makeStyles((theme) => ({
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LoginLink = () => {
-  const { token } = useToken();
+/*   const { token } = useToken(); */
 
   const [login, setLogin] = useState([{
     url: null
@@ -47,16 +47,11 @@ const LoginLink = () => {
   return (
       
     <Typography className={classes.root}>
-        {token ? (
-          <Link component={RouterLink} to="/me" color="inherit">
-              Perfil 
-          </Link>
-        ) : (
+        
         <Link href={url} color="inherit">
           Login
         </Link>
 
-        )}
         <Link component={RouterLink} to="/register" color="inherit">
             Registrar 
         </Link>

@@ -7,12 +7,18 @@ import Layout from '../components/Layout';
 
 const Me = () => {
   const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
+/*   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false); */
 
   useEffect(() => {
-    
-    MeService().then(
+    (async () => {
+      const data = await MeService()
+      console.log('response', data)
+     // navigation.navigate(data ? 'App' : 'Auth')
+      setData(data.user.social_provider)
+    })()
+
+/*     MeService().then(
       (response) => {
         if(response.status === 200) {
          setIsLoading(false);
@@ -27,10 +33,10 @@ const Me = () => {
         setIsLoading(false);
         setError(true);
       }
-    )
+    ) */
  
   }, []);
-  console.log(data);
+  
   return (
      <div>
       <Layout>

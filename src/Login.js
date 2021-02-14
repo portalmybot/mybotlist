@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react'
 import { Redirect } from 'react-router';
-import { useHistory } from "react-router-dom";
+/* import { useHistory } from "react-router-dom";
 
 import useToken from './components/useToken';
-import useIdUser from './components/useIdUser';
+import useIdUser from './components/useIdUser'; */
 import AuthService from './services/AuthService';
 
 export default function Login(props) {
   
-  const { token, setToken } = useToken();
-  const { id, setId } = useIdUser();
+/*   const { token, setToken } = useToken();
+  const { id, setId } = useIdUser(); */
 
   useEffect(() => {
     fetch(`/api/auth/discord/callback/${props.location.search}`, {
