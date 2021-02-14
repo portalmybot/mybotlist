@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Link from '@material-ui/core/Link';
 import Logo from './logo.png';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -14,11 +15,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function LogoHome() {
+  const history = useHistory();
+  const navigateTo = () => history.push('/');
+
   const classes = useStyles();
-  const preventDefault = (event) => event.preventDefault()
 
   return (
-    <Link href="/" onClick={preventDefault}>
+    <Link onClick={navigateTo}>
       <Avatar className={classes.icon} alt="Logo MyBOT List" src={Logo} />
     </Link>
     
