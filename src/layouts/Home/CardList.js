@@ -52,7 +52,9 @@ const useStyles = makeStyles((theme) => ({
 const CardList = ({ value }) => {
   const classes = useStyles();
   const {
-    shotDesc_bot
+    id_bot,
+    shotDesc_bot,
+    vote_bot
   } = value;
 
   return (
@@ -71,7 +73,7 @@ const CardList = ({ value }) => {
           </Avatar>
         }
         action={
-          <Chip label="99" icon={<ImportExportIcon />} component="a" href="/vote" clickable variant="outlined"/>
+          <Chip label={vote_bot} icon={<ImportExportIcon />} component="a" href="/vote" clickable variant="outlined"/>
       
         }
         title={
@@ -105,7 +107,7 @@ const CardList = ({ value }) => {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-        <Button variant="contained" className={classes.expand} color="primary" href="/bot/#">
+        <Button variant="contained" className={classes.expand} color="primary" href={'/bot/'+id_bot}>
           Ver
         </Button>
        
