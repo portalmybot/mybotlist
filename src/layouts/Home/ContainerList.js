@@ -3,10 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 
+import { useQuery } from 'react-query'
+
 import CardList from './CardList.js';
 
-
-const cards = [1, 2, 3, 4, 5, 6];
+import getAllBots from '../../services/bot.service';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -15,19 +16,35 @@ const useStyles = makeStyles((theme) => ({
   }
  })
 )
-export default function ContainerList() {
+
+const BotList = () => {
   const classes = useStyles();
-   return (
-    <Container className={classes.cardGrid} maxWidth="lg">
-      <Grid container spacing={5}>
-        {cards.map((card) => (
-         <Grid item key={card} xs={12} sm={6} md={3}>
-          <CardList />
+  const {isLoading, data: bots} = useQuery('bots', getAllBots, {
+     refetchAllOnWindowFocus: false,
+  })
+
+  return (
+    <>
+      <Container className={classes.cardGrid} maxWidth="lg">
+        <Grid container spacing={5}>
+          {isLoading ? 'Cargando...' : null}
+          {!isLoading && bots ?  
+            <>
+              { 
+                bots.data.map((bot) => {
+                  return (
+                    <Grid item key={`bot-${bot.id}`} xs={12} sm={6} md={3}>
+                      <CardList />
+                    </Grid>
+                  )
+                })
+              }
+            </>
+          : null}
         </Grid>
-        ))}
-      </Grid>
-    </Container>
-   )
-  
+      </Container>
+    </>
+  )
+
 }
- 
+export default BotList

@@ -4,11 +4,14 @@ import './style.css';
 import reportWebVitals from './reportWebVitals';
 /* import axiosHeaders from './axiosHeaders'; */
 import App from './App';
+import { QueryClient, QueryClientProvider } from 'react-query'
 
-
+const queryClient = new QueryClient()
 ReactDOM.render(
     <React.StrictMode>
-      <App />
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
     </React.StrictMode>,
   document.getElementById('root')
 );

@@ -17,23 +17,6 @@ const Me = () => {
      // navigation.navigate(data ? 'App' : 'Auth')
       setData(data.user.social_provider)
     })()
-
-/*     MeService().then(
-      (response) => {
-        if(response.status === 200) {
-         setIsLoading(false);
-         return setData(response.data.user.social_provider)
-
-        }
-        setIsLoading(false);
-        
-      },
-      (error) => {
-        console.log(error);
-        setIsLoading(false);
-        setError(true);
-      }
-    ) */
  
   }, []);
   

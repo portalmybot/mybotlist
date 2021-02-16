@@ -10,7 +10,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import { ProtectedRoute } from "./components/router/Protected";
 
-
 import theme from './assets/theme';
 import Home from './pages/Home';
 import Register from './pages/Register';
@@ -63,6 +62,7 @@ function App() {
 
           <Redirect to="/" />
         </Switch>
+        
       </Router>
 
     </ThemeProvider>
