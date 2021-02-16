@@ -34,7 +34,7 @@ const BotList = () => {
                 bots.data.map((bot) => {
                   return (
                     <Grid item key={`bot-${bot.id}`} xs={12} sm={6} md={3}>
-                      <CardList />
+                      <CardList value={bot} />
                     </Grid>
                   )
                 })

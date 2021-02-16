@@ -49,8 +49,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function RecipeReviewCard() {
+const CardList = ({ value }) => {
   const classes = useStyles();
+  const {
+    shotDesc_bot
+  } = value;
 
   return (
     <Card className={classes.root}>
@@ -87,7 +90,7 @@ export default function RecipeReviewCard() {
       
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cooke.
+          {shotDesc_bot}
         </Typography>
 
         <Box variant="body2" component="p">
@@ -111,3 +114,4 @@ export default function RecipeReviewCard() {
     </Card>
   );
 }
+export default CardList;
