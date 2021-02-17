@@ -51,15 +51,18 @@ const LoginLink = () => {
           <Link component={RouterLink} to="/me" color="inherit">
             Perfil
           </Link>
-        ):(
+        ): (
+          <>
           <Link href={url} color="inherit">
             Login
           </Link>
+
+          <Link component={RouterLink} to="/register" color="inherit">
+              Registrar 
+          </Link>
+          </>
         )}
 
-        <Link component={RouterLink} to="/register" color="inherit">
-            Registrar 
-        </Link>
     </Typography>
   )
 
