@@ -6,6 +6,7 @@ import Container from '@material-ui/core/Container';
 import { useQuery } from 'react-query'
 
 import CardList from './CardList.js';
+import BotLoading from '../../components/skeleton/BotLoading';
 
 import getAllBots from '../../services/bot.service';
 
@@ -27,7 +28,22 @@ const BotList = () => {
     <>
       <Container className={classes.cardGrid} maxWidth="lg">
         <Grid container spacing={5}>
-          {isLoading ? 'Cargando...' : null}
+          {isLoading && (
+            <>
+              <Grid item key={`1`} xs={12} sm={6} md={3}>
+                <BotLoading />
+              </Grid>
+              <Grid item key={`2`} xs={12} sm={6} md={3}>
+                <BotLoading />
+              </Grid>
+              <Grid item key={`3`} xs={12} sm={6} md={3}>
+                <BotLoading />
+              </Grid>
+              <Grid item key={`3`} xs={12} sm={6} md={3}>
+                <BotLoading />
+              </Grid>
+            </>
+          )}
           {!isLoading && bots ?  
             <>
               { 
