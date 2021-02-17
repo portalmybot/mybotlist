@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   }
  })
 )
-
+const SLoading = [1,2,3,4,5,6,7,8]
 const BotList = () => {
   const classes = useStyles();
   const {isLoading, data: bots} = useQuery('bots', getAllBots, {
@@ -30,18 +30,18 @@ const BotList = () => {
         <Grid container spacing={5}>
           {isLoading && (
             <>
-              <Grid item key={`1`} xs={12} sm={6} md={3}>
-                <BotLoading />
-              </Grid>
-              <Grid item key={`2`} xs={12} sm={6} md={3}>
-                <BotLoading />
-              </Grid>
-              <Grid item key={`3`} xs={12} sm={6} md={3}>
-                <BotLoading />
-              </Grid>
-              <Grid item key={`3`} xs={12} sm={6} md={3}>
-                <BotLoading />
-              </Grid>
+              {
+                SLoading.map((load) => {
+                  return (
+                   <Grid item key={load} xs={12} sm={6} md={3}>
+                      <BotLoading />
+                    </Grid>
+
+                  )
+                })
+
+              }
+             
             </>
           )}
           {!isLoading && bots ?  
