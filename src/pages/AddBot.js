@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -16,6 +16,7 @@ import theme from '../assets/theme';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
 import Layout from '../components/Layout';
+import LoadingLinear from '../components/common/LoadingLinear';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -23,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    marginBottom: theme.spacing(5)
   },
   avatar: {
     margin: theme.spacing(1),
@@ -92,10 +94,11 @@ const Libs = [{
   },
 ];
 
-export default function SignUp() {
+export default function AddBot() {
   const classes = useStyles();
-
-  const [state, setState] = React.useState({
+  const [submitting, setSubmitting] = useState(false);
+  const [data, setData] = useState({});
+  const [state, setState] = useState({
     tag: '',
     lib: ''
   }); 
@@ -108,17 +111,24 @@ export default function SignUp() {
     });
   };
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    setSubmitting(true);
+    setTimeout(() => {
+      setSubmitting(false);
+      alert('Ha enviado el formulario.')
+    }, 5000)
+  }
 
   return (
     <Layout>
       <Container component="main" maxWidth="md">
-     
       <div className={classes.paper}>
-       
+        
         <Typography component="h1" variant="h5">
           Ingrese la información de su bot
         </Typography>
-        <form className={classes.form} noValidate autoComplete="off">
+        <form className={classes.form} noValidate autoComplete="off" onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} >
               <TextField
@@ -181,7 +191,7 @@ export default function SignUp() {
               />
             </Grid>
 
-            <Grid item xs={12} sm={6}>
+            {/* <Grid item xs={12} sm={6}>
               <Select
                 id="outlined-select-tag"
                 displayEmpty
@@ -230,14 +240,14 @@ export default function SignUp() {
                 ))}
               </Select>
               <FormHelperText>Seleccione una Libreria</FormHelperText>
-            </Grid>
+            </Grid> */}
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
                 fullWidth
                 id="LinkBOT"
-                label="Enlace de invitación de u BOT"
+                label="Enlace de invitación de su BOT"
                 name="LinkBOT"
                 autoComplete = "LinkBOT"
               />
@@ -259,23 +269,17 @@ export default function SignUp() {
               </ThemeProvider>
               
             </Grid>
-           
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-                required
-              />
-            </Grid>
           </Grid>
+          {submitting &&
+            <LoadingLinear />
+          }
           <Button
             type="submit"
-            fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
           >
-            Sign Up
+            Agregar
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
