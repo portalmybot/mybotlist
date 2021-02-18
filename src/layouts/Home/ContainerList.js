@@ -8,7 +8,7 @@ import { useQuery } from 'react-query'
 import CardList from './CardList.js';
 import BotLoading from '../../components/skeleton/BotLoading';
 
-import BotService from '../../services/bot.service';
+import { getHomeBots } from '../../services/bot.service';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 const SLoading = [1,2,3,4,5,6,7,8]
 const BotList = () => {
   const classes = useStyles();
-  const {isLoading, data: bots} = useQuery('bots', BotService.getAllBot, {
+  const {isLoading, data: bots} = useQuery('bots', getHomeBots, {
      refetchAllOnWindowFocus: false,
   })
 

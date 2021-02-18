@@ -16,11 +16,11 @@ import { green } from '@material-ui/core/colors';
 /* import Form from '@material-ui/core/Form'; */
 import Joi from "@hapi/joi";
 
-import { useMutation, QueryStatus } from "react-query";
+import { useMutation } from "react-query";
 
 import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
-import BotService from '../services/bot.service';
+import { addBot } from '../services/bot.service';
 
 const schema = Joi.object({
   id_bot: Joi.string().trim().min(18).max(22).required(),
@@ -114,7 +114,7 @@ export default function AddBot() {
   const [data, setData] = useState({});
   const [errors, setErrors] = useState({});
 
-  const mutate = useMutation(BotService.addBot);
+  const mutate = useMutation(addBot);
  /*  const [state, setState] = useState({
     tag: '',
     lib: ''
@@ -357,7 +357,3 @@ export default function AddBot() {
     
   );
 }
-
-const postBot = async ({ data }) => {
-  console.log(data);
-};

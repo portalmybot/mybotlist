@@ -53,7 +53,7 @@ const CardList = ({ value }) => {
   const classes = useStyles();
   const {
     id_bot,
-    shotDesc_bot,
+    shortDesc_bot,
     vote_bot
   } = value;
 
@@ -92,7 +92,7 @@ const CardList = ({ value }) => {
       
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          {shotDesc_bot}
+          {shortDesc_bot}
         </Typography>
 
         <Box variant="body2" component="p">

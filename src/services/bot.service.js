@@ -1,17 +1,15 @@
 import http from "./HttpService";
 
-const getAllBot = async () => {
+export const getHomeBots = async () => {
   const response = await http.get("/home/bots");
   return response;
 
 };
-const addBot = async ({ data }) => {
+export const addBot = async ({
+      data
+    }) => {
   console.log(data);
  /* await http.post("/bots", data);
  */
 };
 
-export default {
-  getAllBot,
-  addBot
-};
