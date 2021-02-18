@@ -27,7 +27,6 @@ const schema = Joi.object({
   idUser_bot: Joi.string().trim().min(18).max(22),
   prefix_bot: Joi.string().min(1).max(100).required(),
   shortDesc_bot: Joi.string().min(10).max(190).required(),
-  longDesc_bot: Joi.string(),
   note_bot: Joi.string(),
   invite_bot: Joi.string(),
 })
@@ -232,21 +231,6 @@ export default function AddBot() {
                 id="TitleBOT"
                 label="Un breve titulo de su BOT (minimo de 10 caracteres)"
                 autoComplete="TitleBOT"
-              />
-            </Grid>
-
-            <Grid item xs={12}>
-              <TextField
-                id="LongDescBot"
-                label="Descripción de su BOT"
-                name="longDesc_bot"
-                value={data["longDesc_bot"]}
-                onChange={handleChange("longDesc_bot")}
-                multiline
-                rows={4}
-                defaultValue="Bot Multifunciones"
-                variant="outlined"
-                fullWidth
               />
             </Grid>
 
