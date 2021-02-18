@@ -5,5 +5,13 @@ const getAllBot = async () => {
   return response;
 
 };
+const addBot = async ({ data }) => {
+  console.log(data);
+ /* await http.post("/bots", data);
+ */
+};
 
-export default getAllBot;
+export default {
+  getAllBot,
+  addBot
+};

@@ -16,8 +16,11 @@ import { green } from '@material-ui/core/colors';
 /* import Form from '@material-ui/core/Form'; */
 import Joi from "@hapi/joi";
 
+import { useMutation, QueryStatus } from "react-query";
+
 import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
+import BotService from '../services/bot.service';
 
 const schema = Joi.object({
   id_bot: Joi.string().trim().min(18).max(22).required(),
@@ -110,7 +113,8 @@ export default function AddBot() {
   const [submitting, setSubmitting] = useState(false);
   const [data, setData] = useState({});
   const [errors, setErrors] = useState({});
-  
+
+  const mutate = useMutation(BotService.addBot);
  /*  const [state, setState] = useState({
     tag: '',
     lib: ''
@@ -149,8 +153,9 @@ export default function AddBot() {
     setSubmitting(true);
     setTimeout(() => {
       setSubmitting(false);
+
       alert('Ha enviado el formulario.')
-      console.log(data);
+      mutate.mutate({ data });
       const limpio = Object.keys(data).reduce((acc, current) => {
         return {
           ...acc,
@@ -329,7 +334,6 @@ export default function AddBot() {
             <LoadingLinear />
           }
           <Button
-           /*  disabled={status === QueryStatus.Loading} */
             size="large"
             onClick={handleSubmit}
             variant="contained"
@@ -353,3 +357,7 @@ export default function AddBot() {
     
   );
 }
+
+const postBot = async ({ data }) => {
+  console.log(data);
+};
