@@ -20,6 +20,7 @@ import { useMutation } from "react-query";
 
 import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
+import TagsSelect from '../components/addBot/TagsSelect';
 import { addBot } from '../services/bot.service';
 
 const schema = Joi.object({
@@ -55,57 +56,6 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-
-const Tags = [{
-    value: '1',
-    label: 'Adminstración',
-  },
-  {
-    value: '2',
-    label: 'Memes',
-  },
-  {
-    value: '3',
-    label: 'Musica',
-  },
-  {
-    value: '4',
-    label: 'Util',
-  },
-  {
-    value: '5',
-    label: 'Moderación',
-  },
-  {
-    value: '6',
-    label: 'Imagenes',
-  },
-];
-const Libs = [{
-    value: '1',
-    label: 'Discord.js',
-  },
-  {
-    value: '2',
-    label: 'discord.php',
-  },
-  {
-    value: '3',
-    label: 'discord.py',
-  },
-  {
-    value: '4',
-    label: 'Eris',
-  },
-  {
-    value: '5',
-    label: 'DiscordRB',
-  },
-  {
-    value: '6',
-    label: 'discordUnity',
-  },
-];
 
 export default function AddBot() {
   const classes = useStyles();
@@ -205,6 +155,9 @@ export default function AddBot() {
                 label="Prefix BOT"
                 autoComplete="prefixBOT"
               />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TagsSelect />
             </Grid>
 
           {/*   <Grid item xs={12}>
