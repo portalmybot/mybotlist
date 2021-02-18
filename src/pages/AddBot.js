@@ -17,10 +17,10 @@ import { green } from '@material-ui/core/colors';
 import Joi from "@hapi/joi";
 
 import { useMutation } from "react-query";
+import { TagsSelect } from "react-select-material-ui";
 
 import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
-import TagsSelect from '../components/addBot/TagsSelect';
 import { addBot } from '../services/bot.service';
 
 const schema = Joi.object({
@@ -40,10 +40,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     marginBottom: theme.spacing(5)
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
   colorNote: {
     borderColor: green,
     borderWidth: 2,
@@ -57,6 +53,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const tags = [
+  "Musica",
+  "Memes",
+  "Admin",
+  "Moderacion",
+  "Imagenes",
+];
+
 export default function AddBot() {
   const classes = useStyles();
   const [submitting, setSubmitting] = useState(false);
@@ -64,23 +68,18 @@ export default function AddBot() {
   const [errors, setErrors] = useState({});
 
   const mutate = useMutation(addBot);
- /*  const [state, setState] = useState({
-    tag: '',
-    lib: ''
-  }); 
- */
-   const handleChange = (fieldName) => (event) => {
+
+  const handleChange = (fieldName) => (event) => {
     // const name = event.target.name;
 
     const value = event.target.value;
 
-     setErrors((prev) => ({ ...prev, [fieldName]: undefined }));
-     setData((prev) => ({ ...prev, [fieldName]: value }));
-
-   /*  setState({
-      ...state,
-      [name]: event.target.value,
-    }); */
+    setErrors((prev) => ({ ...prev, [fieldName]: undefined }));
+    setData((prev) => ({ ...prev, [fieldName]: value }));
+    
+  };
+  const handleChangeTags = (values) => {
+    console.log(values);
   };
 
   const handleSubmit = event => {
@@ -157,21 +156,18 @@ export default function AddBot() {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TagsSelect />
+                <TagsSelect
+                  variant="outlined"
+                  label="Seleccione las categoria de su BOT"
+                  options={tags}
+                /*  values={values} */
+                  onChange={handleChangeTags}
+                  SelectProps={{
+                    msgNoOptionsAvailable: "All tags are selected",
+                    msgNoOptionsMatchFilter: "No tag matches the filter",
+                  }}
+               />
             </Grid>
-
-          {/*   <Grid item xs={12}>
-              <TextField
-                label="Servidor Discord (Soporte)"
-                id="outlined-start-adornment"
-                InputProps={{
-                  startAdornment: <InputAdornment position="start">https://discord.gg/</InputAdornment>,
-                }}
-                variant="outlined"
-                fullWidth
-              />
-            </Grid> */}
-
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -186,57 +182,6 @@ export default function AddBot() {
                 autoComplete="TitleBOT"
               />
             </Grid>
-
-            {/* <Grid item xs={12} sm={6}>
-              <Select
-                id="outlined-select-tag"
-                displayEmpty
-                fullWidth
-                inputProps={{
-                  name: 'tag',
-                  id: 'tag-simple',
-                }}
-                value={state.tag}
-                onChange={handleChange}
-                variant="outlined"
-              > 
-                <MenuItem value="" disabled>
-                  Categoria
-                </MenuItem>
-                {Tags.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </Select>
-              <Form>Seleccione una Categoria</Form>
-            </Grid>
-
-            <Grid item xs={12} sm={6}>
-              
-              <Select
-                id="outlined-select-lib"
-                inputProps={{
-                  name: 'lib',
-                  id: 'lib-simple',
-                }}
-                displayEmpty
-                fullWidth
-                value={state.lib}
-                onChange={handleChange}
-                variant="outlined"
-              > 
-              <MenuItem value="" disabled>
-                Libreria
-              </MenuItem>
-                {Libs.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </Select>
-              <Form>Seleccione una Libreria</Form>
-            </Grid> */}
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
