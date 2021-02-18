@@ -1,22 +1,33 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+/* import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox'; */
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import InputAdornment from '@material-ui/core/InputAdornment';
+/* import InputAdornment from '@material-ui/core/InputAdornment';
 import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
+import Select from '@material-ui/core/Select'; */
 import { green } from '@material-ui/core/colors';
-import theme from '../assets/theme';
-import FormHelperText from '@material-ui/core/FormHelperText';
+
+/* import Form from '@material-ui/core/Form'; */
+import Joi from "@hapi/joi";
 
 import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
+
+const schema = Joi.object({
+  id_bot: Joi.string().trim().min(18).max(22).required(),
+  idUser_bot: Joi.string().trim().min(18).max(22),
+  prefix_bot: Joi.string().min(1).max(100).required(),
+  shortDesc_bot: Joi.string().min(10).max(190).required(),
+  longDesc_bot: Joi.string(),
+  note_bot: Joi.string(),
+  invite_bot: Joi.string(),
+})
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -98,26 +109,58 @@ export default function AddBot() {
   const classes = useStyles();
   const [submitting, setSubmitting] = useState(false);
   const [data, setData] = useState({});
-  const [state, setState] = useState({
+  const [errors, setErrors] = useState({});
+  
+ /*  const [state, setState] = useState({
     tag: '',
     lib: ''
   }); 
+ */
+   const handleChange = (fieldName) => (event) => {
+    // const name = event.target.name;
 
-   const handleChange = (event) => {
-    const name = event.target.name;
-    setState({
+    const value = event.target.value;
+
+     setErrors((prev) => ({ ...prev, [fieldName]: undefined }));
+     setData((prev) => ({ ...prev, [fieldName]: value }));
+
+   /*  setState({
       ...state,
       [name]: event.target.value,
-    });
+    }); */
   };
 
   const handleSubmit = event => {
     event.preventDefault();
+
+    const validation = schema.validate(data, { abortEarly: false });
+    if(validation.error) {
+      const errors = validation.error.details.reduce((acc, current) => {
+        return {
+          ...acc,
+          [current.context.key]: current.message,
+        }
+      }, {});
+      setErrors(errors);
+      console.log('entro datos Error');
+      return;
+    }
+    console.log('entro datos');
     setSubmitting(true);
     setTimeout(() => {
       setSubmitting(false);
       alert('Ha enviado el formulario.')
+      console.log(data);
+      const limpio = Object.keys(data).reduce((acc, current) => {
+        return {
+          ...acc,
+          [current]: "",
+        };
+      }, {});
+      setData(limpio);
     }, 5000)
+
+
   }
 
   return (
@@ -132,8 +175,10 @@ export default function AddBot() {
           <Grid container spacing={2}>
             <Grid item xs={12} >
               <TextField
-                autoComplete="idbot"
-                name="idBot"
+                name="id_bot"
+                value={data["id_bot"]}
+                onChange={handleChange("id_bot")}
+                error={errors["id_bot"] ? true : false}
                 variant="outlined"
                 required
                 fullWidth
@@ -146,16 +191,19 @@ export default function AddBot() {
             <Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
+                name="prefix_bot"
+                value={data["prefix_bot"]}
+                onChange={handleChange("prefix_bot")}
+                error={errors["prefix_bot"] ? true : false}
                 required
                 fullWidth
                 id="prefixBOT"
                 label="Prefix BOT"
-                name="prefixBOT"
                 autoComplete="prefixBOT"
               />
             </Grid>
 
-            <Grid item xs={12}>
+          {/*   <Grid item xs={12}>
               <TextField
                 label="Servidor Discord (Soporte)"
                 id="outlined-start-adornment"
@@ -165,24 +213,30 @@ export default function AddBot() {
                 variant="outlined"
                 fullWidth
               />
-            </Grid>
+            </Grid> */}
 
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
+                name="shortDesc_bot"
+                value={data["shortDesc_bot"]}
+                onChange={handleChange("shortDesc_bot")}
+                error={errors["shortDesc_bot"] ? true : false}
                 fullWidth
                 id="TitleBOT"
-                label="Un breve titulo de su BOT"
-                name="TitleBOT"
+                label="Un breve titulo de su BOT (minimo de 10 caracteres)"
                 autoComplete="TitleBOT"
               />
             </Grid>
 
             <Grid item xs={12}>
               <TextField
-                id="outlined-multiline-static"
+                id="LongDescBot"
                 label="Descripción de su BOT"
+                name="longDesc_bot"
+                value={data["longDesc_bot"]}
+                onChange={handleChange("longDesc_bot")}
                 multiline
                 rows={4}
                 defaultValue="Bot Multifunciones"
@@ -213,7 +267,7 @@ export default function AddBot() {
                   </MenuItem>
                 ))}
               </Select>
-              <FormHelperText>Seleccione una Categoria</FormHelperText>
+              <Form>Seleccione una Categoria</Form>
             </Grid>
 
             <Grid item xs={12} sm={6}>
@@ -239,42 +293,45 @@ export default function AddBot() {
                   </MenuItem>
                 ))}
               </Select>
-              <FormHelperText>Seleccione una Libreria</FormHelperText>
+              <Form>Seleccione una Libreria</Form>
             </Grid> */}
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                required
+                name="invite_bot"
+                value={data["invite_bot"]}
+                onChange={handleChange("invite_bot")}
                 fullWidth
                 id="LinkBOT"
                 label="Enlace de invitación de su BOT"
-                name="LinkBOT"
                 autoComplete = "LinkBOT"
               />
             </Grid>
 
             <Grid item xs={12}>
-              <ThemeProvider theme={theme}>
                 <TextField
-                  id="outlined-multiline-static"
+                  id="NoteBot"
                   label="Nota Extra de su BOT"
                   required
+                  name="note_bot"
+                  value={data["note_bot"]}
+                  onChange={handleChange("note_bot")}
                   multiline
                   rows={4}
                   defaultValue="Bot funciona solo con permisos de Administrador, como dato."
                   variant="outlined"
                   fullWidth
-                  
                 />
-              </ThemeProvider>
-              
+
             </Grid>
           </Grid>
           {submitting &&
             <LoadingLinear />
           }
           <Button
-            type="submit"
+           /*  disabled={status === QueryStatus.Loading} */
+            size="large"
+            onClick={handleSubmit}
             variant="contained"
             color="primary"
             className={classes.submit}
