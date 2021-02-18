@@ -1,19 +1,13 @@
 import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-/* import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox'; */
+
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-/* import InputAdornment from '@material-ui/core/InputAdornment';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select'; */
-import { green } from '@material-ui/core/colors';
 
-/* import Form from '@material-ui/core/Form'; */
 import Joi from "@hapi/joi";
 
 import { useMutation } from "react-query";
@@ -21,7 +15,7 @@ import { TagsSelect } from "react-select-material-ui";
 
 import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
-import { addBot } from '../services/bot.service';
+import { addBot, addTags } from '../services/bot.service';
 
 const schema = Joi.object({
   id_bot: Joi.string().trim().min(18).max(22).required(),
@@ -40,10 +34,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     marginBottom: theme.spacing(5)
   },
-  colorNote: {
-    borderColor: green,
-    borderWidth: 2,
-  },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(3),
@@ -53,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const tags = [
+const tagsList = [
   "Musica",
   "Memes",
   "Admin",
@@ -65,13 +55,13 @@ export default function AddBot() {
   const classes = useStyles();
   const [submitting, setSubmitting] = useState(false);
   const [data, setData] = useState({});
+  const [tags, setTags] = useState({});
   const [errors, setErrors] = useState({});
 
   const mutate = useMutation(addBot);
+  const mutateTag = useMutation(addTags);
 
   const handleChange = (fieldName) => (event) => {
-    // const name = event.target.name;
-
     const value = event.target.value;
 
     setErrors((prev) => ({ ...prev, [fieldName]: undefined }));
@@ -80,6 +70,7 @@ export default function AddBot() {
   };
   const handleChangeTags = (values) => {
     console.log(values);
+    setTags(values)
   };
 
   const handleSubmit = event => {
@@ -102,15 +93,17 @@ export default function AddBot() {
     setTimeout(() => {
       setSubmitting(false);
 
-      alert('Ha enviado el formulario.')
+      alert('Bot agregado correctamente.')
       mutate.mutate({ data });
-      const limpio = Object.keys(data).reduce((acc, current) => {
+      mutateTag.mutate({ tags });
+
+     /*  const limpio = Object.keys(data).reduce((acc, current) => {
         return {
           ...acc,
           [current]: "",
         };
       }, {});
-      setData(limpio);
+      setData(limpio); */
     }, 5000)
 
 
@@ -157,9 +150,9 @@ export default function AddBot() {
             </Grid>
             <Grid item xs={12} sm={6}>
                 <TagsSelect
-                  variant="outlined"
+                  style={{ color: '#6930c3', backgroundColor: 'transparent', border: '1px solid gray', borderRadius: '3px', padding: '0 10px'}}
                   label="Seleccione las categoria de su BOT"
-                  options={tags}
+                  options={tagsList}
                 /*  values={values} */
                   onChange={handleChangeTags}
                   SelectProps={{

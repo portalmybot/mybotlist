@@ -5,9 +5,12 @@ export const getHomeBots = async () => {
   return response;
 
 };
-export const addBot = async ({
-      data
-    }) => {
+export const addBot = async ({ data }) => {
+  console.log(data);
+ /* await http.post("/bots", data);
+ */
+};
+export const addTags = async (data) => {
   console.log(data);
  /* await http.post("/bots", data);
  */
