@@ -9,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import Joi from "@hapi/joi";
+import { useSnackbar } from 'notistack';
 
 import { useMutation } from "react-query";
 import { TagsSelect } from "react-select-material-ui";
@@ -60,8 +61,10 @@ const StyleSelect = {
   outline: 'none',
 }
 
+
 export default function AddBot() {
   const classes = useStyles();
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const [submitting, setSubmitting] = useState(false);
   const [alert, setAlert] = useState({success: false});
   const [data, setData] = useState({});
@@ -70,7 +73,6 @@ export default function AddBot() {
 
   const mutate = useMutation(addBot);
   const mutateTag = useMutation(addTags);
-
   const handleChange = (fieldName) => (event) => {
     const value = event.target.value;
 
@@ -83,6 +85,12 @@ export default function AddBot() {
     setTags(values)
   };
 
+/*   const handleClickVariant = (variant) => () => {
+    // variant could be success, error, warning, info, or default
+    enqueueSnackbar('This is a success message!', {
+      variant
+    });
+  }; */
   const handleSubmit = event => {
     event.preventDefault();
 
@@ -95,6 +103,7 @@ export default function AddBot() {
         }
       }, {});
       setErrors(errors);
+      enqueueSnackbar('Error');
       console.log('entro datos Error');
       return;
     }
