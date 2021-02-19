@@ -145,7 +145,6 @@ export default function AddBot() {
                 fullWidth
                 id="prefixBOT"
                 label="Prefix BOT"
-                autoComplete="prefixBOT"
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -172,7 +171,6 @@ export default function AddBot() {
                 fullWidth
                 id="TitleBOT"
                 label="Un breve titulo de su BOT (minimo de 10 caracteres)"
-                autoComplete="TitleBOT"
               />
             </Grid>
             <Grid item xs={12}>
@@ -184,7 +182,6 @@ export default function AddBot() {
                 fullWidth
                 id="LinkBOT"
                 label="Enlace de invitación de su BOT"
-                autoComplete = "LinkBOT"
               />
             </Grid>
 
