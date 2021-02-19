@@ -15,6 +15,7 @@ import { TagsSelect } from "react-select-material-ui";
 
 import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
+import AlertInput from '../components/common/AlertInput';
 import { addBot, addTags } from '../services/bot.service';
 
 const schema = Joi.object({
@@ -50,10 +51,19 @@ const tagsList = [
   "Moderacion",
   "Imagenes",
 ];
+const StyleSelect = {
+  color: '#6930c3', 
+  backgroundColor: 'transparent',
+  border: '1px solid gray', 
+  borderRadius: '3px', 
+  padding: '0 10px',
+  outline: 'none',
+}
 
 export default function AddBot() {
   const classes = useStyles();
   const [submitting, setSubmitting] = useState(false);
+  const [alert, setAlert] = useState({success: false});
   const [data, setData] = useState({});
   const [tags, setTags] = useState({});
   const [errors, setErrors] = useState({});
@@ -92,11 +102,9 @@ export default function AddBot() {
     setSubmitting(true);
     setTimeout(() => {
       setSubmitting(false);
-
-      alert('Bot agregado correctamente.')
       mutate.mutate({ data });
       mutateTag.mutate({ tags });
-
+      setAlert({ success: true });
      /*  const limpio = Object.keys(data).reduce((acc, current) => {
         return {
           ...acc,
@@ -108,7 +116,7 @@ export default function AddBot() {
 
 
   }
-
+  const { success } = alert;
   return (
     <Layout>
       <Container component="main" maxWidth="md">
@@ -149,7 +157,7 @@ export default function AddBot() {
             </Grid>
             <Grid item xs={12} sm={6}>
                 <TagsSelect
-                  style={{ color: '#6930c3', backgroundColor: 'transparent', border: '1px solid gray', borderRadius: '3px', padding: '0 10px'}}
+                  style={StyleSelect}
                   label="Seleccione las categoria de su BOT"
                   options={tagsList}
                 /*  values={values} */
@@ -204,6 +212,9 @@ export default function AddBot() {
           </Grid>
           {submitting &&
             <LoadingLinear />
+          }
+          {success &&
+            <AlertInput />
           }
           <Button
             size="large"
