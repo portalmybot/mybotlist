@@ -64,7 +64,7 @@ const StyleSelect = {
 
 export default function AddBot() {
   const classes = useStyles();
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar();
   const [submitting, setSubmitting] = useState(false);
   const [alert, setAlert] = useState({success: false});
   const [data, setData] = useState({});
@@ -85,7 +85,7 @@ export default function AddBot() {
     setTags(values)
   };
 
-/*   const handleClickVariant = (variant) => () => {
+  /* const handleClickVariant = (variant) => () => {
     // variant could be success, error, warning, info, or default
     enqueueSnackbar('This is a success message!', {
       variant
@@ -103,7 +103,7 @@ export default function AddBot() {
         }
       }, {});
       setErrors(errors);
-      enqueueSnackbar('Error');
+      enqueueSnackbar('Debes agregar datos en los campos requeridos.', { variant: 'error'});
       console.log('entro datos Error');
       return;
     }
