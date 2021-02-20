@@ -103,7 +103,7 @@ export default function AddBot() {
         }
       }, {});
       setErrors(errors);
-      enqueueSnackbar('Debes agregar datos en los campos requeridos.', { variant: 'error'});
+      enqueueSnackbar('Debes agregar los datos de su BOT en los campos requeridos.', { variant: 'error'});
       console.log('entro datos Error');
       return;
     }
