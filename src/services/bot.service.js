@@ -24,6 +24,11 @@ export const addBot = async ({ data }) => {
   await http.post("/bots", postData);
 
 };
+export const getTags = async () => {
+  const response = await http.get("/tags");
+  return response.data;
+};
+
 export const addTags = async (data) => {
   console.log(data);
  /* await http.post("/bots", data);

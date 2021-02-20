@@ -11,13 +11,12 @@ import Container from '@material-ui/core/Container';
 import Joi from "@hapi/joi";
 import { useSnackbar } from 'notistack';
 
-import { useMutation } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import { TagsSelect } from "react-select-material-ui";
-
 import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
 import AlertInput from '../components/common/AlertInput';
-import { addBot, addTags } from '../services/bot.service';
+import { addBot, addTags, getTags } from '../services/bot.service';
 
 const schema = Joi.object({
   id_bot: Joi.string().trim().min(18).max(22).required(),
@@ -45,13 +44,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const tagsList = [
-  "Musica",
-  "Memes",
-  "Admin",
-  "Moderacion",
-  "Imagenes",
-];
 const StyleSelect = {
   color: '#6930c3', 
   backgroundColor: 'transparent',
@@ -70,7 +62,9 @@ export default function AddBot() {
   const [data, setData] = useState({});
   const [tags, setTags] = useState({});
   const [errors, setErrors] = useState({});
-
+  const {isLoading, data: tagsQuery} = useQuery('tags', getTags, {
+     refetchAllOnWindowFocus: false,
+  })
   const mutate = useMutation(addBot);
   const mutateTag = useMutation(addTags);
   const handleChange = (fieldName) => (event) => {
@@ -168,7 +162,7 @@ export default function AddBot() {
                 <TagsSelect
                   style={StyleSelect}
                   label="Seleccione las categoria de su BOT"
-                  options={tagsList}
+                  options={!isLoading && tagsQuery.map((tg) => tg.name_tag)}
                 /*  values={values} */
                   onChange={handleChangeTags}
                   SelectProps={{
