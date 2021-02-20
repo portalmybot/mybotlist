@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import LabelIcon from '@material-ui/icons/Label';
 import { useQuery } from "react-query";
-
+import Skeleton from '@material-ui/lab/Skeleton';
 import { getTagsHome } from '../../services/bot.service';
 
 
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(0.5),
     },
-    marginTop: theme.spacing(5),
+    marginTop: theme.spacing(3),
     maxWidth: 600,
     margin: theme.spacing(0, 'auto'),
   },
@@ -48,14 +48,27 @@ const useStyles = makeStyles((theme) => ({
   const {isLoading, data: tagsHomeQuery} = useQuery('tagsHome', getTagsHome, {
      refetchAllOnWindowFocus: false,
   })
+  const handleClick = () => {
+    console.info('You clicked the Chip.');
+  };
 
   return (
     <div className={classes.root}>
+      {isLoading && (
+          <>
+            <Skeleton variant="text" width="30%" height="32" />
+            <Skeleton variant="text" width="30%" height="32"/>
+            <Skeleton variant="text" width="30%" height="32"/>
+            <Skeleton variant="text" width="30%" height="32"/>
+            <Skeleton variant="text" width="30%" height="32"/>
+          </>
+      )}
+
       {!isLoading && tagsHomeQuery.map((tag) => {
         return (
-          <>
-            <Chip key={tag.id} label={tag.name_tag} component="a" color="default" style={{backgroundColor: stringToColor(tag.id + '-' + tag.created_at), fontSize: 15}} icon={<LabelIcon />} href={'tag/'+tag.name_tag} clickable/>
-          </>
+          <div>
+            <Chip variant="outlined" key={tag.name_tag} label={tag.name_tag} component="a" color="default" style={{backgroundColor: stringToColor(tag.name_tag +')('+ tag.id), fontSize: 15}} icon={<LabelIcon />} onClick={handleClick} clickable/>
+          </div>
         )
 
       })}
