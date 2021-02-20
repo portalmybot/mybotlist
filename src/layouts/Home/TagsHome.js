@@ -2,10 +2,13 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import LabelIcon from '@material-ui/icons/Label';
+import { useQuery } from "react-query";
+
+import { getTagsHome } from '../../services/bot.service';
 
 
-const tags = ['Anime', 'Economía', 'Soporte', 'Admin', 'Social', 'Videos', 'Moderación'];
-
+/* const tags = ['Anime', 'Economía', 'Soporte', 'Admin', 'Social', 'Videos', 'Moderación'];
+ */
 function stringToColor(string) {
   let hash = 0;
   let i;
@@ -40,14 +43,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Chips() {
+ const Chips = () => {
   const classes = useStyles();
+  const {isLoading, data: tagsHomeQuery} = useQuery('tagsHome', getTagsHome, {
+     refetchAllOnWindowFocus: false,
+  })
 
   return (
     <div className={classes.root}>
-      {tags.map((tag) => (
-        <Chip key={tag} label={tag} component="a" color="default" style={{backgroundColor: stringToColor(tag), fontSize: 15}} icon={<LabelIcon />} href={'tag/'+tag} clickable/>
-      ))}
+      {!isLoading && tagsHomeQuery.map((tag) => {
+        return (
+          <>
+            <Chip key={tag.id} label={tag.name_tag} component="a" color="default" style={{backgroundColor: stringToColor(tag.id + '-' + tag.created_at), fontSize: 15}} icon={<LabelIcon />} href={'tag/'+tag.name_tag} clickable/>
+          </>
+        )
+
+      })}
+
     </div>
   );
 }
+
+export default Chips;

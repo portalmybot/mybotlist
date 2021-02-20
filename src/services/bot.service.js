@@ -19,8 +19,6 @@ export const addBot = async ({ data }) => {
     note_bot: data.note_bot ? data.note_bot : null,
 
   }
-  console.log(postData);
-  console.log('user_id', userLogin.user.user_id);
   await http.post("/bots", postData);
 
 };
@@ -28,18 +26,20 @@ export const getTags = async () => {
   const response = await http.get("/tags");
   return response.data;
 };
+export const getTagsHome = async () => {
+  const response = await http.get("/home/tags");
+  return response.data;
+};
 
 export const addTags = async (data) => {
-  const id_bot = data.id_bot
-
+  const id_bot = data.id_bot;
   data.tags.map(async (tag) => {
     const postData = {
       id_bot: id_bot,
       name_tag: tag,
     }
-  await http.post("/bots/add/tag", postData);
-  console.log(data);
 
+    await http.post("/bots/add/tag", postData);
   })
 
 };
