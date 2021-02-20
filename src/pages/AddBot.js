@@ -106,7 +106,7 @@ export default function AddBot() {
     setTimeout(() => {
       setSubmitting(false);
       mutate.mutate({ data });
-      mutateTag.mutate({ tags });
+      mutateTag.mutate({ id_bot: data.id_bot, tags});
       setAlert({ success: true });
      /*  const limpio = Object.keys(data).reduce((acc, current) => {
         return {
@@ -163,7 +163,6 @@ export default function AddBot() {
                   style={StyleSelect}
                   label="Seleccione las categoria de su BOT"
                   options={!isLoading && tagsQuery.map((tg) => tg.name_tag)}
-                /*  values={values} */
                   onChange={handleChangeTags}
                   SelectProps={{
                     msgNoOptionsAvailable: "All tags are selected",
