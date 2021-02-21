@@ -6,7 +6,6 @@ import { useQuery } from "react-query";
 import Skeleton from '@material-ui/lab/Skeleton';
 import { getTagsHome } from '../../services/bot.service';
 
-
 /* const tags = ['Anime', 'Economía', 'Soporte', 'Admin', 'Social', 'Videos', 'Moderación'];
  */
 function stringToColor(string) {
@@ -67,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
       {!isLoading && tagsHomeQuery.map((tag) => {
         return (
           <div>
-            <Chip key={tag.name_tag} label={tag.name_tag} component="a" color="default" style={{backgroundColor: stringToColor(tag.name_tag +'discord'+ tag.id), fontSize: 15}} icon={<LabelIcon />} onClick={handleClick} clickable/>
+            <Chip key={'homeTag-'+tag.name_tag} label={tag.name_tag} component="a" color="default" style={{backgroundColor: stringToColor(tag.name_tag +'discord'+ tag.id), fontSize: 15}} icon={<LabelIcon />} onClick={handleClick} clickable/>
           </div>
         )
 

@@ -3,7 +3,7 @@ import MeService from './me.service';
 
 export const getHomeBots = async () => {
   const response = await http.get("/home/bots");
-  return response;
+  return response.data;
 
 };
 

@@ -47,14 +47,19 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(7),
     height: theme.spacing(7),
   },
+  tag: {
+    marginRight: theme.spacing(0.5),
+  }
 }));
 
 const CardList = ({ value }) => {
   const classes = useStyles();
+
   const {
     id_bot,
     shortDesc_bot,
-    vote_bot
+    vote_bot,
+    tags
   } = value;
 
   return (
@@ -74,7 +79,6 @@ const CardList = ({ value }) => {
         }
         action={
           <Chip label={vote_bot} icon={<ImportExportIcon />} component="a" href="/vote" clickable variant="outlined"/>
-      
         }
         title={
         <Typography className={classes.title} color="secondary" gutterBottom>
@@ -96,7 +100,25 @@ const CardList = ({ value }) => {
         </Typography>
 
         <Box variant="body2" component="p">
-          <Chip label='Social' component="a" color="secondary" size="small" style={{fontSize: 10}}/>
+          {tags && 
+            tags.map((tag) => {
+              return (
+                <>
+                  <Chip key={'tag-' + tag.name} label={tag.name_tag} variant="outlined" component="a" color="secondary" size="small" className={classes.tag} style={{fontSize: 10}}/>
+                </>
+              )
+            })
+          }
+          {/* {error && 'error'}
+          {!isLoading && 
+            tagsBotQuery.map((tag) => {
+              return (
+                <>
+                  <Chip label='Social' component="a" color="secondary" size="small" style={{fontSize: 10}}/>
+                </>
+              )
+            })
+          } */}
         </Box>
         
       </CardContent>
@@ -107,7 +129,7 @@ const CardList = ({ value }) => {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-        <Button variant="contained" className={classes.expand} color="primary" href={'/bot/'+id_bot}>
+        <Button variant="contained" className={classes.expand} color="primary"  href={'/bot/'+id_bot}>
           Ver
         </Button>
        
