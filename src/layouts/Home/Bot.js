@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import CardMedia from '@material-ui/core/CardMedia';
+/* import CardMedia from '@material-ui/core/CardMedia'; */
 import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
@@ -14,8 +14,9 @@ import ShareIcon from '@material-ui/icons/Share';
 import Chip from '@material-ui/core/Chip';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import Button from '@material-ui/core/Button';
-import StarIcon from '@material-ui/icons/Star';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     backgroundColor: red[500],
-    width: theme.spacing(10),
-    height: theme.spacing(10),
+    width: theme.spacing(12),
+    height: theme.spacing(12),
   },
   title: {
     fontSize: 21,
@@ -49,6 +50,15 @@ const useStyles = makeStyles((theme) => ({
   },
   tag: {
     marginRight: theme.spacing(0.5),
+  },
+  section1: {
+    margin: theme.spacing(1, 0),
+  },
+  section2: {
+    margin: theme.spacing(5, 0, 0),
+  },
+  section3: {
+    margin: theme.spacing(1, 0, 1),
   }
 }));
 
@@ -64,42 +74,45 @@ const CardList = ({ value }) => {
 
   return (
     <Card className={classes.root}>
-      <CardMedia
+      {/* <CardMedia
         component="img"
         alt="Bot MyBOT"
         height="120"
         image="https://portalmybot.com/assets/img/bg/bgportal.png"
         title="Bot MyBOT"
-      />
+      /> */}
       <CardHeader
         avatar={
-          <Avatar alt="Image title" /* src="https://source.unsplash.com/random" */ className={classes.avatar}>
+          <Avatar alt="Image title" /* src="https://source.unsplash.com/random" */ variant="square" className={classes.avatar}>
             BOT
           </Avatar>
         }
         action={
-          <Chip label={vote_bot} icon={<ImportExportIcon />} component="a" href="/vote" clickable variant="outlined"/>
+          <Chip label={vote_bot} icon={<ImportExportIcon />} variant="outlined"/>
         }
-        title={
+       /*  title={
         <Typography className={classes.title} color="secondary" gutterBottom>
           MyBOT 
         </Typography>
-        }
+        } */
         subheader= {
           <CheckCircleIcon style={{ color: green[500] }}/>
         }
-        style={{
+       /*  style={{
             marginTop: '-120px',
-            marginBottom: '20px',
-        }}
+            marginBottom: '30px',
+        }} */
       />
       
-      <CardContent>
+      <CardContent className={classes.section1}>
+        <Typography className={classes.title} color="secondary" gutterBottom>
+          MyBOT 
+        </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
           {shortDesc_bot}
         </Typography>
 
-        <Box variant="body2" component="p">
+        <Box variant="body2" component="p" className={classes.section2}>
           {tags && 
             tags.map((tag) => {
               return (
@@ -113,14 +126,15 @@ const CardList = ({ value }) => {
         </Box>
         
       </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <StarIcon />
+      <Divider variant="middle" />
+      <CardActions disableSpacing className={classes.section3}>
+        <IconButton aria-label="add to favorites" href={'/vote/'+id_bot}>
+          <FavoriteBorderIcon />
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-        <Button variant="contained" className={classes.expand} color="primary"  href={'/bot/'+id_bot}>
+        <Button variant="contained" className={classes.expand} color="primary" href={'/bot/'+id_bot}>
           Ver
         </Button>
        
