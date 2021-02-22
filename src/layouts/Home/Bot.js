@@ -74,13 +74,6 @@ const CardList = ({ value }) => {
 
   return (
     <Card className={classes.root}>
-      {/* <CardMedia
-        component="img"
-        alt="Bot MyBOT"
-        height="120"
-        image="https://portalmybot.com/assets/img/bg/bgportal.png"
-        title="Bot MyBOT"
-      /> */}
       <CardHeader
         avatar={
           <Avatar alt="Image title" /* src="https://source.unsplash.com/random" */ variant="square" className={classes.avatar}>
@@ -90,18 +83,11 @@ const CardList = ({ value }) => {
         action={
           <Chip label={vote_bot} icon={<ImportExportIcon />} variant="outlined"/>
         }
-       /*  title={
-        <Typography className={classes.title} color="secondary" gutterBottom>
-          MyBOT 
-        </Typography>
-        } */
+
         subheader= {
           <CheckCircleIcon style={{ color: green[500] }}/>
         }
-       /*  style={{
-            marginTop: '-120px',
-            marginBottom: '30px',
-        }} */
+        
       />
       
       <CardContent className={classes.section1}>
