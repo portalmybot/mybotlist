@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
       {!isLoading && tagsHomeQuery.map((tag) => {
         return (
           <div>
-            <Chip key={'homeTag-'+tag.name_tag} label={tag.name_tag} component="a" color="default" style={{backgroundColor: stringToColor(tag.name_tag +'discord'+ tag.id), fontSize: 15}} icon={<LabelIcon />} onClick={handleClick} clickable/>
+            <Chip key={'homeTag-'+tag.name_tag} label={tag.name_tag} component="a" color="default" style={{backgroundColor: stringToColor('portal'+tag.name_tag), fontSize: 15}} icon={<LabelIcon />} onClick={handleClick} clickable/>
           </div>
         )
 

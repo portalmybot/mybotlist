@@ -5,7 +5,7 @@ import Container from '@material-ui/core/Container';
 
 import { useQuery } from 'react-query'
 
-import CardList from './CardList.js';
+import Bot from './Bot.js';
 import BotLoading from '../../components/skeleton/BotLoading';
 
 import { getHomeBots } from '../../services/bot.service';
@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
  })
 )
 const SLoading = [1,2,3,4,5,6,7,8]
+
 const BotList = () => {
   const classes = useStyles();
   const {isLoading, data: bots} = useQuery('bots', getHomeBots, {
@@ -50,7 +51,7 @@ const BotList = () => {
                 bots.data.map((bot) => {
                   return (
                     <Grid item key={`bot-${bot.id}`} xs={12} sm={6} md={3}>
-                      <CardList value={bot} />
+                      <Bot value={bot} />
                     </Grid>
                   )
                 })

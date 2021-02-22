@@ -109,16 +109,7 @@ const CardList = ({ value }) => {
               )
             })
           }
-          {/* {error && 'error'}
-          {!isLoading && 
-            tagsBotQuery.map((tag) => {
-              return (
-                <>
-                  <Chip label='Social' component="a" color="secondary" size="small" style={{fontSize: 10}}/>
-                </>
-              )
-            })
-          } */}
+          
         </Box>
         
       </CardContent>
