@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 
 import AvatarBot from "../components/bot/AvatarBot";
 import InfoBot from "../components/bot/InfoBot";
@@ -30,9 +31,13 @@ export default function Home() {
       <Container maxWidth={false} className={classes.containerbg} style={{ background: 'linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://i.imgur.com/94Mqbdi.jpeg) center top / cover no-repeat fixed', height: '150vh' }}>
         <Container maxWidth={'lg'}>
           <div className={classes.root}>
-            <Grid container spacing={1}>
-              <Grid container xs={12} sm={6} justify="center" className={classes.paper}>
-                <AvatarBot />
+            <Grid container spacing={1} justify='center'>
+              <Grid item xs={12} sm={6} className={classes.paper}>
+                <Box display="flex">
+                  <Box m="auto">
+                    <AvatarBot />
+                  </Box>
+                </Box>
               </Grid>
               <Grid item xs={12} sm={6} >
                 <InfoBot />

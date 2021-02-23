@@ -20,7 +20,8 @@ export default function AvatarBot() {
   const classes = useStyles();
 
   return (
-      <Avatar  align="center" variant="square" className={classes.large}>
+    
+      <Avatar variant="square" className={classes.large}>
         <AdbIcon />
       </Avatar>
 
