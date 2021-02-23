@@ -9,7 +9,7 @@ import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red, green, yellow, grey} from '@material-ui/core/colors';
+import { red, green, yellow, /* grey */} from '@material-ui/core/colors';
 import ShareIcon from '@material-ui/icons/Share';
 import Chip from '@material-ui/core/Chip';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
@@ -18,7 +18,7 @@ import Button from '@material-ui/core/Button';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
-import SettingsIcon from '@material-ui/icons/Settings';
+/* import SettingsIcon from '@material-ui/icons/Settings'; */
 import OfflineBoltIcon from '@material-ui/icons/OfflineBolt';
 
 import Divider from '@material-ui/core/Divider';
