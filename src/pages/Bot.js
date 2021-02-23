@@ -6,12 +6,15 @@ import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
+import AvatarBot from "../components/bot/AvatarBot";
+import InfoBot from "../components/bot/InfoBot";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
   containerbg: {
-    margin: theme.spacing(1.5, 0)
+    padding: theme.spacing(3, 0),
   },
   paper: {
     padding: theme.spacing(2),
@@ -24,16 +27,15 @@ export default function Home() {
   const classes = useStyles();
   return (
     <Layout>
-      <Container maxWidth={false} className={classes.containerbg} style={{ backgroundColor: '#cfe8fc', height: '100vh' }}>
+      <Container maxWidth={false} className={classes.containerbg} style={{ background: 'linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://i.imgur.com/94Mqbdi.jpeg) center top / cover no-repeat fixed', height: '150vh' }}>
         <Container maxWidth={'lg'}>
           <div className={classes.root}>
-            <Grid container spacing={3}>
-
-              <Grid item xs={6}>
-                <Paper className={classes.paper}>xs=6</Paper>
+            <Grid container spacing={1}>
+              <Grid container xs={12} sm={6} justify="center" className={classes.paper}>
+                <AvatarBot />
               </Grid>
-              <Grid item xs={6}>
-                <Paper className={classes.paper}>xs=6</Paper>
+              <Grid item xs={12} sm={6} >
+                <InfoBot />
               </Grid>
 
               <Grid item xs={12}>
