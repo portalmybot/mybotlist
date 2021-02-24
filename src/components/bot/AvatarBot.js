@@ -11,8 +11,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   large: {
-    width: theme.spacing(25),
-    height: theme.spacing(25),
+    width: theme.spacing(38),
+    height: theme.spacing(38),
   }
 }));
 
@@ -20,7 +20,7 @@ export default function AvatarBot() {
   const classes = useStyles();
 
   return (
-    
+
       <Avatar variant="square" className={classes.large}>
         <AdbIcon />
       </Avatar>

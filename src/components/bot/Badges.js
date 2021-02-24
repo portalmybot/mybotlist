@@ -10,7 +10,7 @@ import { green, yellow, /* grey */} from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    margin: theme.spacing(0, 0.3, 0, 1.2),
+    margin: theme.spacing(0, 1, 0, 1.5),
       '& .MuiButton-startIcon': {
         marginLeft: '0',
         marginRight: '0',
@@ -25,7 +25,7 @@ export default function ButtonSizes({value}) {
   
   return (
      <Tooltip TransitionComponent={Zoom} title={value} placement="top">
-        <Button variant="outlined" color="default" className={classes.button} startIcon={value === 'verificado' ? <VerifiedUserIcon style={{ color: green[500] }}/>: <OfflineBoltIcon style={{ color: yellow[500] }}/> } />
+        <Button color="default" className={classes.button} startIcon={value === 'verificado' ? <VerifiedUserIcon style={{ color: green[500], fontSize: '30px' }}/>: <OfflineBoltIcon style={{ color: yellow[500], fontSize: '30px' }}/> } />
      </Tooltip>
   );
 }
