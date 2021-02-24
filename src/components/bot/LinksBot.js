@@ -1,6 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
+import SettingsIcon from '@material-ui/icons/Settings';
+import LanguageIcon from '@material-ui/icons/Language';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,17 +19,15 @@ export default function ContainedButtons() {
 
   return (
     <div className={classes.root}>
-      <Button variant="contained" color="primary" href="#contained-buttons">
-        Link
+
+      <Button variant="contained" style={{ color: '#fff', backgroundColor: '#7289da' }} href="#contained-buttons" startIcon={<AddIcon />}>
+        Agregar Bot
       </Button>
-      <Button variant="contained" color="secondary" href="#contained-buttons">
-        Link
+      <Button variant="contained" style={{ backgroundColor: '#FF9800', color: '#fff' }} href="#contained-buttons" startIcon={<SettingsIcon />}>
+        Soporte Bot
       </Button>
-      <Button variant="contained" href="#contained-buttons">
-        Link
-      </Button>
-      <Button variant="contained" color="primary">
-        Primary
+      <Button variant="contained" style={{ backgroundColor: '#607D8B', color: '#fff' }} href="#contained-buttons" startIcon={<LanguageIcon />}>
+        Sitio Web
       </Button>
     </div>
   );

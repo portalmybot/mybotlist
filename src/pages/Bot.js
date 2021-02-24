@@ -10,6 +10,8 @@ import Box from '@material-ui/core/Box';
 import AvatarBot from "../components/bot/AvatarBot";
 import InfoBot from "../components/bot/InfoBot";
 
+import Divider from '@material-ui/core/Divider';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -42,8 +44,9 @@ export default function Home() {
               <Grid item xs={12} sm={6} >
                 <InfoBot />
               </Grid>
-
+              
               <Grid item xs={12}>
+                <Divider />
                 <Paper className={classes.paper}>xs=12</Paper>
               </Grid>
 

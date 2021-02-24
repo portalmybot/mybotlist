@@ -8,7 +8,8 @@ import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Chip from '@material-ui/core/Chip';
-
+import { green } from '@material-ui/core/colors';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import LinksBot from './LinksBot';
 
 const useStyles = makeStyles((theme) => ({
@@ -32,7 +33,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2)
   },
   subtags: {
-    marginTop: theme.spacing(5)
+    marginTop: theme.spacing(7)
+  },
+  tagContent: {
+    marginTop: theme.spacing(1)
   },
   tags: {
     marginRight: theme.spacing(1)
@@ -53,14 +57,14 @@ export default function InfoBot() {
               );
          })}
       </Typography>
-
+      
       <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="contained" aria-label="small outlined button group">
         <Button color="primary">Prefix</Button>
         <Button>?</Button>
       </ButtonGroup>
       <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="contained" aria-label="small outlined button group">
         <Button color="secondary">Estado</Button>
-        <Button>Online</Button>
+        <Button> <FiberManualRecordIcon style={{ color: green }} /> </Button>
       </ButtonGroup>
       <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="contained" aria-label="small outlined button group">
         <Button style={{ backgroundColor: 'olive', color: 'white' }}>Libreria</Button>
@@ -68,13 +72,13 @@ export default function InfoBot() {
       </ButtonGroup>
 
       <Typography variant="subtitle1" className={classes.subtitle} gutterBottom>
-        subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
       </Typography>
 
       <Typography variant="caption" display="block" className={classes.subtags} gutterBottom>
         Tags:
       </Typography>
-      <Box component="span" m={0}>
+      <Box component="span" m={0} className={classes.tagContent}>
         <Chip label="Administración" className={classes.tags} component="a" href="./tag/chip" clickable variant="outlined" />
         <Chip label="Memes" className={classes.tags} component="a" href="./tag/chip" clickable variant="outlined" />
         
