@@ -26,7 +26,7 @@ export default function ContainedButtons() {
       <Button variant="contained" style={{ backgroundColor: '#FF9800', color: '#fff' }} href="#contained-buttons" startIcon={<SettingsIcon />}>
         Soporte Bot
       </Button>
-      <Button variant="contained" style={{ backgroundColor: '#607D8B', color: '#fff' }} href="#contained-buttons" startIcon={<LanguageIcon />}>
+      <Button variant="contained" style={{ backgroundColor: '#03a9f4', color: '#fff' }} href="#contained-buttons" startIcon={<LanguageIcon />}>
         Sitio Web
       </Button>
     </div>

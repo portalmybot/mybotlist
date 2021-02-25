@@ -24,7 +24,7 @@ export default function ButtonSizes({value}) {
   const classes = useStyles();
   
   return (
-     <Tooltip TransitionComponent={Zoom} title={value} placement="top">
+     <Tooltip TransitionComponent={Zoom} title={value} placement="left">
         <Button color="default" className={classes.button} startIcon={value === 'verificado' ? <VerifiedUserIcon style={{ color: green[500], fontSize: '30px' }}/>: <OfflineBoltIcon style={{ color: yellow[500], fontSize: '30px' }}/> } />
      </Tooltip>
   );

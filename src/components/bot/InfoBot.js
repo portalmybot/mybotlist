@@ -51,24 +51,22 @@ export default function InfoBot() {
     <Container maxWidth={'lg'} className={classes.container}>
       <Typography variant="h3" component="h1" className={classes.title}>
         MyBOT
-         {badges.map((bg) => {
-              return (
-                <Badge key={bg} value={bg} />
-              );
-         })}
+        <Typography>
+          {badges.map((bg) => {
+                return (
+                  <Badge key={bg} value={bg} />
+                );
+          })}
+        </Typography>
       </Typography>
       
-      <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="contained" aria-label="small outlined button group">
-        <Button color="primary">Prefix</Button>
+      <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="outlined" aria-label="outlined button group">
+        <Button color="secondary">Prefix</Button>
         <Button>?</Button>
       </ButtonGroup>
-      <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="contained" aria-label="small outlined button group">
-        <Button color="secondary">Estado</Button>
-        <Button> <FiberManualRecordIcon style={{ color: green }} /> </Button>
-      </ButtonGroup>
-      <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="contained" aria-label="small outlined button group">
-        <Button style={{ backgroundColor: 'olive', color: 'white' }}>Libreria</Button>
-        <Button>Discord.js</Button>
+      <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="outlined" aria-label="small outlined button group">
+        <Button color="default">Estado</Button>
+        <Button> <FiberManualRecordIcon style={{ color: green[500] }} /> </Button>
       </ButtonGroup>
 
       <Typography variant="subtitle1" className={classes.subtitle} gutterBottom>

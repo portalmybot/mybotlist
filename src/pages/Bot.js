@@ -30,7 +30,7 @@ export default function Home() {
   const classes = useStyles();
   return (
     <Layout>
-      <Container maxWidth={false} className={classes.containerbg} style={{ background: 'linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://i.imgur.com/94Mqbdi.jpeg) center top / cover no-repeat fixed', height: '150vh' }}>
+      <Container maxWidth={false} className={classes.containerbg}/*  style={{ background: 'linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://i.imgur.com/94Mqbdi.jpeg) center top / cover no-repeat fixed', height: '150vh' }} */>
         <Container maxWidth={'lg'}>
           <div className={classes.root}>
             <Grid container spacing={1} justify='center'>
