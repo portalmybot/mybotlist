@@ -9,6 +9,7 @@ import Box from '@material-ui/core/Box';
 
 import AvatarBot from "../components/bot/AvatarBot";
 import InfoBot from "../components/bot/InfoBot";
+import StatsBot from "../components/bot/StatsBot";
 
 import Divider from '@material-ui/core/Divider';
 
@@ -46,11 +47,12 @@ export default function Home() {
               </Grid>
               
               <Grid item xs={12}>
-                <Divider />
-                <Paper className={classes.paper}>xs=12</Paper>
+                <Divider style={{ marginBottom: 20 }}/>
+                <StatsBot />
               </Grid>
 
               <Grid item xs={12}>
+                <Divider style={{ marginBottom: 20 }}/>
                 <Paper className={classes.paper}>xs=12</Paper>
               </Grid>
             </Grid>
