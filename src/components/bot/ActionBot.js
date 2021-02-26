@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function StatsBot() {
+export default function ActionBot() {
   const classes = useStyles();
 
   return (
@@ -26,9 +26,8 @@ export default function StatsBot() {
           className={classes.button}>
           532 Servidores
         </Button>
+        
       </ButtonGroup>
-
-
     </div>
   );
 }

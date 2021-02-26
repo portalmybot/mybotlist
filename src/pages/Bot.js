@@ -9,7 +9,8 @@ import Box from '@material-ui/core/Box';
 
 import AvatarBot from "../components/bot/AvatarBot";
 import InfoBot from "../components/bot/InfoBot";
-import StatsBot from "../components/bot/StatsBot";
+import ActionBot from "../components/bot/ActionBot";
+import DevsBot from "../components/bot/DevsBot";
 
 import Divider from '@material-ui/core/Divider';
 
@@ -20,10 +21,14 @@ const useStyles = makeStyles((theme) => ({
   containerbg: {
     padding: theme.spacing(3, 0),
   },
-  paper: {
-    padding: theme.spacing(2),
+  action: {
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    marginTop: theme.spacing(2),
+  },
+  paper: {
+    textAlign: 'center',
+    marginBottom: theme.spacing(2),
+    padding: theme.spacing(1),
   },
 }))
 
@@ -35,11 +40,14 @@ export default function Home() {
         <Container maxWidth={'lg'}>
           <div className={classes.root}>
             <Grid container spacing={1} justify='center'>
-              <Grid item xs={12} sm={6} className={classes.paper}>
+              <Grid item xs={12} sm={6}>
                 <Box display="flex">
                   <Box m="auto">
                     <AvatarBot />
                   </Box>
+                </Box>
+                <Box className={classes.action}>
+                  <ActionBot />
                 </Box>
               </Grid>
               <Grid item xs={12} sm={6} >
@@ -48,7 +56,13 @@ export default function Home() {
               
               <Grid item xs={12}>
                 <Divider style={{ marginBottom: 20 }}/>
-                <StatsBot />
+                <Box className={classes.paper}>
+                  Desarrollado por: 
+                  <Box>
+                    <DevsBot />
+                    <DevsBot />
+                  </Box>
+                </Box>
               </Grid>
 
               <Grid item xs={12}>
