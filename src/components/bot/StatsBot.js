@@ -6,7 +6,7 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    margin: theme.spacing(1, .2),
+    margin: theme.spacing(0, .5, 1.6),
   },
 }));
 
@@ -15,6 +15,10 @@ export default function StatsBot() {
 
   return (
     <div>
+      <ButtonGroup aria-label="small outlined button group">
+        <Button variant="contained" style={{ color: '#fff', backgroundColor: '#e91e63' }}>15 Rep.</Button>
+        <Button variant="contained" style={{ color: '#fff', backgroundColor: '#c50546' }}> <FavoriteIcon /> </Button>
+      </ButtonGroup>
       <ButtonGroup color="primary" aria-label="outlined primary button group">
         <Button
           variant="contained"
@@ -23,14 +27,7 @@ export default function StatsBot() {
           532 Servidores
         </Button>
       </ButtonGroup>
-      <ButtonGroup color="primary" aria-label="outlined primary button group">
-        <Button
-          variant="contained"
-          style={{ color: '#fff', backgroundColor: '#e91e63' }}
-          className={classes.button}>
-          15 Rep.
-        </Button>
-      </ButtonGroup>
+
 
     </div>
   );
