@@ -33,8 +33,13 @@ const useStyles = makeStyles((theme) => ({
   },
   descriptionContent: {
     marginTop: theme.spacing(1),
+    '& img': {
+      maxWidth: '90%',
+      borderRadius: '5px',
+    }
   },
 }))
+
 var outputStyle = {
   backgroundColor: "#252525",
   border: '1px solid #33343b',
