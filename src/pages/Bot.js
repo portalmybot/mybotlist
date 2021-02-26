@@ -36,6 +36,15 @@ const useStyles = makeStyles((theme) => ({
     '& img': {
       maxWidth: '90%',
       borderRadius: '5px',
+    },
+    '& a': {
+      color: '#7289da',
+    },
+    '& pre': {
+      padding: theme.spacing(1),
+      borderRadius: '5px',
+      backgroundColor: '#2c2c2c',
+      fontSize: '15px',
     }
   },
 }))
