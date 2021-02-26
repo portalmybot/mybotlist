@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SmallChips() {
+export default function DevsBot({value}) {
   const classes = useStyles();
 
   return (
@@ -18,8 +18,8 @@ export default function SmallChips() {
         className={classes.root}
        /*  avatar={<Avatar alt="Natacha" src="/static/images/avatar/1.jpg" />} */
         avatar={<Avatar>M</Avatar>}
-        label="CraterMaik"
-        component="a" href="user/" clickable
+        label={value}
+        component="a" href={'u/'+value} clickable
       />
   );
 }
