@@ -98,7 +98,7 @@ client.on('message', (message) => {
 
 export default function Bot() {
   const { id } = useParams();
-  const { isLoading, data: bot, error} = useQuery(
+  const { isLoading, data: bot = {}, error} = useQuery(
     [
       'getbot',
       {
