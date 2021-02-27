@@ -1,7 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Layout from '../components/Layout';
-
+import { useQuery } from 'react-query'
+import { useParams } from "react-router-dom";
+import { getBot } from '../services/bot.service';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -76,7 +78,7 @@ Las listas desordenadas se pueden iniciar usando la barra de herramientas o escr
 ---
 
 ## ¿Y las imágenes?
-![link](https://code.visualstudio.com/assets/docs/languages/Markdown/preview.png)
+![link]()
 
 
 ## Texto citado
@@ -92,9 +94,26 @@ client.on('message', (message) => {
 \`\`\`
 `;
 
-export default function Home() {
+
+
+export default function Bot() {
+  const { id } = useParams();
+  const { isLoading, data: bot, error} = useQuery(
+    [
+      'getbot',
+      {
+        id: id
+      }
+    ], getBot
+  );
+
   const classes = useStyles();
-  return (
+  
+  return isLoading ? (
+    'Cargando...'
+  ) : error ? (
+     <h1>Error!</h1>
+  ) : (
     <Layout>
       <Container maxWidth={false} className={classes.containerbg}/*  style={{ background: 'linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://i.imgur.com/94Mqbdi.jpeg) center top / cover no-repeat fixed', height: '150vh' }} */>
         <Container maxWidth={'lg'}>
@@ -111,13 +130,13 @@ export default function Home() {
                 </Box>
               </Grid>
               <Grid item xs={12} sm={6} >
-                <InfoBot />
+                  <InfoBot prefix={bot.prefix_bot} />
               </Grid>
               
               <Grid item xs={12}>
                 <Divider style={{ marginBottom: 20 }}/>
                 <Box className={classes.devsContent}>
-                  Desarrollado por: 
+                  Desarrollado por:
                   <Box>
                     {devTest.map((dev) => {
                       return (

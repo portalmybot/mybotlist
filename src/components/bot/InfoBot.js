@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 const badges = ['verificado', 'premium']
 
-export default function InfoBot() {
+export default function InfoBot(props) {
   const classes = useStyles();
 
   return (
@@ -62,7 +62,7 @@ export default function InfoBot() {
       
       <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="outlined" aria-label="outlined button group">
         <Button color="secondary">Prefix</Button>
-        <Button>?</Button>
+        <Button>{ props.prefix }</Button>
       </ButtonGroup>
       <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="outlined" aria-label="small outlined button group">
         <Button color="default">Estado</Button>

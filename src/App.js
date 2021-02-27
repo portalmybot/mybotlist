@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from "react-router-dom";
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -23,7 +23,7 @@ const guestRoutes = [
   { path: "/", component: Home, exact: true },
   { path: "/auth/discord", component: Login, exact: true },
   { path: "/register", component: Register, exact: true },
-  { path: "/bot", component: Bot, exact: true },
+  { path: "/bot/:id", component: Bot, exact: true },
 ];
 
 const protectedRoutes = [
