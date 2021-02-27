@@ -9,7 +9,7 @@ export const getHomeBots = async () => {
 export const getBot = async (id) => {
   const { data } = await http.get(`/home/bot/${id.queryKey[1].id}`);
 
-  return data;
+  return data[0];
   
 };
 
