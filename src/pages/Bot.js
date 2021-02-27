@@ -94,8 +94,6 @@ client.on('message', (message) => {
 \`\`\`
 `;
 
-
-
 export default function Bot() {
   const { id } = useParams();
   const { isLoading, data: bot = {}, error} = useQuery(
@@ -109,62 +107,67 @@ export default function Bot() {
 
   const classes = useStyles();
   
-  return isLoading ? (
-    'Cargando...'
-  ) : error ? (
-     <h1>Error!</h1>
-  ) : (
+  return (
     <Layout>
-      <Container maxWidth={false} className={classes.containerbg}/*  style={{ background: 'linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://i.imgur.com/94Mqbdi.jpeg) center top / cover no-repeat fixed', height: '150vh' }} */>
-        <Container maxWidth={'lg'}>
-          <div className={classes.root}>
-            <Grid container spacing={1} justify='center'>
-              <Grid item xs={12} sm={6}>
-                <Box display="flex">
-                  <Box m="auto">
-                    <AvatarBot />
+      {
+        isLoading ? (
+           'Cargando...'
+        ) : error ? (
+          <h1>Error!</h1>
+        ) : (
+        <Container maxWidth={false} className={classes.containerbg}/*  style={{ background: 'linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://i.imgur.com/94Mqbdi.jpeg) center top / cover no-repeat fixed', height: '150vh' }} */>
+          <Container maxWidth={'lg'}>
+            <div className={classes.root}>
+              <Grid container spacing={1} justify='center'>
+                <Grid item xs={12} sm={6}>
+                  <Box display="flex">
+                    <Box m="auto">
+                      <AvatarBot />
+                    </Box>
                   </Box>
-                </Box>
-                <Box className={classes.action}>
-                  <ActionBot />
-                </Box>
-              </Grid>
-              <Grid item xs={12} sm={6} >
-                  <InfoBot prefix={bot.prefix_bot} />
-              </Grid>
-              
-              <Grid item xs={12}>
-                <Divider style={{ marginBottom: 20 }}/>
-                <Box className={classes.devsContent}>
-                  Desarrollado por:
-                  <Box>
-                    {devTest.map((dev) => {
-                      return (
-                        <DevsBot value={dev} />
-                      )
-                    })
-
-                    }
+                  <Box className={classes.action}>
+                    <ActionBot />
                   </Box>
-                </Box>
-              </Grid>
+                </Grid>
+                <Grid item xs={12} sm={6} >
+                    <InfoBot prefix={bot.prefix_bot} />
+                </Grid>
+                
+                <Grid item xs={12}>
+                  <Divider style={{ marginBottom: 20 }}/>
+                  <Box className={classes.devsContent}>
+                    Desarrollado por:
+                    <Box>
+                      {devTest.map((dev) => {
+                        return (
+                          <DevsBot value={dev} />
+                        )
+                      })
 
-              <Grid item xs={12}>
-                <Divider style={{ marginBottom: 20 }}/>
-                <Box className={classes.descriptionContent}>
-                   <div
-                      style={outputStyle}
-                      dangerouslySetInnerHTML={{
-                        __html: marked(testContentDescription),
-                      }}
-                    ></div>
-                </Box>
+                      }
+                    </Box>
+                  </Box>
+                </Grid>
+
+                <Grid item xs={12}>
+                  <Divider style={{ marginBottom: 20 }}/>
+                  <Box className={classes.descriptionContent}>
+                    <div
+                        style={outputStyle}
+                        dangerouslySetInnerHTML={{
+                          __html: marked(testContentDescription),
+                        }}
+                      ></div>
+                  </Box>
+                </Grid>
               </Grid>
-            </Grid>
-          </div>
-        
+            </div>
+          
+          </Container>
         </Container>
-      </Container>
+
+        )
+      }
     </Layout>
   );
 }
