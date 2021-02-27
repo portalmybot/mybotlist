@@ -126,7 +126,7 @@ export default function Bot() {
                     </Box>
                   </Box>
                   <Box className={classes.action}>
-                    <ActionBot />
+                    <ActionBot bot={bot} />
                   </Box>
                 </Grid>
                 <Grid item xs={12} sm={6} >
@@ -139,13 +139,6 @@ export default function Bot() {
                     Desarrollado por:
                     <Box>
                        <DevsBot user={bot.user_bot} />
-                      {/* {devTest.map((dev) => {
-                        return (
-                          <DevsBot value={dev} />
-                        )
-                      })
-
-                      } */}
                     </Box>
                   </Box>
                 </Grid>
