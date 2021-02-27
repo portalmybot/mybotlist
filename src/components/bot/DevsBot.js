@@ -10,16 +10,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DevsBot({value}) {
+export default function DevsBot({ user }) {
   const classes = useStyles();
+  const { social_provider, social_avatarUrl } = user;
 
   return (
       <Chip
         className={classes.root}
-       /*  avatar={<Avatar alt="Natacha" src="/static/images/avatar/1.jpg" />} */
-        avatar={<Avatar>M</Avatar>}
-        label={value}
-        component="a" href={'u/'+value} clickable
+        avatar={<Avatar alt={'Avatar '+social_provider} src={social_avatarUrl} />}
+        /* avatar={<Avatar>M</Avatar>} */
+        label={social_provider}
+        component="a" href={'../u/'+social_provider} clickable
       />
   );
 }

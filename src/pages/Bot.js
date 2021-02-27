@@ -56,8 +56,8 @@ var outputStyle = {
   border: '1px solid #33343b',
   padding: "10px 20px",
 };
-const devTest = ['CraterMaik', 'Maik'];
-
+/* const devTest = ['CraterMaik', 'Maik'];
+ */
 const testContentDescription = `# Introducción 
 ¡Adelante, juega con el editor! Asegúrate de revisar el estilo **negrita** y *cursiva*, o incluso los enlaces [portalmybot](https://portalmybot.com).
 
@@ -138,13 +138,14 @@ export default function Bot() {
                   <Box className={classes.devsContent}>
                     Desarrollado por:
                     <Box>
-                      {devTest.map((dev) => {
+                       <DevsBot user={bot.user_bot} />
+                      {/* {devTest.map((dev) => {
                         return (
                           <DevsBot value={dev} />
                         )
                       })
 
-                      }
+                      } */}
                     </Box>
                   </Box>
                 </Grid>
