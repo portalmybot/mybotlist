@@ -164,7 +164,7 @@ export default function Bot() {
             </div>
           
           </Container>
-        </Container>
+          </Container>
 
         )
       }

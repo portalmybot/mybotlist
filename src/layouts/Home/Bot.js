@@ -15,6 +15,9 @@ import Chip from '@material-ui/core/Chip';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import Button from '@material-ui/core/Button';
 
+import Link from '@material-ui/core/Link';
+import { Link as RouterLink } from 'react-router-dom';
+
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
@@ -134,8 +137,10 @@ const CardList = ({ value }) => {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-        <Button variant="contained" className={classes.expand} color="primary" href={'/bot/'+id_bot}>
-          Ver
+        <Button variant="contained" className={classes.expand} color="primary">
+           <Link component={RouterLink} to={'/bot/'+id_bot} color="inherit">
+            Ver
+          </Link>
         </Button>
        
       </CardActions>
