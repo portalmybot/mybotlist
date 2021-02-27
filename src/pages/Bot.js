@@ -130,7 +130,7 @@ export default function Bot() {
                   </Box>
                 </Grid>
                 <Grid item xs={12} sm={6} >
-                    <InfoBot prefix={bot.prefix_bot} />
+                    <InfoBot bot={bot} />
                 </Grid>
                 
                 <Grid item xs={12}>

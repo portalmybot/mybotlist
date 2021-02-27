@@ -44,8 +44,9 @@ const useStyles = makeStyles((theme) => ({
 }))
 const badges = ['verificado', 'premium']
 
-export default function InfoBot(props) {
+export default function InfoBot({ bot }) {
   const classes = useStyles();
+  const { prefix_bot, tags, shortDesc_bot } = bot;
 
   return (
     <Container maxWidth={'lg'} className={classes.container}>
@@ -62,7 +63,7 @@ export default function InfoBot(props) {
       
       <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="outlined" aria-label="outlined button group">
         <Button color="secondary">Prefix</Button>
-        <Button>{ props.prefix }</Button>
+        <Button>{ prefix_bot }</Button>
       </ButtonGroup>
       <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="outlined" aria-label="small outlined button group">
         <Button color="default">Estado</Button>
@@ -70,16 +71,21 @@ export default function InfoBot(props) {
       </ButtonGroup>
 
       <Typography variant="subtitle1" className={classes.subtitle} gutterBottom>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur
+        {shortDesc_bot}
       </Typography>
 
       <Typography variant="caption" display="block" className={classes.subtags} gutterBottom>
         Tags:
       </Typography>
       <Box component="span" m={0} className={classes.tagContent}>
-        <Chip label="Administración" className={classes.tags} component="a" href="./tag/chip" clickable variant="outlined" />
-        <Chip label="Memes" className={classes.tags} component="a" href="./tag/chip" clickable variant="outlined" />
-        
+        {
+          tags.map((tag, index) => {
+            return (
+              <Chip key={index} label={tag.name_tag} className={classes.tags} component="a" href={'../tag/'+tag.name_tag} clickable variant="outlined" />
+            )
+          })
+
+        }
       </Box>
       <LinksBot />
       

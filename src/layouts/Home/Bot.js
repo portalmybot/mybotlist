@@ -83,9 +83,9 @@ const CardList = ({ value }) => {
     vote_bot,
     tags
   } = value;
-
+  
   return (
-    <Card className={classes.root}>
+    <Card key={id_bot} className={classes.root}>
       <CardHeader
         avatar={
           <Avatar alt="Image title" /* src="https://source.unsplash.com/random" */ variant="square" className={classes.avatar}>
