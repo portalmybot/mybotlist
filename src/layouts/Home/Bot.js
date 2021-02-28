@@ -43,9 +43,6 @@ const useStyles = makeStyles((theme) => ({
   expand: {
     marginLeft: 'auto',
     marginRight: theme.spacing(1),
-    '& .MuiLink-underlineHover:hover': {
-      textDecoration: 'none',
-    }
   },
   avatar: {
     backgroundColor: red[500],
@@ -141,8 +138,8 @@ const CardList = ({ value }) => {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-        <Link component={RouterLink} className={classes.expand} to={'/bot/'+id_bot} color="inherit">
-          <Button variant="contained" color="primary">
+        <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/'+id_bot} color="inherit">
+          <Button compone variant="contained" color="primary">
            Ver
           </Button>
         </Link>
