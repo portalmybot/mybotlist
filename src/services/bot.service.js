@@ -1,5 +1,5 @@
 import http from "./HttpService";
-import MeService from './me.service';
+import { getUser } from './me.service';
 
 export const getHomeBots = async () => {
   const response = await http.get("/home/bots");
@@ -14,7 +14,7 @@ export const getBot = async (id) => {
 };
 
 export const addBot = async ({ data }) => {
-  const userLogin = await MeService()
+  const userLogin = await getUser();
 
   const postData = {
     id_bot: data.id_bot,

@@ -1,34 +1,27 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
+import { useQuery } from 'react-query'
 
 import MeContent from '../layouts/Me/MeContent';
-import MeService from '../services/me.service';
+import { getUser } from '../services/me.service';
 import Layout from '../components/Layout';
+
 /* import { useHistory } from 'react-router-dom';
  */
 const Me = () => {
-  const [data, setData] = useState();
-/*   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false); */
- /*  const history = useHistory();
+  const { isLoading, data: user, error } = useQuery('getuser', getUser);
 
-  function newRoute() {
-    history.push('/my-route')
-  } */
-  
-  useEffect(() => {
-    (async () => {
-      const data = await MeService()
-      console.log('response', data)
-     // navigation.navigate(data ? 'App' : 'Auth')
-      setData(data.user.social_provider)
-    })()
- 
-  }, []);
-  
   return (
      <div>
       <Layout>
-        <MeContent data={data} />
+        {
+          isLoading ? (
+            'Cargando..'
+          ) : error ? (
+            <h1>Error!</h1>
+          ) : (
+            <MeContent user={user.user} />
+          )
+        }
       </Layout>
      </div>
 
