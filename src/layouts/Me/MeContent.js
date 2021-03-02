@@ -4,6 +4,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import { red } from '@material-ui/core/colors';
+
+
 const useStyles = makeStyles((theme) => ({
   meContent: {
     padding: theme.spacing(5, 5, 20, 5),
@@ -23,8 +25,7 @@ const useStyles = makeStyles((theme) => ({
  })
 )
 
-const MeContent = ({data}) => {
-  console.log(data);
+const MeContent = ({ user }) => {
   const classes = useStyles();
 
   return (
@@ -40,19 +41,7 @@ const MeContent = ({data}) => {
       </Typography>
       
       <Typography variant="h6" align="center" color="inherit" className={classes.textContent} paragraph>
-         {"Hola " + data}
-        {/* {data[1] ? (
-            "Cargando...."
-          ): null}
-
-          {!data[1] && data[2] ? (
-            "¡Oh, no, algo salió mal!"
-          ): null}
-
-          {data[0] ? (  */}
-           
-
-          {/* ): null} */}
+         {"Hola " + user.social_provider}
       </Typography>
     </div>
 
