@@ -6,7 +6,7 @@ import Divider from '@material-ui/core/Divider';
 
 import AvatarUser from "../../components/me/AvatarUser";
 import InfoUser from "../../components/me/InfoUser";
-import BotsUser from "../../components/me/botsUser";
+import BotsUser from "../../components/me/BotsUser";
 
 const MeContent = ({ user }) => {
 
