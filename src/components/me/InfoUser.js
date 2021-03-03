@@ -6,11 +6,10 @@ import Container from '@material-ui/core/Container';
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: theme.spacing(3, 2, 4),
-
   },
   title: {
     fontWeight: 700,
-    marginBottom: theme.spacing(3)
+    marginBottom: theme.spacing(1)
   },
 }))
 
@@ -20,7 +19,7 @@ export default function InfoUser({ user }) {
 
   return (
     <Container maxWidth={'lg'} className={classes.container}>
-      <Typography variant="h3" component="h1" className={classes.title}>
+      <Typography variant="h4" component="h1" className={classes.title}>
         { social_provider }
         
       </Typography>

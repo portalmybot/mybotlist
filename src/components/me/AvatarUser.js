@@ -19,7 +19,7 @@ export default function AvatarBot({ user }) {
   const classes = useStyles();
 
   return (
-    <Avatar variant='circle' className={classes.large} alt={user.social_provider} src={user.social_avatarUrl} />
+    <Avatar variant='circular' className={classes.large} alt={user.social_provider} src={user.social_avatarUrl} />
 
   );
 }

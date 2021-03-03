@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   containerbg: {
     padding: theme.spacing(4, 0),
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -36,7 +37,7 @@ const Me = () => {
                   <Grid container spacing={1} justify='center'>
 
                     <MeContent user={user.user} />
-
+                    
                   </Grid>
                 </div>
               </Container>

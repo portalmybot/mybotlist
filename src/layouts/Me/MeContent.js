@@ -6,6 +6,7 @@ import Divider from '@material-ui/core/Divider';
 
 import AvatarUser from "../../components/me/AvatarUser";
 import InfoUser from "../../components/me/InfoUser";
+import BotsUser from "../../components/me/botsUser";
 
 const MeContent = ({ user }) => {
 
@@ -25,6 +26,11 @@ const MeContent = ({ user }) => {
                 <InfoUser user={user} />
               </Box>
             </Box>
+            <Divider />
+        </Grid>
+
+        <Grid item xs={12} sm={12}>
+          <BotsUser />
         </Grid>
       </>
 
