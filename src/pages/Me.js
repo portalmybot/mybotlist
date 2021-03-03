@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   containerbg: {
-    padding: theme.spacing(3, 0),
+    padding: theme.spacing(4, 0),
   },
 }));
 
@@ -31,7 +31,7 @@ const Me = () => {
             <h1>Error!</h1>
           ) : (
             <Container maxWidth={false} className={classes.containerbg}>
-              <Container maxWidth={'lg'}>
+              <Container maxWidth={'sm'}>
                 <div className={classes.root}>
                   <Grid container spacing={1} justify='center'>
 

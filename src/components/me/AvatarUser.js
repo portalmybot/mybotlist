@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
-import AdbIcon from '@material-ui/icons/Adb';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,19 +10,16 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   large: {
-    width: theme.spacing(38),
-    height: theme.spacing(38),
+    width: theme.spacing(20),
+    height: theme.spacing(20),
   }
 }));
 
-export default function AvatarBot() {
+export default function AvatarBot({ user }) {
   const classes = useStyles();
 
   return (
-
-      <Avatar variant="square" className={classes.large}>
-        <AdbIcon />
-      </Avatar>
+    <Avatar variant='circle' className={classes.large} alt={user.social_provider} src={user.social_avatarUrl} />
 
   );
 }
