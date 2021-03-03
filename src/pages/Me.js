@@ -31,13 +31,14 @@ const Me = () => {
           ) : error ? (
             <h1>Error!</h1>
           ) : (
+            
             <Container maxWidth={false} className={classes.containerbg}>
               <Container maxWidth={'sm'}>
                 <div className={classes.root}>
                   <Grid container spacing={1} justify='center'>
 
-                    <MeContent user={user.user} />
-                    
+                    <MeContent user={user}/>
+
                   </Grid>
                 </div>
               </Container>
