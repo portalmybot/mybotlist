@@ -30,7 +30,7 @@ const MeContent = ({ user }) => {
         </Grid>
 
         <Grid item xs={12} sm={12}>
-          <BotsUser />
+          <BotsUser bots={user.bots}/>
         </Grid>
       </>
 

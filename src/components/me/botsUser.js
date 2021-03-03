@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import Bot from '../../layouts/Home/Bot';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,19 +14,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SpacingGrid() {
+export default function BotsUser({bots}) {
   const classes = useStyles();
-
   return (
     <Grid container className={classes.root} spacing={2}>
 
       <Grid item xs={12}>
         <Grid container justify="center" spacing={2}>
-          {[0, 1, 2].map((value) => (
-            <Grid key={value} item>
-              <Paper className={classes.paper} />
-            </Grid>
-          ))}
+          <>
+            {bots.map((bot) => {
+              return (
+                  <Grid key={'botme-'+bot.id_bot} item xs={12} sm={6}>
+                    <Bot value={bot} />
+                  </Grid>
+
+                )
+              })
+            }
+          </>
         </Grid>
       </Grid>
      
