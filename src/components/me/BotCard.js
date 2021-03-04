@@ -4,21 +4,19 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-/* import CardMedia from '@material-ui/core/CardMedia'; */
 import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red, green, yellow, /* grey */} from '@material-ui/core/colors';
-import ShareIcon from '@material-ui/icons/Share';
+
 import Chip from '@material-ui/core/Chip';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import Button from '@material-ui/core/Button';
 
 import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom';
-
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import CallMadeIcon from '@material-ui/icons/CallMade';
 
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 /* import SettingsIcon from '@material-ui/icons/Settings'; */
@@ -121,7 +119,7 @@ const BotCard = ({ value }) => {
             tags.map((tag) => {
               return (
                 <>
-                  <Chip key={'tag-' + tag.name} label={tag.name_tag} variant="outlined" component="a" color="secondary" size="small" className={classes.tag} style={{fontSize: 10}}/>
+                  <Chip key={'tagBot-' + tag.name} label={tag.name_tag} variant="outlined" component="a" color="default" size="small" className={classes.tag} style={{fontSize: 10}}/>
                 </>
               )
             })
@@ -132,17 +130,25 @@ const BotCard = ({ value }) => {
       </CardContent>
       <Divider variant="middle" />
       <CardActions disableSpacing className={classes.section3}>
-        <IconButton aria-label="add to favorites" href={'/vote/'+id_bot}>
-          <FavoriteBorderIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/'+id_bot} color="inherit">
-          <Button compone variant="contained" color="primary">
-           Ver
+        <Link underline='none' component={RouterLink} to={'/bot/'+id_bot+'/edit/'} className={classes.tag} color="inherit">
+          <Button variant="contained" size={'small'} color="primary">
+           Editar
           </Button>
         </Link>
+
+        <Link underline='none' component={RouterLink} to={'/bot/'+id_bot+'/delete/'} color="inherit">
+          <Button variant="contained"  size={'small'} color="secondary">
+           Eliminar
+          </Button>
+        </Link>
+
+        <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/'+id_bot} color="inherit">
+          <IconButton aria-label="Bot view" >
+            <CallMadeIcon color={'action'} />
+          </IconButton>
+        </Link>
+
+
        
       </CardActions>
       

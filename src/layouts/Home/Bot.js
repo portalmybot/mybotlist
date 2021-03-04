@@ -139,7 +139,7 @@ const CardList = ({ value }) => {
           <ShareIcon />
         </IconButton>
         <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/'+id_bot} color="inherit">
-          <Button compone variant="contained" color="primary">
+          <Button variant="contained" color="primary">
            Ver
           </Button>
         </Link>

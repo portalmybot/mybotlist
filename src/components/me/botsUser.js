@@ -24,7 +24,7 @@ export default function BotsUser({bots}) {
           <>
             {bots.map((bot) => {
               return (
-                  <Grid key={'botme-'+bot.id_bot} item xs={12} sm={6}>
+                  <Grid key={bot.id_bot} item xs={12} sm={6}>
                     <Bot value={bot} />
                   </Grid>
 
