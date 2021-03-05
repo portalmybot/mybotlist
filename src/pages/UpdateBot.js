@@ -226,15 +226,9 @@ export default function AddBot() {
             color="primary"
             className={classes.submit}
           >
-            Agregar
+            Guardar
           </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="#" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
-          </Grid>
+
         </form>
       </div>
 

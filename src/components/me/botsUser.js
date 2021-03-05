@@ -27,7 +27,6 @@ export default function BotsUser({bots}) {
                   <Grid key={bot.id_bot} item xs={12} sm={6}>
                     <Bot value={bot} />
                   </Grid>
-
                 )
               })
             }
