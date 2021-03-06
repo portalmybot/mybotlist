@@ -94,14 +94,12 @@ const BotCard = ({ value }) => {
         action={
           <Chip label={vote_bot} icon={<ImportExportIcon />} variant="outlined"/>
         }
-
         subheader= {
           <>
             <VerifiedUserIcon style={{ color: green[500] }} className={classes.icon}/>
             <OfflineBoltIcon style={{ color: yellow[500] }} className={classes.icon}/>
           </>
         }
-
       />
       
       <CardContent className={classes.section1}>
@@ -146,8 +144,6 @@ const BotCard = ({ value }) => {
           </IconButton>
         </Link>
 
-
-       
       </CardActions>
       
     </Card>
