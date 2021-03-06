@@ -97,9 +97,7 @@ const BotCard = ({ value }) => {
 
         subheader= {
           <>
-           {/*  <SettingsIcon style={{ color: grey[500] }} className={classes.icon} /> */}
             <VerifiedUserIcon style={{ color: green[500] }} className={classes.icon}/>
-
             <OfflineBoltIcon style={{ color: yellow[500] }} className={classes.icon}/>
           </>
         }
