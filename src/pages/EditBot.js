@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -63,9 +62,7 @@ export default function AddBot() {
   const [tags, setTags] = useState({});
   const [errors, setErrors] = useState({});
   
-  const {isLoading, data: tagsQuery} = useQuery('tags', getTags, {
-     refetchAllOnWindowFocus: false,
-  })
+  const {isLoading, data: tagsQuery} = useQuery('tags', getTags)
   const mutate = useMutation(addBot);
   const mutateTag = useMutation(addTags);
   const handleChange = (fieldName) => (event) => {

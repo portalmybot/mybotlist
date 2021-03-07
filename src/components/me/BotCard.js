@@ -126,7 +126,7 @@ const BotCard = ({ value }) => {
       </CardContent>
       <Divider variant="middle" />
       <CardActions disableSpacing className={classes.section3}>
-        <Link underline='none' component={RouterLink} to={'/bot/'+id_bot+'/edit/'} className={classes.tag} color="inherit">
+        <Link underline='none' component={RouterLink} to={'/bot/'+id_bot+'/edit'} className={classes.tag} color="inherit">
           <Button variant="contained" size={'small'} color="primary">
            Editar
           </Button>

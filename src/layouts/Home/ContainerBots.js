@@ -21,9 +21,7 @@ const SLoading = [1,2,3,4,5,6,7,8]
 
 const BotList = () => {
   const classes = useStyles();
-  const {isLoading, data: bots} = useQuery('bots', getHomeBots, {
-     refetchAllOnWindowFocus: false,
-  })
+  const {isLoading, data: bots} = useQuery('bots', getHomeBots)
 
   return (
     <>

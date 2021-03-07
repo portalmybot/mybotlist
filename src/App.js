@@ -15,6 +15,7 @@ import Home from './pages/Home';
 import Register from './pages/Register';
 import Bot from './pages/Bot';
 import Add from './pages/AddBot';
+import Edit from './pages/EditBot';
 import Login from './Login';
 import Me from './pages/Me';
 /* import Tos from './pages/Tos';
@@ -29,6 +30,7 @@ const guestRoutes = [
 const protectedRoutes = [
   { path: "/me", component: Me, exact: true },
   { path: "/add", component: Add, exact: true },
+  { path: "/bot/:id/edit", component: Edit, exact: true },
 ];
 
 function App() {
