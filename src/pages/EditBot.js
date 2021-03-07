@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-
+import { useParams } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -11,19 +11,16 @@ import Joi from "@hapi/joi";
 import { useSnackbar } from 'notistack';
 
 import { useMutation, useQuery } from "react-query";
-import { TagsSelect } from "react-select-material-ui";
+
 import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
 import AlertInput from '../components/common/AlertInput';
-import { addBot, addTags, getTags } from '../services/bot.service';
-
+import { getBot, updateBot } from '../services/bot.service';
+/* import { getUser } from '../services/me.service';
+ */
 const schema = Joi.object({
-  id_bot: Joi.string().trim().min(18).max(22).required(),
-  idUser_bot: Joi.string().trim().min(18).max(22),
   prefix_bot: Joi.string().min(1).max(100).required(),
   shortDesc_bot: Joi.string().min(10).max(190).required(),
-  note_bot: Joi.string(),
-  invite_bot: Joi.string(),
 })
 
 const useStyles = makeStyles((theme) => ({
@@ -43,28 +40,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const StyleSelect = {
-  color: '#6930c3', 
-  backgroundColor: 'transparent',
-  border: '1px solid gray', 
-  borderRadius: '3px', 
-  padding: '0 10px',
-  outline: 'none',
-}
 
-
-export default function AddBot() {
+export default function EditBot() {
   const classes = useStyles();
   const { enqueueSnackbar } = useSnackbar();
   const [submitting, setSubmitting] = useState(false);
   const [alert, setAlert] = useState({success: false});
   const [data, setData] = useState({});
-  const [tags, setTags] = useState({});
   const [errors, setErrors] = useState({});
-  
-  const {isLoading, data: tagsQuery} = useQuery('tags', getTags)
-  const mutate = useMutation(addBot);
-  const mutateTag = useMutation(addTags);
+  const { id } = useParams();
+
+  const {isLoading, error, data: botQuery = {}} = useQuery(['getBotEdit', {id: id}], getBot)
+
+  const mutateUpdateBot = useMutation(updateBot);
+
   const handleChange = (fieldName) => (event) => {
     const value = event.target.value;
 
@@ -72,22 +61,13 @@ export default function AddBot() {
     setData((prev) => ({ ...prev, [fieldName]: value }));
     
   };
-  const handleChangeTags = (values) => {
-    console.log(values);
-    setTags(values)
-  };
 
-  /* const handleClickVariant = (variant) => () => {
-    // variant could be success, error, warning, info, or default
-    enqueueSnackbar('This is a success message!', {
-      variant
-    });
-  }; */
   const handleSubmit = event => {
     event.preventDefault();
 
-    const validation = schema.validate(data, { abortEarly: false });
-    if(validation.error) {
+    /* const validation = schema.validate(data, { abortEarly: false });
+ */
+    /* if(validation.error) {
       const errors = validation.error.details.reduce((acc, current) => {
         return {
           ...acc,
@@ -98,13 +78,13 @@ export default function AddBot() {
       enqueueSnackbar('Debes agregar los datos de su BOT en los campos requeridos.', { variant: 'error'});
       console.log('entro datos Error');
       return;
-    }
+    } */
+
     console.log('entro datos');
     setSubmitting(true);
     setTimeout(() => {
       setSubmitting(false);
-      mutate.mutate({ data });
-      mutateTag.mutate({ id_bot: data.id_bot, tags});
+      mutateUpdateBot.mutate({ data });
       setAlert({ success: true });
      /*  const limpio = Object.keys(data).reduce((acc, current) => {
         return {
@@ -117,70 +97,54 @@ export default function AddBot() {
 
   }
   const { success } = alert;
+  const { prefix_bot, shortDesc_bot } = botQuery;
+
   return (
     <Layout>
+       {
+        isLoading ? (
+           'Cargando...'
+        ) : error ? (
+          <h1>Error!</h1>
+        ) : (
       <Container component="main" maxWidth="md">
       <div className={classes.paper}>
         
         <Typography component="h1" variant="h5">
-          Ingrese la información de su bot
+          Editar Bot
         </Typography>
         <form className={classes.form} noValidate autoComplete="off" onSubmit={handleSubmit}>
           <Grid container spacing={2}>
-            <Grid item xs={12} >
-              <TextField
-                name="id_bot"
-                value={data["id_bot"]}
-                onChange={handleChange("id_bot")}
-                error={errors["id_bot"] ? true : false}
-                variant="outlined"
-                required
-                fullWidth
-                id="idBot"
-                label="ID BOT (550712806543065108)"
-                autoFocus
-              />
-            </Grid>
-
             <Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
                 name="prefix_bot"
+                defaultValue={!isLoading ? prefix_bot : null}
                 value={data["prefix_bot"]}
                 onChange={handleChange("prefix_bot")}
                 error={errors["prefix_bot"] ? true : false}
                 required
                 fullWidth
                 id="prefixBOT"
-                label="Prefix BOT"
+                helperText="Prefix BOT"
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
-                <TagsSelect
-                  style={StyleSelect}
-                  label="Seleccione las categoria de su BOT"
-                  options={!isLoading && tagsQuery.map((tg) => tg.name_tag)}
-                  onChange={handleChangeTags}
-                  SelectProps={{
-                    msgNoOptionsAvailable: "All tags are selected",
-                    msgNoOptionsMatchFilter: "No tag matches the filter",
-                  }}
-               />
-            </Grid>
+
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
                 name="shortDesc_bot"
+                defaultValue={!isLoading ? shortDesc_bot : null}
                 value={data["shortDesc_bot"]}
                 onChange={handleChange("shortDesc_bot")}
                 error={errors["shortDesc_bot"] ? true : false}
                 fullWidth
                 id="TitleBOT"
-                label="Un breve titulo de su BOT (minimo de 10 caracteres)"
+                helperText="Un breve titulo de su BOT (minimo de 10 caracteres)"
               />
             </Grid>
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 name="invite_bot"
@@ -188,14 +152,14 @@ export default function AddBot() {
                 onChange={handleChange("invite_bot")}
                 fullWidth
                 id="LinkBOT"
-                label="Enlace de invitación de su BOT"
+                helperText="Enlace de invitación de su BOT"
               />
             </Grid>
 
             <Grid item xs={12}>
                 <TextField
                   id="NoteBot"
-                  label="Nota Extra de su BOT"
+                  helperText="Nota Extra de su BOT"
                   required
                   name="note_bot"
                   value={data["note_bot"]}
@@ -207,7 +171,7 @@ export default function AddBot() {
                   fullWidth
                 />
 
-            </Grid>
+            </Grid> */}
           </Grid>
           {submitting &&
             <LoadingLinear />
@@ -229,6 +193,8 @@ export default function AddBot() {
       </div>
 
      </Container>
+     )
+    }
     </Layout>
     
   );
