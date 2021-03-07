@@ -118,7 +118,6 @@ export default function AddBot() {
       setData(limpio); */
     }, 5000)
 
-
   }
   const { success } = alert;
   return (
