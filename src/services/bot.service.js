@@ -23,22 +23,24 @@ export const addBot = async ({ data }) => {
     shortDesc_bot: data.shortDesc_bot,
     invite_bot: data.invite_bot ? data.invite_bot : null,
     note_bot: data.note_bot ? data.note_bot : null,
-
+    
   }
+  //console.log(postData);
   await http.post("/bots", postData);
   
 };
 export const updateBot = async ({ data }) => {
 
- /*  const postData = {
-    prefix_bot: data.prefix_bot,
+/*   const postData = {
+    prefix_bot: data.prefix_bot ? data.prefix_bot : null,
     shortDesc_bot: data.shortDesc_bot,
     invite_bot: data.invite_bot ? data.invite_bot : null,
     note_bot: data.note_bot ? data.note_bot : null,
 
   } */
+
   console.log(data);
-  //await http.put(`/bots/${id}`, postData);
+  await http.put(`/bots/${data.id}`, data);
 
 };
 export const getTags = async () => {

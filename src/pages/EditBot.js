@@ -46,9 +46,9 @@ export default function EditBot() {
   const { enqueueSnackbar } = useSnackbar();
   const [submitting, setSubmitting] = useState(false);
   const [alert, setAlert] = useState({success: false});
-  const [data, setData] = useState({});
-  const [errors, setErrors] = useState({});
   const { id } = useParams();
+  const [data, setData] = useState({id_bot: id});
+  const [errors, setErrors] = useState({});
 
   const {isLoading, error, data: botQuery = {}} = useQuery(['getBotEdit', {id: id}], getBot)
 
