@@ -40,8 +40,9 @@ export const updateBot = async ({ data }) => {
   } */
 
   console.log(data);
-  await http.put(`/bots/${data.id}`, data);
-
+  await http.put(`/bots/${data.id_bot}`, data);
+  
+  window.location.href = "http://localhost:3000/me";
 };
 export const getTags = async () => {
   const response = await http.get("/tags");
