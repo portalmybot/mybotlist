@@ -136,6 +136,7 @@ const BotCard = ({ value }) => {
           <Button variant="contained"  size={'small'} color="secondary">
            Eliminar
           </Button>
+          
         </Link>
 
         <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/'+id_bot} color="inherit">
