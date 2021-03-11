@@ -8,7 +8,7 @@ import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red, green, yellow, /* grey */} from '@material-ui/core/colors';
+import { red, green, yellow} from '@material-ui/core/colors';
 
 import Chip from '@material-ui/core/Chip';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
