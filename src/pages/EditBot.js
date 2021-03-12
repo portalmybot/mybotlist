@@ -19,8 +19,9 @@ import { getBot, updateBot } from '../services/bot.service';
 /* import { getUser } from '../services/me.service';
  */
 const schema = Joi.object({
-  prefix_bot: Joi.string().min(1).max(100).required(),
+  prefix_bot: Joi.string().min(1).max(7).required(),
   shortDesc_bot: Joi.string().min(10).max(190).required(),
+  id_bot: Joi.string().trim().min(18).max(22),
 })
 
 const useStyles = makeStyles((theme) => ({
@@ -59,15 +60,15 @@ export default function EditBot() {
 
     setErrors((prev) => ({ ...prev, [fieldName]: undefined }));
     setData((prev) => ({ ...prev, [fieldName]: value }));
-    
+    console.log(data);
   };
 
   const handleSubmit = event => {
     event.preventDefault();
 
-    /* const validation = schema.validate(data, { abortEarly: false });
- */
-    /* if(validation.error) {
+    const validation = schema.validate(data, { abortEarly: false });
+
+    if(validation.error) {
       const errors = validation.error.details.reduce((acc, current) => {
         return {
           ...acc,
@@ -78,7 +79,7 @@ export default function EditBot() {
       enqueueSnackbar('Debes agregar los datos de su BOT en los campos requeridos.', { variant: 'error'});
       console.log('entro datos Error');
       return;
-    } */
+    }
 
     console.log('entro datos');
     setSubmitting(true);

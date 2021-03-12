@@ -106,6 +106,7 @@ export default function AddBot() {
     setSubmitting(true);
     setTimeout(() => {
       setSubmitting(false);
+      
       mutate.mutate({ data });
       mutateTag.mutate({ id_bot: data.id_bot, tags});
       setAlert({ success: true });
