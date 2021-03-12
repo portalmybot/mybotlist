@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Redirect } from 'react-router';
+/* import { Redirect } from 'react-router'; */
 /* import { useHistory } from "react-router-dom";
 
 import useToken from './components/useToken';
@@ -25,13 +25,7 @@ export default function Login(props) {
         })
         .then((data) => {
           AuthService.handleLoginSuccess(data, true)
-          /* console.log();
-          if(!token) {
-            
-            setToken(data.access_token)
-            setId(data.id_discord)
-            
-          } */
+          window.location.href = 'http://localhost:3000/me';
 
         })
         .catch((error) => {
@@ -43,7 +37,7 @@ export default function Login(props) {
 
   return (
     <div>
-        <Redirect to="/tos" />
+       {/*  <Redirect from='/' to='/me'/> */}
     </div>
   );
 }

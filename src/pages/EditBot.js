@@ -80,7 +80,7 @@ export default function EditBot() {
       console.log('entro datos Error');
       return;
     }
-
+    
     console.log('entro datos');
     setSubmitting(true);
     setTimeout(() => {
