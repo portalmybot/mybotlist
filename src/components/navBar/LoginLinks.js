@@ -6,6 +6,7 @@ import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import { Link as RouterLink } from 'react-router-dom';
 
+import MenuAuth from "./Menu";
 import Auth from "../router/Auth";
 
 
@@ -22,7 +23,7 @@ const LoginLink = () => {
   const [login, setLogin] = useState([{
     url: null
   }]);
-
+  
   useEffect(() => {
     fetch("/api/auth/discord/login")
       .then(data => {
@@ -48,9 +49,7 @@ const LoginLink = () => {
       
     <Typography className={classes.root}>
         {Auth.isAuthenticated() ? (
-          <Link component={RouterLink} to="/me" color="inherit">
-            Perfil
-          </Link>
+         <MenuAuth />
         ): (
           <>
           <Link href={url} color="inherit">

@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function NavBar() {
   const classes = useStyles();
   const preventDefault = (event) => event.preventDefault();
 
