@@ -16,6 +16,10 @@ import CookieService from "../../services/CookieService";
 import { logoutUser } from "../../services/me.service";
 
 const useStyles = makeStyles((theme) => ({
+  big: {
+    width: theme.spacing(7),
+    height: theme.spacing(7),
+  },
   small: {
     width: theme.spacing(4.5),
     height: theme.spacing(4.5),
@@ -87,7 +91,7 @@ export default function MenuAuth() {
                   <Skeleton variant="circle" width={40} height={40} />
                 ) : (
                   <>
-                    <Avatar alt="Remy Sharp" src={user.social_avatarUrl} />
+                    <Avatar alt="Remy Sharp" src={user.social_avatarUrl} className={classes.big}/>
                   </>
                 )}
                
