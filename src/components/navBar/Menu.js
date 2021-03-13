@@ -1,6 +1,9 @@
 import React from 'react';
 import Link from '@material-ui/core/Link';
+import { useQuery } from 'react-query'
 import { Link as RouterLink } from 'react-router-dom';
+import { getUser } from '../../services/me.service';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
@@ -18,6 +21,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MenuAuth() {
+  const { isLoading, data: user } = useQuery('getuserMenu', getUser);
+
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -40,7 +45,12 @@ export default function MenuAuth() {
           onClick={handleMenu}
           color="inherit"
         >
-        <Avatar alt="Remy Sharp" src="https://material-ui.com/static/images/avatar/2.jpg" className={classes.small} />
+        {isLoading ? (
+          <Skeleton variant="circle" width={40} height={40} />
+        ) : (
+          <Avatar alt="Remy Sharp" src={user.social_avatarUrl} className={classes.small} />
+        )}
+
       </IconButton>
 
       <Menu
