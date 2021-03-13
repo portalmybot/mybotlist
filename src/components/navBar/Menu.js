@@ -4,19 +4,24 @@ import { useQuery } from 'react-query'
 import { Link as RouterLink } from 'react-router-dom';
 import { getUser } from '../../services/me.service';
 import Skeleton from '@material-ui/lab/Skeleton';
-
+import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import Avatar from '@material-ui/core/Avatar';
-
+import Divider from '@material-ui/core/Divider';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-
+import Typography from '@material-ui/core/Typography';
+import CookieService from "../../services/CookieService";
+import { logoutUser } from "../../services/me.service";
 
 const useStyles = makeStyles((theme) => ({
   small: {
     width: theme.spacing(4.5),
     height: theme.spacing(4.5),
+  },
+  boxMenu: {
+    padding: theme.spacing(2, 2, 0, 2)
   }
 }));
 
@@ -34,6 +39,13 @@ export default function MenuAuth() {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleLogout = async () => {
+    setAnchorEl(null);
+    CookieService.remove("access_token");
+    await logoutUser();
+    window.location.href = "http://localhost:3000";
   };
 
   return (
@@ -68,12 +80,38 @@ export default function MenuAuth() {
           open={open}
           onClose={handleClose}
         >
-          <Link underline='none' component={RouterLink} to="/me" color="inherit">
-            <MenuItem onClick={handleClose}>
-                Perfil
-            </MenuItem>
-          </Link>
-        <MenuItem onClick={handleClose}>Cerrar Sesión</MenuItem>
+
+          <Box display="flex" className={classes.boxMenu}>
+            <Box m="auto">
+                {isLoading ? (
+                  <Skeleton variant="circle" width={40} height={40} />
+                ) : (
+                  <>
+                    <Avatar alt="Remy Sharp" src={user.social_avatarUrl} />
+                  </>
+                )}
+               
+            </Box>
+          </Box>
+          <Box display="flex">
+            <Box m="auto">
+              {!isLoading && (
+                <>
+                <Typography variant="subtitle1" gutterBottom>
+                  {user.social_provider}
+                </Typography>
+                </>
+              )}
+                
+            </Box>
+          </Box>
+        <Divider />
+        <Link underline='none' component={RouterLink} to="/me" color="inherit">
+          <MenuItem onClick={handleClose}>
+             Perfil
+          </MenuItem>
+        </Link>
+        <MenuItem onClick={handleLogout}>Cerrar Sesión</MenuItem>
       </Menu>
     </div>
   );
