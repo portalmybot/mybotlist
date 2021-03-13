@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from '@material-ui/core/Link';
+import { Link as RouterLink } from 'react-router-dom';
 
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -43,8 +45,12 @@ export default function MenuAuth() {
           open={open}
           onClose={handleClose}
         >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
+          <Link underline='none' component={RouterLink} to="/me" color="inherit">
+            <MenuItem onClick={handleClose}>
+                Perfil
+            </MenuItem>
+          </Link>
+        <MenuItem onClick={handleClose}>Cerrar Sesión</MenuItem>
       </Menu>
     </div>
   );
