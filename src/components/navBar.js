@@ -54,11 +54,9 @@ export default function NavBar() {
     setMobileMoreAnchorEl(null);
   };
 
-
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
@@ -71,7 +69,6 @@ export default function NavBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-     
       <MenuItem>
         <ButtonAdd />
       </MenuItem>
