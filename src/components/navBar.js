@@ -6,13 +6,14 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import DehazeIcon from '@material-ui/icons/Dehaze';
-import Link from '@material-ui/core/Link';
+import Box from '@material-ui/core/Box';
 
 import LogoHome from './navBar/LogoHome';
 import Search from './navBar/Search';
 import NavLinks from './navBar/NavLinks';
 import LoginLinks from './navBar/LoginLinks';
 import ButtonAdd from './navBar/ButtonAdd';
+import LoginLinksMobile from './navBar/LoginLinksMobile';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -44,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NavBar() {
   const classes = useStyles();
-  const preventDefault = (event) => event.preventDefault();
 
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -59,6 +59,7 @@ export default function NavBar() {
   };
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
+
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
@@ -72,17 +73,12 @@ export default function NavBar() {
       <MenuItem>
         <ButtonAdd />
       </MenuItem>
-      <MenuItem>
-        <Link href="/login" onClick={preventDefault} color="inherit">
-          Login
-        </Link>
-      </MenuItem>
-      <MenuItem>
-        <Link href="/register" onClick={preventDefault} color="inherit">
-          Registrar
-        </Link>
-      </MenuItem>
-
+       <Box display="flex" className={classes.boxMenu}>
+          <Box m="auto">
+            <LoginLinksMobile />
+          </ Box>
+        </ Box >
+      
     </Menu>
   );
 
