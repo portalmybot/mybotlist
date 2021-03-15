@@ -12,9 +12,10 @@ import Joi from "@hapi/joi";
 import { useSnackbar } from 'notistack';
 
 import { useMutation, useQuery } from "react-query";
-import { TagsSelect } from "react-select-material-ui";
+
 import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import AlertInput from '../components/common/AlertInput';
 import { addBot, addTags, getTags } from '../services/bot.service';
 
@@ -44,23 +45,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const StyleSelect = {
-  color: '#6930c3', 
-  backgroundColor: 'transparent',
-  border: '1px solid gray', 
-  borderRadius: '3px', 
-  padding: '0 10px',
-  outline: 'none',
-}
-
-
 export default function AddBot() {
   const classes = useStyles();
   const { enqueueSnackbar } = useSnackbar();
   const [submitting, setSubmitting] = useState(false);
   const [alert, setAlert] = useState({success: false});
   const [data, setData] = useState({});
-  const [tags, setTags] = useState({});
+  const [tags, setTags] = useState([]);
   const [errors, setErrors] = useState({});
   
   const {isLoading, data: tagsQuery} = useQuery('tags', getTags, {
@@ -75,17 +66,12 @@ export default function AddBot() {
     setData((prev) => ({ ...prev, [fieldName]: value }));
     
   };
-  const handleChangeTags = (values) => {
-    console.log(values);
-    setTags(values)
+  const handleChangeTags = (event, values) => {
+    let tagsValue = values.map((tag) => tag.name_tag);
+    console.log(tagsValue.slice(0, 3));
+    setTags(tagsValue.slice(0, 3))
   };
 
-  /* const handleClickVariant = (variant) => () => {
-    // variant could be success, error, warning, info, or default
-    enqueueSnackbar('This is a success message!', {
-      variant
-    });
-  }; */
   const handleSubmit = event => {
     event.preventDefault();
 
@@ -97,11 +83,20 @@ export default function AddBot() {
           [current.context.key]: current.message,
         }
       }, {});
+      
       setErrors(errors);
       enqueueSnackbar('Debes agregar los datos de su BOT en los campos requeridos.', { variant: 'error'});
+      
       console.log('entro datos Error');
       return;
     }
+    if (tags.length < 1) {
+      setErrors({tags_bot: 'tags_bot'})
+      enqueueSnackbar('Debes seleccionar las categorias para su BOT.', {
+        variant: 'error'
+      });
+      return;
+    } 
     console.log('entro datos');
     setSubmitting(true);
     setTimeout(() => {
@@ -161,16 +156,23 @@ export default function AddBot() {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-                <TagsSelect
-                  style={StyleSelect}
-                  label="Seleccione las categoria de su BOT"
-                  options={!isLoading && tagsQuery.map((tg) => tg.name_tag)}
-                  onChange={handleChangeTags}
-                  SelectProps={{
-                    msgNoOptionsAvailable: "All tags are selected",
-                    msgNoOptionsMatchFilter: "No tag matches the filter",
-                  }}
-               />
+               <Autocomplete
+                multiple
+                limitTags={3}
+                id="tags-outlined"
+                options={!isLoading && tagsQuery}
+                getOptionLabel={(option) => option.name_tag}
+                filterSelectedOptions
+                onChange={handleChangeTags}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    variant="outlined"
+                    label="Seleccione las categoria de su BOT"
+                    error={errors["tags_bot"] ? true : false}
+                  />
+                )}
+              />
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -201,7 +203,6 @@ export default function AddBot() {
                 <TextField
                   id="NoteBot"
                   label="Nota Extra de su BOT"
-                  required
                   name="note_bot"
                   value={data["note_bot"]}
                   onChange={handleChange("note_bot")}
