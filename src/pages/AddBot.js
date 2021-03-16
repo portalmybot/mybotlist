@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-
+import Divider from '@material-ui/core/Divider';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -59,6 +59,7 @@ export default function AddBot() {
   })
 
   
+
   const mutate = useMutation(addBot);
   const mutateTag = useMutation(addTags);
   const handleChange = (fieldName) => (event) => {
@@ -72,9 +73,10 @@ export default function AddBot() {
     let tagsValue = values.map((tag) => tag.name_tag);
     console.log(tagsValue.slice(0, 3));
     setTags(tagsValue.slice(0, 3))
+
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
 
     const validation = schema.validate(data, { abortEarly: false });
@@ -99,7 +101,13 @@ export default function AddBot() {
       });
       return;
     } 
-    console.log('entro datos');
+    const existsBot = await botExists(data.id_bot)
+
+    if(existsBot) {
+      setErrors({id_bot: 'id_bot'})
+      enqueueSnackbar('El ID del bot agregado ya esta registrado.', { variant: 'error'});
+      return;
+    }
     setSubmitting(true);
     setTimeout(() => {
       setSubmitting(false);
@@ -107,14 +115,19 @@ export default function AddBot() {
       mutate.mutate({ data });
       mutateTag.mutate({ id_bot: data.id_bot, tags});
       setAlert({ success: true });
-     /*  const limpio = Object.keys(data).reduce((acc, current) => {
+      const limpio = Object.keys(data).reduce((acc, current) => {
         return {
           ...acc,
           [current]: "",
         };
       }, {});
-      setData(limpio); */
+      setData(limpio);
+      setTags([]);
+      
     }, 5000)
+    setTimeout(() => {
+      window.location.href = 'http://localhost:3000/me';
+    }, 7000);
 
 
   }
@@ -221,6 +234,7 @@ export default function AddBot() {
           {submitting &&
             <LoadingLinear />
           }
+          <Divider />
           {success &&
             <AlertInput />
           }

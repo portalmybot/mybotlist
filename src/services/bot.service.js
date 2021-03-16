@@ -13,9 +13,8 @@ export const getBot = async (id) => {
   
 };
 export const botExists = async (id) => {
-  const response = await http.get(`/bots/exists/${id.queryKey[1].id}`);
-  console.log(response);
-  //return data[0];
+  const { data } = await http.get(`/bots/exists/${id}`);
+  return data.result;
   
 };
 
@@ -31,7 +30,7 @@ export const addBot = async ({ data }) => {
     note_bot: data.note_bot ? data.note_bot : null,
     
   }
-  //console.log(postData);
+  console.log(postData);
   await http.post("/bots", postData);
   
 };
