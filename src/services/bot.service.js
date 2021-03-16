@@ -12,6 +12,12 @@ export const getBot = async (id) => {
   return data[0];
   
 };
+export const botExists = async (id) => {
+  const response = await http.get(`/bots/exists/${id.queryKey[1].id}`);
+  console.log(response);
+  //return data[0];
+  
+};
 
 export const addBot = async ({ data }) => {
   const userLogin = await getUser();

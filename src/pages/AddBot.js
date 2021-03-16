@@ -17,7 +17,7 @@ import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import AlertInput from '../components/common/AlertInput';
-import { addBot, addTags, getTags } from '../services/bot.service';
+import { addBot, addTags, getTags, botExists } from '../services/bot.service';
 
 const schema = Joi.object({
   id_bot: Joi.string().trim().min(18).max(22).required(),
@@ -57,6 +57,8 @@ export default function AddBot() {
   const {isLoading, data: tagsQuery} = useQuery('tags', getTags, {
      refetchAllOnWindowFocus: false,
   })
+
+  
   const mutate = useMutation(addBot);
   const mutateTag = useMutation(addTags);
   const handleChange = (fieldName) => (event) => {
@@ -208,7 +210,8 @@ export default function AddBot() {
                   onChange={handleChange("note_bot")}
                   multiline
                   rows={4}
-                  defaultValue="Bot funciona solo con permisos de Administrador, como dato."
+                  /* defaultValue="Bot funciona solo con permisos de Administrador, como dato." */
+                  placeholder="Bot funciona solo con permisos de Administrador, como dato."
                   variant="outlined"
                   fullWidth
                 />
