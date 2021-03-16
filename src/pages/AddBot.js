@@ -105,7 +105,7 @@ export default function AddBot() {
 
     if(existsBot) {
       setErrors({id_bot: 'id_bot'})
-      enqueueSnackbar('El ID del bot agregado ya esta registrado.', { variant: 'error'});
+      enqueueSnackbar('El ID del bot agregado ya esta registrado.', { variant: 'warning'});
       return;
     }
     setSubmitting(true);
