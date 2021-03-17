@@ -122,7 +122,7 @@ export default function Bot() {
                 <Grid item xs={12} sm={6}>
                   <Box display="flex">
                     <Box m="auto">
-                      <AvatarBot />
+                      <AvatarBot bot={bot} />
                     </Box>
                   </Box>
                   <Box className={classes.action}>

@@ -30,10 +30,10 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(3)
   },
   subtitle: {
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(1)
   },
   subtags: {
-    marginTop: theme.spacing(7)
+    marginTop: theme.spacing(5)
   },
   tagContent: {
     marginTop: theme.spacing(1)
@@ -42,16 +42,20 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1)
   },
 }))
-const badges = ['verificado', 'premium']
+const badges = ['verificado']
 
 export default function InfoBot({ bot }) {
   const classes = useStyles();
-  const { prefix_bot, tags, shortDesc_bot } = bot;
+  const { username_bot, tag_bot, prefix_bot, tags, active_bot, shortDesc_bot, invite_bot } = bot;
 
   return (
     <Container maxWidth={'lg'} className={classes.container}>
       <Typography variant="h3" component="h1" className={classes.title}>
-        MyBOT
+        {username_bot}
+        <Typography variant="subtitle1" style={{ marginTop: '-7px' }} color={'textSecondary'} gutterBottom>
+           @{tag_bot}
+        </Typography>
+       
         <Typography>
           {badges.map((bg) => {
                 return (
@@ -65,10 +69,14 @@ export default function InfoBot({ bot }) {
         <Button color="secondary">Prefix</Button>
         <Button>{ prefix_bot }</Button>
       </ButtonGroup>
-      <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="outlined" aria-label="small outlined button group">
-        <Button color="default">Estado</Button>
-        <Button> <FiberManualRecordIcon style={{ color: green[500] }} /> </Button>
-      </ButtonGroup>
+      {active_bot && (
+        
+        <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="outlined" aria-label="small outlined button group">
+          <Button color="default">Estado</Button>
+          <Button> <FiberManualRecordIcon style={{ color: green[500] }} /> </Button>
+        </ButtonGroup>
+
+      )}
 
       <Typography variant="subtitle1" className={classes.subtitle} gutterBottom>
         {shortDesc_bot}
@@ -87,7 +95,7 @@ export default function InfoBot({ bot }) {
 
         }
       </Box>
-      <LinksBot />
+      <LinksBot invite_bot={invite_bot}/>
       
     </Container>
    
