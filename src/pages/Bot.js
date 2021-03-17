@@ -58,6 +58,7 @@ var outputStyle = {
 };
 /* const devTest = ['CraterMaik', 'Maik'];
  */
+//https://i.imgur.com/94Mqbdi.jpeg
 const testContentDescription = `# Introducción 
 ¡Adelante, juega con el editor! Asegúrate de revisar el estilo **negrita** y *cursiva*, o incluso los enlaces [portalmybot](https://portalmybot.com).
 
@@ -94,6 +95,7 @@ client.on('message', (message) => {
 \`\`\`
 `;
 
+
 export default function Bot() {
   const { id } = useParams();
   const { isLoading, data: bot = {}, error} = useQuery(
@@ -104,6 +106,7 @@ export default function Bot() {
       }
     ], getBot
   );
+  
 
   const classes = useStyles();
   
@@ -115,8 +118,10 @@ export default function Bot() {
         ) : error ? (
           <h1>Error!</h1>
         ) : (
-        <Container maxWidth={false} className={classes.containerbg}/*  style={{ background: 'linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://i.imgur.com/94Mqbdi.jpeg) center top / cover no-repeat fixed', height: '150vh' }} */>
+            
+        <Container maxWidth={false} className={classes.containerbg} style={{background: 'linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://i.imgur.com/94Mqbdi.jpeg) center top / cover no-repeat fixed'}} >
           <Container maxWidth={'lg'}>
+
             <div className={classes.root}>
               <Grid container spacing={1} justify='center'>
                 <Grid item xs={12} sm={6}>
@@ -158,6 +163,7 @@ export default function Bot() {
             </div>
           
           </Container>
+
         </Container>
 
         )

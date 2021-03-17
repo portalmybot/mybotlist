@@ -33,7 +33,7 @@ const Me = () => {
           ) : (
             
             <Container maxWidth={false} className={classes.containerbg}>
-              <Container maxWidth={'sm'}>
+              <Container maxWidth={'xl'}>
                 <div className={classes.root}>
                   <Grid container spacing={1} justify='center'>
 
