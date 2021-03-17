@@ -29,7 +29,7 @@ const MeContent = ({ user }) => {
             <Divider />
         </Grid>
 
-        <Grid item xs={12} sm={12} lg={6}>
+        <Grid item xs={12} sm={12}>
           <BotsUser bots={user.bots}/>
         </Grid>
       </>
