@@ -12,22 +12,25 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ActionBot({ bot }) {
   const classes = useStyles();
-  const { vote_bot } = bot;
+  const { vote_bot, serverCount_bot } = bot;
   return (
     <div>
       <ButtonGroup aria-label="small outlined button group">
         <Button variant="contained" style={{ color: '#fff', backgroundColor: '#e91e63' }}>{vote_bot} Rep.</Button>
         <Button variant="contained" style={{ color: '#fff', backgroundColor: '#c50546' }}> <FavoriteIcon /> </Button>
       </ButtonGroup>
-      <ButtonGroup color="primary" aria-label="outlined primary button group">
-        <Button
-          variant="contained"
-          style={{ color: '#fff', backgroundColor: '#7289da' }}
-          className={classes.button}>
-          532 Servidores
-        </Button>
-        
-      </ButtonGroup>
+      {serverCount_bot && (
+        <ButtonGroup color="primary" aria-label="outlined primary button group">
+          <Button
+            variant="contained"
+            style={{ color: '#fff', backgroundColor: '#7289da' }}
+            className={classes.button}>
+            532 Servidores
+          </Button>
+          
+        </ButtonGroup>
+
+      )}
     </div>
   );
 }

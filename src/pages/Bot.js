@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   containerbg: {
-    padding: theme.spacing(3, 0),
+    padding: theme.spacing(4, 0),
   },
   action: {
     textAlign: 'center',
@@ -134,7 +134,7 @@ export default function Bot() {
                 </Grid>
                 
                 <Grid item xs={12}>
-                  <Divider style={{ marginBottom: 20 }}/>
+                  <Divider style={{ marginBottom: 20, marginTop: 30 }}/>
                   <Box className={classes.devsContent}>
                     Desarrollado por:
                     <Box>

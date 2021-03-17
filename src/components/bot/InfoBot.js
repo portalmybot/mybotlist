@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Badge from './Badges';
+//import Badge from './Badges';
 
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   container: {
-    padding: theme.spacing(3, 2, 4),
+    padding: theme.spacing(1, 2, 4),
 
   },
   paper: {
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1)
   },
   subtags: {
-    marginTop: theme.spacing(5)
+    marginTop: theme.spacing(4)
   },
   tagContent: {
     marginTop: theme.spacing(1)
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1)
   },
 }))
-const badges = ['verificado']
+//const badges = ['verificado']
 
 export default function InfoBot({ bot }) {
   const classes = useStyles();
@@ -56,13 +56,13 @@ export default function InfoBot({ bot }) {
            @{tag_bot}
         </Typography>
        
-        <Typography>
+        {/* <Typography>
           {badges.map((bg) => {
                 return (
                   <Badge key={bg} value={bg} />
                 );
           })}
-        </Typography>
+        </Typography> */}
       </Typography>
       
       <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="outlined" aria-label="outlined button group">
