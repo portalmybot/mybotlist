@@ -58,7 +58,6 @@ var outputStyle = {
 };
 /* const devTest = ['CraterMaik', 'Maik'];
  */
-//https://i.imgur.com/94Mqbdi.jpeg
 const testContentDescription = `# Introducción 
 ¡Adelante, juega con el editor! Asegúrate de revisar el estilo **negrita** y *cursiva*, o incluso los enlaces [portalmybot](https://portalmybot.com).
 
@@ -107,6 +106,7 @@ export default function Bot() {
     ], getBot
   );
   
+  const bgPremium = bot.premium_bot ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://i.imgur.com/7HvHxnI.png) center top / cover no-repeat fixed` : null;
 
   const classes = useStyles();
   
@@ -119,7 +119,8 @@ export default function Bot() {
           <h1>Error!</h1>
         ) : (
             
-        <Container maxWidth={false} className={classes.containerbg} style={{background: 'linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://i.imgur.com/94Mqbdi.jpeg) center top / cover no-repeat fixed'}} >
+        <Container maxWidth={false} className={classes.containerbg} style={{background: `${bgPremium}`}} >
+
           <Container maxWidth={'lg'}>
 
             <div className={classes.root}>
