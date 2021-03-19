@@ -14,21 +14,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ContainedButtons({invite_bot}) {
+export default function ContainedButtons({bot}) {
   const classes = useStyles();
-
+  const { invite_bot, support_bot, web_bot} = bot;
   return (
     <div className={classes.root}>
 
       <Button variant="contained" style={{ color: '#fff', backgroundColor: '#7289da' }} href={invite_bot} target="_blank" startIcon={<AddIcon />}>
         Agregar Bot
       </Button>
-      <Button variant="contained" style={{ backgroundColor: '#FF9800', color: '#fff' }} href="#contained-buttons" startIcon={<SettingsIcon />}>
-        Soporte Bot
-      </Button>
-      <Button variant="contained" style={{ backgroundColor: '#03a9f4', color: '#fff' }} href="#contained-buttons" startIcon={<LanguageIcon />}>
-        Sitio Web
-      </Button>
+      {support_bot && (
+        <Button variant="contained" style={{ backgroundColor: '#FF9800', color: '#fff' }} href={support_bot} startIcon={<SettingsIcon />}>
+          Soporte Bot
+        </Button>
+
+      )}
+      {web_bot && (
+        <Button variant="contained" style={{ backgroundColor: '#03a9f4', color: '#fff' }} href={web_bot} startIcon={<LanguageIcon />}>
+          Sitio Web
+        </Button>
+
+      )}
     </div>
     
   );

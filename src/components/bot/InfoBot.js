@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function InfoBot({ bot }) {
   const classes = useStyles();
-  const { username_bot, tag_bot, prefix_bot, tags, active_bot, shortDesc_bot, invite_bot } = bot;
+  const { username_bot, tag_bot, prefix_bot, tags, active_bot, shortDesc_bot } = bot;
 
   return (
     <Container maxWidth={'lg'} className={classes.container}>
@@ -95,7 +95,7 @@ export default function InfoBot({ bot }) {
 
         }
       </Box>
-      <LinksBot invite_bot={invite_bot}/>
+      <LinksBot bot={bot}/>
       
     </Container>
    
