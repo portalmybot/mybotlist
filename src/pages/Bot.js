@@ -98,12 +98,7 @@ client.on('message', (message) => {
 export default function Bot() {
   const { id } = useParams();
   const { isLoading, data: bot = {}, error} = useQuery(
-    [
-      'getbot',
-      {
-        id: id
-      }
-    ], getBot
+    ['getbot',{ id: id }], getBot
   );
   
   const bgPremium = bot.premium_bot ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://i.imgur.com/7HvHxnI.png) center top / cover no-repeat fixed` : null;
