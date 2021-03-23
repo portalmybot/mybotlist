@@ -18,7 +18,6 @@ export default function DevsBot({ user }) {
       <Chip
         className={classes.root}
         avatar={<Avatar alt={'Avatar '+social_provider} src={social_avatarUrl} />}
-        
         label={social_provider}
         component="a" href={'../u/'+social_provider} clickable
       />
