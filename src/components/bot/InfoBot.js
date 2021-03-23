@@ -43,8 +43,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-//const badges = ['verificado']
-
 export default function InfoBot({ bot }) {
   const classes = useStyles();
   const { username_bot, tag_bot, prefix_bot, tags, active_bot, shortDesc_bot, badges } = bot;
@@ -93,7 +91,6 @@ export default function InfoBot({ bot }) {
               <Chip key={index} label={tag.name_tag} className={classes.tags} component="a" href={'../tag/'+tag.name_tag} clickable variant="outlined" />
             )
           })
-
         }
       </Box>
       <LinksBot bot={bot}/>
