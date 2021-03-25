@@ -13,9 +13,7 @@ import AvatarBot from "../components/bot/AvatarBot";
 import InfoBot from "../components/bot/InfoBot";
 import ActionBot from "../components/bot/ActionBot";
 import DevsBot from "../components/bot/DevsBot";
-
-
-let marked = require("marked");
+import DescriptionBot from "../components/bot/DescriptionBot";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,49 +48,6 @@ const useStyles = makeStyles((theme) => ({
     }
   },
 }))
-
-var outputStyle = {
-  backgroundColor: "#252525",
-  border: '1px solid #33343b',
-  padding: "10px 20px",
-};
-/* const devTest = ['CraterMaik', 'Maik'];
- */
-const testContentDescription = `# Introducción 
-¡Adelante, juega con el editor! Asegúrate de revisar el estilo **negrita** y *cursiva*, o incluso los enlaces [portalmybot](https://portalmybot.com).
-
-## Listados
-Las listas ordenadas se pueden iniciar escribiendo \`1\`.
-Las listas desordenadas se pueden iniciar usando la barra de herramientas o escribiendo \`*\`, \`-\` o \`+\`. 
-
-#### Desordenado
-* Las listas son pan comido
-* Incluso continúan automáticamente a medida que escribe
-* Una doble entrada los terminará
-* Las pestañas y las pestañas de turno también funcionan
-
-#### Ordenado
-1. Listas numeradas...
-2. ...¡trabaja también!
-
----
-
-## ¿Y las imágenes?
-![link]()
-
-
-## Texto citado
-> Lorem ipsum dolor sit amet consectetur adipisicing elit.Omnis tempora doloremque excepturi nobis mollitia neque dicta.Eveniet maxime architecto molestiae, quos tenetur, veniam, repellendus unde debitis porro fugit consectetur quam!
-
-## Bloque de código
-\`\`\`
-client.on('message', (message) => {
- if (message.content.startsWith('ping')) {
-  message.channel.send('pong 🏓!!');
- }
-});
-\`\`\`
-`;
 
 
 export default function Bot() {
@@ -147,12 +102,8 @@ export default function Bot() {
                 <Grid item xs={12}>
                   <Divider style={{ marginBottom: 20 }}/>
                   <Box className={classes.descriptionContent}>
-                    <div
-                        style={outputStyle}
-                        dangerouslySetInnerHTML={{
-                          __html: marked(testContentDescription),
-                        }}
-                      ></div>
+                    <DescriptionBot bot={bot} />
+                   
                   </Box>
                 </Grid>
               </Grid>
