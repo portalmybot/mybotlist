@@ -8,6 +8,8 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
+import Chip from '@material-ui/core/Chip';
+import Avatar from '@material-ui/core/Avatar';
 
 import AvatarBot from "../components/bot/AvatarBot";
 import InfoBot from "../components/bot/InfoBot";
@@ -47,6 +49,10 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '15px',
     }
   },
+  devUser: {
+    marginTop: theme.spacing(1),
+    marginRight: theme.spacing(.5),
+  }
 }))
 
 
@@ -94,7 +100,16 @@ export default function Bot() {
                   <Box className={classes.devsContent}>
                     Desarrollado por:
                     <Box>
-                       <DevsBot user={bot.user_bot} />
+                       
+                        <Chip
+                          className={classes.devUser}
+                          avatar={<Avatar alt={'Avatar '+bot.user_bot.social_provider} src={bot.user_bot.social_avatarUrl} />}
+                          label={bot.user_bot.social_provider}
+                          component="a" href={'../u/'+bot.user_bot.social_provider} clickable
+                        />
+
+                         <DevsBot bot={bot} />
+                     
                     </Box>
                   </Box>
                 </Grid>

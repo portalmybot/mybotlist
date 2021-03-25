@@ -19,7 +19,6 @@ export default function DescriptionBot({ bot }) {
           __html: marked(desContent),
         }}
       >
-
     </div>
   );
 }
