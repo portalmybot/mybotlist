@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1, 0),
   },
   section2: {
-    margin: theme.spacing(5, 0, 0),
+    margin: theme.spacing(4, 0, 0),
   },
   section3: {
     margin: theme.spacing(1, .5, .5),
@@ -107,10 +107,8 @@ const BotCard = ({ bot }) => {
                 )
               })
 
-
             }
-           {/*  <VerifiedUserIcon style={{ color: green[500] }} className={classes.icon}/>
-            <OfflineBoltIcon style={{ color: yellow[500] }} className={classes.icon}/> */}
+
           </>
         }
       />
@@ -128,7 +126,7 @@ const BotCard = ({ bot }) => {
             tags.map((tag) => {
               return (
                 <>
-                  <Chip key={'tagBot-' + tag.name} label={tag.name_tag} variant="outlined" component="a" color="default" size="small" className={classes.tag} style={{fontSize: 10}}/>
+                  <Chip key={'tagBot-' + tag.name} label={tag.name_tag} variant="outlined" component="a" color="secondary" size="small" className={classes.tag} style={{fontSize: 10}}/>
                 </>
               )
             })
