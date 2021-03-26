@@ -69,42 +69,55 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(5, 0, 0),
   },
   section3: {
-    margin: theme.spacing(1, 0, 0.5),
+    margin: theme.spacing(1, .5, .5),
   }
 }));
 
-const BotCard = ({ value }) => {
+const BotCard = ({ bot }) => {
   const classes = useStyles();
 
   const {
     id_bot,
+    username_bot,
     shortDesc_bot,
+    avatarUrl_bot,
     vote_bot,
-    tags
-  } = value;
+    tags,
+    badges
+  } = bot;
   
   return (
     <Card key={'botCard-'+id_bot} className={classes.root}>
       <CardHeader
         avatar={
-          <Avatar alt="Image title" /* src="https://source.unsplash.com/random" */ variant="square" className={classes.avatar}>
-            BOT
-          </Avatar>
+          <Avatar alt="Image title" src={avatarUrl_bot} variant="square" className={classes.avatar} />
         }
         action={
           <Chip label={vote_bot} icon={<ImportExportIcon />} variant="outlined"/>
         }
         subheader= {
           <>
-            <VerifiedUserIcon style={{ color: green[500] }} className={classes.icon}/>
-            <OfflineBoltIcon style={{ color: yellow[500] }} className={classes.icon}/>
+            {badges && 
+              badges.map((badge) => {
+                return (
+                  <>  
+                    {badge.name_badge === 'verificado' ? <VerifiedUserIcon style={{ color: green[500] }} className={classes.icon}/> : <OfflineBoltIcon style={{ color: yellow[500] }} className={classes.icon}/>}
+                     
+                  </>
+                )
+              })
+
+
+            }
+           {/*  <VerifiedUserIcon style={{ color: green[500] }} className={classes.icon}/>
+            <OfflineBoltIcon style={{ color: yellow[500] }} className={classes.icon}/> */}
           </>
         }
       />
       
       <CardContent className={classes.section1}>
         <Typography className={classes.title} color="secondary" gutterBottom>
-          MyBOT 
+          {username_bot} 
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
           {shortDesc_bot}
