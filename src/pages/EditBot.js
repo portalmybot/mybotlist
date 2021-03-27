@@ -48,24 +48,29 @@ export default function EditBot() {
   const [submitting, setSubmitting] = useState(false);
   const [alert, setAlert] = useState({success: false});
   const { id } = useParams();
-  const [data, setData] = useState({id_bot: id});
-  const [errors, setErrors] = useState({});
 
   const {isLoading, error, data: botQuery = {}} = useQuery(['getBotEdit', {id: id}], getBot)
+  const { prefix_bot, shortDesc_bot} = botQuery;
+
+  const [data, setData] = useState({id_bot: id, prefix_bot: prefix_bot, shortDesc_bot: shortDesc_bot});
+  const [errors, setErrors] = useState({});
+
 
   const mutateUpdateBot = useMutation(updateBot);
 
   const handleChange = (fieldName) => (event) => {
-    const value = event.target.value;
 
-    setErrors((prev) => ({ ...prev, [fieldName]: undefined }));
+    const value = event.target.value;
+    
     setData((prev) => ({ ...prev, [fieldName]: value }));
-    console.log(data);
+    setErrors((prev) => ({ ...prev, [fieldName]: undefined }));
+    
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-
+    
+    console.log(data);
     const validation = schema.validate(data, { abortEarly: false });
 
     if(validation.error) {
@@ -84,21 +89,16 @@ export default function EditBot() {
     console.log('entro datos');
     setSubmitting(true);
     setTimeout(() => {
+
       setSubmitting(false);
       mutateUpdateBot.mutate({ data });
       setAlert({ success: true });
-     /*  const limpio = Object.keys(data).reduce((acc, current) => {
-        return {
-          ...acc,
-          [current]: "",
-        };
-      }, {});
-      setData(limpio); */
-    }, 5000)
+
+    }, 4000)
 
   }
   const { success } = alert;
-  const { prefix_bot, shortDesc_bot } = botQuery;
+  
 
   return (
     <Layout>
@@ -145,19 +145,20 @@ export default function EditBot() {
                 helperText="Un breve titulo de su BOT (minimo de 10 caracteres)"
               />
             </Grid>
-            {/* <Grid item xs={12}>
+     {/*        <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 name="invite_bot"
+                defaultValue={!isLoading ? invite_bot : null}
                 value={data["invite_bot"]}
                 onChange={handleChange("invite_bot")}
                 fullWidth
                 id="LinkBOT"
                 helperText="Enlace de invitación de su BOT"
               />
-            </Grid>
+            </Grid> */}
 
-            <Grid item xs={12}>
+           {/*  <Grid item xs={12}>
                 <TextField
                   id="NoteBot"
                   helperText="Nota Extra de su BOT"
