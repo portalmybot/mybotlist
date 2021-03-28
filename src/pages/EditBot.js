@@ -82,7 +82,6 @@ export default function EditBot() {
       }, {});
       setErrors(errors);
       enqueueSnackbar('Debes agregar los datos de su BOT en los campos requeridos.', { variant: 'error'});
-      console.log('entro datos Error');
       return;
     }
     
