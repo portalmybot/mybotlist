@@ -23,7 +23,9 @@ import { getBot, updateBot } from '../services/bot.service';
 const schema = Joi.object({
   prefix_bot: Joi.string().min(1).max(7).required(),
   shortDesc_bot: Joi.string().min(10).max(190).required(),
-  id_bot: Joi.string().trim().min(18).max(22),
+  id_bot: Joi.string().trim().min(18).max(22).required(),
+  support_bot: Joi.string().trim(),
+  web_bot: Joi.string().trim()
 })
 
 const useStyles = makeStyles((theme) => ({
@@ -53,16 +55,18 @@ export default function EditBot() {
   const { id } = useParams();
 
   const {isLoading, error, data: botQuery = {}} = useQuery(['getBotEdit', {id: id}], getBot)
-  const { prefix_bot, shortDesc_bot} = botQuery;
+  const { prefix_bot, shortDesc_bot, support_bot, web_bot} = botQuery;
 
 
   useEffect(() => {
     setData({
       id_bot: id,
       prefix_bot: prefix_bot,
-      shortDesc_bot: shortDesc_bot
+      shortDesc_bot: shortDesc_bot,
+      support_bot: support_bot,
+      web_bot
     })
-  }, [id, prefix_bot, shortDesc_bot]);
+  }, [id, prefix_bot, shortDesc_bot, support_bot, web_bot]);
 
   const [errors, setErrors] = useState({});
 
@@ -154,18 +158,33 @@ export default function EditBot() {
               />
             </Grid>
 
-     {/*        <Grid item xs={12}>
+            <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                name="invite_bot"
-                defaultValue={!isLoading ? invite_bot : null}
-                value={data["invite_bot"]}
-                onChange={handleChange("invite_bot")}
+                name="support_bot"
+                defaultValue={support_bot}
+                value={data["support_bot"]}
+                onChange={handleChange("support_bot")}
+                 error={errors["support_bot"] ? true : false}
                 fullWidth
-                id="LinkBOT"
-                helperText="Enlace de invitación de su BOT"
+                id="SupportBOT"
+                helperText="Enlace de invitación de su servidor soporte"
               />
-            </Grid> */}
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                name="web_bot"
+                defaultValue={web_bot}
+                value={data["web_bot"]}
+                onChange={handleChange("web_bot")}
+                 error={errors["web_bot"] ? true : false}
+                fullWidth
+                id="WebBOT"
+                helperText="Enlace del sitio web"
+              />
+            </Grid>
 
            {/*  <Grid item xs={12}>
                 <TextField
