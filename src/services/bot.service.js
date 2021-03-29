@@ -26,6 +26,7 @@ export const addBot = async ({ data }) => {
     idUser_bot: userLogin.user_id,
     prefix_bot: data.prefix_bot,
     shortDesc_bot: data.shortDesc_bot,
+    customUrl_bot: data.id_Bot,
     invite_bot: data.invite_bot ? data.invite_bot : null,
     note_bot: data.note_bot ? data.note_bot : null,
     
@@ -35,20 +36,12 @@ export const addBot = async ({ data }) => {
   
 };
 export const updateBot = async ({ data }) => {
-
-/*   const postData = {
-    prefix_bot: data.prefix_bot ? data.prefix_bot : null,
-    shortDesc_bot: data.shortDesc_bot,
-    invite_bot: data.invite_bot ? data.invite_bot : null,
-    note_bot: data.note_bot ? data.note_bot : null,
-
-  } */
-
-  console.log(data);
-  await http.put(`/bots/${data.id_bot}`, data);
   
+  await http.put(`/bots/${data.id_bot}`, data);
   window.location.href = "http://localhost:3000/me";
+
 };
+
 export const getTags = async () => {
   const response = await http.get("/tags");
   return response.data;

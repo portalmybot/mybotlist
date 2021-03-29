@@ -24,8 +24,8 @@ const schema = Joi.object({
   prefix_bot: Joi.string().min(1).max(7).required(),
   shortDesc_bot: Joi.string().min(10).max(190).required(),
   id_bot: Joi.string().trim().min(18).max(22).required(),
-  support_bot: Joi.string().trim().allow('').optional(),
-  web_bot: Joi.string().trim().allow('').optional()
+  support_bot: Joi.string().trim().allow(null).allow('').optional(),
+  web_bot: Joi.string().trim().allow(null).allow('').optional()
 })
 
 const useStyles = makeStyles((theme) => ({
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(3, 1, 2, 0),
   },
 }));
 
@@ -55,7 +55,7 @@ export default function EditBot() {
   const { id } = useParams();
 
   const {isLoading, error, data: botQuery = {}} = useQuery(['getBotEdit', {id: id}], getBot)
-  const { prefix_bot, shortDesc_bot, support_bot, web_bot} = botQuery;
+  const { prefix_bot, shortDesc_bot, support_bot, web_bot, devs} = botQuery;
 
 
   useEffect(() => {
@@ -80,7 +80,10 @@ export default function EditBot() {
     setErrors((prev) => ({ ...prev, [fieldName]: undefined }));
     
   };
-  
+  const handleCancel = () => {
+    window.location.href = "http://localhost:3000/me";
+  }
+
   const handleSubmit = event => {
     event.preventDefault();
      
@@ -133,7 +136,7 @@ export default function EditBot() {
                 variant="outlined"
                 name="prefix_bot"
                 defaultValue={prefix_bot}
-                value={data["prefix_bot"]}
+                value={data["prefix_bot"] ? data["prefix_bot"] : prefix_bot}
                 onChange={handleChange("prefix_bot")}
                 error={errors["prefix_bot"] ? true : false}
                 required
@@ -186,22 +189,21 @@ export default function EditBot() {
               />
             </Grid>
 
-           {/*  <Grid item xs={12}>
+            <Grid item xs={12}>
                 <TextField
-                  id="NoteBot"
-                  helperText="Nota Extra de su BOT"
+                  id="DevsBOT"
+                  helperText="Desarrolladores (Agrege el ID del usuario, ejemplo: ID1, ID2)"
                   required
-                  name="note_bot"
-                  value={data["note_bot"]}
-                  onChange={handleChange("note_bot")}
-                  multiline
+                  name="devs"
+                  value={data["devs"]}
+                  onChange={handleChange("devs")}
                   rows={4}
-                  defaultValue="Bot funciona solo con permisos de Administrador, como dato."
+                  defaultValue={devs.map(user => user.id_user).join(', ')}
                   variant="outlined"
                   fullWidth
                 />
 
-            </Grid> */}
+            </Grid>
           </Grid>
           {submitting &&
             <LoadingLinear />
@@ -217,6 +219,15 @@ export default function EditBot() {
             className={classes.submit}
           >
             Guardar
+          </Button>
+          <Button
+            size="large"
+            onClick={handleCancel}
+            variant="contained"
+            color="default"
+            className={classes.submit}
+          >
+            Cancelar
           </Button>
 
         </form>
