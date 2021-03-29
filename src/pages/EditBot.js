@@ -1,4 +1,6 @@
-import React, {useState} from 'react';
+import React, {
+  useEffect, useState
+} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { useParams } from "react-router-dom";
@@ -52,9 +54,16 @@ export default function EditBot() {
   const {isLoading, error, data: botQuery = {}} = useQuery(['getBotEdit', {id: id}], getBot)
   const { prefix_bot, shortDesc_bot} = botQuery;
 
-  const [data, setData] = useState({id_bot: id, prefix_bot: prefix_bot, shortDesc_bot: shortDesc_bot});
-  const [errors, setErrors] = useState({});
+  const [data, setData] = useState();
+  useEffect(() => {
+    setData({
+      id_bot: id,
+      prefix_bot: prefix_bot,
+      shortDesc_bot: shortDesc_bot
+    })
+  }, [id, prefix_bot, shortDesc_bot]);
 
+  const [errors, setErrors] = useState({});
 
   const mutateUpdateBot = useMutation(updateBot);
 
@@ -66,10 +75,10 @@ export default function EditBot() {
     setErrors((prev) => ({ ...prev, [fieldName]: undefined }));
     
   };
-
+  
   const handleSubmit = event => {
     event.preventDefault();
-    
+     
     console.log(data);
     const validation = schema.validate(data, { abortEarly: false });
 
@@ -98,7 +107,7 @@ export default function EditBot() {
   }
   const { success } = alert;
   
-
+   
   return (
     <Layout>
        {
@@ -119,7 +128,7 @@ export default function EditBot() {
               <TextField
                 variant="outlined"
                 name="prefix_bot"
-                defaultValue={!isLoading ? prefix_bot : null}
+                defaultValue={prefix_bot}
                 value={data["prefix_bot"]}
                 onChange={handleChange("prefix_bot")}
                 error={errors["prefix_bot"] ? true : false}
@@ -135,7 +144,7 @@ export default function EditBot() {
                 variant="outlined"
                 required
                 name="shortDesc_bot"
-                defaultValue={!isLoading ? shortDesc_bot : null}
+                defaultValue={shortDesc_bot}
                 value={data["shortDesc_bot"]}
                 onChange={handleChange("shortDesc_bot")}
                 error={errors["shortDesc_bot"] ? true : false}
@@ -144,6 +153,7 @@ export default function EditBot() {
                 helperText="Un breve titulo de su BOT (minimo de 10 caracteres)"
               />
             </Grid>
+
      {/*        <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -194,7 +204,7 @@ export default function EditBot() {
       </div>
 
      </Container>
-     )
+     )   
     }
     </Layout>
     
