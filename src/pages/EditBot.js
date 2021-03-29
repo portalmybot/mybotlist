@@ -49,12 +49,13 @@ export default function EditBot() {
   const { enqueueSnackbar } = useSnackbar();
   const [submitting, setSubmitting] = useState(false);
   const [alert, setAlert] = useState({success: false});
+  const [data, setData] = useState();
   const { id } = useParams();
 
   const {isLoading, error, data: botQuery = {}} = useQuery(['getBotEdit', {id: id}], getBot)
   const { prefix_bot, shortDesc_bot} = botQuery;
 
-  const [data, setData] = useState();
+
   useEffect(() => {
     setData({
       id_bot: id,
@@ -107,7 +108,6 @@ export default function EditBot() {
   }
   const { success } = alert;
   
-   
   return (
     <Layout>
        {
