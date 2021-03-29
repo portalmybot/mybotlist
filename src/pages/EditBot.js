@@ -24,8 +24,8 @@ const schema = Joi.object({
   prefix_bot: Joi.string().min(1).max(7).required(),
   shortDesc_bot: Joi.string().min(10).max(190).required(),
   id_bot: Joi.string().trim().min(18).max(22).required(),
-  support_bot: Joi.string().trim(),
-  web_bot: Joi.string().trim()
+  support_bot: Joi.string().trim().allow('').optional(),
+  web_bot: Joi.string().trim().allow('').optional()
 })
 
 const useStyles = makeStyles((theme) => ({
@@ -64,7 +64,7 @@ export default function EditBot() {
       prefix_bot: prefix_bot,
       shortDesc_bot: shortDesc_bot,
       support_bot: support_bot,
-      web_bot
+      web_bot: web_bot
     })
   }, [id, prefix_bot, shortDesc_bot, support_bot, web_bot]);
 
@@ -165,7 +165,7 @@ export default function EditBot() {
                 defaultValue={support_bot}
                 value={data["support_bot"]}
                 onChange={handleChange("support_bot")}
-                 error={errors["support_bot"] ? true : false}
+                error={errors["support_bot"] ? true : false}
                 fullWidth
                 id="SupportBOT"
                 helperText="Enlace de invitación de su servidor soporte"
@@ -179,7 +179,7 @@ export default function EditBot() {
                 defaultValue={web_bot}
                 value={data["web_bot"]}
                 onChange={handleChange("web_bot")}
-                 error={errors["web_bot"] ? true : false}
+                error={errors["web_bot"] ? true : false}
                 fullWidth
                 id="WebBOT"
                 helperText="Enlace del sitio web"
