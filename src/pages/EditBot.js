@@ -17,15 +17,15 @@ import { useMutation, useQuery } from "react-query";
 import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
 import AlertInput from '../components/common/AlertInput';
-import { getBot, updateBot } from '../services/bot.service';
+import { getBot, updateBot, addDevs } from '../services/bot.service';
 /* import { getUser } from '../services/me.service';
  */
 const schema = Joi.object({
   prefix_bot: Joi.string().min(1).max(7).required(),
   shortDesc_bot: Joi.string().min(10).max(190).required(),
-  id_bot: Joi.string().trim().min(18).max(22).required(),
-  support_bot: Joi.string().trim().allow(null).allow('').optional(),
-  web_bot: Joi.string().trim().allow(null).allow('').optional()
+  id_bot: Joi.string().min(18).max(22).required(),
+  support_bot: Joi.string().uri({scheme:['http','https'],allowRelative : false}).allow(null).allow('').optional(),
+  web_bot: Joi.string().uri({scheme:['http','https'],allowRelative : false}).allow(null).allow('').optional()
 })
 
 const useStyles = makeStyles((theme) => ({
@@ -52,7 +52,9 @@ export default function EditBot() {
   const [submitting, setSubmitting] = useState(false);
   const [alert, setAlert] = useState({success: false});
   const [data, setData] = useState();
+  
   const { id } = useParams();
+  const [datadevs, setDataDevs] = useState([]);
 
   const {isLoading, error, data: botQuery = {}} = useQuery(['getBotEdit', {id: id}], getBot)
   const { prefix_bot, shortDesc_bot, support_bot, web_bot, devs} = botQuery;
@@ -71,6 +73,7 @@ export default function EditBot() {
   const [errors, setErrors] = useState({});
 
   const mutateUpdateBot = useMutation(updateBot);
+  const mutateDevsBot = useMutation(addDevs);
 
   const handleChange = (fieldName) => (event) => {
 
@@ -80,6 +83,12 @@ export default function EditBot() {
     setErrors((prev) => ({ ...prev, [fieldName]: undefined }));
     
   };
+  const handleDevs = (fieldName) => (event) => {
+
+    const value = event.target.value;
+    setDataDevs(value.split(',').slice(0, 2))
+    
+  } 
   const handleCancel = () => {
     window.location.href = "http://localhost:3000/me";
   }
@@ -105,9 +114,15 @@ export default function EditBot() {
     console.log('entro datos');
     setSubmitting(true);
     setTimeout(() => {
+      console.log(devs.length);
+   /*    if (devs.length < 1) {
+
+      } */
 
       setSubmitting(false);
       mutateUpdateBot.mutate({ data });
+      console.log(data);
+      mutateDevsBot.mutate({ id_bot: id, datadevs});
       setAlert({ success: true });
 
     }, 4000)
@@ -196,7 +211,7 @@ export default function EditBot() {
                   required
                   name="devs"
                   value={data["devs"]}
-                  onChange={handleChange("devs")}
+                  onChange={handleDevs("devs")}
                   rows={4}
                   defaultValue={devs.map(user => user.id_user).join(', ')}
                   variant="outlined"
