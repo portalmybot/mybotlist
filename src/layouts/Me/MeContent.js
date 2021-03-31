@@ -16,6 +16,7 @@ const MeContent = () => {
           <Box display="flex">
               <Box m="auto">
                 <AvatarUser />
+                
               </Box>
             </Box>
         </Grid>
