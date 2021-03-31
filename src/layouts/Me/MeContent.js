@@ -8,14 +8,14 @@ import AvatarUser from "../../components/me/AvatarUser";
 import InfoUser from "../../components/me/InfoUser";
 import BotsUser from "../../components/me/BotsUser";
 
-const MeContent = ({ user }) => {
+const MeContent = () => {
 
   return (
       <>
         <Grid item xs={12} sm={12}>
           <Box display="flex">
               <Box m="auto">
-                <AvatarUser user={user} />
+                <AvatarUser />
               </Box>
             </Box>
         </Grid>
@@ -23,14 +23,14 @@ const MeContent = ({ user }) => {
         <Grid item xs={12} sm={12}>
           <Box display="flex">
               <Box m="auto">
-                <InfoUser user={user} />
+                <InfoUser />
               </Box>
             </Box>
             <Divider />
         </Grid>
 
         <Grid item xs={12} sm={12}>
-          <BotsUser bots={user.bots}/>
+          <BotsUser />
         </Grid>
       </>
 

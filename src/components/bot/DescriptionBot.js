@@ -7,11 +7,10 @@ const outputStyle = {
   padding: "10px 20px",
 };
 
-export default function DescriptionBot({ bot }) {
+export default function DescriptionBot() {
  
-  const { longDesc_bot, shortDesc_bot, tag_bot, prefix_bot } = bot;
-  const desContent = longDesc_bot ? longDesc_bot : `# Bot ${tag_bot}
-  ${shortDesc_bot}, prefix: ${prefix_bot}`;
+  const desContent = `# Bot MyBOT 
+  Bot útil para todos, prefix: -`;
 
   return (
      <div style={outputStyle}

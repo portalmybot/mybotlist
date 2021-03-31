@@ -10,16 +10,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ActionBot({ bot }) {
+export default function ActionBot() {
   const classes = useStyles();
-  const { vote_bot, serverCount_bot } = bot;
+
   return (
     <div>
       <ButtonGroup aria-label="small outlined button group">
-        <Button variant="contained" style={{ color: '#fff', backgroundColor: '#e91e63' }}>{vote_bot} Rep.</Button>
+        <Button variant="contained" style={{ color: '#fff', backgroundColor: '#e91e63' }}>25 Rep.</Button>
         <Button variant="contained" style={{ color: '#fff', backgroundColor: '#c50546' }}> <FavoriteIcon /> </Button>
       </ButtonGroup>
-      {serverCount_bot && (
+      
         <ButtonGroup color="primary" aria-label="outlined primary button group">
           <Button
             variant="contained"
@@ -30,7 +30,7 @@ export default function ActionBot({ bot }) {
           
         </ButtonGroup>
 
-      )}
+      
     </div>
   );
 }

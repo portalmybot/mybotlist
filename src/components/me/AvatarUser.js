@@ -15,11 +15,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function AvatarBot({ user }) {
+export default function AvatarBot() {
   const classes = useStyles();
 
   return (
-    <Avatar variant='circular' className={classes.large} alt={user.social_provider} src={user.social_avatarUrl} />
+    <Avatar variant='circular' className={classes.large} alt='demo' src='https://source.unsplash.com/random' />
 
   );
 }

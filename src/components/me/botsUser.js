@@ -13,8 +13,9 @@ const useStyles = makeStyles((theme) => ({
     width: 180,
   },
 }));
+const bots = [1, 2];
 
-export default function BotsUser({bots}) {
+export default function BotsUser() {
   const classes = useStyles();
   return (
     <Grid container className={classes.root} spacing={2}>
@@ -24,7 +25,7 @@ export default function BotsUser({bots}) {
           <>
             {bots.map((bot) => {
               return (
-                  <Grid key={bot.id_bot} item xs={12} sm={6} md={4} lg={3}>
+                  <Grid key={bot} item xs={12} sm={6} md={4} lg={3}>
                     <Bot bot={bot} />
                   </Grid>
                 )

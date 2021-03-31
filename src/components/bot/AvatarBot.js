@@ -9,10 +9,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function AvatarBot({ bot }) {
+export default function AvatarBot() {
   const classes = useStyles();
-  const { avatarUrl_bot } = bot;
   return (
-    <Avatar variant="square" src={avatarUrl_bot} className={classes.large} />
+    <Avatar variant="square" src='https://source.unsplash.com/random' className={classes.large} />
   );
 }

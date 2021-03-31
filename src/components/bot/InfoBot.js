@@ -42,23 +42,23 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1)
   },
 }))
-
-export default function InfoBot({ bot }) {
+const badges = ['verificado'];
+const tags = ['memes', 'musica'];
+export default function InfoBot() {
   const classes = useStyles();
-  const { username_bot, tag_bot, prefix_bot, tags, active_bot, shortDesc_bot, badges } = bot;
 
   return (
     <Container maxWidth={'lg'} className={classes.container}>
       <Typography variant="h3" component="h1" className={classes.title}>
-        {username_bot}
-        <Typography variant="subtitle1" style={{ marginTop: '-7px' }} color={'textSecondary'} gutterBottom>
-           @{tag_bot}
+        MyBOT
+        <Typography variant="subtitle1" style={{ marginTop: '-2px' }} color={'textSecondary'} gutterBottom>
+           @MyBOT#2021
         </Typography>
        
         <Typography>
           {badges.map((badge, index) => {
                 return (
-                  <Badge key={index + 'badge'} value={badge.name_badge} />
+                  <Badge key={index + '-badge'} value={badge} />
                 );
           })}
         </Typography>
@@ -66,19 +66,15 @@ export default function InfoBot({ bot }) {
       
       <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="outlined" aria-label="outlined button group">
         <Button color="secondary">Prefix</Button>
-        <Button>{ prefix_bot }</Button>
+        <Button>{'-'}</Button>
       </ButtonGroup>
-      {active_bot && (
-        
-        <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="outlined" aria-label="small outlined button group">
+       <ButtonGroup style={{ marginRight: '5px'}} size="small" variant="outlined" aria-label="small outlined button group">
           <Button color="default">Estado</Button>
           <Button> <FiberManualRecordIcon style={{ color: green[500] }} /> </Button>
         </ButtonGroup>
 
-      )}
-
       <Typography variant="subtitle1" className={classes.subtitle} gutterBottom>
-        {shortDesc_bot}
+        Bot útil para todos.
       </Typography>
 
       <Typography variant="caption" display="block" className={classes.subtags} gutterBottom>
@@ -88,12 +84,12 @@ export default function InfoBot({ bot }) {
         {
           tags.map((tag, index) => {
             return (
-              <Chip key={index} label={tag.name_tag} className={classes.tags} component="a" href={'../tag/'+tag.name_tag} clickable variant="outlined" />
+              <Chip key={index} label={tag} className={classes.tags} component="a" clickable variant="outlined" />
             )
           })
         }
       </Box>
-      <LinksBot bot={bot}/>
+      <LinksBot/>
       
     </Container>
    

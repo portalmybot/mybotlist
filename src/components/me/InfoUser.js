@@ -13,15 +13,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function InfoUser({ user }) {
+export default function InfoUser() {
   const classes = useStyles();
-  const { social_provider } = user;
 
   return (
     <Container maxWidth={'lg'} className={classes.container}>
       <Typography variant="h4" component="h1" className={classes.title}>
-        { social_provider }
-        
+        CraterMaik
       </Typography>
     </Container>
    

@@ -2,12 +2,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import LabelIcon from '@material-ui/icons/Label';
-import { useQuery } from "react-query";
-import Skeleton from '@material-ui/lab/Skeleton';
-import { getTagsHome } from '../../services/bot.service';
 
-/* const tags = ['Anime', 'Economía', 'Soporte', 'Admin', 'Social', 'Videos', 'Moderación'];
- */
+const tags = ['Anime', 'Economía', 'Soporte', 'Admin', 'Social', 'Videos', 'Moderación'];
+
 function stringToColor(string) {
   let hash = 0;
   let i;
@@ -44,29 +41,17 @@ const useStyles = makeStyles((theme) => ({
 
  const Chips = () => {
   const classes = useStyles();
-  const {isLoading, data: tagsHomeQuery} = useQuery('tagsHome', getTagsHome, {
-     refetchAllOnWindowFocus: false,
-  })
   const handleClick = () => {
     console.info('You clicked the Chip.');
   };
 
   return (
     <div className={classes.root}>
-      {isLoading && (
-          <>
-            <Skeleton variant="text" width="30%" height="32" />
-            <Skeleton variant="text" width="30%" height="32"/>
-            <Skeleton variant="text" width="30%" height="32"/>
-            <Skeleton variant="text" width="30%" height="32"/>
-            <Skeleton variant="text" width="30%" height="32"/>
-          </>
-      )}
 
-      {!isLoading && tagsHomeQuery.map((tag) => {
+      {tags.map((tag) => {
         return (
           <div>
-            <Chip key={'homeTag-'+tag.name_tag} label={tag.name_tag} component="a" color="default" style={{backgroundColor: stringToColor('portal'+tag.name_tag), fontSize: 15}} icon={<LabelIcon />} onClick={handleClick} clickable/>
+            <Chip key={'homeTag-'+tag} label={tag} component="a" color="default" style={{backgroundColor: stringToColor(tag), fontSize: 15}} icon={<LabelIcon />} onClick={handleClick} clickable/>
           </div>
         )
 

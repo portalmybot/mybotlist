@@ -74,35 +74,25 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1, 0, 0.5),
   }
 }));
+const tags = ['memes', 'musica'];
 
-const CardList = ({ value }) => {
+const CardList = ({ bot }) => {
   const classes = useStyles();
 
-  const {
-    id_bot,
-    shortDesc_bot,
-    vote_bot,
-    tags
-  } = value;
-  
   return (
-    <Card key={id_bot} className={classes.root}>
+    <Card key={bot+'-card'} className={classes.root}>
       <CardHeader
         avatar={
-          <Avatar alt="Image title" /* src="https://source.unsplash.com/random" */ variant="square" className={classes.avatar}>
-            BOT
-          </Avatar>
+          <Avatar alt="Image title" src="https://source.unsplash.com/random" variant="square" className={classes.avatar} />
         }
         action={
-          <Chip label={vote_bot} icon={<ImportExportIcon />} variant="outlined"/>
+          <Chip label={'10'} icon={<ImportExportIcon />} variant="outlined"/>
         }
 
         subheader= {
           <>
             <SettingsIcon style={{ color: grey[500] }} className={classes.icon} />
             <VerifiedUserIcon style={{ color: green[500] }} className={classes.icon}/>
-
-           {/*  <OfflineBoltIcon style={{ color: yellow[500] }} className={classes.icon}/> */}
           </>
         }
 
@@ -113,7 +103,7 @@ const CardList = ({ value }) => {
           MyBOT 
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          {shortDesc_bot}
+          Bot útil para todos.
         </Typography>
 
         <Box variant="body2" component="p" className={classes.section2}>
@@ -121,7 +111,7 @@ const CardList = ({ value }) => {
             tags.map((tag) => {
               return (
                 <>
-                  <Chip key={'tag-' + tag.name} label={tag.name_tag} variant="outlined" component="a" color="secondary" size="small" className={classes.tag} style={{fontSize: 10}}/>
+                  <Chip key={'tag-' + tag} label={tag} variant="outlined" component="a" color="secondary" size="small" className={classes.tag} style={{fontSize: 10}}/>
                 </>
               )
             })
@@ -132,13 +122,13 @@ const CardList = ({ value }) => {
       </CardContent>
       <Divider variant="middle" />
       <CardActions disableSpacing className={classes.section3}>
-        <IconButton aria-label="add to favorites" href={'/vote/'+id_bot}>
+        <IconButton aria-label="add to favorites" href={'#'}>
           <FavoriteBorderIcon />
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-        <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/'+id_bot} color="inherit">
+        <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/demo'} color="inherit">
           <Button variant="contained" color="primary">
            Ver
           </Button>

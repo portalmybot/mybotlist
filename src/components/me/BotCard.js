@@ -73,27 +73,20 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const BotCard = ({ bot }) => {
+const badges = ['verificado'];
+const tags = ['meme', 'musica'];
+
+const BotCard = (bot) => {
   const classes = useStyles();
 
-  const {
-    id_bot,
-    username_bot,
-    shortDesc_bot,
-    avatarUrl_bot,
-    vote_bot,
-    tags,
-    badges
-  } = bot;
-  
   return (
-    <Card key={'botCard-'+id_bot} className={classes.root}>
+    <Card key={'botCard-'+bot} className={classes.root}>
       <CardHeader
         avatar={
-          <Avatar alt="Image title" src={avatarUrl_bot} variant="square" className={classes.avatar} />
+          <Avatar alt="Image title" src='https://source.unsplash.com/random' variant="square" className={classes.avatar} />
         }
         action={
-          <Chip label={vote_bot} icon={<ImportExportIcon />} variant="outlined"/>
+          <Chip label={'10'} icon={<ImportExportIcon />} variant="outlined"/>
         }
         subheader= {
           <>
@@ -101,7 +94,7 @@ const BotCard = ({ bot }) => {
               badges.map((badge) => {
                 return (
                   <>  
-                    {badge.name_badge === 'verificado' ? <VerifiedUserIcon style={{ color: green[500] }} className={classes.icon}/> : <OfflineBoltIcon style={{ color: yellow[500] }} className={classes.icon}/>}
+                    {badge === 'verificado' ? <VerifiedUserIcon style={{ color: green[500] }} className={classes.icon}/> : <OfflineBoltIcon style={{ color: yellow[500] }} className={classes.icon}/>}
                      
                   </>
                 )
@@ -115,10 +108,10 @@ const BotCard = ({ bot }) => {
       
       <CardContent className={classes.section1}>
         <Typography className={classes.title} color="secondary" gutterBottom>
-          {username_bot} 
+          MyBOT 
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          {shortDesc_bot}
+          Bot útil para todos.
         </Typography>
 
         <Box variant="body2" component="p" className={classes.section2}>
@@ -126,7 +119,7 @@ const BotCard = ({ bot }) => {
             tags.map((tag) => {
               return (
                 <>
-                  <Chip key={'tagBot-' + tag.name} label={tag.name_tag} variant="outlined" component="a" color="secondary" size="small" className={classes.tag} style={{fontSize: 10}}/>
+                  <Chip key={'tagBot-' + tag} label={tag} variant="outlined" component="a" color="secondary" size="small" className={classes.tag} style={{fontSize: 10}}/>
                 </>
               )
             })
@@ -137,20 +130,20 @@ const BotCard = ({ bot }) => {
       </CardContent>
       <Divider variant="middle" />
       <CardActions disableSpacing className={classes.section3}>
-        <Link underline='none' component={RouterLink} to={'/bot/'+id_bot+'/edit'} className={classes.tag} color="inherit">
+        <Link underline='none' component={RouterLink} to={'/me'} className={classes.tag} color="inherit">
           <Button variant="contained" size={'small'} color="primary">
            Editar
           </Button>
         </Link>
 
-        <Link underline='none' component={RouterLink} to={'/bot/'+id_bot+'/delete/'} color="inherit">
+        <Link underline='none' component={RouterLink} to={'/me'} color="inherit">
           <Button variant="contained"  size={'small'} color="secondary">
            Eliminar
           </Button>
           
         </Link>
 
-        <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/'+id_bot} color="inherit">
+        <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/demo'} color="inherit">
           <IconButton aria-label="Bot view" >
             <CallMadeIcon color={'action'} />
           </IconButton>

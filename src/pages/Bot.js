@@ -1,9 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Layout from '../components/Layout';
-import { useQuery } from 'react-query'
-import { useParams } from "react-router-dom";
-import { getBot } from '../services/bot.service';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -14,7 +11,6 @@ import Avatar from '@material-ui/core/Avatar';
 import AvatarBot from "../components/bot/AvatarBot";
 import InfoBot from "../components/bot/InfoBot";
 import ActionBot from "../components/bot/ActionBot";
-import DevsBot from "../components/bot/DevsBot";
 import DescriptionBot from "../components/bot/DescriptionBot";
 
 const useStyles = makeStyles((theme) => ({
@@ -57,25 +53,13 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function Bot() {
-  const { id } = useParams();
-  const { isLoading, data: bot = {}, error} = useQuery(
-    ['getbot',{ id: id }], getBot
-  );
-  
-  const bgPremium = bot.premium_bot ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://i.imgur.com/7HvHxnI.png) center top / cover no-repeat fixed` : null;
 
   const classes = useStyles();
   
   return (
     <Layout>
-      {
-        isLoading ? (
-           'Cargando...'
-        ) : error ? (
-          <h1>Error!</h1>
-        ) : (
-            
-        <Container maxWidth={false} className={classes.containerbg} style={{background: `${bgPremium}`}} >
+      {  
+        <Container maxWidth={false} className={classes.containerbg} >
 
           <Container maxWidth={'lg'}>
 
@@ -84,15 +68,15 @@ export default function Bot() {
                 <Grid item xs={12} sm={6}>
                   <Box display="flex">
                     <Box m="auto">
-                      <AvatarBot bot={bot} />
+                      <AvatarBot />
                     </Box>
                   </Box>
                   <Box className={classes.action}>
-                    <ActionBot bot={bot} />
+                    <ActionBot />
                   </Box>
                 </Grid>
                 <Grid item xs={12} sm={6} >
-                    <InfoBot bot={bot} />
+                    <InfoBot />
                 </Grid>
                 
                 <Grid item xs={12}>
@@ -103,13 +87,11 @@ export default function Bot() {
                        
                         <Chip
                           className={classes.devUser}
-                          avatar={<Avatar alt={'Avatar '+bot.user_bot.social_provider} src={bot.user_bot.social_avatarUrl} />}
-                          label={bot.user_bot.social_provider}
-                          component="a" href={'../u/'+bot.user_bot.social_provider} clickable
+                          avatar={<Avatar alt={'Avatar demo'} src={'https://source.unsplash.com/random'} />}
+                          label={'CraterMaik'}
+                          component="a" href={'#'} clickable
                         />
 
-                         <DevsBot bot={bot} />
-                     
                     </Box>
                   </Box>
                 </Grid>
@@ -117,7 +99,7 @@ export default function Bot() {
                 <Grid item xs={12}>
                   <Divider style={{ marginBottom: 20 }}/>
                   <Box className={classes.descriptionContent}>
-                    <DescriptionBot bot={bot} />
+                    <DescriptionBot />
                    
                   </Box>
                 </Grid>
@@ -128,7 +110,6 @@ export default function Bot() {
 
         </Container>
 
-        )
       }
     </Layout>
   );

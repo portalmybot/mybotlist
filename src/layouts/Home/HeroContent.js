@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import Chip from '@material-ui/core/Chip';
 
 import Box from '@material-ui/core/Box';
 import HomeTags from './TagsHome.js';
@@ -26,7 +27,7 @@ export default function HeroContent() {
     <div className={classes.heroContent}>
       <Typography component="h1" variant="h3" align="center" color="inherit"  gutterBottom>
         <Box fontWeight="fontWeightBold" m={1}>
-          MyBOT List
+          MyBOT List <Chip label="Demo" color="secondary" />
         </Box>
       </Typography>
       

@@ -1,9 +1,6 @@
 import React from 'react';
 import Link from '@material-ui/core/Link';
-import { useQuery } from 'react-query'
 import { Link as RouterLink } from 'react-router-dom';
-import { getUser } from '../../services/me.service';
-import Skeleton from '@material-ui/lab/Skeleton';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
@@ -12,8 +9,6 @@ import Divider from '@material-ui/core/Divider';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Typography from '@material-ui/core/Typography';
-import CookieService from "../../services/CookieService";
-import { logoutUser } from "../../services/me.service";
 
 const useStyles = makeStyles((theme) => ({
   big: {
@@ -30,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MenuAuth() {
-  const { isLoading, data: user } = useQuery('getuserMenu', getUser);
 
   const classes = useStyles();
 
@@ -47,9 +41,6 @@ export default function MenuAuth() {
 
   const handleLogout = async () => {
     setAnchorEl(null);
-    CookieService.remove("access_token");
-    await logoutUser();
-    window.location.href = "http://localhost:3000";
   };
 
   return (
@@ -61,11 +52,8 @@ export default function MenuAuth() {
           onClick={handleMenu}
           color="inherit"
         >
-        {isLoading ? (
-          <Skeleton variant="circle" width={40} height={40} />
-        ) : (
-          <Avatar alt="Remy Sharp" src={user.social_avatarUrl} className={classes.small} />
-        )}
+        <Avatar alt="Remy Sharp" src='https://source.unsplash.com/random' className={classes.small} />
+
 
       </IconButton>
 
@@ -87,26 +75,16 @@ export default function MenuAuth() {
 
           <Box display="flex" className={classes.boxMenu}>
             <Box m="auto">
-                {isLoading ? (
-                  <Skeleton variant="circle" width={40} height={40} />
-                ) : (
-                  <>
-                    <Avatar alt="Remy Sharp" src={user.social_avatarUrl} className={classes.big}/>
-                  </>
-                )}
-               
+              <Avatar alt="Remy Sharp" src='https://source.unsplash.com/random' className={classes.big}/>
+
             </Box>
           </Box>
           <Box display="flex">
             <Box m="auto">
-              {!isLoading && (
-                <>
-                <Typography variant="subtitle1" gutterBottom>
-                  {user.social_provider}
-                </Typography>
-                </>
-              )}
-                
+              <Typography variant="subtitle1" gutterBottom>
+                CraterMaik
+              </Typography>
+
             </Box>
           </Box>
         <Divider />
