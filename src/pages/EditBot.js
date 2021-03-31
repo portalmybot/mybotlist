@@ -113,12 +113,9 @@ export default function EditBot() {
 
     setSubmitting(true);
     setTimeout(() => {
-      console.log(devs.length);
       
-
       setSubmitting(false);
       mutateUpdateBot.mutate({ data });
-      console.log(data);
 
       if (devs.length > 0) {
         if(datadevs.length > 0) {
