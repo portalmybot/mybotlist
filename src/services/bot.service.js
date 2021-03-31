@@ -37,15 +37,18 @@ export const addBot = async ({ data }) => {
 };
 export const addDevs = async (data) => {
   const id_bot = data.id_bot;
-
   data.datadevs.map(async (dev) => {
     const postData = {
       id_bot: id_bot,
       idUser_bot: dev.trim(),
     }
-    console.log(postData);
-  //  await http.post("/bots/add/tag", postData);
+    
+    await http.post("/bots/add/dev", postData);
   })
+}
+export const deleteDevsBot = async ({ data }) => {
+  await http.delete(`/bots/delete/devs/${data.id_bot}`);
+
 }
 
 export const updateBot = async ({ data }) => {

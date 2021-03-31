@@ -17,7 +17,7 @@ import { useMutation, useQuery } from "react-query";
 import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
 import AlertInput from '../components/common/AlertInput';
-import { getBot, updateBot, addDevs } from '../services/bot.service';
+import { getBot, updateBot, addDevs, deleteDevsBot } from '../services/bot.service';
 /* import { getUser } from '../services/me.service';
  */
 const schema = Joi.object({
@@ -74,6 +74,7 @@ export default function EditBot() {
 
   const mutateUpdateBot = useMutation(updateBot);
   const mutateDevsBot = useMutation(addDevs);
+  const mutateDevsDelete = useMutation(deleteDevsBot);
 
   const handleChange = (fieldName) => (event) => {
 
@@ -95,8 +96,7 @@ export default function EditBot() {
 
   const handleSubmit = event => {
     event.preventDefault();
-     
-    console.log(data);
+    
     const validation = schema.validate(data, { abortEarly: false });
 
     if(validation.error) {
@@ -110,19 +110,33 @@ export default function EditBot() {
       enqueueSnackbar('Debes agregar los datos de su BOT en los campos requeridos.', { variant: 'error'});
       return;
     }
-    
-    console.log('entro datos');
+
     setSubmitting(true);
     setTimeout(() => {
       console.log(devs.length);
-   /*    if (devs.length < 1) {
-
-      } */
+      
 
       setSubmitting(false);
       mutateUpdateBot.mutate({ data });
       console.log(data);
-      mutateDevsBot.mutate({ id_bot: id, datadevs});
+
+      if (devs.length > 0) {
+        if(datadevs.length > 0) {
+          mutateDevsDelete.mutate({ data })
+          mutateDevsBot.mutate({ id_bot: id, datadevs});
+        }
+
+      } else {
+        if (datadevs.length > 0) {
+          mutateDevsBot.mutate({ id_bot: id, datadevs});
+
+         } else {
+          if (devs.length > 0) {
+            mutateDevsDelete.mutate({ data })
+
+          }
+         }
+      }
       setAlert({ success: true });
 
     }, 4000)

@@ -20,7 +20,7 @@ import AlertInput from '../components/common/AlertInput';
 import { addBot, addTags, getTags, botExists } from '../services/bot.service';
 
 const schema = Joi.object({
-  id_bot: Joi.number().trim().min(18).max(22).required(),
+  id_bot: Joi.number().min(18).max(22).required(),
   idUser_bot: Joi.string().trim().min(18).max(22),
   prefix_bot: Joi.string().min(1).max(100).required(),
   shortDesc_bot: Joi.string().min(10).max(190).required(),
