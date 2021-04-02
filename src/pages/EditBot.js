@@ -1,6 +1,7 @@
 import React, {
   useEffect, useState
 } from 'react';
+
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { useParams } from "react-router-dom";
@@ -8,8 +9,13 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Chip from '@material-ui/core/Chip';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+
+import Backdrop from '@material-ui/core/Backdrop';
 
 import Joi from "@hapi/joi";
+
 import { useSnackbar } from 'notistack';
 
 import { useMutation, useQuery } from "react-query";
@@ -18,8 +24,11 @@ import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
 import AlertInput from '../components/common/AlertInput';
 import { getBot, updateBot, addDevs, deleteDevsBot } from '../services/bot.service';
+import { Box } from '@material-ui/core';
 /* import { getUser } from '../services/me.service';
  */
+
+const marked = require("marked");
 const schema = Joi.object({
   prefix_bot: Joi.string().min(1).max(7).required(),
   shortDesc_bot: Joi.string().min(10).max(190).required(),
@@ -43,7 +52,15 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 1, 2, 0),
   },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+    padding: theme.spacing(4),
+    backgroundColor: '#000000f0',
+    
+  },
 }));
+
 
 
 export default function EditBot() {
@@ -52,13 +69,22 @@ export default function EditBot() {
   const [submitting, setSubmitting] = useState(false);
   const [alert, setAlert] = useState({success: false});
   const [data, setData] = useState();
-  
+  const [open, setOpen] = useState(false);
+
   const { id } = useParams();
   const [datadevs, setDataDevs] = useState([]);
 
   const {isLoading, error, data: botQuery = {}} = useQuery(['getBotEdit', {id: id}], getBot)
-  const { prefix_bot, shortDesc_bot, support_bot, web_bot, devs} = botQuery;
+  const { prefix_bot, shortDesc_bot, support_bot, web_bot, devs, longDesc_bot} = botQuery;
 
+  const [desc, setDesc] = useState(longDesc_bot ? longDesc_bot : '# Hello World\n\n```javascript\nconst text="Hello"\n```');
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleToggle = () => {
+    setOpen(!open);
+  };
 
   useEffect(() => {
     setData({
@@ -68,8 +94,10 @@ export default function EditBot() {
       support_bot: support_bot,
       web_bot: web_bot
     })
-  }, [id, prefix_bot, shortDesc_bot, support_bot, web_bot]);
 
+
+  }, [id, prefix_bot, shortDesc_bot, support_bot, web_bot, longDesc_bot]);
+  
   const [errors, setErrors] = useState({});
 
   const mutateUpdateBot = useMutation(updateBot);
@@ -217,12 +245,11 @@ export default function EditBot() {
                 helperText="Enlace del sitio web"
               />
             </Grid>
-
+            
             <Grid item xs={12}>
                 <TextField
                   id="DevsBOT"
                   helperText="Desarrolladores (Agrege el ID del usuario, ejemplo: ID1, ID2)"
-                  required
                   name="devs"
                   value={data["devs"]}
                   onChange={handleDevs("devs")}
@@ -232,6 +259,26 @@ export default function EditBot() {
                   fullWidth
                 />
 
+            </Grid>
+            <Grid container direction="row" justify="flex-end" >
+              <Chip
+                icon={<VisibilityIcon />}
+                label="Vista Previa"
+                onClick={handleToggle}
+              />
+
+            </Grid>
+            <Grid item xs={12}>
+                <TextField
+                  id="DescBOT"
+                  label="Descripción de su Bot. (Se acepta el formato Markdown MD)"
+                  multiline
+                  rows={10}
+                  defaultValue={desc}
+                  onChange={e => setDesc(e.target.value)}
+                  variant="outlined"
+                  fullWidth
+                />
             </Grid>
           </Grid>
           {submitting &&
@@ -263,8 +310,15 @@ export default function EditBot() {
       </div>
 
      </Container>
+
      )   
     }
+      <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
+        <Box dangerouslySetInnerHTML={{
+          __html: marked(desc),
+        }}>
+        </Box>
+      </Backdrop>
     </Layout>
     
   );
