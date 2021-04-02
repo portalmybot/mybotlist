@@ -9,7 +9,6 @@ import InfoUser from "../../components/me/InfoUser";
 import BotsUser from "../../components/me/BotsUser";
 
 const MeContent = ({ user }) => {
-
   return (
       <>
         <Grid item xs={12} sm={12}>
@@ -33,7 +32,6 @@ const MeContent = ({ user }) => {
           <BotsUser bots={user.bots}/>
         </Grid>
       </>
-
   )
 };
 
