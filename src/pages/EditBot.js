@@ -75,9 +75,9 @@ export default function EditBot() {
   const [datadevs, setDataDevs] = useState([]);
 
   const {isLoading, error, data: botQuery = {}} = useQuery(['getBotEdit', {id: id}], getBot)
-  const { prefix_bot, shortDesc_bot, support_bot, web_bot, devs, longDesc_bot} = botQuery;
+  const { prefix_bot, shortDesc_bot, tag_bot, support_bot, web_bot, devs, longDesc_bot} = botQuery;
 
-  const [desc, setDesc] = useState(longDesc_bot ? longDesc_bot : '# Hello World\n\n```javascript\nconst text="Hello"\n```');
+  const [desc, setDesc] = useState();
 
   const handleClose = () => {
     setOpen(false);
@@ -94,8 +94,7 @@ export default function EditBot() {
       support_bot: support_bot,
       web_bot: web_bot
     })
-
-
+    setDesc(longDesc_bot)
   }, [id, prefix_bot, shortDesc_bot, support_bot, web_bot, longDesc_bot]);
   
   const [errors, setErrors] = useState({});
@@ -112,10 +111,10 @@ export default function EditBot() {
     setErrors((prev) => ({ ...prev, [fieldName]: undefined }));
     
   };
-  const handleDevs = (fieldName) => (event) => {
+  const handleDevs = () => (event) => {
 
-    const value = event.target.value;
-    setDataDevs(value.split(',').slice(0, 2))
+    const valuedevs = event.target.value;
+    setDataDevs(valuedevs.split(',').slice(0, 2))
     
   } 
   const handleCancel = () => {
@@ -142,11 +141,7 @@ export default function EditBot() {
     setSubmitting(true);
     setTimeout(() => {
       console.log(devs.length);
-      
-
       setSubmitting(false);
-      mutateUpdateBot.mutate({ data });
-      console.log(data);
 
       if (devs.length > 0) {
         if(datadevs.length > 0) {
@@ -165,7 +160,11 @@ export default function EditBot() {
           }
          }
       }
+      
+      mutateUpdateBot.mutate({ longDesc_bot: desc, data });
+
       setAlert({ success: true });
+
 
     }, 4000)
 
@@ -315,7 +314,7 @@ export default function EditBot() {
     }
       <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
         <Box dangerouslySetInnerHTML={{
-          __html: marked(desc),
+          __html: marked(!desc ? `Bot ${tag_bot}` : desc),
         }}>
         </Box>
       </Backdrop>

@@ -51,9 +51,13 @@ export const deleteDevsBot = async ({ data }) => {
 
 }
 
-export const updateBot = async ({ data }) => {
-  
-  await http.put(`/bots/${data.id_bot}`, data);
+export const updateBot = async (data) => {
+
+  let dataObj = data.data;
+
+  dataObj["longDesc_bot"] = data.longDesc_bot ? data.longDesc_bot : null
+
+  await http.put(`/bots/${dataObj.id_bot}`, dataObj);
   window.location.href = "http://localhost:3000/me";
 
 };
