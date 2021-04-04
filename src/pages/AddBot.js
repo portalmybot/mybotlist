@@ -45,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const tagsQuery = ['memes', 'musica', 'admin', 'moderacion']
 export default function AddBot() {
   const classes = useStyles();
   const { enqueueSnackbar } = useSnackbar();
@@ -54,12 +55,6 @@ export default function AddBot() {
   const [tags, setTags] = useState([]);
   const [errors, setErrors] = useState({});
   
-  const {isLoading, data: tagsQuery} = useQuery('tags', getTags, {
-     refetchAllOnWindowFocus: false,
-  })
-
-  
-
   const mutate = useMutation(addBot);
   const mutateTag = useMutation(addTags);
   const handleChange = (fieldName) => (event) => {
@@ -175,8 +170,8 @@ export default function AddBot() {
                 multiple
                 limitTags={3}
                 id="tags-outlined"
-                options={!isLoading && tagsQuery}
-                getOptionLabel={(option) => option.name_tag}
+                options={tagsQuery}
+                getOptionLabel={(option) => option}
                 filterSelectedOptions
                 onChange={handleChangeTags}
                 renderInput={(params) => (
