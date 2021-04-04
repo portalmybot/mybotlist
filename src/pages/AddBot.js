@@ -58,8 +58,6 @@ export default function AddBot() {
      refetchAllOnWindowFocus: false,
   })
 
-  
-
   const mutate = useMutation(addBot);
   const mutateTag = useMutation(addTags);
   const handleChange = (fieldName) => (event) => {
