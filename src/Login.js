@@ -25,6 +25,7 @@ export default function Login(props) {
         })
         .then((data) => {
           AuthService.handleLoginSuccess(data, true)
+          
           window.location.href = 'http://localhost:3000/me';
 
         })

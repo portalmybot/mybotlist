@@ -1,5 +1,5 @@
 import CookieService from "./CookieService";
-
+import {} from "./me.service";
 const expiresAt = 60 * 168; //dias
 
 class AuthService {
@@ -7,6 +7,7 @@ class AuthService {
     if(!remember) {
       const options = { path: "/", /* secure: true, httpOnly: true */ };
       CookieService.set("access_token", response.access_token, options);
+
       return true;
 
     }
