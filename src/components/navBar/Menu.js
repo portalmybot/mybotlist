@@ -76,6 +76,7 @@ export default function MenuAuth() {
             vertical: 'top',
             horizontal: 'right',
           }}
+          
           keepMounted
           transformOrigin={{
             vertical: 'top',
@@ -83,12 +84,14 @@ export default function MenuAuth() {
           }}
           open={open}
           onClose={handleClose}
+
         >
 
           <Box display="flex" className={classes.boxMenu}>
             <Box m="auto">
                 {isLoading ? (
                   <Skeleton variant="circle" width={40} height={40} />
+
                 ) : (
                   <>
                     <Avatar alt="Remy Sharp" src={user.social_avatarUrl} className={classes.big}/>
