@@ -50,6 +50,7 @@ export default function MenuAuth() {
     CookieService.remove("access_token");
     await logoutUser();
     window.location.href = "http://localhost:3000";
+    
   };
 
   return (
@@ -60,6 +61,7 @@ export default function MenuAuth() {
           aria-haspopup="true"
           onClick={handleMenu}
           color="inherit"
+
         >
         {isLoading ? (
           <Skeleton variant="circle" width={40} height={40} />
@@ -121,7 +123,7 @@ export default function MenuAuth() {
           </MenuItem>
         </Link>
         <MenuItem onClick={handleLogout}>Cerrar Sesión</MenuItem>
-        
+
       </Menu>
     </div>
   );
