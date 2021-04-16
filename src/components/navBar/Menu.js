@@ -95,6 +95,7 @@ export default function MenuAuth() {
                 ) : (
                   <>
                     <Avatar alt="Remy Sharp" src={user.social_avatarUrl} className={classes.big}/>
+
                   </>
                 )}
                
@@ -116,9 +117,11 @@ export default function MenuAuth() {
         <Link underline='none' component={RouterLink} to="/me" color="inherit">
           <MenuItem onClick={handleClose}>
              Perfil
+
           </MenuItem>
         </Link>
         <MenuItem onClick={handleLogout}>Cerrar Sesión</MenuItem>
+        
       </Menu>
     </div>
   );
