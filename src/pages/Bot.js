@@ -76,7 +76,6 @@ export default function Bot() {
         ) : (
             
         <Container maxWidth={false} className={classes.containerbg} style={{background: `${bgPremium}`}} >
-
           <Container maxWidth={'lg'}>
 
             <div className={classes.root}>
