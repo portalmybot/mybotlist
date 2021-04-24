@@ -25,6 +25,7 @@ const guestRoutes = [
   { path: "/auth/discord", component: Login, exact: true },
   { path: "/register", component: Register, exact: true },
   { path: "/bot/:id", component: Bot, exact: true },
+  { path: "/tag/:id", component: Bot, exact: true },
 ];
 
 const protectedRoutes = [
