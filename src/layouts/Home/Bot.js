@@ -9,7 +9,7 @@ import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red, green, yellow, grey} from '@material-ui/core/colors';
+import { red, green, /* yellow, grey */} from '@material-ui/core/colors';
 import ShareIcon from '@material-ui/icons/Share';
 import Chip from '@material-ui/core/Chip';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
@@ -21,8 +21,8 @@ import { Link as RouterLink } from 'react-router-dom';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
-import SettingsIcon from '@material-ui/icons/Settings';
-import OfflineBoltIcon from '@material-ui/icons/OfflineBolt';
+/* import SettingsIcon from '@material-ui/icons/Settings';
+import OfflineBoltIcon from '@material-ui/icons/OfflineBolt'; */
 
 import Divider from '@material-ui/core/Divider';
 
@@ -102,7 +102,7 @@ const CardList = ({ value }) => {
            {/*  <SettingsIcon style={{ color: grey[500] }} className={classes.icon} /> */}
             <VerifiedUserIcon style={{ color: green[500] }} className={classes.icon}/>
 
-            <OfflineBoltIcon style={{ color: yellow[500] }} className={classes.icon}/>
+            {/* <OfflineBoltIcon style={{ color: yellow[500] }} className={classes.icon}/> */}
           </>
         }
 

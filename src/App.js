@@ -14,6 +14,7 @@ import theme from './assets/theme';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Bot from './pages/Bot';
+import Tag from './pages/Tag';
 import Add from './pages/AddBot';
 import Edit from './pages/EditBot';
 import Login from './Login';
@@ -25,7 +26,7 @@ const guestRoutes = [
   { path: "/auth/discord", component: Login, exact: true },
   { path: "/register", component: Register, exact: true },
   { path: "/bot/:id", component: Bot, exact: true },
-  { path: "/tag/:id", component: Bot, exact: true },
+  { path: "/tag/:id", component: Tag, exact: true },
 ];
 
 const protectedRoutes = [
