@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
  })
 )
 
-export default function HeroContent() {
+export default function HeroTags() {
   const classes = useStyles();
    return (
     <div className={classes.heroContent}>
