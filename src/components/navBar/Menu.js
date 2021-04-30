@@ -86,9 +86,7 @@ export default function MenuAuth() {
           }}
           open={open}
           onClose={handleClose}
-
         >
-
           <Box display="flex" className={classes.boxMenu}>
             <Box m="auto">
                 {isLoading ? (
@@ -97,7 +95,6 @@ export default function MenuAuth() {
                 ) : (
                   <>
                     <Avatar alt="Remy Sharp" src={user.social_avatarUrl} className={classes.big}/>
-
                   </>
                 )}
                
