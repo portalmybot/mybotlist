@@ -19,8 +19,7 @@ import Add from './pages/AddBot';
 import Edit from './pages/EditBot';
 import Login from './Login';
 import Me from './pages/Me';
-/* import Tos from './pages/Tos';
- */
+
 const guestRoutes = [
   { path: "/", component: Home, exact: true },
   { path: "/auth/discord", component: Login, exact: true },
