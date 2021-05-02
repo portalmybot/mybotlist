@@ -7,8 +7,6 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import { Link as RouterLink } from 'react-router-dom';
 import { getTagsHome } from '../../services/bot.service';
 
-/* const tags = ['Anime', 'Economía', 'Soporte', 'Admin', 'Social', 'Videos', 'Moderación'];
- */
 function stringToColor(string) {
   let hash = 0;
   let i;
@@ -24,7 +22,6 @@ function stringToColor(string) {
     const value = (hash >> (i * 8)) & 0xff;
     color += `00${value.toString(16)}`.substr(-2);
   }
-  /* eslint-enable no-bitwise */
 
   return color;
 }
@@ -68,9 +65,7 @@ const useStyles = makeStyles((theme) => ({
             <Chip key={'homeTag-'+tag.name_tag} label={tag.name_tag} component={RouterLink} to={'/tag/'+tag.name_tag} color="default" style={{backgroundColor: stringToColor('portal'+tag.name_tag), fontSize: 15}} icon={<LabelIcon />} clickable/>
           </div>
         )
-
       })}
-
     </div>
   );
 }
