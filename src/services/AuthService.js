@@ -1,5 +1,4 @@
 import CookieService from "./CookieService";
-import {} from "./me.service";
 const expiresAt = 60 * 168; //dias
 
 class AuthService {
