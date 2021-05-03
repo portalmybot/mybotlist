@@ -8,9 +8,10 @@ export const getHomeBots = async () => {
 };
 
 export const getHomeTagBots = async (name) => {
-  //console.log(name.queryKey[1].name);
+
   const response = await http.get(`/home/tag/${name.queryKey[1].name}`);
-  return response;
+  console.log(response.data[0]);
+  return response.data[0];
 
 };
 

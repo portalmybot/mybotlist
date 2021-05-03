@@ -43,10 +43,10 @@ const TagBotList = () => {
              
             </>
           )}
-          {!isLoading && bots ?  
+          {!isLoading && bots ? 
             <>
               { 
-                bots.data.map((bot) => {
+                bots.map((bot) => {
                   return (
                     <Grid key={`${bot.id}-bot`} item xs={12} sm={6} md={4} lg={3}>
                       <Bot value={bot} />
