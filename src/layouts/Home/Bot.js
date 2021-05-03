@@ -80,6 +80,8 @@ const CardList = ({ value }) => {
 
   const {
     id_bot,
+    username_bot,
+    avatarUrl_bot,
     shortDesc_bot,
     vote_bot,
     tags
@@ -89,9 +91,7 @@ const CardList = ({ value }) => {
     <Card key={id_bot} className={classes.root}>
       <CardHeader
         avatar={
-          <Avatar alt="Image title" /* src="https://source.unsplash.com/random" */ variant="square" className={classes.avatar}>
-            BOT
-          </Avatar>
+          <Avatar alt="Image title" src={avatarUrl_bot} variant="square" className={classes.avatar} />
         }
         action={
           <Chip label={vote_bot} icon={<ImportExportIcon />} variant="outlined"/>
@@ -110,7 +110,7 @@ const CardList = ({ value }) => {
       
       <CardContent className={classes.section1}>
         <Typography className={classes.title} color="secondary" gutterBottom>
-          MyBOT 
+          {username_bot} 
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
           {shortDesc_bot}

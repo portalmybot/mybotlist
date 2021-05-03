@@ -6,6 +6,14 @@ export const getHomeBots = async () => {
   return response.data;
 
 };
+
+export const getHomeTagBots = async (name) => {
+  //console.log(name.queryKey[1].name);
+  const response = await http.get(`/home/tag/${name.queryKey[1].name}`);
+  return response;
+
+};
+
 export const getBot = async (id) => {
   const { data } = await http.get(`/home/bot/${id.queryKey[1].id}`);
 
