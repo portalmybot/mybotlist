@@ -57,9 +57,9 @@ export default function InfoBot({ bot }) {
        
         <Typography>
           {badges.map((badge, index) => {
-                return (
-                  <Badge key={index + 'badge'} value={badge.name_badge} />
-                );
+              return (
+                <Badge key={index + 'badge'} value={badge.name_badge} />
+              );
           })}
         </Typography>
       </Typography>

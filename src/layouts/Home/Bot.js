@@ -4,12 +4,12 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-/* import CardMedia from '@material-ui/core/CardMedia'; */
+
 import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red, green, /* yellow, grey */} from '@material-ui/core/colors';
+import { red, green, yellow, grey} from '@material-ui/core/colors';
 import ShareIcon from '@material-ui/icons/Share';
 import Chip from '@material-ui/core/Chip';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
@@ -21,8 +21,8 @@ import { Link as RouterLink } from 'react-router-dom';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
-/* import SettingsIcon from '@material-ui/icons/Settings';
-import OfflineBoltIcon from '@material-ui/icons/OfflineBolt'; */
+import SettingsIcon from '@material-ui/icons/Settings';
+import OfflineBoltIcon from '@material-ui/icons/OfflineBolt';
 
 import Divider from '@material-ui/core/Divider';
 
@@ -84,7 +84,8 @@ const CardList = ({ value }) => {
     avatarUrl_bot,
     shortDesc_bot,
     vote_bot,
-    tags
+    tags,
+    badges
   } = value;
   
   return (
@@ -98,12 +99,41 @@ const CardList = ({ value }) => {
         }
 
         subheader= {
-          <>
-           {/*  <SettingsIcon style={{ color: grey[500] }} className={classes.icon} /> */}
-            <VerifiedUserIcon style={{ color: green[500] }} className={classes.icon}/>
+          badges && 
+            badges.map((badge) => {
+              return (
+                <>
+                  {
+                    badge.name_badge === 'verificado' ? < VerifiedUserIcon style = {
+                      {
+                        color: green[500]
+                      }
+                    }
+                    className = {
+                      classes.icon
+                    }
+                    /> : badge.name_badge === 'desarrollo' ? <SettingsIcon style={
+                      { 
+                        color: grey[500] 
+                      }
+                    } 
+                    className={
+                      classes.icon
+                    } 
+                    /> : badge.name_badge === 'premium' ? <OfflineBoltIcon style={ 
+                      {
+                        color: yellow[500]
+                      }
+                    }
+                    className = {
+                      classes.icon
+                    }
+                    /> : null
 
-            {/* <OfflineBoltIcon style={{ color: yellow[500] }} className={classes.icon}/> */}
-          </>
+                  }
+                </>
+              )
+            })
         }
 
       />
