@@ -8,7 +8,7 @@ import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red, green, yellow} from '@material-ui/core/colors';
+import { red, green, grey, yellow} from '@material-ui/core/colors';
 
 import Chip from '@material-ui/core/Chip';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
@@ -19,7 +19,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import CallMadeIcon from '@material-ui/icons/CallMade';
 
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
-/* import SettingsIcon from '@material-ui/icons/Settings'; */
+import SettingsIcon from '@material-ui/icons/Settings';
 import OfflineBoltIcon from '@material-ui/icons/OfflineBolt';
 
 import Divider from '@material-ui/core/Divider';
@@ -101,7 +101,11 @@ const BotCard = ({ bot }) => {
               badges.map((badge) => {
                 return (
                   <>  
-                    {badge.name_badge === 'verificado' ? <VerifiedUserIcon style={{ color: green[500] }} className={classes.icon}/> : <OfflineBoltIcon style={{ color: yellow[500] }} className={classes.icon}/>}
+                    {
+                      badge.name_badge === 'verificado' ? <VerifiedUserIcon style={{ color: green[500] }} className = {classes.icon}
+                      /> : badge.name_badge === 'desarrollo' ? <SettingsIcon style={{ color: grey[500] }} className={classes.icon} 
+                      /> : badge.name_badge === 'premium' ? <OfflineBoltIcon style={{ color: yellow[500]}} className={classes.icon} /> : null
+                    }
                      
                   </>
                 )

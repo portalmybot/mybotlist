@@ -3,10 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import OfflineBoltIcon from '@material-ui/icons/OfflineBolt';
+import SettingsIcon from '@material-ui/icons/Settings';
+
 import Tooltip from '@material-ui/core/Tooltip';
 import Zoom from '@material-ui/core/Zoom';
 
-import { green, yellow, /* grey */} from '@material-ui/core/colors';
+import { green, yellow, grey } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -25,7 +27,16 @@ export default function ButtonSizes({value}) {
   
   return (
      <Tooltip TransitionComponent={Zoom} title={value} placement="left">
-        <Button color="default" className={classes.button} startIcon={value === 'verificado' ? <VerifiedUserIcon style={{ color: green[500], fontSize: '30px' }}/>: <OfflineBoltIcon style={{ color: yellow[500], fontSize: '30px' }}/> } />
+        < Button color = "default"
+        className = {
+          classes.button
+        }
+        startIcon = {
+          value === 'verificado' ? < VerifiedUserIcon style = {{color: green[500],fontSize: '30px'}}
+          /> : value === 'desarrollo' ? <SettingsIcon style={{ color: grey[500] , fontSize: '30px' }} 
+          /> : value === 'premium' ? <OfflineBoltIcon style={{ color: yellow[500], fontSize: '30px' }} /> : null
+        }
+        />
      </Tooltip>
   );
 }
