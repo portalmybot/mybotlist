@@ -19,9 +19,9 @@ const useStyles = makeStyles((theme) => ({
 )
 const SLoading = [1,2,3,4,5,6,7,8]
 
-const TagBotList = () => {
+const TagBotList = ({tagName}) => {
   const classes = useStyles();
-  const {isLoading, data: bots} = useQuery(['tagBots', { name: 'anime' }], getHomeTagBots)
+  const {isLoading, data: bots} = useQuery(['tagBots', { name: tagName }], getHomeTagBots)
 
   return (
     <>
@@ -46,10 +46,10 @@ const TagBotList = () => {
           {!isLoading && bots ? 
             <>
               { 
-                bots.map((bot) => {
+                bots.data.map((bot) => {
                   return (
-                    <Grid key={`${bot.id}-bot`} item xs={12} sm={6} md={4} lg={3}>
-                      <Bot value={bot} />
+                    <Grid key={`${bot[0].id}-bot`} item xs={12} sm={6} md={4} lg={3}>
+                      <Bot value={bot[0]} />
                     </Grid>
                   )
                 })
