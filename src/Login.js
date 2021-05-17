@@ -7,10 +7,6 @@ import useIdUser from './components/useIdUser'; */
 import AuthService from './services/AuthService';
 
 export default function Login(props) {
-  
-/*   const { token, setToken } = useToken();
-  const { id, setId } = useIdUser(); */
-
   useEffect(() => {
     fetch(`/api/auth/discord/callback/${props.location.search}`, {
           headers: new Headers({
@@ -38,7 +34,6 @@ export default function Login(props) {
 
   return (
     <div>
-       {/*  <Redirect from='/' to='/me'/> */}
     </div>
   );
 }
