@@ -27,18 +27,15 @@ const Me = () => {
       <Layout>
         {
           isLoading ? (
-            'Cargando..'
+            'Cargando...'
           ) : error ? (
             <h1>Error!</h1>
           ) : (
-            
             <Container maxWidth={false} className={classes.containerbg}>
               <Container maxWidth={'lg'}>
                 <div className={classes.root}>
                   <Grid container spacing={1} justify='center'>
-
                     <MeContent user={user}/>
-
                   </Grid>
                 </div>
               </Container>

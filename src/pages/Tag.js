@@ -6,6 +6,7 @@ import ContainerTags from '../layouts/Home/ContainerTags.js';
 
 export default function Home() {
   const { id } = useParams();
+  
   return (
     <Layout >
       <HeroTags />
