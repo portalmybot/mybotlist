@@ -1,9 +1,4 @@
 import React, { useEffect } from 'react'
-/* import { Redirect } from 'react-router'; */
-/* import { useHistory } from "react-router-dom";
-
-import useToken from './components/useToken';
-import useIdUser from './components/useIdUser'; */
 import AuthService from './services/AuthService';
 
 export default function Login(props) {
