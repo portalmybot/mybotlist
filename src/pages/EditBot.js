@@ -25,8 +25,6 @@ import LoadingLinear from '../components/common/LoadingLinear';
 import AlertInput from '../components/common/AlertInput';
 import { getBot, updateBot, addDevs, deleteDevsBot } from '../services/bot.service';
 import { Box } from '@material-ui/core';
-/* import { getUser } from '../services/me.service';
- */
 
 const marked = require("marked");
 const schema = Joi.object({
@@ -46,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(5)
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(3),
   },
   submit: {
