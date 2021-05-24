@@ -160,9 +160,7 @@ export default function EditBot() {
       }
       
       mutateUpdateBot.mutate({ longDesc_bot: desc, data });
-
       setAlert({ success: true });
-
 
     }, 4000)
 
