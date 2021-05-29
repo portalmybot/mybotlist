@@ -35,12 +35,9 @@ const BotList = () => {
                    <Grid item key={load} xs={12} sm={6} md={3}>
                       <BotLoading />
                     </Grid>
-
                   )
                 })
-
               }
-             
             </>
           )}
           {!isLoading && bots ?  
