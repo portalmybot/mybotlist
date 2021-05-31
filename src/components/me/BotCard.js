@@ -105,12 +105,10 @@ const BotCard = ({ bot }) => {
                       badge.name_badge === 'verificado' ? <VerifiedUserIcon style={{ color: green[500] }} className = {classes.icon}
                       /> : badge.name_badge === 'desarrollo' ? <SettingsIcon style={{ color: grey[500] }} className={classes.icon} 
                       /> : badge.name_badge === 'premium' ? <OfflineBoltIcon style={{ color: yellow[500]}} className={classes.icon} /> : null
-                    }
-                     
+                    }                     
                   </>
                 )
               })
-
             }
 
           </>
