@@ -27,7 +27,6 @@ const LoginLinkMobile = () => {
   useEffect(() => {
     fetch("/api/auth/discord/login")
       .then(data => {
-        
         return data.json();
       })
       .then(data => {
