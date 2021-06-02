@@ -35,7 +35,6 @@ const protectedRoutes = [
 ];
 
 function App() {
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
