@@ -64,7 +64,6 @@ function App() {
               )
             })
           }
-
           <Redirect to="/" />
         </Switch>
         

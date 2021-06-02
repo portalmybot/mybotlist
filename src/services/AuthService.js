@@ -1,6 +1,5 @@
 import CookieService from "./CookieService";
-const expiresAt = 60 * 168; //dias
-
+const expiresAt = 60 * 168;
 class AuthService {
   handleLoginSuccess(response, remember) {
     if(!remember) {
