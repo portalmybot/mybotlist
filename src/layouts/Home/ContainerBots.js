@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import BotVoteTop from '../../components/home/BotVoteTop';
+import BotNews from '../../components/home/BotNews';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -20,6 +21,7 @@ const BotList = () => {
     <>
       <Container className={classes.cardGrid} maxWidth="lg">
         <BotVoteTop />
+        <BotNews />
       </Container>
     </>
   )

@@ -11,6 +11,11 @@ export const getHomeBotsVoteTop = async () => {
   return response.data;
 
 };
+export const getHomeBotsNews = async () => {
+  const response = await http.get("/home/bots/news");
+  return response.data;
+
+};
 
 export const getHomeTagBots = async (name) => {
 
