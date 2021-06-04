@@ -7,7 +7,7 @@ import HomeTags from './TagsHome.js';
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
-    padding: theme.spacing(5, 5, 20, 5),
+    padding: theme.spacing(5, 5, 13, 5),
     width: '100%',
     backgroundColor: theme.palette.background.paper,
     backgroundAttachment: 'fixed',
