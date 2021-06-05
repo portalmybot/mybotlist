@@ -8,10 +8,6 @@ import Bot from '../../layouts/Home/Bot';
 import BotLoading from '../../components/skeleton/BotLoading';
 import { getHomeBotsNews } from '../../services/bot.service';
 
-/* const useStyles = makeStyles((theme) => ({
- })
-) */
-
 const SLoading = [1,2,3,4,5,6,7,8]
 
 const BotsNews = () => {
