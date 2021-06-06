@@ -7,6 +7,7 @@ import BotNews from '../../components/home/BotNews';
 import Typography from '@material-ui/core/Typography';
 
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FiberNewIcon from '@material-ui/icons/FiberNew';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -32,11 +33,13 @@ const useStyles = makeStyles((theme) => ({
 )
 
 const TitleContent = (textTitle) => {
+  
   const classes = useStyles();
   return (
     <>
        <Typography variant="subtitle1" color="inherit" className={classes.textContent} paragraph>
-          <FavoriteBorderIcon className={classes.iconText} /> {textTitle.title}
+          {textTitle.icon === 'vote' ?  <FavoriteBorderIcon className={classes.iconText} /> : textTitle.icon === 'new' ? <FiberNewIcon className={classes.iconText} /> : null } {textTitle.title}
+         
         </Typography>
 
         <Typography variant="subtitle2" gutterBottom className={classes.textSubtitle}>
@@ -53,10 +56,10 @@ const BotList = () => {
     <>
       <Container className={classes.cardGrid} maxWidth="lg">
 
-        <TitleContent title="DISCORD BOTS MÁS VOTADOS" subtitle="¡Este es el ranking de los bots que recibieron más corazones!" />
+        <TitleContent icon="vote" title="DISCORD BOTS MÁS VOTADOS" subtitle="¡Este es el ranking de los bots que recibieron más corazones!" />
         <BotVoteTop />
 
-        <TitleContent title="DISCORD BOTS RECIENTES" subtitle="¡Lista de bots recientemente agregados a la lista!" />
+        <TitleContent icon="new" title="DISCORD BOTS RECIENTES" subtitle="¡Lista de bots recientemente agregados a la lista!" />
         <BotNews />
 
 
