@@ -6,22 +6,23 @@ import { useQuery } from 'react-query'
 
 import Bot from '../../layouts/Home/Bot';
 import BotLoading from '../../components/skeleton/BotLoading';
-import { getHomeBotsNews } from '../../services/bot.service';
+import { getHomeBotsVoteTop } from '../../services/bot.service';
 
 const useStyles = makeStyles((theme) => ({
-  gridBot: {
-    marginBottom: theme.spacing(3),
-  }
-}))
+   gridBot: {
+      marginBottom: theme.spacing(3),
+   }
+ })
+)
 
 const SLoading = [1,2,3,4,5,6,7,8]
 
-const BotsNews = () => {
+const BotsTopVote = () => {
   const classes = useStyles();
-  const {isLoading, data: botsNews} = useQuery('getHomeBotsNews', getHomeBotsNews)
+  const {isLoading, data: botsTopVote} = useQuery('botsTopVote', getHomeBotsVoteTop)
 
   return (
-        <Grid container spacing={5}  className={classes.gridBot}>
+        <Grid container spacing={5} className={classes.gridBot}>
           {isLoading && (
             <>
               {
@@ -35,10 +36,10 @@ const BotsNews = () => {
               }
             </>
           )}
-          {!isLoading && botsNews ?  
+          {!isLoading && botsTopVote ?  
             <>
               { 
-                botsNews.data.map((bot) => {
+                botsTopVote.data.map((bot) => {
                   return (
                     <Grid key={`${bot.id}-bot`} item xs={12} sm={6} md={4} lg={3}>
                       <Bot value={bot} />
@@ -52,4 +53,4 @@ const BotsNews = () => {
   )
 
 }
-export default BotsNews
+export default BotsTopVote
