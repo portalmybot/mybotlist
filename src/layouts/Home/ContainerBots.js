@@ -5,6 +5,7 @@ import Container from '@material-ui/core/Container';
 import BotVoteTop from '../../components/home/BotVoteTop';
 import BotNews from '../../components/home/BotNews';
 import Typography from '@material-ui/core/Typography';
+import { red, cyan } from '@material-ui/core/colors';
 
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FiberNewIcon from '@material-ui/icons/FiberNew';
@@ -24,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2)
   },
   iconText: {
-    color: 'red',
     marginRight: theme.spacing(1),
     fontSize: theme.spacing(5),
     marginTop: theme.spacing(.3)
@@ -38,7 +38,7 @@ const TitleContent = (textTitle) => {
   return (
     <>
        <Typography variant="subtitle1" color="inherit" className={classes.textContent} paragraph>
-          {textTitle.icon === 'vote' ?  <FavoriteBorderIcon className={classes.iconText} /> : textTitle.icon === 'new' ? <FiberNewIcon className={classes.iconText} /> : null } {textTitle.title}
+          {textTitle.icon === 'vote' ?  <FavoriteBorderIcon className={classes.iconText} style={{ color: red[600] }} /> : textTitle.icon === 'new' ? <FiberNewIcon className={classes.iconText} style={{ color: cyan[700] }} /> : null } {textTitle.title}
          
         </Typography>
 
