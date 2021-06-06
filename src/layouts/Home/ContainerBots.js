@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   textSubtitle: {
     marginLeft: theme.spacing(6),
     marginTop: theme.spacing(-4.5),
-    marginBottom: theme.spacing(3)
+    marginBottom: theme.spacing(2)
   },
   iconText: {
     color: 'red',

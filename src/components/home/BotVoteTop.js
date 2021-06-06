@@ -10,7 +10,7 @@ import { getHomeBotsVoteTop } from '../../services/bot.service';
 
 const useStyles = makeStyles((theme) => ({
    gridBot: {
-      marginBottom: theme.spacing(2),
+      marginBottom: theme.spacing(3),
    }
  })
 )
