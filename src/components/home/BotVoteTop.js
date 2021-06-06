@@ -1,5 +1,5 @@
 import React from 'react';
-/* import { makeStyles } from '@material-ui/core/styles'; */
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
 import { useQuery } from 'react-query'
@@ -8,17 +8,21 @@ import Bot from '../../layouts/Home/Bot';
 import BotLoading from '../../components/skeleton/BotLoading';
 import { getHomeBotsVoteTop } from '../../services/bot.service';
 
-/* const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
+   gridBot: {
+      marginBottom: theme.spacing(2),
+   }
  })
-) */
+)
 
 const SLoading = [1,2,3,4,5,6,7,8]
 
 const BotsTopVote = () => {
+  const classes = useStyles();
   const {isLoading, data: botsTopVote} = useQuery('botsTopVote', getHomeBotsVoteTop)
 
   return (
-        <Grid container spacing={5}>
+        <Grid container spacing={5} className={classes.gridBot}>
           {isLoading && (
             <>
               {
