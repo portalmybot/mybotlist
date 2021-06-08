@@ -66,7 +66,6 @@ const BotList = () => {
         <TitleContent icon="new" title="DISCORD BOTS RECIENTES" subtitle="¡Lista de bots recientemente agregados a la lista!" />
         <BotNews />
 
-
       </Container>
     </>
   )
