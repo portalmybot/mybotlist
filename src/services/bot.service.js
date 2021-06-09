@@ -6,11 +6,18 @@ export const getHomeBots = async () => {
   return response.data;
 
 };
+
 export const getHomeBotsVoteTop = async () => {
   const response = await http.get("/home/bots/vote");
   return response.data;
 
 };
+export const getHomeBotsVerified = async () => {
+  const response = await http.get("/home/bots/verified");
+  return response.data;
+
+};
+
 export const getHomeBotsNews = async () => {
   const response = await http.get("/home/bots/news");
   return response.data;

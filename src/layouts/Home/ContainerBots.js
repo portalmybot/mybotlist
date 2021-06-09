@@ -4,6 +4,8 @@ import Container from '@material-ui/core/Container';
 
 import BotVoteTop from '../../components/home/BotVoteTop';
 import BotNews from '../../components/home/BotNews';
+import BotVerified from '../../components/home/BotVerified';
+
 import Typography from '@material-ui/core/Typography';
 import { red, cyan, green } from '@material-ui/core/colors';
 
@@ -61,7 +63,7 @@ const BotList = () => {
         <BotVoteTop />
 
         <TitleContent icon="veri" title="DISCORD BOTS VERIFICADOS" subtitle="¡Son bots de confianza certificados por MyBOT Team!" />
-        <BotNews />
+        <BotVerified />
 
         <TitleContent icon="new" title="DISCORD BOTS RECIENTES" subtitle="¡Lista de bots recientemente agregados a la lista!" />
         <BotNews />
