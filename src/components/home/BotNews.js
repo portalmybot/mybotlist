@@ -5,7 +5,9 @@ import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
-import { useQuery } from 'react-query'
+import { useQuery } from 'react-query';
+
+import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 
 import Bot from '../../layouts/Home/Bot';
 import BotLoading from '../../components/skeleton/BotLoading';
@@ -66,7 +68,7 @@ const BotsNews = () => {
         <Grid className={classes.gridBot} container>
           <Grid item xs={12}>
             <Link underline='none' component={RouterLink} className={classes.expand} to={'/list/new'} color="inherit">
-              <ColorButton variant="contained" size="large" color="default" fullWidth>
+              <ColorButton startIcon={<PlaylistAddIcon />} variant="contained" size="large" color="default" fullWidth>
                 VER MÁS BOTS AGREGADOS RECIENTEMENTE
               </ColorButton>
             </Link>

@@ -6,6 +6,8 @@ import { Link as RouterLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { useQuery } from 'react-query'
 
+import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+
 import Bot from '../../layouts/Home/Bot';
 import BotLoading from '../../components/skeleton/BotLoading';
 import { getHomeBotsVoteTop } from '../../services/bot.service';
@@ -69,7 +71,7 @@ const BotsTopVote = () => {
         <Grid className={classes.gridBot} container>
           <Grid item xs={12}>
             <Link underline='none' component={RouterLink} className={classes.expand} to={'/list/top'} color="inherit">
-              <ColorButton variant="contained" size="large" color="default" fullWidth>
+              <ColorButton startIcon={<PlaylistAddIcon />} variant="contained" size="large" color="default" fullWidth>
                 VER MÁS BOTS TOPS
               </ColorButton>
             </Link>
