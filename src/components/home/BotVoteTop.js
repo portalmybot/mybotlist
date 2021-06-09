@@ -1,6 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
+import { Link as RouterLink } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 import { useQuery } from 'react-query'
 
@@ -8,9 +11,10 @@ import Bot from '../../layouts/Home/Bot';
 import BotLoading from '../../components/skeleton/BotLoading';
 import { getHomeBotsVoteTop } from '../../services/bot.service';
 
+
 const useStyles = makeStyles((theme) => ({
    gridBot: {
-      marginBottom: theme.spacing(3),
+      margin: theme.spacing(3, 3),
    }
  })
 )
@@ -22,7 +26,8 @@ const BotsTopVote = () => {
   const {isLoading, data: botsTopVote} = useQuery('botsTopVote', getHomeBotsVoteTop)
 
   return (
-        <Grid container spacing={5} className={classes.gridBot}>
+      <>
+        <Grid container spacing={5}>
           {isLoading && (
             <>
               {
@@ -49,7 +54,18 @@ const BotsTopVote = () => {
               }
             </>
           : null}
+          
         </Grid>
+        
+          <Grid className={classes.gridBot} container direction="row" justify="center" alignItems="center">
+            <Link underline='none' component={RouterLink} className={classes.expand} to={'/list/top'} color="inherit">
+              <Button variant="contained" size="large" color="secondary">
+                Ver más
+              </Button>
+            </Link>
+          </Grid>
+      </>
+        
   )
 
 }
