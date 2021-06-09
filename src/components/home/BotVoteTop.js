@@ -57,12 +57,14 @@ const BotsTopVote = () => {
           
         </Grid>
         
-          <Grid className={classes.gridBot} container direction="row" justify="center" alignItems="center">
-            <Link underline='none' component={RouterLink} className={classes.expand} to={'/list/top'} color="inherit">
-              <Button variant="contained" size="large" color="secondary">
-                Ver más
-              </Button>
-            </Link>
+          <Grid className={classes.gridBot} container>
+            <Grid item xs={11}>
+              <Link underline='none' component={RouterLink} className={classes.expand} to={'/list/top'} color="inherit">
+                <Button variant="contained" size="large" color="default" fullWidth>
+                  Ver más
+                </Button>
+              </Link>
+            </Grid>
           </Grid>
       </>
         
