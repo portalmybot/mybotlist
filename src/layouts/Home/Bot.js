@@ -34,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
          maxWidth: 345,
        },
      },
+     '&:hover': {
+       boxShadow: '0px 3px 3px -2px rgb(0 0 0 / 21%), 0px 3px 4px 0px rgb(0 0 0 / 31%), 0px 1px 8px 0px rgb(0 0 0 / 56%)'
+     }
   },
   media: {
     height: 0,
@@ -71,7 +74,8 @@ const useStyles = makeStyles((theme) => ({
   },
   section3: {
     margin: theme.spacing(1, 0, 0.5),
-  }
+  },
+  
 }));
 
 const CardList = ({ value }) => {
@@ -88,7 +92,7 @@ const CardList = ({ value }) => {
   } = value;
   
   return (
-    <Card key={id_bot} className={classes.root}>
+    <Card key={id_bot} className={classes.root} >
       <CardHeader
         avatar={
           <Avatar alt="Image title" src={avatarUrl_bot} variant="square" className={classes.avatar} />
