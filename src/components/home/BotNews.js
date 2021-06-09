@@ -15,7 +15,7 @@ import { getHomeBotsNews } from '../../services/bot.service';
 
 const useStyles = makeStyles((theme) => ({
   gridBot: {
-    margin: theme.spacing(3, 0, 5),
+    margin: theme.spacing(2, 0, 5),
   }
 }))
 
