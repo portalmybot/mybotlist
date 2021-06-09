@@ -10,7 +10,6 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red, green, yellow, grey} from '@material-ui/core/colors';
-import ShareIcon from '@material-ui/icons/Share';
 import Chip from '@material-ui/core/Chip';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import Button from '@material-ui/core/Button';
@@ -165,9 +164,7 @@ const CardList = ({ value }) => {
         <IconButton aria-label="add to favorites" href={'/vote/'+id_bot}>
           <FavoriteBorderIcon />
         </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+        
         <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/'+id_bot} color="inherit">
           <Button variant="contained" color="primary">
            Ver
