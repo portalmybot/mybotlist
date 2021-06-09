@@ -1,6 +1,9 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
+import { Link as RouterLink } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 import { useQuery } from 'react-query'
 
@@ -10,9 +13,19 @@ import { getHomeBotsNews } from '../../services/bot.service';
 
 const useStyles = makeStyles((theme) => ({
   gridBot: {
-    marginBottom: theme.spacing(3),
+    margin: theme.spacing(3, 0, 5),
   }
 }))
+
+const ColorButton = withStyles((theme) => ({
+  root: {
+    color: theme.palette.common.white,
+    backgroundColor: theme.palette.background.paper,
+    '&:hover': {
+      backgroundColor: theme.palette.background.default,
+    },
+  },
+}))(Button);
 
 const SLoading = [1,2,3,4,5,6,7,8]
 
@@ -21,7 +34,8 @@ const BotsNews = () => {
   const {isLoading, data: botsNews} = useQuery('getHomeBotsNews', getHomeBotsNews)
 
   return (
-        <Grid container spacing={5}  className={classes.gridBot}>
+      <>
+        <Grid container spacing={5}>
           {isLoading && (
             <>
               {
@@ -49,6 +63,16 @@ const BotsNews = () => {
             </>
           : null}
         </Grid>
+        <Grid className={classes.gridBot} container>
+          <Grid item xs={12}>
+            <Link underline='none' component={RouterLink} className={classes.expand} to={'/list/new'} color="inherit">
+              <ColorButton variant="contained" size="large" color="default" fullWidth>
+                VER MÁS BOTS AGREGADOS RECIENTEMENTE
+              </ColorButton>
+            </Link>
+          </Grid>
+        </Grid>
+      </>
   )
 
 }
