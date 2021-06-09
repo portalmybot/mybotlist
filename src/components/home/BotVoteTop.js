@@ -1,10 +1,9 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-
 import { useQuery } from 'react-query'
 
 import Bot from '../../layouts/Home/Bot';
@@ -18,6 +17,16 @@ const useStyles = makeStyles((theme) => ({
    }
  })
 )
+
+const ColorButton = withStyles((theme) => ({
+  root: {
+    color: theme.palette.common.white,
+    backgroundColor: theme.palette.background.paper,
+    '&:hover': {
+      backgroundColor: theme.palette.background.default,
+    },
+  },
+}))(Button);
 
 const SLoading = [1,2,3,4,5,6,7,8]
 
@@ -60,9 +69,9 @@ const BotsTopVote = () => {
           <Grid className={classes.gridBot} container>
             <Grid item xs={11}>
               <Link underline='none' component={RouterLink} className={classes.expand} to={'/list/top'} color="inherit">
-                <Button variant="contained" size="large" color="default" fullWidth>
+                <ColorButton variant="contained" size="large" color="default" fullWidth>
                   Ver más
-                </Button>
+                </ColorButton>
               </Link>
             </Grid>
           </Grid>
