@@ -28,7 +28,16 @@ export const getListTopBots = async () => {
   return response.data;
 
 };
+export const getListVerifiedBots = async () => {
+  const response = await http.get("/list/verified");
+  return response.data;
 
+};
+export const getListNewBots = async () => {
+  const response = await http.get("/list/new");
+  return response.data;
+
+};
 
 
 export const getHomeTagBots = async (name) => {
