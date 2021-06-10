@@ -17,15 +17,21 @@ export const getHomeBotsVerified = async () => {
   return response.data;
 
 };
-
 export const getHomeBotsNews = async () => {
   const response = await http.get("/home/bots/news");
   return response.data;
 
 };
 
-export const getHomeTagBots = async (name) => {
+export const getListTopBots = async () => {
+  const response = await http.get("/list/top");
+  return response.data;
 
+};
+
+
+
+export const getHomeTagBots = async (name) => {
   const response = await http.get(`/home/tag/${name.queryKey[1].name}`);
   return response;
 

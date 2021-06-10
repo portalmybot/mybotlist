@@ -1,16 +1,14 @@
 import React from 'react';
-import { useParams } from "react-router-dom";
 import Layout from '../components/Layout';
 import HeroTags from '../layouts/Home/HeroTags';
-import ContainerTags from '../layouts/Home/ContainerTags.js';
+import ContainerTops from '../layouts/List/ContainerTops';
 
 export default function List() {
-  const { id } = useParams();
-  
+
   return (
     <Layout >
       <HeroTags />
-      <ContainerTags typeName={id} />
+      <ContainerTops />
     </Layout>
   );
 }

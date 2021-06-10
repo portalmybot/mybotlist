@@ -5,10 +5,10 @@ import Container from '@material-ui/core/Container';
 
 import { useQuery } from 'react-query'
 
-import Bot from './Bot.js';
+import Bot from '../Home/Bot';
 import BotLoading from '../../components/skeleton/BotLoading';
 
-import { getHomeTagBots } from '../../services/bot.service';
+import { getListTopBots } from '../../services/bot.service';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -19,9 +19,9 @@ const useStyles = makeStyles((theme) => ({
 )
 const SLoading = [1,2,3,4,5,6,7,8,9]
 
-const TagBotList = ({typeName}) => {
+const ListTopBots = () => {
   const classes = useStyles();
-  const {isLoading, data: bots} = useQuery(['tagBots', { name: typeName }], getHomeTagBots)
+  const {isLoading, data: listTopBots} = useQuery('listTopBots', getListTopBots)
 
   return (
     <>
@@ -40,13 +40,13 @@ const TagBotList = ({typeName}) => {
               }
             </>
           )}
-          {!isLoading && bots ? 
+          {!isLoading && listTopBots ? 
             <>
               { 
-                bots.data.map((bot) => {
+                listTopBots.data.map((bot) => {
                   return (
-                    <Grid key={`${bot[0].id}-bot`} item xs={12} sm={6} md={4} lg={3}>
-                      <Bot value={bot[0]} />
+                    <Grid key={`${bot.id}-bot`} item xs={12} sm={6} md={4} lg={3}>
+                      <Bot value={bot} />
                     </Grid>
                   )
                 })
@@ -59,4 +59,4 @@ const TagBotList = ({typeName}) => {
   )
 
 }
-export default TagBotList
+export default ListTopBots
