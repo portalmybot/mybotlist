@@ -15,6 +15,7 @@ import Home from './pages/Home';
 import Register from './pages/Register';
 import Bot from './pages/Bot';
 import Tag from './pages/Tag';
+import List from './pages/List';
 import Add from './pages/AddBot';
 import Edit from './pages/EditBot';
 import Login from './Login';
@@ -26,6 +27,7 @@ const guestRoutes = [
   { path: "/register", component: Register, exact: true },
   { path: "/bot/:id", component: Bot, exact: true },
   { path: "/tag/:id", component: Tag, exact: true },
+  { path: "/list/:id", component: List, exact: true },
 ];
 
 const protectedRoutes = [

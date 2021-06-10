@@ -4,13 +4,13 @@ import Layout from '../components/Layout';
 import HeroTags from '../layouts/Home/HeroTags';
 import ContainerTags from '../layouts/Home/ContainerTags.js';
 
-export default function Tags() {
+export default function List() {
   const { id } = useParams();
   
   return (
     <Layout >
       <HeroTags />
-      <ContainerTags tagName={id} />
+      <ContainerTags typeName={id} />
     </Layout>
   );
 }
