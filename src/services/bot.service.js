@@ -67,7 +67,7 @@ export const addBot = async ({ data }) => {
     prefix_bot: data.prefix_bot,
     shortDesc_bot: data.shortDesc_bot,
     customUrl_bot: data.id_Bot,
-    invite_bot: data.invite_bot ? data.invite_bot : null,
+    invite_bot: data.invite_bot ? data.invite_bot : `https://discord.com/oauth2/authorize?client_id=${data.id_bot}&permissions=0&scope=bot`,
     note_bot: data.note_bot ? data.note_bot : null,
     
   }
