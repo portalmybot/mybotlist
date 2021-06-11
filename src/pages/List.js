@@ -11,11 +11,14 @@ export default function List() {
  
   let ContainerType;
   if (id === 'top') {
-    ContainerType = <ContainerTops />;
+    ContainerType = <ContainerTops />
+
   } else if(id === 'verified') {
     ContainerType = <ContainerVerified />
+
   } else if(id === 'new') {
     ContainerType = <ContainerNew />
+
   }
 
   return (
