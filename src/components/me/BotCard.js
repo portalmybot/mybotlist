@@ -17,6 +17,7 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom';
 import CallMadeIcon from '@material-ui/icons/CallMade';
+import BlockIcon from '@material-ui/icons/Block';
 
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import SettingsIcon from '@material-ui/icons/Settings';
@@ -103,13 +104,8 @@ const ButtonAction = ({ botAction }) => {
     )
   } else {
     return (
-      <>
-        <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/'+id_bot} color="inherit">
-          <IconButton aria-label="Bot view" >
-            <CallMadeIcon color={'action'} />
-          </IconButton>
-        </Link>
-      </>
+       <BlockIcon className={classes.expand} color="disabled" />
+    
     )
   }
 }
@@ -125,6 +121,7 @@ const BotCard = ({ bot }) => {
     vote_bot,
     tags,
     badges,
+    status_bot
   } = bot;
   
   return (
@@ -158,10 +155,13 @@ const BotCard = ({ bot }) => {
       
       <CardContent className={classes.section1}>
         <Typography className={classes.title} color="secondary" gutterBottom>
-          {username_bot} 
+          {username_bot ? username_bot : 'No Verificado'} 
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          {shortDesc_bot}
+          {shortDesc_bot ? shortDesc_bot : 'No Verificado'}
+        </Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {status_bot < 1 ? 'ID: '+ id_bot : null}
         </Typography>
 
         <Box variant="body2" component="p" className={classes.section2}>
