@@ -7,7 +7,6 @@ export const getUser = async () => {
 
 };
 
-
 export const logoutUser = async () => {
   const resp = await http.get("/logout");
   return resp;

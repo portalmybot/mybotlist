@@ -124,8 +124,8 @@ export default function AddBot() {
       
     }, 5000)
     
-    //setTimeout(() => {
-      //window.location.href = 'http://localhost:3000/me';
+   // setTimeout(() => {
+     // window.location.href = 'http://localhost:3000/me';
     //}, 7000);
 
 
