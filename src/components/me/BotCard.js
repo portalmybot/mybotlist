@@ -73,6 +73,47 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const ButtonAction = ({ botAction }) => {
+  const classes = useStyles();
+  const {
+    id_bot,
+    status_bot
+  } = botAction;
+
+  if (status_bot > 0) {
+    return (
+      <>
+        <Link underline='none' component={RouterLink} to={'/bot/'+id_bot+'/edit'} className={classes.tag} color="inherit">
+          <Button variant="contained" size={'small'} color="primary">
+            Editar
+          </Button>
+        </Link>
+
+        <Link underline='none' component={RouterLink} to={'/bot/'+id_bot+'/delete/'} color="inherit">
+          <Button variant="contained"  size={'small'} color="secondary">
+            Eliminar
+          </Button>
+        </Link>
+        <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/'+id_bot} color="inherit">
+          <IconButton aria-label="Bot view" >
+            <CallMadeIcon color={'action'} />
+          </IconButton>
+        </Link>
+      </>
+    )
+  } else {
+    return (
+      <>
+        <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/'+id_bot} color="inherit">
+          <IconButton aria-label="Bot view" >
+            <CallMadeIcon color={'action'} />
+          </IconButton>
+        </Link>
+      </>
+    )
+  }
+}
+
 const BotCard = ({ bot }) => {
   const classes = useStyles();
 
@@ -83,7 +124,7 @@ const BotCard = ({ bot }) => {
     avatarUrl_bot,
     vote_bot,
     tags,
-    badges
+    badges,
   } = bot;
   
   return (
@@ -139,25 +180,7 @@ const BotCard = ({ bot }) => {
       </CardContent>
       <Divider variant="middle" />
       <CardActions disableSpacing className={classes.section3}>
-        <Link underline='none' component={RouterLink} to={'/bot/'+id_bot+'/edit'} className={classes.tag} color="inherit">
-          <Button variant="contained" size={'small'} color="primary">
-           Editar
-          </Button>
-        </Link>
-
-        <Link underline='none' component={RouterLink} to={'/bot/'+id_bot+'/delete/'} color="inherit">
-          <Button variant="contained"  size={'small'} color="secondary">
-           Eliminar
-          </Button>
-          
-        </Link>
-
-        <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/'+id_bot} color="inherit">
-          <IconButton aria-label="Bot view" >
-            <CallMadeIcon color={'action'} />
-          </IconButton>
-        </Link>
-
+       <ButtonAction botAction={bot} />
       </CardActions>
       
     </Card>

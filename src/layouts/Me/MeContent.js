@@ -31,6 +31,7 @@ const MeContent = ({ user }) => {
         <Grid item xs={12} sm={12}>
           <BotsUser bots={user.bots}/>
         </Grid>
+        
         <Grid item xs={12} sm={12}>
           <BotsUser bots={user.bots_verify}/>
         </Grid>
