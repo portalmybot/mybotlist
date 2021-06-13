@@ -7,6 +7,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import Joi from "@hapi/joi";
 import { useSnackbar } from 'notistack';
@@ -43,6 +45,10 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+  },
 }));
 
 export default function AddBot() {
@@ -53,6 +59,7 @@ export default function AddBot() {
   const [data, setData] = useState({});
   const [tags, setTags] = useState([]);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
   
   const {isLoading, data: tagsQuery} = useQuery('tags', getTags, {
      refetchAllOnWindowFocus: false,
@@ -121,12 +128,16 @@ export default function AddBot() {
       }, {});
       setData(limpio);
       setTags([]);
-      
     }, 5000)
     
-   // setTimeout(() => {
-     // window.location.href = 'http://localhost:3000/me';
-    //}, 7000);
+    setTimeout(() => {
+      setLoading(!loading);
+    }, 7000);
+
+    setTimeout(() => {
+      setLoading(false);
+      window.location.href = 'http://localhost:3000/me';
+    }, 10000);
 
 
   }
@@ -137,7 +148,9 @@ export default function AddBot() {
     <Layout>
       <Container component="main" maxWidth="md">
       <div className={classes.paper}>
-        
+        <Backdrop className={classes.backdrop} open={loading}>
+          <CircularProgress color="inherit" />
+        </Backdrop>
         <Typography component="h1" variant="h5">
           Ingrese la información de su bot
         </Typography>
