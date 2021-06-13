@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(-1)
-  },
+  }
 }))
 
 const MeContent = ({ user }) => {
@@ -52,7 +52,6 @@ const MeContent = ({ user }) => {
              </Typography>
             </Box>
           </Box>
-         
           <BotsUser bots={user.bots_verify}/>
         </Grid>
       </>
