@@ -46,9 +46,10 @@ const MeContent = ({ user }) => {
 
         <Grid item xs={12} sm={12}>
           <Box display="flex">
+            
             <Box m="auto">
               <Typography variant="h5" component="h1" color="inherit" className={classes.title} paragraph>
-                No verificados
+                No verificados ({user.bots_verify.length} Bot's)
              </Typography>
             </Box>
           </Box>
