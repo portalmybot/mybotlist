@@ -11,6 +11,7 @@ import Chip from '@material-ui/core/Chip';
 import { green } from '@material-ui/core/colors';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import LinksBot from './LinksBot';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -88,7 +89,7 @@ export default function InfoBot({ bot }) {
         {
           tags.map((tag, index) => {
             return (
-              <Chip key={index} label={tag.name_tag} className={classes.tags} component="a" href={'../tag/'+tag.name_tag} clickable variant="outlined" />
+              <Chip key={index} label={tag.name_tag} className={classes.tags} component={Link} to={'../tag/'+tag.name_tag} clickable variant="outlined" />
             )
           })
         }
