@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import MeContent from '../layouts/Me/MeContent';
 import { getUser } from '../services/me.service';
 import Layout from '../components/Layout';
+import LoadingPage from '../components/common/LoadingPage';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,7 +28,7 @@ const Me = () => {
       <Layout>
         {
           isLoading ? (
-            'Cargando...'
+            <LoadingPage />
           ) : error ? (
             <h1>Error!</h1>
           ) : (
