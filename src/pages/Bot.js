@@ -11,7 +11,7 @@ import Divider from '@material-ui/core/Divider';
 import Chip from '@material-ui/core/Chip';
 import Avatar from '@material-ui/core/Avatar';
 
-import CircularProgress from '@material-ui/core/CircularProgress';
+import LoadingPage from '../components/common/LoadingPage';
 import AvatarBot from "../components/bot/AvatarBot";
 import InfoBot from "../components/bot/InfoBot";
 import ActionBot from "../components/bot/ActionBot";
@@ -71,13 +71,7 @@ export default function Bot() {
     <Layout>
       {
         isLoading ? (
-           <Grid item xs={12} sm={12}>
-              <Box display="flex" style={{ height: '100vh' }}>
-                <Box m="auto">
-                  <CircularProgress color="primary" size={60} thickness={4} />
-                </Box>
-              </Box>
-            </Grid>
+           <LoadingPage />
         ) : error ? (
           <h1>Error!</h1>
         ) : (
