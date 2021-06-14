@@ -1,8 +1,9 @@
 import React from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
-import InputBase from '@material-ui/core/InputBase';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
+import { useQuery } from 'react-query'
+
+import { getHomeSearchBots } from '../../services/bot.service';
 
 const useStyles = makeStyles((theme) => ({
   search: {
@@ -50,67 +51,21 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchBar() {
   const classes = useStyles();
-  const items = [
-    {
-      id: 0,
-      name: 'Cobol'
-    },
-    {
-      id: 1,
-      name: 'JavaScript'
-    },
-    {
-      id: 2,
-      name: 'Basic'
-    },
-    {
-      id: 3,
-      name: 'PHP'
-    },
-    {
-      id: 4,
-      name: 'Java'
-    }
-  ]
-  const handleOnSearch = (string, results) => {
-    // onSearch will have as the first callback parameter
-    // the string searched and for the second the results.
-    console.log(string, results)
-  }
-
-  const handleOnHover = (result) => {
-    // the item hovered
-    console.log(result)
-  }
+  const {isLoading, data: listSearchBots} = useQuery('listSearchBots', getHomeSearchBots)
 
   const handleOnSelect = (item) => {
     // the item selected
     console.log(item)
   }
 
-  const handleOnFocus = () => {
-    console.log('Focused')
-  }
   return (
     <div className={classes.search}>
-{/*       <div className={classes.searchIcon}>
-        <SearchIcon />
-      </div> */}
-     {/*  <InputBase
-        placeholder="Buscar…"
-        classes={{
-          root: classes.inputRoot,
-          input: classes.inputInput
-        }}
-        inputProps={{ 'aria-label': 'search' }}
-      /> */}
       <div style={{ width: 250 }}>
         <ReactSearchAutocomplete
-          items={items}
-          onSearch={handleOnSearch}
-          onHover={handleOnHover}
+          items={!isLoading && listSearchBots}
+          fuseOptions={{ keys: ["username_bot"] }}
+          resultStringKeyName="username_bot"
           onSelect={handleOnSelect}
-          onFocus={handleOnFocus}
           placeholder='Buscar ...'
           autoFocus
           styling={{

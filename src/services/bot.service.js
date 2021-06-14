@@ -7,6 +7,11 @@ export const getHomeBots = async () => {
 
 };
 
+export const getHomeSearchBots = async () => {
+  const response = await http.get("/home/bots/search");
+  return response.data;
+
+};
 export const getHomeBotsVoteTop = async () => {
   const response = await http.get("/home/bots/vote");
   return response.data;
