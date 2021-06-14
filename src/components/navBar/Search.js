@@ -3,6 +3,8 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import { useQuery } from 'react-query'
 
+import { useHistory  } from 'react-router-dom';
+
 import { getHomeSearchBots } from '../../services/bot.service';
 
 const useStyles = makeStyles((theme) => ({
@@ -51,11 +53,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchBar() {
   const classes = useStyles();
+  
   const {isLoading, data: listSearchBots} = useQuery('listSearchBots', getHomeSearchBots)
+  let history = useHistory()
 
   const handleOnSelect = (item) => {
-    // the item selected
-    console.log(item)
+    history.push('/bot/'+item.id_bot)
+
   }
 
   return (
