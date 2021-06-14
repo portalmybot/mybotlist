@@ -23,6 +23,7 @@ import { useMutation, useQuery } from "react-query";
 import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
 import AlertInput from '../components/common/AlertInput';
+import LoadingPage from '../components/common/LoadingPage';
 import { getBot, updateBot, addDevs, deleteDevsBot } from '../services/bot.service';
 import { Box } from '@material-ui/core';
 
@@ -171,7 +172,7 @@ export default function EditBot() {
     <Layout>
        {
         isLoading ? (
-           'Cargando...'
+           <LoadingPage />
         ) : error ? (
           <h1>Error!</h1>
         ) : (
