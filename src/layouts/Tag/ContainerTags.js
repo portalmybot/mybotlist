@@ -49,7 +49,7 @@ const TagBotList = ({tagName}) => {
             <LabelIcon className={classes.iconText} style={{ color: orange['A400'] }} /> {tagName.toUpperCase()} DISCORD BOTS 
           </Typography>
           <Typography variant="subtitle2" gutterBottom className={classes.textSubtitle}>
-            ¡Lista de bots encontrados con la categoria {tagName} !
+            ¡Lista de bots encontrados con la categoria {tagName}!
           </Typography>
         </Box>
         <Grid container spacing={5}>

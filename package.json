@@ -20,6 +20,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-search-autocomplete": "^5.2.2",
     "react-select-material-ui": "^6.7.0",
     "universal-cookie": "^4.0.4",
     "web-vitals": "^0.2.4"
