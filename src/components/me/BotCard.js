@@ -155,7 +155,7 @@ const BotCard = ({ bot }) => {
       
       <CardContent className={classes.section1}>
         <Typography className={classes.title} color="secondary" gutterBottom>
-          {username_bot ? username_bot : 'No Verificado'} 
+          {username_bot ? username_bot : 'No Verificado'}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
           {shortDesc_bot ? shortDesc_bot : 'No Verificado'}

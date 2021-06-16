@@ -165,9 +165,12 @@ const CardList = ({ value }) => {
       </CardContent>
       <Divider variant="middle" />
       <CardActions disableSpacing className={classes.section3}>
-        <IconButton aria-label="add to favorites" href={'/vote/'+id_bot}>
-          <FavoriteBorderIcon />
-        </IconButton>
+        
+        <Link underline='none' component={RouterLink} to={'/bot/'+id_bot+'/vote'} className={classes.tag} color="inherit">
+          <IconButton aria-label="add to favorites">
+            <FavoriteBorderIcon />
+          </IconButton>
+        </Link>
         
         <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/'+id_bot} color="inherit">
           <Button variant="contained" color="primary">

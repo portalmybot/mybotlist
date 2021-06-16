@@ -18,6 +18,7 @@ import Tag from './pages/Tag';
 import List from './pages/List';
 import Add from './pages/AddBot';
 import Edit from './pages/EditBot';
+import Vote from './pages/VoteBot';
 import Login from './Login';
 import Me from './pages/Me';
 
@@ -34,6 +35,7 @@ const protectedRoutes = [
   { path: "/me", component: Me, exact: true },
   { path: "/add", component: Add, exact: true },
   { path: "/bot/:id/edit", component: Edit, exact: true },
+  { path: "/bot/:id/vote", component: Vote, exact: true },
 ];
 
 function App() {
