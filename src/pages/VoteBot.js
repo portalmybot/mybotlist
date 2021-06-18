@@ -14,11 +14,11 @@ import Box from '@material-ui/core/Box';
 import CheckIcon from '@material-ui/icons/Check';
 import Grid from '@material-ui/core/Grid';
 
-import { useQuery } from "react-query";
+import { useMutation, useQuery } from "react-query";
 
 import Layout from '../components/Layout';
 import LoadingPage from '../components/common/LoadingPage';
-import { getBot, getVoteBot } from '../services/bot.service';
+import { getBot, getVoteBot, addVote } from '../services/bot.service';
 import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles((theme) => ({
@@ -82,7 +82,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function EditBot() {
   const classes = useStyles();
-  const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [btnsuccess, setBtnSuccess] = useState(true);
@@ -91,8 +90,9 @@ export default function EditBot() {
   const buttonClassname = clsx({
     [classes.buttonSuccess]: success,
   });
-
+  
   const { id } = useParams();
+  const mutate = useMutation(addVote); 
 
   const {isLoading, error, data: botQuery = {}} = useQuery(['getBotVote', {id: id}], getBot)
   const {isLoading: voteLoading, data: voteBotQuery = {}} = useQuery(['getVoteBot', {id: id}], getVoteBot)
@@ -100,19 +100,16 @@ export default function EditBot() {
   const { result } = voteBotQuery;
 
   useEffect(() => {
-    setData({
-      id_bot: id
-    })
     clearTimeout(timer.current);
-
-  }, [id]);
+  },[]);
   
   const handleButtonClick = () => {
     if (!loading) {
       setSuccess(false);
       setLoading(true);
-      
+     
       timer.current = window.setTimeout(() => {
+        mutate.mutate({ id_bot: id });
         setSuccess(true);
         setLoading(false);
         setBtnSuccess(false)
@@ -122,7 +119,7 @@ export default function EditBot() {
 
   const handleSubmit = event => {
     event.preventDefault();
-  
+    
   }
   return (
     <Layout>

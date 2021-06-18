@@ -59,7 +59,6 @@ export const getBot = async (id) => {
 };
 export const getVoteBot = async (id) => {
   const { data } = await http.get(`/user/vote/${id.queryKey[1].id}`);
-  console.log(data)
   return data;
   
 };
@@ -82,7 +81,6 @@ export const addBot = async ({ data }) => {
     note_bot: data.note_bot ? data.note_bot : null,
     
   }
-  console.log(postData);
   await http.post("/bots", postData);
   
 };
@@ -122,6 +120,17 @@ export const getTagsHome = async () => {
   return response.data;
 };
 
+export const addVote = async (data) => {
+  const id_bot = data.id_bot;
+  const userLogin = await getUser();
+
+  const postData = {
+    id_bot: id_bot,
+    idUser_bot: userLogin.social_id,
+  }
+  await http.post("/bots/add/vote", postData);
+  
+};
 export const addTags = async (data) => {
   const id_bot = data.id_bot;
   data.tags.map(async (tag) => {

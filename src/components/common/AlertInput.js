@@ -17,7 +17,7 @@ const DescriptionAlerts = () => {
   return (
     <div className={classes.root}>
       <Alert severity="success">
-        <AlertTitle>Success</AlertTitle>
+      <AlertTitle>Success</AlertTitle>
         Su BOT fue agreado correctamente.
       </Alert>
     </div>
