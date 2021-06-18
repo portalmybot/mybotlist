@@ -18,7 +18,7 @@ import { useQuery } from "react-query";
 
 import Layout from '../components/Layout';
 import LoadingPage from '../components/common/LoadingPage';
-import { getBot } from '../services/bot.service';
+import { getBot, getVoteBot } from '../services/bot.service';
 import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles((theme) => ({
@@ -95,8 +95,9 @@ export default function EditBot() {
   const { id } = useParams();
 
   const {isLoading, error, data: botQuery = {}} = useQuery(['getBotVote', {id: id}], getBot)
-  const { avatarUrl_bot, tag_bot} = botQuery;
-
+  const {isLoading: voteLoading, data: voteBotQuery = {}} = useQuery(['getVoteBot', {id: id}], getVoteBot)
+  const { avatarUrl_bot, tag_bot } = botQuery;
+  const { result } = voteBotQuery;
 
   useEffect(() => {
     setData({
@@ -106,9 +107,6 @@ export default function EditBot() {
 
   }, [id]);
   
-
-//  const mutateUpdateBot = useMutation(updateBot);
-
   const handleButtonClick = () => {
     if (!loading) {
       setSuccess(false);
@@ -152,8 +150,12 @@ export default function EditBot() {
                 <Grid item xs={12} sm={12}>
                   <Box display="flex">
                     <Box m="auto">
-                        {btnsuccess ? 
+                        {voteLoading ? (
+                          <LoadingPage />
+                        ) : (
+                          btnsuccess ? 
                           <>
+                            {result ? <CheckIcon style={{ color: green[500], fontSize: 50 }} /> :
                             <Button
                               variant="contained"
                               color="primary"
@@ -163,12 +165,14 @@ export default function EditBot() {
                               size="large"
                             >
                               VOTAR
-                            </Button>
-                            
+                            </Button>}
+
                             {loading && <CircularProgress size={45} className={classes.buttonProgress} />}
                           </>
 
-                         : <CheckIcon style={{ color: green[500], fontSize: 50 }} />}
+                         : <CheckIcon style={{ color: green[500], fontSize: 50 }} />
+                        )}
+           
                       </Box>
 
                   </Box>

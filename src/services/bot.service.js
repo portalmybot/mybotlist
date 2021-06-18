@@ -53,8 +53,14 @@ export const getHomeTagBots = async (name) => {
 
 export const getBot = async (id) => {
   const { data } = await http.get(`/home/bot/${id.queryKey[1].id}`);
-
+  
   return data[0];
+  
+};
+export const getVoteBot = async (id) => {
+  const { data } = await http.get(`/user/vote/${id.queryKey[1].id}`);
+  console.log(data)
+  return data;
   
 };
 export const botExists = async (id) => {
