@@ -13,13 +13,16 @@ import { green } from '@material-ui/core/colors';
 import Box from '@material-ui/core/Box';
 import CheckIcon from '@material-ui/icons/Check';
 import Grid from '@material-ui/core/Grid';
-
+import Alert from '@material-ui/lab/Alert';
 import { useMutation, useQuery } from "react-query";
 
 import Layout from '../components/Layout';
 import LoadingPage from '../components/common/LoadingPage';
 import { getBot, getVoteBot, addVote } from '../services/bot.service';
 import Avatar from '@material-ui/core/Avatar';
+
+import Link from '@material-ui/core/Link';
+import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -152,7 +155,24 @@ export default function EditBot() {
                         ) : (
                           btnsuccess ? 
                           <>
-                            {result ? <CheckIcon style={{ color: green[500], fontSize: 50 }} /> :
+                            {result ? (
+                              <>
+                                
+                                <Box display="flex">
+                                  <Box m="auto" >
+                                   <CheckIcon style={{ color: green[500], fontSize: 50 }} />
+                                  </Box>
+                                </Box>
+
+                                <Alert variant="filled" severity="info">
+                                  Ya has dado tu voto al bot {tag_bot} - 
+
+                                  <Link underline='none' style={{ marginLeft: '5px'}} component={RouterLink} to={'/bot/'+id} color="inherit">
+                                    VOLVER A BOT
+                                  </Link>
+                                </Alert>
+                              </>
+                            ) :
                             <Button
                               variant="contained"
                               color="primary"
