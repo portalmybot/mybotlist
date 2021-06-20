@@ -126,6 +126,9 @@ export default function EditBot() {
         setSuccess(true);
         setLoading(false);
         setBtnSuccess(false)
+        enqueueSnackbar('Tu voto fue agregado correctamenta al bot ' + tag_bot, {
+          variant: 'success'
+        })
       }, 2000);
     }
   };
