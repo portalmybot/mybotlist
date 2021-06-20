@@ -15,6 +15,7 @@ import CheckIcon from '@material-ui/icons/Check';
 import Grid from '@material-ui/core/Grid';
 import Alert from '@material-ui/lab/Alert';
 import { useMutation, useQuery } from "react-query";
+import { useSnackbar } from 'notistack';
 
 import Layout from '../components/Layout';
 import LoadingPage from '../components/common/LoadingPage';
@@ -90,6 +91,8 @@ export default function EditBot() {
   const [btnsuccess, setBtnSuccess] = useState(true);
   const timer = React.useRef();
 
+  const { enqueueSnackbar } = useSnackbar();
+
   const buttonClassname = clsx({
     [classes.buttonSuccess]: success,
   });
@@ -102,9 +105,16 @@ export default function EditBot() {
   const { avatarUrl_bot, tag_bot } = botQuery;
   const { result } = voteBotQuery;
 
+  
   useEffect(() => {
     clearTimeout(timer.current);
-  },[]);
+    if (result) {
+      enqueueSnackbar('Ya has dado tu voto al bot ' + tag_bot, {
+        variant: 'info'
+      })
+
+    }
+  }, [enqueueSnackbar, result, tag_bot]);
   
   const handleButtonClick = () => {
     if (!loading) {
@@ -164,13 +174,6 @@ export default function EditBot() {
                                   </Box>
                                 </Box>
 
-                                <Alert variant="filled" severity="info">
-                                  Ya has dado tu voto al bot {tag_bot} - 
-
-                                  <Link underline='none' style={{ marginLeft: '5px'}} component={RouterLink} to={'/bot/'+id} color="inherit">
-                                    VOLVER A BOT
-                                  </Link>
-                                </Alert>
                               </>
                             ) :
                             <Button
