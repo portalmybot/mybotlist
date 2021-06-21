@@ -109,7 +109,7 @@ export default function EditBot() {
   useEffect(() => {
     clearTimeout(timer.current);
     if (result) {
-      enqueueSnackbar('Ya has dado tu voto al bot ' + tag_bot, {
+      enqueueSnackbar('Ya has asignado una reputación al bot ' + tag_bot, {
         variant: 'info'
       })
 
@@ -126,7 +126,7 @@ export default function EditBot() {
         setSuccess(true);
         setLoading(false);
         setBtnSuccess(false)
-        enqueueSnackbar('Tu voto fue agregado correctamenta al bot ' + tag_bot, {
+        enqueueSnackbar('Has asignado un voto de reputación al bot ' + tag_bot, {
           variant: 'success'
         })
       }, 2000);
