@@ -16,8 +16,9 @@ import Button from '@material-ui/core/Button';
 
 import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom';
+import Tooltip from '@material-ui/core/Tooltip';
 
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import LoupeIcon from '@material-ui/icons/Loupe';
 
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import SettingsIcon from '@material-ui/icons/Settings';
@@ -167,9 +168,11 @@ const CardList = ({ value }) => {
       <CardActions disableSpacing className={classes.section3}>
         
         <Link underline='none' component={RouterLink} to={'/bot/'+id_bot+'/vote'} className={classes.tag} color="inherit">
-          <IconButton aria-label="add to favorites">
-            <FavoriteBorderIcon />
-          </IconButton>
+          <Tooltip title="Asignar una reputación">
+            <IconButton aria-label="add reputation">
+              <LoupeIcon color="secondary" style={{ fontSize: 30 }}/>
+            </IconButton>
+          </Tooltip>
         </Link>
         
         <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/'+id_bot} color="inherit">

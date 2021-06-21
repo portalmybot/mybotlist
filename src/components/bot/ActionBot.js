@@ -30,7 +30,7 @@ export default function ActionBot({ bot }) {
             variant="contained"
             style={{ color: '#fff', backgroundColor: '#7289da' }}
             className={classes.button}>
-            532 Servidores
+            {serverCount_bot} Servidores
           </Button>
           
         </ButtonGroup>
