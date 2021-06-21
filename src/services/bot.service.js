@@ -128,8 +128,10 @@ export const addVote = async (data) => {
     id_bot: id_bot,
     idUser_bot: userLogin.social_id,
   }
+ 
+  await http.post(`/bots/vote/${id_bot}`);
   await http.post("/bots/add/vote", postData);
-  
+
 };
 export const addTags = async (data) => {
   const id_bot = data.id_bot;
@@ -138,7 +140,7 @@ export const addTags = async (data) => {
       id_bot: id_bot,
       name_tag: tag,
     }
-
+    
     await http.post("/bots/add/tag", postData);
   })
 
