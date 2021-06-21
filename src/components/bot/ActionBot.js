@@ -1,8 +1,9 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Tooltip from '@material-ui/core/Tooltip';
 
 import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom';
@@ -19,10 +20,13 @@ export default function ActionBot({ bot }) {
   return (
     <div>
         <Link underline='none' component={RouterLink} to={'/bot/'+id_bot+'/vote'} color="inherit">
-          <ButtonGroup aria-label="small outlined button group">
-            <Button variant="contained" style={{ color: '#fff', backgroundColor: '#e91e63' }}>{vote_bot} Rep.</Button>
-            <Button variant="contained" style={{ color: '#fff', backgroundColor: '#c50546' }}> <FavoriteIcon /> </Button>
-          </ButtonGroup>
+          <Tooltip title={'Tiene ' + vote_bot + ' reputaciones asignadas.'}>
+            <ButtonGroup aria-label="small outlined button group">
+              <Button variant="contained" style={{ color: '#fff', backgroundColor: '#e91e63' }}>{vote_bot} Rep.</Button>
+              <Button variant="contained" style={{ color: '#fff', backgroundColor: '#c50546' }}> <EmojiEventsIcon /> </Button>
+            </ButtonGroup>
+
+          </Tooltip>
         </Link>
       {serverCount_bot && (
         <ButtonGroup color="primary" aria-label="outlined primary button group">

@@ -7,9 +7,9 @@ import BotNews from '../../components/home/BotNews';
 import BotVerified from '../../components/home/BotVerified';
 
 import Typography from '@material-ui/core/Typography';
-import { red, cyan, green } from '@material-ui/core/colors';
+import { amber, cyan, green } from '@material-ui/core/colors';
 
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 import FiberNewIcon from '@material-ui/icons/FiberNew';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 
@@ -41,7 +41,7 @@ const TitleContent = (textTitle) => {
   return (
     <>
        <Typography variant="subtitle1" color="inherit" className={classes.textContent} paragraph>
-          {textTitle.icon === 'vote' ?  <FavoriteBorderIcon className={classes.iconText} style={{ color: red[600] }} /> : textTitle.icon === 'new' ? <FiberNewIcon className={classes.iconText} style={{ color: cyan[700] }} /> : textTitle.icon === 'veri' ? <VerifiedUserIcon className={classes.iconText} style={{ color: green['A400'] }} /> : null } {textTitle.title}
+          {textTitle.icon === 'vote' ?  <EmojiEventsIcon className={classes.iconText} style={{ color: amber[600] }} /> : textTitle.icon === 'new' ? <FiberNewIcon className={classes.iconText} style={{ color: cyan[700] }} /> : textTitle.icon === 'veri' ? <VerifiedUserIcon className={classes.iconText} style={{ color: green['A400'] }} /> : null } {textTitle.title}
          
         </Typography>
 
@@ -59,7 +59,7 @@ const BotList = () => {
     <>
       <Container className={classes.cardGrid} maxWidth="lg">
 
-        <TitleContent icon="vote" title="DISCORD BOTS MÁS VOTADOS" subtitle="¡Este es el ranking de los bots que recibieron más corazones!" />
+        <TitleContent icon="vote" title="DISCORD BOTS TOPS" subtitle="¡Este es el ranking de los bots que recibieron más reputaciones!" />
         <BotVoteTop />
 
         <TitleContent icon="veri" title="DISCORD BOTS VERIFICADOS" subtitle="¡Son bots de confianza certificados por MyBOT Team!" />

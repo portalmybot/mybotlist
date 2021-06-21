@@ -187,7 +187,7 @@ export default function EditBot() {
                               onClick={handleButtonClick}
                               size="large"
                             >
-                              VOTAR
+                              DAR REPUTACIÓN
                             </Button>}
 
                             {loading && <CircularProgress size={45} className={classes.buttonProgress} />}

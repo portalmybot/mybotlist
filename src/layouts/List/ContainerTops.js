@@ -4,9 +4,9 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
+import { amber } from '@material-ui/core/colors';
 
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 
 import { useQuery } from 'react-query'
 
@@ -49,10 +49,10 @@ const ListTopBots = () => {
 
         <Box m="auto">
           <Typography variant="subtitle1" component="h1" color="inherit" className={classes.textContent} paragraph>
-            <FavoriteBorderIcon className={classes.iconText} style={{ color: red[600] }} /> DISCORD BOTS MÁS VOTADOS
+            <EmojiEventsIcon className={classes.iconText} style={{ color: amber[600] }} /> DISCORD BOTS MÁS REPUTACIONES
           </Typography>
           <Typography variant="subtitle2" gutterBottom className={classes.textSubtitle}>
-            ¡Este es el ranking de los bots que recibieron más corazones!
+            ¡Este es el ranking de los bots que recibieron más reputaciones!
           </Typography>
         </Box>
 
