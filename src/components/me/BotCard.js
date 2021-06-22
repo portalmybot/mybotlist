@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -13,15 +13,23 @@ import { red, green, grey, yellow} from '@material-ui/core/colors';
 import Chip from '@material-ui/core/Chip';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import Button from '@material-ui/core/Button';
+import { useSnackbar } from 'notistack';
 
 import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom';
-import CallMadeIcon from '@material-ui/icons/CallMade';
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import BlockIcon from '@material-ui/icons/Block';
+
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import SettingsIcon from '@material-ui/icons/Settings';
 import OfflineBoltIcon from '@material-ui/icons/OfflineBolt';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import Divider from '@material-ui/core/Divider';
 
@@ -76,30 +84,89 @@ const useStyles = makeStyles((theme) => ({
 
 const ButtonAction = ({ botAction }) => {
   const classes = useStyles();
+  const timer = React.useRef();
+  const { enqueueSnackbar } = useSnackbar();
+  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    clearTimeout(timer.current);
+    
+  }, []);
+
+  const handleDeleteClick = () => {
+    setLoading(true);
+    timer.current = window.setTimeout(() => {
+      enqueueSnackbar('Has eliminado el bot', {
+       variant: 'success'
+      })
+      setLoading(false);
+    }, 2000)
+    setOpen(false);
+  }
+
+  const handleClickOpen = () => {
+    setOpen(true);
+
+  }
+  const handleClose = () => {
+    setOpen(false);
+
+  };
+
   const {
     id_bot,
-    status_bot
+    status_bot,
+    tag_bot
   } = botAction;
 
   if (status_bot > 0) {
     return (
       <>
-        <Link underline='none' component={RouterLink} to={'/bot/'+id_bot+'/edit'} className={classes.tag} color="inherit">
-          <Button variant="contained" size={'small'} color="primary">
-            Editar
-          </Button>
-        </Link>
+        {!loading ? (
+          <>
+            <Link underline='none' component={RouterLink} to={'/bot/'+id_bot+'/edit'} className={classes.tag} color="inherit">
+              <Button variant="contained" size={'small'} color="primary">
+                Editar
+              </Button>
+            </Link>
 
-        <Link underline='none' component={RouterLink} to={'/bot/'+id_bot+'/delete/'} color="inherit">
-          <Button variant="contained"  size={'small'} color="secondary">
-            Eliminar
-          </Button>
-        </Link>
-        <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/'+id_bot} color="inherit">
-          <IconButton aria-label="Bot view" >
-            <CallMadeIcon color={'action'} />
-          </IconButton>
-        </Link>
+            <Button variant="contained"  size={'small'} color="secondary" onClick={handleClickOpen}>
+              Eliminar
+            </Button>
+
+            <Link underline='none' component={RouterLink} className={classes.expand} to={'/bot/'+id_bot} color="secondary">
+              <IconButton aria-label="Bot view" >
+                <OpenInNewIcon color={'secondary'} />
+              </IconButton>
+            </Link>
+          </>
+          ) : (
+            <CircularProgress color="secondary" />
+          )
+        }
+
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">Esta seguro de eliminar tu bot {tag_bot}?</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Estas por eliminar tu bot {tag_bot} y sus estadisticas asignadas.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} color="primary">
+              Cancelar
+            </Button>
+            <Button onClick={handleDeleteClick} color="primary" autoFocus>
+              Aceptar
+            </Button>
+          </DialogActions>
+        </Dialog>
       </>
     )
   } else {

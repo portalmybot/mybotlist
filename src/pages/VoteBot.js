@@ -13,7 +13,7 @@ import { green } from '@material-ui/core/colors';
 import Box from '@material-ui/core/Box';
 import CheckIcon from '@material-ui/icons/Check';
 import Grid from '@material-ui/core/Grid';
-import Alert from '@material-ui/lab/Alert';
+/* import Alert from '@material-ui/lab/Alert'; */
 import { useMutation, useQuery } from "react-query";
 import { useSnackbar } from 'notistack';
 
@@ -22,8 +22,8 @@ import LoadingPage from '../components/common/LoadingPage';
 import { getBot, getVoteBot, addVote } from '../services/bot.service';
 import Avatar from '@material-ui/core/Avatar';
 
-import Link from '@material-ui/core/Link';
-import { Link as RouterLink } from 'react-router-dom';
+/* import Link from '@material-ui/core/Link';
+import { Link as RouterLink } from 'react-router-dom'; */
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -81,8 +81,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
-
 
 export default function EditBot() {
   const classes = useStyles();

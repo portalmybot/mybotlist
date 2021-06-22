@@ -100,13 +100,13 @@ export default function Bot() {
                   <Box className={classes.devsContent}>
                     Desarrollado por:
                     <Box>
-                        <Chip
-                          className={classes.devUser}
-                          avatar={<Avatar alt={'Avatar '+bot.user_bot.social_provider} src={bot.user_bot.social_avatarUrl} />}
-                          label={bot.user_bot.social_provider}
-                          component="a" href={'../u/'+bot.user_bot.social_provider} clickable
-                        />
-                        <DevsBot bot={bot} />
+                      <Chip
+                        className={classes.devUser}
+                        avatar={<Avatar alt={'Avatar '+bot.user_bot.social_provider} src={bot.user_bot.social_avatarUrl} />}
+                        label={bot.user_bot.social_provider}
+                        component="a" href={'../u/'+bot.user_bot.social_provider} clickable
+                      />
+                      <DevsBot bot={bot} />
                     </Box>
                   </Box>
                 </Grid>

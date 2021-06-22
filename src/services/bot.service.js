@@ -120,6 +120,12 @@ export const getTagsHome = async () => {
   return response.data;
 };
 
+export const deleteBot = async (data) => {
+  const id_bot = data.id_bot;
+ 
+  await http.delete(`/bots/${id_bot}`)
+}
+
 export const addVote = async (data) => {
   const id_bot = data.id_bot;
   const userLogin = await getUser();
@@ -133,6 +139,7 @@ export const addVote = async (data) => {
   await http.post("/bots/add/vote", postData);
 
 };
+
 export const addTags = async (data) => {
   const id_bot = data.id_bot;
   data.tags.map(async (tag) => {
