@@ -9,7 +9,7 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red, green, grey, yellow} from '@material-ui/core/colors';
-
+import { useMutation } from "react-query";
 import Chip from '@material-ui/core/Chip';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import Button from '@material-ui/core/Button';
@@ -32,6 +32,8 @@ import OfflineBoltIcon from '@material-ui/icons/OfflineBolt';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import Divider from '@material-ui/core/Divider';
+
+import { deleteBot } from '../../services/bot.service';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -94,9 +96,18 @@ const ButtonAction = ({ botAction }) => {
     
   }, []);
 
+  const {
+    id_bot,
+    status_bot,
+    tag_bot
+  } = botAction;
+
+  const mutateDeleteBot = useMutation(deleteBot);
+
   const handleDeleteClick = () => {
     setLoading(true);
     timer.current = window.setTimeout(() => {
+      mutateDeleteBot.mutate({ id_bot: id_bot })
       enqueueSnackbar('Has eliminado el bot', {
        variant: 'success'
       })
@@ -114,11 +125,6 @@ const ButtonAction = ({ botAction }) => {
 
   };
 
-  const {
-    id_bot,
-    status_bot,
-    tag_bot
-  } = botAction;
 
   if (status_bot > 0) {
     return (

@@ -123,7 +123,8 @@ export const getTagsHome = async () => {
 export const deleteBot = async (data) => {
   const id_bot = data.id_bot;
  
-  await http.delete(`/bots/${id_bot}`)
+  await http.delete(`/bots/${id_bot}`);
+  window.location.href = "http://localhost:3000/me";
 }
 
 export const addVote = async (data) => {
