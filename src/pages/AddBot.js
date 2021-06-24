@@ -237,7 +237,6 @@ export default function AddBot() {
                   onChange={handleChange("note_bot")}
                   multiline
                   rows={4}
-                  /* defaultValue="Bot funciona solo con permisos de Administrador, como dato." */
                   placeholder="Bot funciona solo con permisos de Administrador, como dato."
                   variant="outlined"
                   fullWidth
@@ -250,7 +249,7 @@ export default function AddBot() {
           }
           <Divider />
           {success &&
-            <AlertInput />
+            <AlertInput message={'Su BOT fue agreado correctamente.'} />
           }
           <Button
             size="large"

@@ -281,7 +281,7 @@ export default function EditBot() {
             <LoadingLinear />
           }
           {success &&
-            <AlertInput />
+            <AlertInput message={'Su BOT fue editado correctamente.'} />
           }
           <Button
             size="large"

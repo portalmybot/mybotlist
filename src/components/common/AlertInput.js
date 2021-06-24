@@ -11,14 +11,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DescriptionAlerts = () => {
+const DescriptionAlerts = ({message}) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <Alert severity="success">
       <AlertTitle>Success</AlertTitle>
-        Su BOT fue agreado correctamente.
+        {message}
       </Alert>
     </div>
   );
