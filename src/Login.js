@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import AuthService from './services/AuthService';
+import LoadingPage from './components/common/LoadingPage';
 
 export default function Login(props) {
+
   useEffect(() => {
     fetch(`/api/auth/discord/callback/${props.location.search}`, {
           headers: new Headers({
@@ -16,7 +18,6 @@ export default function Login(props) {
         })
         .then((data) => {
           AuthService.handleLoginSuccess(data, true)
-          
           window.location.href = 'http://localhost:3000/me';
 
         })
@@ -28,7 +29,8 @@ export default function Login(props) {
   }, [props]);
 
   return (
-    <div>
-    </div>
+    <> 
+      <LoadingPage />
+    </>
   );
 }
