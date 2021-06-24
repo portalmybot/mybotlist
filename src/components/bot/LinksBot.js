@@ -21,7 +21,7 @@ export default function ContainedButtons({bot}) {
     <div className={classes.root}>
 
       <Button variant="contained" style={{ color: '#fff', backgroundColor: '#7289da' }} href={invite_bot} target="_blank" startIcon={<AddIcon />}>
-        Agregar Bot
+        Invitar Bot
       </Button>
       {support_bot && (
         <Button variant="contained" style={{ backgroundColor: '#FF9800', color: '#fff' }} href={support_bot} startIcon={<SettingsIcon />}>
