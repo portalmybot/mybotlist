@@ -1,5 +1,6 @@
 import http from "./HttpService";
 import { getUser } from './me.service';
+import { sendWebHook } from "./WebHookService";
 
 export const getHomeBots = async () => {
   const response = await http.get("/home/bots");
@@ -83,7 +84,10 @@ export const addBot = async ({ data }) => {
   }
   await http.post("/bots", postData);
   
+  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `NUEVO BOT AGREGADO\nID: ${data.id_bot}\nPREFIX: ${data.prefix_bot}\nTITULO: ${data.shortDesc_bot}${data.note_bot ? '\nNOTA: '+data.note_bot : ''}`)
+  
 };
+
 export const addDevs = async (data) => {
   const id_bot = data.id_bot;
   data.datadevs.map(async (dev) => {
