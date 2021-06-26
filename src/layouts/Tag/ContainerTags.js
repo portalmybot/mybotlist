@@ -32,15 +32,38 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
     fontSize: theme.spacing(5),
     marginTop: theme.spacing(.3)
+  },
+  listBot: {
+    minHeight: '50vh',
+  },
+  title: {
+    fontWeight: 700,
+    marginBottom: theme.spacing(1)
   }
  })
 )
+
 const SLoading = [1,2,3,4,5,6,7,8,9]
+
+const NoListMargin = () => {
+  const classes = useStyles();
+  return (
+    <Grid item xs={12} sm={12}>
+      <Box display="flex" style={{ marginTop: 100 }}>
+        <Box m="auto">
+          <Typography variant="h5" component="h2" className={classes.title}>
+            No se encontraron resultados
+          </Typography>
+        </Box>
+      </Box>
+    </Grid>
+  )
+}
 
 const TagBotList = ({tagName}) => {
   const classes = useStyles();
   const {isLoading, data: bots} = useQuery(['tagBots', { name: tagName }], getHomeTagBots)
-
+  console.log(bots)
   return (
     <>
       <Container className={classes.cardGrid} maxWidth="lg">
@@ -52,7 +75,7 @@ const TagBotList = ({tagName}) => {
             ¡Lista de bots encontrados con la categoria {tagName}!
           </Typography>
         </Box>
-        <Grid container spacing={5}>
+        <Grid container spacing={5}  className={classes.listBot}>
           {isLoading && (
             <>
               {
@@ -66,21 +89,29 @@ const TagBotList = ({tagName}) => {
               }
             </>
           )}
-          {!isLoading && bots ? 
+
+          {!isLoading && bots.data ? 
             <>
               { 
                 bots.data.filter(l => l.length > 0).map((bot) => {
    
-                    return (
-                      <Grid key={`${bot[0].id}-bot`} item xs={12} sm={6} md={4} lg={3}>
-                        <Bot value={bot[0]} />
-                      </Grid>
-                    )
+                  return (
+                    <Grid key={`${bot[0].id}-bot`} item xs={12} sm={6} md={4} lg={3}>
+                      <Bot value={bot[0]} />
+                    </Grid>
+                  )
 
                 })
               }
             </>
-          : null}
+          : null }
+
+          {!isLoading && bots.data.length < 1 ?
+            <NoListMargin />
+          : !isLoading && bots.data[0].length < 1 ?
+            <NoListMargin />
+          : null }
+
         </Grid>
       </Container>
     </>
