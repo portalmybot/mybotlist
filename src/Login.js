@@ -5,7 +5,7 @@ import LoadingPage from './components/common/LoadingPage';
 export default function Login(props) {
 
   useEffect(() => {
-    fetch(`/api/auth/discord/callback/${props.location.search}`, {
+    fetch(`${process.env.REACT_APP_API_AUTH}/discord/callback/${props.location.search}`, {
           headers: new Headers({
             accept: 'application/json',
           })
@@ -18,7 +18,7 @@ export default function Login(props) {
         })
         .then((data) => {
           AuthService.handleLoginSuccess(data, true)
-          window.location.href = 'http://localhost:3000/me';
+          window.location.href = `${process.env.REACT_APP_URL_BASE}/me`;
 
         })
         .catch((error) => {

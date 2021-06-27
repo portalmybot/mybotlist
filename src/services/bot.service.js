@@ -111,7 +111,7 @@ export const updateBot = async (data) => {
   dataObj["longDesc_bot"] = data.longDesc_bot ? data.longDesc_bot : null
 
   await http.put(`/bots/${dataObj.id_bot}`, dataObj);
-  window.location.href = "http://localhost:3000/me";
+  window.location.href = process.env.REACT_APP_URL_BASE;
 
 };
 
@@ -128,7 +128,7 @@ export const deleteBot = async (data) => {
   const id_bot = data.id_bot;
  
   await http.delete(`/bots/${id_bot}`);
-  window.location.href = "http://localhost:3000/me";
+  window.location.href = process.env.REACT_APP_URL_BASE;
 }
 
 export const addVote = async (data) => {

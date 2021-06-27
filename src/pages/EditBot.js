@@ -117,7 +117,7 @@ export default function EditBot() {
     
   } 
   const handleCancel = () => {
-    window.location.href = "http://localhost:3000/me";
+    window.location.href = process.env.REACT_APP_URL_BASE;
   }
 
   const handleSubmit = event => {

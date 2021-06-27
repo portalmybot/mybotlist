@@ -25,7 +25,7 @@ const LoginLinkMobile = () => {
   }]);
   
   useEffect(() => {
-    fetch("/api/auth/discord/login")
+    fetch(`${process.env.REACT_APP_API_AUTH}/discord/login`)
       .then(data => {
         return data.json();
       })

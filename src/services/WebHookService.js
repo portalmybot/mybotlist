@@ -8,10 +8,9 @@ const config = {
 }
 
 export const sendWebHook = async (url, username, content) => {
-  const res = await axios.post(url, {
+  await axios.post(url, {
     username: username,
     content: content
   }, config);
 
-  console.log(res);
 }
