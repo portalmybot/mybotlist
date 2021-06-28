@@ -61,7 +61,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
 export default function EditBot() {
   const classes = useStyles();
   const { enqueueSnackbar } = useSnackbar();
@@ -117,7 +116,7 @@ export default function EditBot() {
     
   } 
   const handleCancel = () => {
-    window.location.href = process.env.REACT_APP_URL_BASE;
+    window.location.href = `${process.env.REACT_APP_URL_BASE}/me`;
   }
 
   const handleSubmit = event => {

@@ -84,7 +84,7 @@ export const addBot = async ({ data }) => {
   }
   await http.post("/bots", postData);
   
-  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `NUEVO BOT AGREGADO\nID: ${data.id_bot}\nPREFIX: ${data.prefix_bot}\nTITULO: ${data.shortDesc_bot}${data.note_bot ? '\nNOTA: '+data.note_bot : ''}`)
+  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `NUEVO BOT AGREGADO\nID: ${data.id_bot}\nPREFIX: ${data.prefix_bot}\nTITULO: ${data.shortDesc_bot}${data.note_bot ? '\nNOTA: '+data.note_bot : ''}\nUSER: <@${userLogin.user_id}>`)
   
 };
 
@@ -111,7 +111,7 @@ export const updateBot = async (data) => {
   dataObj["longDesc_bot"] = data.longDesc_bot ? data.longDesc_bot : null
 
   await http.put(`/bots/${dataObj.id_bot}`, dataObj);
-  window.location.href = process.env.REACT_APP_URL_BASE;
+  window.location.href = `${process.env.REACT_APP_URL_BASE}/me`;
 
 };
 
@@ -128,7 +128,7 @@ export const deleteBot = async (data) => {
   const id_bot = data.id_bot;
  
   await http.delete(`/bots/${id_bot}`);
-  window.location.href = process.env.REACT_APP_URL_BASE;
+  window.location.href = `${process.env.REACT_APP_URL_BASE}/me`;
 }
 
 export const addVote = async (data) => {

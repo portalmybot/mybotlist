@@ -9,20 +9,20 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
 const footers = [{
-    title: 'Company',
-    description: ['Team', 'History', 'Contact us', 'Locations'],
+    title: 'Contacto',
+    description: ['team@portalmybot.com', 'Discord', 'Twitter'],
   },
   {
-    title: 'Features',
-    description: ['Cool stuff', 'Random feature', 'Team feature', 'Developer stuff', 'Another one'],
+    title: 'Enlaces',
+    description: ['Team', 'Terminos de servicio', 'Privacidad', 'Anuncios'],
   },
   {
-    title: 'Resources',
-    description: ['Resource', 'Resource name', 'Another resource', 'Final resource'],
+    title: 'Partners',
+    description: ['PortaMyBOT', 'MyCHAT', 'CraterMaik', 'Facebook'],
   },
   {
-    title: 'Legal',
-    description: ['Privacy policy', 'Terms of use'],
+    title: 'Comunidad',
+    description: ['PortalMyBOT API', 'Certificado', 'Contribuidores'],
   },
 ];
 

@@ -6,9 +6,11 @@ export default function Login(props) {
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_AUTH}/discord/callback/${props.location.search}`, {
-          headers: new Headers({
-            accept: 'application/json',
-          })
+          method: 'GET',
+          headers: {
+           "Content-type": "application/json"
+            
+          },
         })
         .then((response) => {
           if (response.ok) {

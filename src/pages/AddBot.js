@@ -136,7 +136,7 @@ export default function AddBot() {
 
     setTimeout(() => {
       setLoading(false);
-      window.location.href = process.env.REACT_APP_URL_BASE;
+      window.location.href = `${process.env.REACT_APP_URL_BASE}/me`;
     }, 10000);
 
 

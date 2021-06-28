@@ -1,5 +1,6 @@
 {
   "name": "mybotlist",
+  "homepage": "https://portalmybot.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

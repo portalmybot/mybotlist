@@ -24,7 +24,13 @@ const LoginLink = () => {
   }]);
   
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_AUTH}/discord/login`)
+    fetch(`${process.env.REACT_APP_API_AUTH}/discord/login`, {
+      method: 'GET',
+      headers: {
+        "Content-type": "application/json"
+        
+      },
+    })
       .then(data => {
         
         return data.json();

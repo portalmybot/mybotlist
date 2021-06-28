@@ -49,7 +49,7 @@ export default function MenuAuth() {
     setAnchorEl(null);
     CookieService.remove("access_token");
     await logoutUser();
-    window.location.href = "http://localhost:3000";
+    window.location.href = `${process.env.REACT_APP_URL_BASE}`;
     
   };
 
