@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import axios from "axios";
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
@@ -25,25 +25,23 @@ const LoginLinkMobile = () => {
   }]);
   
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_AUTH}/discord/login`, {
-      method: 'GET',
-      headers: {
-        "Content-type": "application/json"
+ 
+      axios.get(`${process.env.REACT_APP_API_AUTH}/discord/login`, {
+           headers: {
+            "Accept": "application/json",
+          },
+          withCredentials: false
+        })
+        .then((response) => {
+          setLogin({
+            url: response.data.url,
+          });
 
-      },
-    })
-      .then(data => {
-        return data.json();
-      })
-      .then(data => {
-        
-        setLogin({
-          url: data.url,
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+        })
+        .catch((error) => {
+          console.log(error);
+
+        })
 
   }, []);
  
