@@ -7,7 +7,11 @@ export default function Login(props) {
 
   useEffect(() => {
   
-    axios.get(`${process.env.REACT_APP_API_AUTH}/discord/callback/${props.location.search}`)
+    axios.get(`${process.env.REACT_APP_API_AUTH}/discord/callback/${props.location.search}`, {
+      headers: {
+        "Accept": "application/json"
+      }
+    })
     .then((response) => {
       console.log(response)
       AuthService.handleLoginSuccess(response.data, true)
