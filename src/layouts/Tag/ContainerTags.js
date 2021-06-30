@@ -63,7 +63,7 @@ const NoListMargin = () => {
 const TagBotList = ({tagName}) => {
   const classes = useStyles();
   const {isLoading, data: bots} = useQuery(['tagBots', { name: tagName }], getHomeTagBots)
-  console.log(bots)
+
   return (
     <>
       <Container className={classes.cardGrid} maxWidth="lg">
