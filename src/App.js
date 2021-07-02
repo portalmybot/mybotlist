@@ -22,6 +22,7 @@ import Vote from './pages/VoteBot';
 import Login from './Login';
 import Me from './pages/Me';
 
+
 const guestRoutes = [
   { path: "/", component: Home, exact: true },
   { path: "/auth/discord", component: Login, exact: true },

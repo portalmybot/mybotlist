@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from "axios";
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
@@ -7,6 +6,7 @@ import { Link as RouterLink } from 'react-router-dom';
 
 import MenuAuth from "./Menu";
 import Auth from "../router/Auth";
+import Http from '../../services/HttpService';
 
  
 const useStyles = makeStyles((theme) => ({
@@ -25,13 +25,9 @@ const LoginLink = () => {
   
   useEffect(() => {
 
-     axios.get(`${process.env.REACT_APP_API_AUTH}/discord/login`, {
-         headers: {
-           "Accept": "application/json",
-         },
-         withCredentials: false
-       })
+     Http.get(`/auth/discord/login`)
        .then((response) => {
+         console.log(response);
          setLogin({
            url: response.data.url,
          });

@@ -9,5 +9,4 @@ export default axios.create({
     "Accept": "application/json",
     "Authorization": "Bearer " + at,
   },
-  withCredentials: false
 })
