@@ -84,7 +84,7 @@ export const addBot = async ({ data }) => {
   }
   await http.post("/bots", postData);
   
-  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `NUEVO BOT AGREGADO\nID: ${data.id_bot}\nPREFIX: ${data.prefix_bot}\nTITULO: ${data.shortDesc_bot}${data.note_bot ? '\nNOTA: '+data.note_bot : ''}\nUSER: <@${userLogin.user_id}>`)
+  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `NUEVO BOT AGREGADO\nID: ${data.id_bot}\nPREFIX: ${data.prefix_bot}\nTITULO: ${data.shortDesc_bot}${data.note_bot ? '\nNOTA: '+data.note_bot : ''}\nUSER: <@${userLogin.social_id}>`)
   
 };
 
@@ -139,7 +139,7 @@ export const addVote = async (data) => {
     id_bot: id_bot,
     idUser_bot: userLogin.social_id,
   }
- 
+  console.log(postData)
   await http.post(`/bots/vote/${id_bot}`);
   await http.post("/bots/add/vote", postData);
 

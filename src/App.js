@@ -44,7 +44,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
 
-      <Router>
+      <Router basename={'/list'}>
         <Switch>
           {guestRoutes.map((route, key) => {
               return (

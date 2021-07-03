@@ -27,7 +27,6 @@ const LoginLink = () => {
 
      Http.get(`/auth/discord/login`)
        .then((response) => {
-         console.log(response);
          setLogin({
            url: response.data.url,
          });
