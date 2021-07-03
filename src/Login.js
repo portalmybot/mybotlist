@@ -6,7 +6,13 @@ import Http from './services/HttpService';
 export default function Login(props) {
   
   useEffect(() => {
-    Http.get(`/auth/discord/callback/${props.location.search}`)
+    Http.get(`/auth/discord/callback/${props.location.search}`,{
+      method: 'get',
+      headers: {
+        'Access-Control-Allow-Origin': 'http://localhost:3000',
+        'Vary': 'origin'
+      }
+    })
       .then(res => {
         AuthService.handleLoginSuccess(res.data, true)
         window.location.href = `${process.env.REACT_APP_URL_BASE}/me`;
