@@ -58,6 +58,28 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#000000f0',
     
   },
+  descriptionContent: {
+    overflowY: 'scroll',
+    '& img': {
+      maxWidth: '90%',
+      borderRadius: '5px',
+    },
+    '& a': {
+      color: '#7289da',
+    },
+    '& pre': {
+      padding: theme.spacing(1),
+      borderRadius: '5px',
+      backgroundColor: '#2c2c2c',
+      fontSize: '15px',
+    },
+    '& ul': {
+      listStyle: 'disc outside',
+      marginLeft: theme.spacing(2),
+      marginTop: theme.spacing(1),
+      marginBottom: theme.spacing(2),
+    }
+  }
 }));
 
 
@@ -311,9 +333,11 @@ export default function EditBot() {
      )   
     }
       <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
-        <Box dangerouslySetInnerHTML={{
-          __html: marked(!desc ? `Bot ${tag_bot}` : desc),
-        }}>
+        <Box className={classes.descriptionContent}>
+          <Box dangerouslySetInnerHTML={{
+              __html: marked(!desc ? `Bot ${tag_bot}` : desc),
+            }}>
+          </Box>
         </Box>
       </Backdrop>
     </Layout>
