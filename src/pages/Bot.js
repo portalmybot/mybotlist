@@ -2,7 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Layout from '../components/Layout';
 import { useQuery } from 'react-query'
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
+
 import { getBot } from '../services/bot.service';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -62,7 +63,7 @@ export default function Bot() {
   const { isLoading, data: bot = {}, error} = useQuery(
     ['getbot',{ id: id }], getBot
   );
-  
+
   const bgPremium = bot.premium_bot ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://i.imgur.com/7HvHxnI.png) center top / cover no-repeat fixed` : null;
 
   const classes = useStyles();
@@ -72,6 +73,8 @@ export default function Bot() {
       {
         isLoading ? (
            <LoadingPage />
+        ) : !bot ? (
+          <Redirect to="/" />
         ) : error ? (
           <h1>Error!</h1>
         ) : (

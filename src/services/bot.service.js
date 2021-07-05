@@ -54,6 +54,7 @@ export const getHomeTagBots = async (name) => {
 
 export const getBot = async (id) => {
   const { data } = await http.get(`/home/bot/${id.queryKey[1].id}`);
+  if(data[0].status_bot === 0) return false
   
   return data[0];
   
