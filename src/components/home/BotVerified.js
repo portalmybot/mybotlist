@@ -67,7 +67,7 @@ const BotsVerified = () => {
         </Grid>
         <Grid className={classes.gridBot} container>
           <Grid item xs={12}>
-            <Link underline='none' component={RouterLink} className={classes.expand} to={'/list/verified'} color="inherit">
+            <Link underline='none' component={RouterLink} className={classes.expand} to={'/bots/verified'} color="inherit">
               <ColorButton startIcon={<PlaylistAddIcon />} variant="contained" size="large" color="default" fullWidth>
                 VER MÁS BOTS VERIFICADOS
               </ColorButton>

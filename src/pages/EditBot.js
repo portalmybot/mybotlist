@@ -4,7 +4,7 @@ import React, {
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -24,7 +24,7 @@ import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
 import AlertInput from '../components/common/AlertInput';
 import LoadingPage from '../components/common/LoadingPage';
-import { getBot, updateBot, addDevs, deleteDevsBot } from '../services/bot.service';
+import { getBotEdit, updateBot, addDevs, deleteDevsBot } from '../services/bot.service';
 import { Box } from '@material-ui/core';
 
 const marked = require("marked");
@@ -72,7 +72,7 @@ export default function EditBot() {
   const { id } = useParams();
   const [datadevs, setDataDevs] = useState([]);
 
-  const {isLoading, error, data: botQuery = {}} = useQuery(['getBotEdit', {id: id}], getBot)
+  const {isLoading, error, data: botQuery = {}} = useQuery(['getBotEdit', {id: id}], getBotEdit)
   const { prefix_bot, shortDesc_bot, tag_bot, support_bot, web_bot, devs, longDesc_bot} = botQuery;
 
   const [desc, setDesc] = useState();
@@ -172,6 +172,8 @@ export default function EditBot() {
        {
         isLoading ? (
            <LoadingPage />
+        ) : !botQuery ? (
+          <Redirect to="/me" />
         ) : error ? (
           <h1>Error!</h1>
         ) : (

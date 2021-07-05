@@ -67,7 +67,7 @@ const BotsNews = () => {
         </Grid>
         <Grid className={classes.gridBot} container>
           <Grid item xs={12}>
-            <Link underline='none' component={RouterLink} className={classes.expand} to={'/list/new'} color="inherit">
+            <Link underline='none' component={RouterLink} className={classes.expand} to={'/bots/new'} color="inherit">
               <ColorButton startIcon={<PlaylistAddIcon />} variant="contained" size="large" color="default" fullWidth>
                 VER MÁS BOTS AGREGADOS RECIENTEMENTE
               </ColorButton>

@@ -62,11 +62,11 @@ const BotList = () => {
         <TitleContent icon="vote" title="DISCORD BOTS TOPS" subtitle="¡Este es el ranking de los bots que recibieron más reputaciones!" />
         <BotVoteTop />
 
-        <TitleContent icon="veri" title="DISCORD BOTS VERIFICADOS" subtitle="¡Son bots de confianza certificados por MyBOT Team!" />
-        <BotVerified />
-
         <TitleContent icon="new" title="DISCORD BOTS RECIENTES" subtitle="¡Lista de bots recientemente agregados a la lista!" />
         <BotNews />
+
+        <TitleContent icon="veri" title="DISCORD BOTS VERIFICADOS" subtitle="¡Son bots de confianza certificados por MyBOT Team!" />
+        <BotVerified />
 
       </Container>
     </>
