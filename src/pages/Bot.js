@@ -70,7 +70,7 @@ export default function Bot() {
     ['getbot',{ id: id }], getBot
   );
 
-  const bgPremium = bot.premium_bot ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://i.imgur.com/7HvHxnI.png) center top / cover no-repeat fixed` : null;
+  const bgPremium = bot.premium_bot ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://git-frontend.kyokobot.moe/assets/6b6e22785e00d29aa88e611055c15ed4.jpg) center top / cover no-repeat fixed` : null;
 
   const classes = useStyles();
   
