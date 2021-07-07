@@ -36,7 +36,8 @@ const useStyles = makeStyles((theme) => ({
        },
      },
      '&:hover': {
-       boxShadow: '0px 3px 3px -2px rgb(0 0 0 / 21%), 0px 3px 4px 0px rgb(0 0 0 / 31%), 0px 1px 8px 0px rgb(0 0 0 / 56%)'
+       boxShadow: '0px 3px 3px -2px rgb(0 0 0 / 21%), 0px 3px 4px 0px rgb(0 0 0 / 31%), 0px 1px 8px 0px rgb(0 0 0 / 56%)',
+       transform: 'translateY(-3px)',
      }
   },
   media: {
@@ -89,11 +90,14 @@ const CardList = ({ value }) => {
     shortDesc_bot,
     vote_bot,
     tags,
-    badges
+    badges,
+    premium_bot
   } = value;
   
+  const bgPremium = premium_bot ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://git-frontend.kyokobot.moe/assets/6b6e22785e00d29aa88e611055c15ed4.jpg) center top / cover no-repeat fixed` : null;
+
   return (
-    <Card key={id_bot} className={classes.root} >
+    <Card key={id_bot} className={classes.root} style={{background: `${bgPremium}`}} >
       <CardHeader
         avatar={
           <Avatar alt="Image title" src={avatarUrl_bot} variant="square" className={classes.avatar} />
