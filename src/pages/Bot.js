@@ -113,7 +113,7 @@ export default function Bot() {
                         className={classes.devUser}
                         avatar={<Avatar alt={'Avatar '+bot.user_bot.social_provider} src={bot.user_bot.social_avatarUrl} />}
                         label={bot.user_bot.social_provider}
-                        component="a" href={'../u/'+bot.user_bot.social_provider} clickable
+                        component="a" href={'https://portalmybot.com/u/'+bot.user_bot.social_provider} clickable
                       />
                       <DevsBot bot={bot} />
                     </Box>

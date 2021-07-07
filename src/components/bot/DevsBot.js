@@ -16,13 +16,14 @@ export default function DevsBot({ bot }) {
   
   return (
       <>
-        { devs.map((dev) => {
+        {
+          devs.filter(x => x.user != null).map((dev) => {
             return (
               <Chip
                 className={classes.root}
-                avatar={<Avatar /* alt={'Avatar '+social_provider} src={social_avatarUrl} */ />}
-                label={dev.id_user}
-                component="a" href={'../u/'+dev.id_user} clickable
+                avatar={<Avatar alt={'Avatar de '+dev.user.social_provider} src={dev.user.social_avatarUrl} />}
+                label={dev.user.social_provider}
+                component="a" href={'https://portalmybot.com/u/'+dev.id_user} clickable
               />
 
             );
