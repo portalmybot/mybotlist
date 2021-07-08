@@ -23,6 +23,7 @@ export default function DevsBot({ bot }) {
                 className={classes.root}
                 avatar={<Avatar alt={'Avatar de '+dev.user.social_provider} src={dev.user.social_avatarUrl} />}
                 label={dev.user.social_provider}
+                target="_blank" rel="noopener"
                 component="a" href={'https://portalmybot.com/u/'+dev.id_user} clickable
               />
 
