@@ -57,6 +57,12 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 21,
     marginBottom:0,
   },
+  heightDesc: {
+    lineHeight: 1.5,
+    height: theme.spacing(5.5),
+    overflow: 'hidden',
+
+  },
   large: {
     width: theme.spacing(7),
     height: theme.spacing(7),
@@ -72,11 +78,12 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1, 0),
   },
   section2: {
-    margin: theme.spacing(5, 0, 0),
+    margin: theme.spacing(3, 0, 0),
   },
   section3: {
     margin: theme.spacing(1, 0, 0.5),
   },
+
   
 }));
 
@@ -145,12 +152,12 @@ const CardList = ({ value }) => {
         }
 
       />
-      
+
       <CardContent className={classes.section1}>
         <Typography className={classes.title} color="secondary" gutterBottom>
           {username_bot} 
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="body2" color="textSecondary" component="p" className={classes.heightDesc}>
           {shortDesc_bot}
         </Typography>
 
