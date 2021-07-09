@@ -18,7 +18,7 @@ import InfoBot from "../components/bot/InfoBot";
 import ActionBot from "../components/bot/ActionBot";
 import DevsBot from "../components/bot/DevsBot";
 import DescriptionBot from "../components/bot/DescriptionBot";
-import SEO from '../components/common/Seo';
+import Seo from '../components/common/Seo';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -78,67 +78,73 @@ export default function Bot() {
   
   return (
     <>
-      <SEO title='Bot Discord X'/>
       <Layout>
         {
           isLoading ? (
             <LoadingPage />
-          ) : !bot ? (
-            <Redirect to="/" />
-          ) : error ? (
-            <h1>Error!</h1>
-          ) : (
+            ) : !bot ? (
+              <Redirect to="/" />
+              ) : error ? (
+                <h1>Error!</h1>
+                ) : (
+            <>
+              <Seo 
+                title={bot.username_bot + ' | Discord Bots — MyBOT List'}
+                description={bot.shortDesc_bot} 
+                url={'https://portalmybot.com/list/bot/'+bot.id_bot}
+                icon={bot.avatarUrl_bot}
+                image={bot.avatarUrl_bot} />
               
-          <Container maxWidth={false} className={classes.containerbg} style={{background: `${bgPremium}`}} >
-            <Container maxWidth={'lg'}>
+              <Container maxWidth={false} className={classes.containerbg} style={{background: `${bgPremium}`}} >
+                <Container maxWidth={'lg'}>
 
-              <div className={classes.root}>
-                <Grid container spacing={1} justify='center'>
-                  <Grid item xs={12} sm={6}>
-                    <Box display="flex">
-                      <Box m="auto">
-                        <AvatarBot bot={bot} />
-                      </Box>
-                    </Box>
-                    <Box className={classes.action}>
-                      <ActionBot bot={bot} />
-                    </Box>
-                  </Grid>
-                  <Grid item xs={12} sm={6} >
-                      <InfoBot bot={bot} />
-                  </Grid>
-                  
-                  <Grid item xs={12}>
-                    <Divider style={{ marginBottom: 20, marginTop: 30 }}/>
-                    <Box className={classes.devsContent}>
-                      Desarrollado por:
-                      <Box>
-                        <Chip
-                          className={classes.devUser}
-                          avatar={<Avatar alt={'Avatar '+bot.user_bot.social_provider} src={bot.user_bot.social_avatarUrl} />}
-                          label={bot.user_bot.social_provider}
-                          target="_blank" rel="noopener"
-                          component="a" href={'https://portalmybot.com/u/'+bot.user_bot.social_provider} clickable
-                        />
-                        <DevsBot bot={bot} />
-                      </Box>
-                    </Box>
-                  </Grid>
+                  <div className={classes.root}>
+                    <Grid container spacing={1} justify='center'>
+                      <Grid item xs={12} sm={6}>
+                        <Box display="flex">
+                          <Box m="auto">
+                            <AvatarBot bot={bot} />
+                          </Box>
+                        </Box>
+                        <Box className={classes.action}>
+                          <ActionBot bot={bot} />
+                        </Box>
+                      </Grid>
+                      <Grid item xs={12} sm={6} >
+                          <InfoBot bot={bot} />
+                      </Grid>
+                      
+                      <Grid item xs={12}>
+                        <Divider style={{ marginBottom: 20, marginTop: 30 }}/>
+                        <Box className={classes.devsContent}>
+                          Desarrollado por:
+                          <Box>
+                            <Chip
+                              className={classes.devUser}
+                              avatar={<Avatar alt={'Avatar '+bot.user_bot.social_provider} src={bot.user_bot.social_avatarUrl} />}
+                              label={bot.user_bot.social_provider}
+                              target="_blank" rel="noopener"
+                              component="a" href={'https://portalmybot.com/u/'+bot.user_bot.social_provider} clickable
+                            />
+                            <DevsBot bot={bot} />
+                          </Box>
+                        </Box>
+                      </Grid>
 
-                  <Grid item xs={12}>
-                    <Divider style={{ marginBottom: 20 }}/>
-                    <Box className={classes.descriptionContent}>
-                      <DescriptionBot bot={bot} />
-                    
-                    </Box>
-                  </Grid>
-                </Grid>
-              </div>
-            
-            </Container>
+                      <Grid item xs={12}>
+                        <Divider style={{ marginBottom: 20 }}/>
+                        <Box className={classes.descriptionContent}>
+                          <DescriptionBot bot={bot} />
+                        
+                        </Box>
+                      </Grid>
+                    </Grid>
+                  </div>
+                
+                </Container>
 
-          </Container>
-
+              </Container>
+            </>
           )
         }
       </Layout>
