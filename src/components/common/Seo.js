@@ -19,13 +19,12 @@ const SEO = ({title, description, url, icon, image}) => {
         <meta property="og:url" content={url || 'https://portalmybot.com/list/'} />
         <meta property="og:title" content={title || 'Discord Bots — MyBOT List'} />
         <meta property="og:description" content={description || 'Lista de Bots públicos de Discord en español, descubre nuevos Bots desarrollados por los miembros de la comunidad MyBOT Team'} />
-        <meta property="og:image" content={image || 'https://i.imgur.com/Juh672X.png'} />
+        <meta property="og:image" content={image || 'https://i.imgur.com/DC0Kp0D.png'} />
 
-        <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={url || 'https://portalmybot.com/list/'} />
         <meta property="twitter:title" content={title || 'Discord Bots — MyBOT List'} />
         <meta property="twitter:description" content={description || 'Lista de Bots públicos de Discord en español, descubre nuevos Bots desarrollados por los miembros de la comunidad MyBOT Team'} />
-        <meta property="twitter:image" content={image || 'https://i.imgur.com/Juh672X.png'} />
+        <meta property="twitter:image" content={image || 'https://i.imgur.com/DC0Kp0D.png'} />
 
       </Helmet>
   );

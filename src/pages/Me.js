@@ -9,6 +9,7 @@ import MeContent from '../layouts/Me/MeContent';
 import { getUser } from '../services/me.service';
 import Layout from '../components/Layout';
 import LoadingPage from '../components/common/LoadingPage';
+import Seo from '../components/common/Seo';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +33,14 @@ const Me = () => {
           ) : error ? (
             <h1>Error!</h1>
           ) : (
+            <>
+            <Seo 
+              title={user.social_provider + ' | Discord Bots — MyBOT List'}
+              description={'Perfil del usuario '+ user.social_provider} 
+              url={'https://portalmybot.com/list/'}
+              icon={user.social_avatarUrl}
+              image={user.social_avatarUrl} />
+
             <Container maxWidth={false} className={classes.containerbg}>
               <Container maxWidth={'lg'}>
                 <div className={classes.root}>
@@ -41,6 +50,7 @@ const Me = () => {
                 </div>
               </Container>
             </Container>
+            </>
           )
         }
       </Layout>
