@@ -20,7 +20,6 @@ import DevsBot from "../components/bot/DevsBot";
 import DescriptionBot from "../components/bot/DescriptionBot";
 import Seo from '../components/common/Seo';
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -65,7 +64,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-
 export default function Bot() {
   const { id } = useParams();
   const { isLoading, data: bot = {}, error} = useQuery(
@@ -79,6 +77,12 @@ export default function Bot() {
   return (
     <>
       <Layout>
+        <Seo 
+          title={bot.username_bot + ' | Discord Bots — MyBOT List'}
+          description={bot.shortDesc_bot} 
+          url={'https://portalmybot.com/list/bot/'+bot.id_bot}
+          icon={bot.avatarUrl_bot}
+          image={bot.avatarUrl_bot} />
         {
           isLoading ? (
             <LoadingPage />
@@ -87,13 +91,6 @@ export default function Bot() {
               ) : error ? (
                 <h1>Error!</h1>
                 ) : (
-            <>
-              <Seo 
-                title={bot.username_bot + ' | Discord Bots — MyBOT List'}
-                description={bot.shortDesc_bot} 
-                url={'https://portalmybot.com/list/bot/'+bot.id_bot}
-                icon={bot.avatarUrl_bot}
-                image={bot.avatarUrl_bot} />
               
               <Container maxWidth={false} className={classes.containerbg} style={{background: `${bgPremium}`}} >
                 <Container maxWidth={'lg'}>
@@ -144,7 +141,7 @@ export default function Bot() {
                 </Container>
 
               </Container>
-            </>
+            
           )
         }
       </Layout>

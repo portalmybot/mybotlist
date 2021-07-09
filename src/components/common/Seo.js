@@ -9,6 +9,7 @@ const SEO = ({title, description, url, icon, image}) => {
         <meta charset="utf-8" />
         <link rel="icon" href={icon || 'https://portalmybot.com/assets/img/logo/icon-portal.png'} type="image/x-icon"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta name="theme-color" content="#5865F2" />
 
         <meta name="title" content={title || 'Discord Bots — MyBOT List'} />
