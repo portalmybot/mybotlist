@@ -62,7 +62,7 @@ export const getBot = async (id) => {
 export const getBotEdit = async (id) => {
   const userLogin = await getUser();
   const { data } = await http.get(`/home/bot/${id.queryKey[1].id}`);
-  if (userLogin.user_id !== data[0].idUser_bot) return false
+  if (userLogin.user_id != data[0].idUser_bot) return false
   if(data[0].status_bot === 0) return false
   
   return data[0];

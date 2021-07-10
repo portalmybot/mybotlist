@@ -13,12 +13,12 @@ import { green } from '@material-ui/core/colors';
 import Box from '@material-ui/core/Box';
 import CheckIcon from '@material-ui/icons/Check';
 import Grid from '@material-ui/core/Grid';
-/* import Alert from '@material-ui/lab/Alert'; */
 import { useMutation, useQuery } from "react-query";
 import { useSnackbar } from 'notistack';
 
 import Layout from '../components/Layout';
 import LoadingPage from '../components/common/LoadingPage';
+import Seo from '../components/common/Seo';
 import { getBot, getVoteBot, addVote } from '../services/bot.service';
 import Avatar from '@material-ui/core/Avatar';
 
@@ -100,7 +100,7 @@ export default function EditBot() {
 
   const {isLoading, error, data: botQuery = {}} = useQuery(['getBotVote', {id: id}], getBot)
   const {isLoading: voteLoading, data: voteBotQuery = {}} = useQuery(['getVoteBot', {id: id}], getVoteBot)
-  const { avatarUrl_bot, tag_bot } = botQuery;
+  const { avatarUrl_bot, tag_bot, username_bot } = botQuery;
   const { result } = voteBotQuery;
 
   
@@ -133,8 +133,8 @@ export default function EditBot() {
 
   const handleSubmit = event => {
     event.preventDefault();
-    
   }
+
   return (
     <Layout>
       {
@@ -143,64 +143,72 @@ export default function EditBot() {
           ) : error ? (
             <h1>Error!</h1>
           ) : (
-          <Container component="main" maxWidth="md" style={{ height: '60vh' }}>
-            <div className={classes.paper}>
-              
-              <Typography component="h1" variant="h4"  className={classes.title}>
-                {tag_bot}
-              </Typography>
-              <form className={classes.form} noValidate autoComplete="off" onSubmit={handleSubmit}>
-              
-                <Grid item xs={12} sm={12}>
-                  <Box display="flex">
-                    <Box m="auto" >
-                      <Avatar variant="square" src={avatarUrl_bot} className={classes.large} />
-                    </Box>
-                  </Box>
-                </Grid>
-                <Grid item xs={12} sm={12}>
-                  <Box display="flex">
-                    <Box m="auto">
-                        {voteLoading ? (
-                          <LoadingPage />
-                        ) : (
-                          btnsuccess ? 
-                          <>
-                            {result ? (
-                              <>
-                                
-                                <Box display="flex">
-                                  <Box m="auto" >
-                                   <CheckIcon style={{ color: green[500], fontSize: 50 }} />
-                                  </Box>
-                                </Box>
+          <>
+            <Seo 
+              title={'Dar reputación a '+ username_bot +' | Discord Bots — MyBOT List'}
+              description={'Lista de Bots públicos de Discord en español, descubre nuevos Bots desarrollados por los miembros de la comunidad MyBOT Team '} 
+              url={'https://portalmybot.com/list/'}
+              image={'https://i.imgur.com/DC0Kp0D.png'} />
 
-                              </>
-                            ) :
-                            <Button
-                              variant="contained"
-                              color="primary"
-                              className={buttonClassname}
-                              disabled={loading}
-                              onClick={handleButtonClick}
-                              size="large"
-                            >
-                              DAR REPUTACIÓN
-                            </Button>}
-
-                            {loading && <CircularProgress size={45} className={classes.buttonProgress} />}
-                          </>
-
-                         : <CheckIcon style={{ color: green[500], fontSize: 50 }} />
-                        )}
-           
+            <Container component="main" maxWidth="md" style={{ height: '60vh' }}>
+              <div className={classes.paper}>
+                
+                <Typography component="h1" variant="h4"  className={classes.title}>
+                  {tag_bot}
+                </Typography>
+                <form className={classes.form} noValidate autoComplete="off" onSubmit={handleSubmit}>
+                
+                  <Grid item xs={12} sm={12}>
+                    <Box display="flex">
+                      <Box m="auto" >
+                        <Avatar variant="square" src={avatarUrl_bot} className={classes.large} />
                       </Box>
+                    </Box>
+                  </Grid>
+                  <Grid item xs={12} sm={12}>
+                    <Box display="flex">
+                      <Box m="auto">
+                          {voteLoading ? (
+                            <LoadingPage />
+                          ) : (
+                            btnsuccess ? 
+                            <>
+                              {result ? (
+                                <>
+                                  
+                                  <Box display="flex">
+                                    <Box m="auto" >
+                                    <CheckIcon style={{ color: green[500], fontSize: 50 }} />
+                                    </Box>
+                                  </Box>
 
-                  </Box>
-                </Grid>
-              </form>
-            </div>
-          </Container>
+                                </>
+                              ) :
+                              <Button
+                                variant="contained"
+                                color="primary"
+                                className={buttonClassname}
+                                disabled={loading}
+                                onClick={handleButtonClick}
+                                size="large"
+                              >
+                                DAR REPUTACIÓN
+                              </Button>}
+
+                              {loading && <CircularProgress size={45} className={classes.buttonProgress} />}
+                            </>
+
+                          : <CheckIcon style={{ color: green[500], fontSize: 50 }} />
+                          )}
+            
+                        </Box>
+
+                    </Box>
+                  </Grid>
+                </form>
+              </div>
+            </Container>
+        </>
 
         )
       }

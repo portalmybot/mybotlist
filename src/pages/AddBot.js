@@ -19,6 +19,8 @@ import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import AlertInput from '../components/common/AlertInput';
+import Seo from '../components/common/Seo';
+
 import { addBot, addTags, getTags, botExists } from '../services/bot.service';
 
 const schema = Joi.object({
@@ -146,6 +148,11 @@ export default function AddBot() {
 
   return (
     <Layout>
+      <Seo 
+        title={'Agregar Bot de Discord | Discord Bots — MyBOT List'}
+        description={'Agregar un bot de Discord a MyBOT List, lista de Bots públicos de Discord en español, descubre nuevos Bots desarrollados por los miembros de la comunidad MyBOT Team '} 
+        url={'https://portalmybot.com/list/add'}
+        image={'https://i.imgur.com/DC0Kp0D.png'} />
       <Container component="main" maxWidth="md">
       <div className={classes.paper}>
         <Backdrop className={classes.backdrop} open={loading}>

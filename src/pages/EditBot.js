@@ -24,6 +24,8 @@ import Layout from '../components/Layout';
 import LoadingLinear from '../components/common/LoadingLinear';
 import AlertInput from '../components/common/AlertInput';
 import LoadingPage from '../components/common/LoadingPage';
+import Seo from '../components/common/Seo';
+
 import { getBotEdit, updateBot, addDevs, deleteDevsBot } from '../services/bot.service';
 import { Box } from '@material-ui/core';
 
@@ -199,136 +201,144 @@ export default function EditBot() {
         ) : error ? (
           <h1>Error!</h1>
         ) : (
-      <Container component="main" maxWidth="md">
-      <div className={classes.paper}>
-        
-        <Typography component="h1" variant="h5">
-          Editar Bot
-        </Typography>
-        <form className={classes.form} noValidate autoComplete="off" onSubmit={handleSubmit}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                name="prefix_bot"
-                defaultValue={prefix_bot}
-                value={data["prefix_bot"] ? data["prefix_bot"] : prefix_bot}
-                onChange={handleChange("prefix_bot")}
-                error={errors["prefix_bot"] ? true : false}
-                required
-                fullWidth
-                id="prefixBOT"
-                helperText="Prefix BOT"
-              />
-            </Grid>
+          <>
+            <Seo 
+              title={'Editar Bot de Discord | Discord Bots — MyBOT List'}
+              description={'Editar un bot de Discord, lista de Bots públicos de Discord en español, descubre nuevos Bots desarrollados por los miembros de la comunidad MyBOT Team '} 
+              url={'https://portalmybot.com/list/'}
+              image={'https://i.imgur.com/DC0Kp0D.png'} />
+              
+            <Container component="main" maxWidth="md">
+              <div className={classes.paper}>
+              
+              <Typography component="h1" variant="h5">
+                Editar Bot
+              </Typography>
+              <form className={classes.form} noValidate autoComplete="off" onSubmit={handleSubmit}>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      variant="outlined"
+                      name="prefix_bot"
+                      defaultValue={prefix_bot}
+                      value={data["prefix_bot"] ? data["prefix_bot"] : prefix_bot}
+                      onChange={handleChange("prefix_bot")}
+                      error={errors["prefix_bot"] ? true : false}
+                      required
+                      fullWidth
+                      id="prefixBOT"
+                      helperText="Prefix BOT"
+                    />
+                  </Grid>
 
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                name="shortDesc_bot"
-                defaultValue={shortDesc_bot}
-                value={data["shortDesc_bot"]}
-                onChange={handleChange("shortDesc_bot")}
-                error={errors["shortDesc_bot"] ? true : false}
-                fullWidth
-                id="TitleBOT"
-                helperText="Un breve titulo de su BOT (minimo de 10 caracteres)"
-              />
-            </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      name="shortDesc_bot"
+                      defaultValue={shortDesc_bot}
+                      value={data["shortDesc_bot"]}
+                      onChange={handleChange("shortDesc_bot")}
+                      error={errors["shortDesc_bot"] ? true : false}
+                      fullWidth
+                      id="TitleBOT"
+                      helperText="Un breve titulo de su BOT (minimo de 10 caracteres)"
+                    />
+                  </Grid>
 
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                name="support_bot"
-                defaultValue={support_bot}
-                value={data["support_bot"]}
-                onChange={handleChange("support_bot")}
-                error={errors["support_bot"] ? true : false}
-                fullWidth
-                id="SupportBOT"
-                helperText="Enlace de invitación de su servidor soporte"
-              />
-            </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      variant="outlined"
+                      name="support_bot"
+                      defaultValue={support_bot}
+                      value={data["support_bot"]}
+                      onChange={handleChange("support_bot")}
+                      error={errors["support_bot"] ? true : false}
+                      fullWidth
+                      id="SupportBOT"
+                      helperText="Enlace de invitación de su servidor soporte"
+                    />
+                  </Grid>
 
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                name="web_bot"
-                defaultValue={web_bot}
-                value={data["web_bot"]}
-                onChange={handleChange("web_bot")}
-                error={errors["web_bot"] ? true : false}
-                fullWidth
-                id="WebBOT"
-                helperText="Enlace del sitio web"
-              />
-            </Grid>
-            
-            <Grid item xs={12}>
-                <TextField
-                  id="DevsBOT"
-                  helperText="Desarrolladores (Agrege el ID del usuario, ejemplo: ID1, ID2)"
-                  name="devs"
-                  value={data["devs"]}
-                  onChange={handleDevs("devs")}
-                  rows={4}
-                  defaultValue={devs.map(user => user.id_user).join(', ')}
-                  variant="outlined"
-                  fullWidth
-                />
+                  <Grid item xs={12}>
+                    <TextField
+                      variant="outlined"
+                      name="web_bot"
+                      defaultValue={web_bot}
+                      value={data["web_bot"]}
+                      onChange={handleChange("web_bot")}
+                      error={errors["web_bot"] ? true : false}
+                      fullWidth
+                      id="WebBOT"
+                      helperText="Enlace del sitio web"
+                    />
+                  </Grid>
+                  
+                  <Grid item xs={12}>
+                      <TextField
+                        id="DevsBOT"
+                        helperText="Desarrolladores (Agrege el ID del usuario, ejemplo: ID1, ID2)"
+                        name="devs"
+                        value={data["devs"]}
+                        onChange={handleDevs("devs")}
+                        rows={4}
+                        defaultValue={devs.map(user => user.id_user).join(', ')}
+                        variant="outlined"
+                        fullWidth
+                      />
 
-            </Grid>
-            <Grid container direction="row" justify="flex-end" >
-              <Chip
-                icon={<VisibilityIcon />}
-                label="Vista Previa"
-                onClick={handleToggle}
-              />
+                  </Grid>
+                  <Grid container direction="row" justify="flex-end" >
+                    <Chip
+                      icon={<VisibilityIcon />}
+                      label="Vista Previa"
+                      onClick={handleToggle}
+                    />
 
-            </Grid>
-            <Grid item xs={12}>
-                <TextField
-                  id="DescBOT"
-                  label="Descripción de su Bot. (Se acepta el formato Markdown MD)"
-                  multiline
-                  rows={10}
-                  defaultValue={desc}
-                  onChange={e => setDesc(e.target.value)}
-                  variant="outlined"
-                  fullWidth
-                />
-            </Grid>
-          </Grid>
-          {submitting &&
-            <LoadingLinear />
-          }
-          {success &&
-            <AlertInput message={'Su BOT fue editado correctamente.'} />
-          }
-          <Button
-            size="large"
-            onClick={handleSubmit}
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Guardar
-          </Button>
-          <Button
-            size="large"
-            onClick={handleCancel}
-            variant="contained"
-            color="default"
-            className={classes.submit}
-          >
-            Cancelar
-          </Button>
+                  </Grid>
+                  <Grid item xs={12}>
+                      <TextField
+                        id="DescBOT"
+                        label="Descripción de su Bot. (Se acepta el formato Markdown MD)"
+                        multiline
+                        rows={10}
+                        defaultValue={desc}
+                        onChange={e => setDesc(e.target.value)}
+                        variant="outlined"
+                        fullWidth
+                      />
+                  </Grid>
+                </Grid>
+                {submitting &&
+                  <LoadingLinear />
+                }
+                {success &&
+                  <AlertInput message={'Su BOT fue editado correctamente.'} />
+                }
+                <Button
+                  size="large"
+                  onClick={handleSubmit}
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                >
+                  Guardar
+                </Button>
+                <Button
+                  size="large"
+                  onClick={handleCancel}
+                  variant="contained"
+                  color="default"
+                  className={classes.submit}
+                >
+                  Cancelar
+                </Button>
 
-        </form>
-      </div>
+              </form>
+            </div>
 
-     </Container>
+            </Container>
+        </>
 
      )   
     }
