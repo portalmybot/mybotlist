@@ -207,7 +207,7 @@ export default function EditBot() {
               description={'Editar un bot de Discord, lista de Bots públicos de Discord en español, descubre nuevos Bots desarrollados por los miembros de la comunidad MyBOT Team '} 
               url={'https://portalmybot.com/list/'}
               image={'https://i.imgur.com/DC0Kp0D.png'} />
-              
+
             <Container component="main" maxWidth="md">
               <div className={classes.paper}>
               
@@ -277,7 +277,7 @@ export default function EditBot() {
                   <Grid item xs={12}>
                       <TextField
                         id="DevsBOT"
-                        helperText="Desarrolladores (Agrege el ID del usuario, ejemplo: ID1, ID2)"
+                        helperText="Desarrolladores (Agrege el ID del usuario, ejemplo: ID1, ID2) *El usuario debe estar registrado en MyBOT List"
                         name="devs"
                         value={data["devs"]}
                         onChange={handleDevs("devs")}
