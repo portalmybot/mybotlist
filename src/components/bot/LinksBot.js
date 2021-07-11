@@ -20,17 +20,17 @@ export default function ContainedButtons({bot}) {
   return (
     <div className={classes.root}>
 
-      <Button variant="contained" style={{ color: '#fff', backgroundColor: '#7289da' }} href={invite_bot} target="_blank" startIcon={<AddIcon />}>
+      <Button variant="contained" style={{ color: '#fff', backgroundColor: '#7289da' }} href={invite_bot} target="_blank" rel="noopener" startIcon={<AddIcon />}>
         Invitar Bot
       </Button>
       {support_bot && (
-        <Button variant="contained" style={{ backgroundColor: '#FF9800', color: '#fff' }} href={support_bot} startIcon={<SettingsIcon />}>
+        <Button variant="contained" style={{ backgroundColor: '#FF9800', color: '#fff' }} href={support_bot} target="_blank" rel="noopener" startIcon={<SettingsIcon />}>
           Soporte Bot
         </Button>
 
       )}
       {web_bot && (
-        <Button variant="contained" style={{ backgroundColor: '#03a9f4', color: '#fff' }} href={web_bot} startIcon={<LanguageIcon />}>
+        <Button variant="contained" style={{ backgroundColor: '#03a9f4', color: '#fff' }} href={web_bot} target="_blank" rel="noopener" startIcon={<LanguageIcon />}>
           Sitio Web
         </Button>
 

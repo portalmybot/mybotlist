@@ -118,6 +118,7 @@ export default function FooterHome() {
               </li>
             </ul>
           </Grid>
+          
           <Grid item xs={6} sm={3} key={'Recursos'}>
             <Typography variant="h6" color="textPrimary" gutterBottom>
               Recursos
