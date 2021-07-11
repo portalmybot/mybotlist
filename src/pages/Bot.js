@@ -50,12 +50,6 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: '5px',
       backgroundColor: '#2c2c2c',
       fontSize: '15px',
-    },
-    '& ul': {
-      listStyle: 'disc outside',
-      marginLeft: theme.spacing(2),
-      marginTop: theme.spacing(1),
-      marginBottom: theme.spacing(2),
     }
   },
   devUser: {

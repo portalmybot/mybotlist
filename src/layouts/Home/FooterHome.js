@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
+    padding: theme.spacing(5),
 
   },
   footerContainer: {
@@ -124,12 +124,12 @@ export default function FooterHome() {
             </Typography>
             <ul className={classes.footerList}>
               <li key='soporte'>
-                <Link href="team@portalmybot.com" variant="subtitle1" target="_blank" rel="noopener" color="textSecondary">
+                <Link href="mailto:mybotlist@portalmybot.com" variant="subtitle1" target="_blank" rel="noopener" color="textSecondary">
                    Soporte
                 </Link>
               </li>
               <li key='certi'>
-                <Link href="https://portalmybot.com/mybotlist/certified" variant="subtitle1" target="_blank" rel="noopener" color="textSecondary">
+                <Link href="https://portalmybot.com/mybotlist/certificado" variant="subtitle1" target="_blank" rel="noopener" color="textSecondary">
                    Certificado
                 </Link>
               </li>
@@ -139,8 +139,8 @@ export default function FooterHome() {
                 </Link>
               </li>
               <li key='api-list'>
-                <Link href="#" variant="subtitle1" target="_blank" rel="noopener" color="textSecondary">
-                   API MyBOT List
+                <Link href="https://www.paypal.com/paypalme/TMyBOT" variant="subtitle1" target="_blank" rel="noopener" color="textSecondary">
+                   Donar
                 </Link>
               </li>
             </ul>
