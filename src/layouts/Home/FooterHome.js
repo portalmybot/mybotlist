@@ -15,14 +15,17 @@ const footers = [{
   {
     title: 'Enlaces',
     description: ['Team', 'Terminos de servicio', 'Privacidad', 'Anuncios'],
+    links: ['Team', 'Terminos de servicio', 'Privacidad', 'Anuncios'],
   },
   {
     title: 'Partners',
     description: ['PortaMyBOT', 'MyCHAT', 'CraterMaik', 'Facebook'],
+    links: ['PortaMyBOT', 'MyCHAT', 'CraterMaik', 'Facebook'],
   },
   {
     title: 'Comunidad',
     description: ['PortalMyBOT API', 'Certificado', 'Contribuidores'],
+    links: ['PortalMyBOT API', 'Certificado', 'Contribuidores'],
   },
 ];
 
@@ -40,17 +43,15 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  '@global': {
-    ul: {
-      margin: 0,
-      padding: 0,
-      listStyle: 'none',
-    },
+  footerList: {
+    margin: 0,
+    padding: 0,
+    listStyle: 'none',
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
-    
+
   },
   footerContainer: {
     marginTop: theme.spacing(4),
@@ -71,22 +72,38 @@ export default function FooterHome() {
 
       <Container maxWidth="md" component="footer" className={classes.footerContainer}>
         <Grid container spacing={4} justify="space-evenly">
-          {footers.map((footer) => (
-            <Grid item xs={6} sm={3} key={footer.title}>
-              <Typography variant="h6" color="textPrimary" gutterBottom>
-                {footer.title}
-              </Typography>
-              <ul>
-                {footer.description.map((item) => (
-                  <li key={item}>
-                    <Link href="#" variant="subtitle1" color="textSecondary">
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </Grid>
-          ))}
+          
+          <Grid item xs={6} sm={3} key={footer.title}>
+            <Typography variant="h6" color="textPrimary" gutterBottom>
+              MyBOT List
+            </Typography>
+            <ul className={classes.footerList}>
+              <li key={''}>
+                <Link href="#" variant="subtitle1" target="_blank" rel="noopener" color="textSecondary">
+                   {item}
+                </Link>
+              </li>
+            </ul>
+         </Grid>
+
+          <Grid item xs={6} sm={3} key={footer.title}>
+            <Typography variant="h6" color="textPrimary" gutterBottom>
+              Portal
+            </Typography>
+            <ul className={classes.footerList}>
+              <li key='guias'>
+                <Link href="/portal" target="_blank" rel="noopener" variant="subtitle1" color="textSecondary">
+                   Guías
+                </Link>
+              </li>
+              <li key='Team'>
+                <Link href="/team" variant="subtitle1" target="_blank" rel="noopener" color="textSecondary">
+                   Guías
+                </Link>
+              </li>
+            </ul>
+         </Grid>
+
         </Grid>
         <Box mt={5}>
           <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
@@ -95,7 +112,7 @@ export default function FooterHome() {
                @CraterMaik
              </Link>
            </Typography>
-            <Copyright />
+          <Copyright />
         </Box>
       </Container>
     </footer>
