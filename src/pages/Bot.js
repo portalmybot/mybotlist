@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Layout from '../components/Layout';
 import { useQuery } from 'react-query'
 import { useParams, Redirect } from "react-router-dom";
+import { Adsense } from '@ctrl/react-adsense';
 
 import { getBot } from '../services/bot.service';
 import Container from '@material-ui/core/Container';
@@ -11,7 +12,6 @@ import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
 import Chip from '@material-ui/core/Chip';
 import Avatar from '@material-ui/core/Avatar';
-
 import LoadingPage from '../components/common/LoadingPage';
 import AvatarBot from "../components/bot/AvatarBot";
 import InfoBot from "../components/bot/InfoBot";
@@ -121,6 +121,16 @@ export default function Bot() {
                                 />
                                 <DevsBot bot={bot} />
                               </Box>
+                            </Box>
+                          </Grid>
+
+                          <Grid item xs={12}>
+                            <Box style={{ margin: "1rem 0 1rem" }}>
+                              <Adsense
+                                client={process.env.REACT_APP_ADS_PUB}
+                                slot="2845574827"
+                              />
+
                             </Box>
                           </Grid>
 
