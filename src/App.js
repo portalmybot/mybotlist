@@ -21,6 +21,7 @@ import Edit from './pages/EditBot';
 import Vote from './pages/VoteBot';
 import Login from './Login';
 import Me from './pages/Me';
+import Premium from './pages/Premium';
 
 
 const guestRoutes = [
@@ -34,6 +35,7 @@ const guestRoutes = [
 
 const protectedRoutes = [
   { path: "/me", component: Me, exact: true },
+  { path: "/me/premium", component: Premium, exact: true },
   { path: "/add", component: Add, exact: true },
   { path: "/bot/:id/edit", component: Edit, exact: true },
   { path: "/bot/:id/vote", component: Vote, exact: true },
