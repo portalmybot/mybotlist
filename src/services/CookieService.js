@@ -1,7 +1,5 @@
 import Cookie from "universal-cookie";
-
 const cookie = new Cookie();
-
 class CookieService {
   get(key){
     return cookie.get(key)

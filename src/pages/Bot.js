@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
   },
   descriptionContent: {
+    
     marginTop: theme.spacing(1),
     '& img': {
       maxWidth: '90%',
@@ -50,6 +51,12 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: '5px',
       backgroundColor: '#2c2c2c',
       fontSize: '15px',
+    },
+    '& ul': {
+      marginLeft: '-30px',
+      marginTop: '10px',
+      listStyle: 'disc',
+      marginBottom: '10px'
     }
   },
   devUser: {

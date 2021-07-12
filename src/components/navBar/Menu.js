@@ -48,6 +48,7 @@ export default function MenuAuth() {
   const handleLogout = async () => {
     setAnchorEl(null);
     CookieService.remove("access_token");
+    
     await logoutUser();
     window.location.href = `${process.env.REACT_APP_URL_BASE}`;
     
@@ -116,7 +117,6 @@ export default function MenuAuth() {
         <Link underline='none' component={RouterLink} to="/me" color="inherit">
           <MenuItem onClick={handleClose}>
              Perfil
-
           </MenuItem>
         </Link>
         <MenuItem onClick={handleLogout}>Cerrar Sesión</MenuItem>
