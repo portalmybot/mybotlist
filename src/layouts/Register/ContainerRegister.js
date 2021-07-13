@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import ButtonRegister from './ButtonRegister';
-import PayPayPal from '../../components/common/PayPaypal';
+
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function HeroContent() {
   const classes = useStyles();
-  const [checkout, setCheckout] = useState(false);
 
    return (
     <div className={classes.heroContent}>
@@ -40,17 +39,7 @@ export default function HeroContent() {
         ¡Publica y explora los Bots desarrollados por la comunidad de MyBOT Team!
       </Typography>
       <ButtonRegister />
-      <Box>
-        {(checkout === true) 
-          ? <div className={classes.boxContent}>
-            <PayPayPal />
-          </div> 
-
-          :<div>
-            <button onClick={() => {setCheckout(true)}} className="checkout-button">Pagar</button>
-          </div>
-        }
-      </Box>
+      
     </div>
    )
   

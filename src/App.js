@@ -22,6 +22,7 @@ import Vote from './pages/VoteBot';
 import Login from './Login';
 import Me from './pages/Me';
 import Premium from './pages/Premium';
+import Subscribe from './pages/Subscribe';
 
 
 const guestRoutes = [
@@ -31,6 +32,7 @@ const guestRoutes = [
   { path: "/bot/:id", component: Bot, exact: true },
   { path: "/tag/:id", component: Tag, exact: true },
   { path: "/bots/:id", component: List, exact: true },
+  { path: "/subscribe", component: Subscribe, exact: true },
 ];
 
 const protectedRoutes = [
