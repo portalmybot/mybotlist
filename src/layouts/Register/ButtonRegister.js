@@ -25,7 +25,7 @@ export default function ButtonRegister() {
         Registrate vía Discord
       </Button>
       <Button variant="contained" target="_blank"
-      rel="noopener noreferrer" color="secondary" href="https://discord.gg/g6ssSmK">
+        rel="noopener noreferrer" color="secondary" href="https://discord.gg/g6ssSmK">
         Comunidad
       </Button>
     </div>

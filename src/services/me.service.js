@@ -1,4 +1,3 @@
-
 import http from "./HttpService";
 
 export const getUser = async () => {
@@ -15,9 +14,8 @@ export const addUserPremium = async () => {
   const userLogin = await getUser();
   const postData = {
     id_user: userLogin.social_id,
-    expired: new Date().toISOString(),
   }
-
+  console.log(postData);
   await http.post("user/premium/add", postData);
 
 };

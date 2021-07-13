@@ -12,6 +12,7 @@ import LogoHome from './navBar/LogoHome';
 import Search from './navBar/Search';
 import NavLinks from './navBar/NavLinks';
 import LoginLinks from './navBar/LoginLinks';
+import AppLinks from './navBar/AppLinks';
 import ButtonAdd from './navBar/ButtonAdd';
 import LoginLinksMobile from './navBar/LoginLinksMobile';
 
@@ -73,11 +74,14 @@ export default function NavBar() {
       <MenuItem>
         <ButtonAdd />
       </MenuItem>
-       <Box display="flex" className={classes.boxMenu}>
-          <Box m="auto">
-            <LoginLinksMobile />
-          </ Box>
-        </ Box >
+      <MenuItem>
+        <AppLinks />
+      </MenuItem>
+      <Box display="flex" className={classes.boxMenu}>
+        <Box m="auto">
+          <LoginLinksMobile />
+        </Box>
+      </Box>
       
     </Menu>
   );
@@ -96,6 +100,9 @@ export default function NavBar() {
           </div>
           
           <div className={classes.grow} />
+          <div className={classes.sectionDesktop}>
+            <AppLinks />
+          </div>
           <div className={classes.sectionDesktop}>
             <ButtonAdd />
           </div>

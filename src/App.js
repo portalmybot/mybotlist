@@ -32,7 +32,7 @@ const guestRoutes = [
   { path: "/bot/:id", component: Bot, exact: true },
   { path: "/tag/:id", component: Tag, exact: true },
   { path: "/bots/:id", component: List, exact: true },
-  { path: "/subscribe", component: Subscribe, exact: true },
+  { path: "/premium", component: Subscribe, exact: true },
 ];
 
 const protectedRoutes = [

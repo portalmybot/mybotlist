@@ -237,7 +237,7 @@ const Premium = () => {
                           Pagar por MyBOT List Premium Estándar por 3 meses
                         </Typography>
                         <Button autoFocus color="inherit" onClick={handleClose}>
-                          Cancelar
+                          Cerrar
                         </Button>
                       </Toolbar>
                     </AppBar>

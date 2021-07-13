@@ -6,7 +6,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
 import MeContent from '../layouts/Me/MeContent';
-import { getUser } from '../services/me.service';
+import { getUser, getUserPremium } from '../services/me.service';
 import Layout from '../components/Layout';
 import LoadingPage from '../components/common/LoadingPage';
 import Seo from '../components/common/Seo';
@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Me = () => {
   const { isLoading, data: user, error } = useQuery('getuser', getUser);
+  const { data: premium } = useQuery('getuserPremium', getUserPremium);
   const classes = useStyles();
 
   return (

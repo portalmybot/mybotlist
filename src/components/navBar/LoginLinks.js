@@ -45,17 +45,18 @@ const LoginLink = () => {
   return (
       
     <Typography className={classes.root}>
+        
         {Auth.isAuthenticated() ? (
          <MenuAuth />
         ): (
           <>
-          <Link href={url} color="inherit">
-            Login 
-          </Link>
+            <Link href={url} color="inherit">
+              Login 
+            </Link>
 
-          <Link component={RouterLink} to="/register" color="inherit">
+            <Link component={RouterLink} to="/register" color="inherit">
               Registrar 
-          </Link>
+            </Link>
           </>
         )}
 

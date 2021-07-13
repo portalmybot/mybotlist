@@ -35,10 +35,10 @@ export default function PayPayPal() {
           });
         },
         onApprove: async (data, actions) => {
-          const order = await actions.order.capture();
+          /* const order = await actions.order.capture(); */
           setPaid(true);
           mutate.mutate();
-          console.log(order);
+          
         },
         onError: (err) => {
           setError(err)
@@ -52,7 +52,7 @@ export default function PayPayPal() {
   if (paid) {
      timer.current = window.setTimeout(() => {
         window.location.href = `${process.env.REACT_APP_URL_BASE}/me`;
-      }, 5000);
+      }, 12000);
     return (
       <ListItem>
         <ListItemAvatar>
@@ -61,6 +61,7 @@ export default function PayPayPal() {
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="Pago completado" secondary="MyBOT List Premium Estándar" />
+
       </ListItem>
     );
   }

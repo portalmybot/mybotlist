@@ -41,7 +41,6 @@ export default function NavLinks() {
           Códigos
         </Link>
 
-
     </Typography>
   );
 }
