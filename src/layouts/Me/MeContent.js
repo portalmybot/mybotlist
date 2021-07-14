@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const MeContent = ({ user }) => {
+const MeContent = ({ user, premium }) => {
   const classes = useStyles();
 
   return (
@@ -26,7 +26,7 @@ const MeContent = ({ user }) => {
         <Grid item xs={12} sm={12}>
           <Box display="flex">
             <Box m="auto">
-              <AvatarUser user={user} />
+              <AvatarUser user={user} premium={premium} />
             </Box>
           </Box>
         </Grid>

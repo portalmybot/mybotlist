@@ -1,5 +1,5 @@
 import http from "./HttpService";
-import { getUser } from './me.service';
+import { getUser, getUserPremium } from './me.service';
 import { sendWebHook } from "./WebHookService";
 
 export const getHomeBots = async () => {
@@ -81,6 +81,7 @@ export const botExists = async (id) => {
 
 export const addBot = async ({ data }) => {
   const userLogin = await getUser();
+  const premium = await getUserPremium();
 
   const postData = {
     id_bot: data.id_bot,
@@ -90,11 +91,11 @@ export const addBot = async ({ data }) => {
     customUrl_bot: data.id_Bot,
     invite_bot: data.invite_bot ? data.invite_bot : `https://discord.com/oauth2/authorize?client_id=${data.id_bot}&permissions=0&scope=bot`,
     note_bot: data.note_bot ? data.note_bot : null,
-    
+    premium_bot: premium.result ? 1 : 0,
   }
   await http.post("/bots", postData);
   
-  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `NUEVO BOT AGREGADO\nID: ${data.id_bot}\nPREFIX: ${data.prefix_bot}\nTITULO: ${data.shortDesc_bot}${data.note_bot ? '\nNOTA: '+data.note_bot : ''}\nUSER: <@${userLogin.social_id}>`)
+  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', data, premium.result, userLogin.social_id)
   
 };
 

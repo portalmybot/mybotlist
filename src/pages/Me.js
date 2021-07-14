@@ -46,7 +46,7 @@ const Me = () => {
               <Container maxWidth={'lg'}>
                 <div className={classes.root}>
                   <Grid container spacing={1} justify='center'>
-                    <MeContent user={user}/>
+                    <MeContent user={user} premium={premium.result}/>
                   </Grid>
                 </div>
               </Container>

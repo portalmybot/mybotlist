@@ -15,7 +15,15 @@ export const addUserPremium = async () => {
   const postData = {
     id_user: userLogin.social_id,
   }
-  console.log(postData);
+  await http.post("user/premium/add", postData);
+
+};
+export const addUserPremiumPerm = async () => {
+  const userLogin = await getUser();
+  const postData = {
+    id_user: userLogin.social_id,
+    status_premium: 1
+  }
   await http.post("user/premium/add", postData);
 
 };

@@ -13,13 +13,13 @@ import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import NotInterestedIcon from '@material-ui/icons/NotInterested';
 import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
 import ColorLensIcon from '@material-ui/icons/ColorLens';
-
+import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 
-import { red, yellow, green, lightBlue } from '@material-ui/core/colors';
+import { red, yellow, green, lightBlue, orange } from '@material-ui/core/colors';
 
 import LoadingPage from '../components/common/LoadingPage';
 import Seo from '../components/common/Seo';
@@ -95,30 +95,29 @@ const Premium = () => {
           ) : (
             <>
               <Seo 
-                title={'Suscripción | MyBOT List'}
-                description={'Perfil del usuario '+ user.social_provider} 
+                title={'Premium | MyBOT List'}
+                description={'Obtener MyBOT List Premium'} 
                 url={'https://portalmybot.com/subscribe/'}
-                icon={user.social_avatarUrl}
-                image={user.social_avatarUrl} />
+                image='https://i.imgur.com/DC0Kp0D.png' />
 
               <Container maxWidth={'lg'} className={classes.containerbg}>
                 
                   <div className={classes.root}>
                     <Grid container spacing={1} justify='center'>
                       
-                        <Container maxWidth="ms" component="main" className={classes.heroContent}>
+                        <Container maxWidth="lg" component="main" className={classes.heroContent}>
                           <Typography  variant="h4" component="h1" className={classes.title} align="center" color="textPrimary" gutterBottom>
                             MyBOT List Premium
                           </Typography>
                           <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                            ¡Consigue personalizar tus bots de Discord y destacar dentro de la plataforma, no vuelva a ver un anuncio, obtener insignias geniales y muchos cosas mas!
+                            ¡Consigue personalizar tus bots de Discord y destacar dentro de la plataforma, no vuelva a ver un anuncio, obtén insignias geniales y muchos cosas mas!
                           </Typography>
                           <Typography variant="subtitle1" align="center" style={{ color: amber[500], fontWeight: 700 }}component="p">
                             Por lanzamiento consigue MyBOT List Premium a precios especiales por poco tiempo y muestra tu apoyo a nuestra comunidad :)
                           </Typography>
                         </Container>
 
-                        <Container maxWidth="sm" component="main">
+                        <Container maxWidth="md" component="main">
                           <Grid container spacing={1}>
 
                             <Grid item xs={6}>
@@ -126,7 +125,7 @@ const Premium = () => {
                                 <ListItemAvatar>
                                   <NotInterestedIcon style={{ fontSize: 70, color: red[600] }} />
                                 </ListItemAvatar>
-                                <ListItemText style={{ fontSize: 20 }} primary="Sin Anuncios" secondary="No volvera a ver anuncios mientra explora" />
+                                <ListItemText style={{ fontSize: 20 }} primary="Sin Anuncios" secondary="No volvera a ver anuncios mientra explora en los bots" />
                               </ListItem>
                             </Grid>
                             <Grid item xs={6}>
@@ -134,7 +133,7 @@ const Premium = () => {
                                 <ListItemAvatar>
                                   <AddPhotoAlternateIcon style={{ fontSize: 70, color: green[600] }} />
                                 </ListItemAvatar>
-                                <ListItemText style={{ fontSize: 20 }} primary="Fondos Personalizados" secondary="Agrege fondos personalizados a sus Bots" />
+                                <ListItemText style={{ fontSize: 20 }} primary="Fondos Personalizados" secondary="Agrege fondos personalizados a sus bots" />
                               </ListItem>
                             </Grid>
                             
@@ -143,7 +142,7 @@ const Premium = () => {
                                 <ListItemAvatar>
                                   <EmojiEmotionsIcon style={{ fontSize: 70, color: yellow[600] }} />
                                 </ListItemAvatar>
-                                <ListItemText style={{ fontSize: 20 }} primary="Insignias Especiales" secondary="Consigue insignias especiales mientras apoyas :)" />
+                                <ListItemText style={{ fontSize: 20 }} primary="Insignias Especiales" secondary="Consigue insignias especiales y destaca tus bots" />
                               </ListItem>
                             </Grid>
 
@@ -155,6 +154,15 @@ const Premium = () => {
                                 <ListItemText style={{ fontSize: 20 }} primary="Roles Discord" secondary="Consigue rol especial en nuestro Discord" />
                               </ListItem>
                             </Grid>
+
+                            <Grid item xs={8}>
+                              <ListItem>
+                                <ListItemAvatar>
+                                  <AddIcon style={{ fontSize: 70, color: orange[600] }} />
+                                </ListItemAvatar>
+                                <ListItemText style={{ fontSize: 20 }} primary="Más característica..." secondary="Y muchas mas característica especiales" />
+                              </ListItem>
+                            </Grid>
                             
                             
                             <Grid item xs={12}>
@@ -162,10 +170,11 @@ const Premium = () => {
                                 <Button
                                   variant="contained"
                                   color="primary"
+                                  size="large"
                                   onClick={navigateTo}
                                   startIcon={<LoyaltyIcon />}
                                 >
-                                  Comprar MyBOT List Premium
+                                  Obtener MyBOT List Premium
                                 </Button>
 
                               </div>

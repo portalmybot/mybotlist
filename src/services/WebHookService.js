@@ -7,10 +7,44 @@ const config = {
   }
 }
 
-export const sendWebHook = async (url, username, content) => {
+export const sendWebHook = async (url, username, data, premium, userid) => {
   await axios.post(url, {
     username: username,
-    content: content
+    embeds: [{
+      "title": "NUEVO BOT AGREGADO",
+      "description": `${data.shortDesc_bot}${data.note_bot ? '\n**NOTA:** '+data.note_bot : ''}`,
+      "fields": [
+        {
+          "name": "ID",
+          "value": `${data.id_bot}`,
+          "inline": true
+        },
+        {
+          "name": "Prefix",
+          "value": `${data.prefix_bot}`,
+           "inline": true
+        },
+        {
+          "name": "Premium",
+          "value": `${premium ? 'Si' : 'No'}`,
+          
+        },
+        {
+          "name": "User",
+          "value": `<@${userid}>`,
+          "inline": true
+        },
+        {
+          "name": "Enlace",
+          "value": `[Enlace de Invitación](https://discord.com/oauth2/authorize?client_id=${userid}&permissions=0&scope=bot)`,
+        },
+      ],
+      "color": 4631003,
+      "footer": {
+        "text": "MyBOT List",
+        "icon_url": "https://i.imgur.com/DC0Kp0D.png"
+      }
+    }]
   }, config);
 
 }

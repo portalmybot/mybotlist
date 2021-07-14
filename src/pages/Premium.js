@@ -23,6 +23,7 @@ import List from '@material-ui/core/List';
 import LoadingPage from '../components/common/LoadingPage';
 import Seo from '../components/common/Seo';
 import PayPayPal from '../components/common/PayPaypal';
+import PayPaypalPerm from '../components/common/PayPaypalPerm';
 import Typography from '@material-ui/core/Typography';
 
 import Card from '@material-ui/core/Card';
@@ -79,7 +80,9 @@ const Premium = () => {
   const { isLoading, data: user, error } = useQuery('getuser', getUser);
   const classes = useStyles();
   const [checkout, setCheckout] = useState(false);
+  const [checkoutP, setCheckoutP] = useState(false);
   const [open, setOpen] = useState(false);
+  const [openP, setOpenP] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -88,6 +91,15 @@ const Premium = () => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleClickOpenP = () => {
+    setOpenP(true);
+    setCheckoutP(true)
+  };
+
+  const handleCloseP = () => {
+    setOpenP(false);
   };
 
   return (
@@ -116,7 +128,7 @@ const Premium = () => {
                             MyBOT List Premium
                           </Typography>
                           <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                            ¡Consigue personalizar tus bots de Discord y destacar dentro de la plataforma, no vuelva a ver un anuncio y obtener insignias geniales!
+                            ¡Consigue personalizar tus bots de Discord y destacar dentro de la plataforma, no vuelva a ver un anuncio y obtén insignias geniales!
                           </Typography>
                           <Typography variant="subtitle1" align="center" style={{ color: amber[500], fontWeight: 700 }}component="p">
                             Por lanzamiento consigue MyBOT List Premium a precios especiales por poco tiempo y muestra tu apoyo a nuestra comunidad :)
@@ -216,7 +228,7 @@ const Premium = () => {
                                     </ul>
                                   </CardContent>
                                   <CardActions>
-                                    <Button fullWidth variant='contained' color="secondary">
+                                    <Button onClick={handleClickOpenP} fullWidth variant='contained' color="secondary">
                                       Comprar
                                     </Button>
                                   </CardActions>
@@ -248,6 +260,34 @@ const Premium = () => {
                             <Box m="auto">
                              
                               {(checkout === true) ? <PayPayPal /> : null}
+                            </Box>
+                          </Box>
+                        </Grid>
+                      </Container>
+                    </List>
+                  </Dialog>
+
+                  <Dialog fullScreen open={openP} onClose={handleCloseP} TransitionComponent={Transition}>
+                    <AppBar className={classes.appBar}>
+                      <Toolbar>
+                        <IconButton edge="start" color="inherit" onClick={handleCloseP} aria-label="close">
+                          <CloseIcon />
+                        </IconButton>
+                        <Typography variant="h6" className={classes.titleDialog}>
+                          Pagar por MyBOT List Premium Permanente
+                        </Typography>
+                        <Button autoFocus color="inherit" onClick={handleCloseP}>
+                          Cerrar
+                        </Button>
+                      </Toolbar>
+                    </AppBar>
+                    <List>
+                      <Container maxWidth={'lg'} className={classes.containerbg}>
+                        <Grid item xs={12} sm={12}>
+                          <Box display="flex">
+                            <Box m="auto">
+                             
+                              {(checkoutP === true) ? <PayPaypalPerm /> : null}
                             </Box>
                           </Box>
                         </Grid>
