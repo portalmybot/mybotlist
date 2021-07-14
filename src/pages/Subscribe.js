@@ -110,7 +110,7 @@ const Premium = () => {
                             MyBOT List Premium
                           </Typography>
                           <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                            ¡Consigue personalizar tus bots de Discord y destacar dentro de la plataforma, no vuelva a ver un anuncio, obtén insignias geniales y muchos cosas mas!
+                            ¡Consigue personalizar tus bots de Discord y destacar dentro de la plataforma, no vuelva a ver un anuncio, obtén insignias geniales y muchas cosas mas!
                           </Typography>
                           <Typography variant="subtitle1" align="center" style={{ color: amber[500], fontWeight: 700 }}component="p">
                             Por lanzamiento consigue MyBOT List Premium a precios especiales por poco tiempo y muestra tu apoyo a nuestra comunidad :)
