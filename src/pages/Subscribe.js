@@ -1,12 +1,11 @@
 import React from 'react'
-import { useQuery } from 'react-query'
 import { makeStyles } from '@material-ui/core/styles';
 import { amber } from '@material-ui/core/colors';
 import { useHistory } from "react-router-dom";
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import LoyaltyIcon from '@material-ui/icons/Loyalty';
-import { getUser } from '../services/me.service';
+
 import Layout from '../components/Layout';
 
 import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
@@ -21,7 +20,6 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 
 import { red, yellow, green, lightBlue, orange } from '@material-ui/core/colors';
 
-import LoadingPage from '../components/common/LoadingPage';
 import Seo from '../components/common/Seo';
 import Typography from '@material-ui/core/Typography';
 
@@ -79,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Premium = () => {
-  const { isLoading, data: user, error } = useQuery('getuser', getUser);
+ 
   const classes = useStyles();
 
   const history = useHistory();
@@ -87,13 +85,6 @@ const Premium = () => {
 
   return (
       <Layout>
-        {
-          isLoading ? (
-            <LoadingPage />
-          ) : error ? (
-            <h1>Error!</h1>
-          ) : (
-            <>
               <Seo 
                 title={'Premium | MyBOT List'}
                 description={'Obtener MyBOT List Premium'} 
@@ -185,9 +176,7 @@ const Premium = () => {
                   </div>
                  
               </Container>
-            </>
-          )
-        }
+  
       </Layout>
   )
 };
