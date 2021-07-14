@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   large: {
     width: theme.spacing(20),
     height: theme.spacing(20),
+    
   }
 }));
 
@@ -33,7 +34,7 @@ export default function AvatarBot({ user, premium }) {
         badgeContent={<BeenhereIcon style={{ fontSize: 40, color: amber[500] }} />}
       >
         
-        <Avatar variant='circular' className={classes.large} alt={user.social_provider} src={user.social_avatarUrl} />
+        <Avatar variant='circular' className={classes.large} style={{ border:'3px solid #ffc107'}} alt={user.social_provider} src={user.social_avatarUrl} />
       </Badge>
     </Tooltip>
   ) : (

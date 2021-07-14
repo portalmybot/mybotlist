@@ -20,8 +20,7 @@ export default function ButtonRegister() {
   return (
     <div className={classes.root}>
       
-      <Button variant="contained" target="_blank"
-      rel="noopener noreferrer" color="primary" href="https://discordapp.com/api/oauth2/authorize?client_id=550712806543065108&redirect_uri=https%3A%2F%2Fportalmybot.com%2Flist%2Fauth%2Fdiscord&scope=identify+email&response_type=code">
+      <Button variant="contained" color="primary" href="https://discordapp.com/api/oauth2/authorize?client_id=550712806543065108&redirect_uri=https%3A%2F%2Fportalmybot.com%2Flist%2Fauth%2Fdiscord&scope=identify+email&response_type=code">
         Registrate vía Discord
       </Button>
       <Button variant="contained" target="_blank"

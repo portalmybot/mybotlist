@@ -2,7 +2,7 @@ import React from 'react';
 import Link from '@material-ui/core/Link';
 import { useQuery } from 'react-query'
 import { Link as RouterLink } from 'react-router-dom';
-import { getUser } from '../../services/me.service';
+import { getUser, getUserPremium } from '../../services/me.service';
 import Skeleton from '@material-ui/lab/Skeleton';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MenuAuth() {
   const { isLoading, data: user } = useQuery('getuserMenu', getUser);
+  const { data: premium } = useQuery('getuserMenuPremium', getUserPremium);
 
   const classes = useStyles();
 
@@ -47,9 +48,10 @@ export default function MenuAuth() {
 
   const handleLogout = async () => {
     setAnchorEl(null);
-    CookieService.remove("access_token");
-    
     await logoutUser();
+
+    await CookieService.remove("access_token");
+
     window.location.href = `${process.env.REACT_APP_URL_BASE}`;
     
   };
@@ -66,9 +68,11 @@ export default function MenuAuth() {
         >
         {isLoading ? (
           <Skeleton variant="circle" width={40} height={40} />
+        ) : premium.result ? (
+          <Avatar alt={'Menu '+ user.social_provider} style={{border:'2px solid #ffc107'}} src={user.social_avatarUrl} className={classes.small} />
         ) : (
-          <Avatar alt="Remy Sharp" src={user.social_avatarUrl} className={classes.small} />
-        )}
+          <Avatar alt={'Menu '+ user.social_provider} src={user.social_avatarUrl} className={classes.small} />
+        ) }
 
       </IconButton>
 
@@ -95,7 +99,7 @@ export default function MenuAuth() {
 
                 ) : (
                   <>
-                    <Avatar alt="Remy Sharp" src={user.social_avatarUrl} className={classes.big}/>
+                    <Avatar alt={'Menu '+ user.social_provider} src={user.social_avatarUrl} className={classes.big}/>
                   </>
                 )}
                
