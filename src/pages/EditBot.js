@@ -26,7 +26,8 @@ import AlertInput from '../components/common/AlertInput';
 import LoadingPage from '../components/common/LoadingPage';
 import Seo from '../components/common/Seo';
 
-import { getBotEdit, updateBot, addDevs, deleteDevsBot } from '../services/bot.service';
+import { getBotEdit, getBackgroundBot, updateBot, addDevs, deleteDevsBot } from '../services/bot.service';
+import { getUserPremium } from '../services/me.service';
 import { Box } from '@material-ui/core';
 
 const marked = require("marked");
@@ -89,9 +90,13 @@ export default function EditBot() {
 
   const { id } = useParams();
   const [datadevs, setDataDevs] = useState([]);
+  const [databg, setDataBG] = useState();
 
   const {isLoading, error, data: botQuery = {}} = useQuery(['getBotEdit', {id: id}], getBotEdit)
-  const { prefix_bot, shortDesc_bot, tag_bot, support_bot, web_bot, devs, longDesc_bot} = botQuery;
+  const { data: premium } = useQuery('getUserPremium', getUserPremium);
+  const { data: bgPremium = {}} = useQuery(['getBotBG', {id: id }], getBackgroundBot)
+  const { prefix_bot, shortDesc_bot, tag_bot, support_bot, web_bot, devs, longDesc_bot } = botQuery;
+  const { background_page, background_card } = bgPremium;
 
   const [desc, setDesc] = useState();
 
@@ -111,7 +116,11 @@ export default function EditBot() {
       web_bot: web_bot
     })
     setDesc(longDesc_bot)
-  }, [id, prefix_bot, shortDesc_bot, support_bot, web_bot, longDesc_bot]);
+    setDataBG({
+      background_page: background_page,
+      background_card: background_card
+    })
+  }, [id, prefix_bot, shortDesc_bot, support_bot, web_bot, longDesc_bot, background_page, background_card]);
   
   const [errors, setErrors] = useState({});
 
@@ -128,9 +137,13 @@ export default function EditBot() {
     
   };
   const handleDevs = () => (event) => {
-
     const valuedevs = event.target.value;
     setDataDevs(valuedevs.split(',').slice(0, 2))
+    
+  } 
+  const handleBackground = () => (event) => {
+    const valuebg = event.target.value;
+    setDataDevs(valuebg)
     
   } 
   const handleCancel = () => {
@@ -239,6 +252,34 @@ export default function EditBot() {
                       helperText="Un breve titulo de su BOT (minimo de 10 caracteres)"
                     />
                   </Grid>
+                  {premium.result ? 
+                    <>
+                      <Grid item xs={12}>
+                        <TextField
+                          variant="outlined"
+                          name="premium_page_bot"
+                          defaultValue={background_page}
+                          value={databg["background_page"]}
+                          onChange={handleChange("premium_page_bot")}
+                          fullWidth
+                          id="Premium_Page_BOT"
+                          helperText={"Agrege un enlace (URL) para el fondo de la pagina de su BOT"}
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                          variant="outlined"
+                          name="premium_card_bot"
+                          defaultValue={background_card}
+                          value={databg["background_card"]}
+                          onChange={handleChange("premium_card_bot")}
+                          fullWidth
+                          id="Premium_Card_BOT"
+                          helperText="Agrege un enlace (URL) para el fondo de su BOT en lista"
+                        />
+                      </Grid>
+                    </>
+                  : null }
 
                   <Grid item xs={12}>
                     <TextField

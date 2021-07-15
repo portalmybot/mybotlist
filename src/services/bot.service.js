@@ -45,10 +45,14 @@ export const getListNewBots = async () => {
 
 };
 
-
 export const getHomeTagBots = async (name) => {
   const response = await http.get(`/home/tag/${name.queryKey[1].name}`);
   return response;
+
+};
+export const getBackgroundBot = async (id) => {
+  const { data } = await http.get(`/bots/bg/${id.queryKey[1].id}`);
+  return data[0];
 
 };
 
@@ -93,7 +97,14 @@ export const addBot = async ({ data }) => {
     note_bot: data.note_bot ? data.note_bot : null,
     premium_bot: premium.result ? 1 : 0,
   }
+  const postBG = {
+    id_bot: data.id_bot,
+  }
+
   await http.post("/bots", postData);
+  if(premium.result) {
+    await http.post("/bots/bg/add", postBG);
+  }
   
   sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', data, premium.result, userLogin.social_id)
   
