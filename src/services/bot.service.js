@@ -127,14 +127,17 @@ export const deleteDevsBot = async ({ data }) => {
 }
 
 export const updateBot = async (data) => {
-
   let dataObj = data.data;
-
   dataObj["longDesc_bot"] = data.longDesc_bot ? data.longDesc_bot : null
-
+  
   await http.put(`/bots/${dataObj.id_bot}`, dataObj);
   window.location.href = `${process.env.REACT_APP_URL_BASE}/me`;
 
+};
+export const updateBotBackground = async (data) => {
+  let dataBG = data.databg;
+
+  await http.put(`/bots/bg/update/${data.id_bot}`, dataBG);
 };
 
 export const getTags = async () => {
@@ -161,7 +164,7 @@ export const addVote = async (data) => {
     id_bot: id_bot,
     idUser_bot: userLogin.social_id,
   }
-  console.log(postData)
+
   await http.post(`/bots/vote/${id_bot}`);
   await http.post("/bots/add/vote", postData);
 

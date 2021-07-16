@@ -26,7 +26,7 @@ import AlertInput from '../components/common/AlertInput';
 import LoadingPage from '../components/common/LoadingPage';
 import Seo from '../components/common/Seo';
 
-import { getBotEdit, getBackgroundBot, updateBot, addDevs, deleteDevsBot } from '../services/bot.service';
+import { getBotEdit, getBackgroundBot, updateBot, updateBotBackground, addDevs, deleteDevsBot } from '../services/bot.service';
 import { getUserPremium } from '../services/me.service';
 import { Box } from '@material-ui/core';
 
@@ -94,7 +94,7 @@ export default function EditBot() {
 
   const {isLoading, error, data: botQuery = {}} = useQuery(['getBotEdit', {id: id}], getBotEdit)
   const { data: premium } = useQuery('getUserPremium', getUserPremium);
-  const { data: bgPremium = {}} = useQuery(['getBotBG', {id: id }], getBackgroundBot)
+  const { data: bgPremium = {}} = useQuery(['getBotBG', {id: id}], getBackgroundBot)
   const { prefix_bot, shortDesc_bot, tag_bot, support_bot, web_bot, devs, longDesc_bot } = botQuery;
   const { background_page, background_card } = bgPremium;
 
@@ -120,11 +120,13 @@ export default function EditBot() {
       background_page: background_page,
       background_card: background_card
     })
+
   }, [id, prefix_bot, shortDesc_bot, support_bot, web_bot, longDesc_bot, background_page, background_card]);
-  
+
   const [errors, setErrors] = useState({});
 
   const mutateUpdateBot = useMutation(updateBot);
+  const mutateUpdateBotBG = useMutation(updateBotBackground);
   const mutateDevsBot = useMutation(addDevs);
   const mutateDevsDelete = useMutation(deleteDevsBot);
 
@@ -136,23 +138,21 @@ export default function EditBot() {
     setErrors((prev) => ({ ...prev, [fieldName]: undefined }));
     
   };
+
   const handleDevs = () => (event) => {
     const valuedevs = event.target.value;
     setDataDevs(valuedevs.split(',').slice(0, 2))
     
   } 
-  const handleBackground = () => (event) => {
-    const valuebg = event.target.value;
-    setDataDevs(valuebg)
-    
-  } 
+
   const handleCancel = () => {
     window.location.href = `${process.env.REACT_APP_URL_BASE}/me`;
+
   }
 
   const handleSubmit = event => {
     event.preventDefault();
-    
+
     const validation = schema.validate(data, { abortEarly: false });
 
     if(validation.error) {
@@ -169,7 +169,6 @@ export default function EditBot() {
 
     setSubmitting(true);
     setTimeout(() => {
-      console.log(devs.length);
       setSubmitting(false);
 
       if (devs.length > 0) {
@@ -191,10 +190,11 @@ export default function EditBot() {
       }
       
       mutateUpdateBot.mutate({ longDesc_bot: desc, data });
+      mutateUpdateBotBG.mutate({ id_bot: id, databg })
       setAlert({ success: true });
 
     }, 4000)
-
+    
   }
   const { success } = alert;
   
@@ -257,22 +257,22 @@ export default function EditBot() {
                       <Grid item xs={12}>
                         <TextField
                           variant="outlined"
-                          name="premium_page_bot"
+                          name="background_page"
                           defaultValue={background_page}
-                          value={databg["background_page"]}
-                          onChange={handleChange("premium_page_bot")}
+                          value={data["background_page"]}
+                          onChange={e => setDataBG({ background_page: e.target.value, background_card: databg.background_card})}
                           fullWidth
                           id="Premium_Page_BOT"
-                          helperText={"Agrege un enlace (URL) para el fondo de la pagina de su BOT"}
+                          helperText="Agrege un enlace (URL) para el fondo de la pagina de su BOT"
                         />
                       </Grid>
                       <Grid item xs={12}>
                         <TextField
                           variant="outlined"
-                          name="premium_card_bot"
+                          name="background_card"
                           defaultValue={background_card}
-                          value={databg["background_card"]}
-                          onChange={handleChange("premium_card_bot")}
+                          value={data["background_card"]}
+                          onChange={e => setDataBG({ background_card: e.target.value, background_page: databg.background_page})}
                           fullWidth
                           id="Premium_Card_BOT"
                           helperText="Agrege un enlace (URL) para el fondo de su BOT en lista"
@@ -310,17 +310,17 @@ export default function EditBot() {
                   </Grid>
                   
                   <Grid item xs={12}>
-                      <TextField
-                        id="DevsBOT"
-                        helperText="Desarrolladores (Agrege el ID del usuario, ejemplo: ID1, ID2) *El usuario debe estar registrado en MyBOT List"
-                        name="devs"
-                        value={data["devs"]}
-                        onChange={handleDevs("devs")}
-                        rows={4}
-                        defaultValue={devs.map(user => user.id_user).join(', ')}
-                        variant="outlined"
-                        fullWidth
-                      />
+                    <TextField
+                      id="DevsBOT"
+                      helperText="Desarrolladores (Agrege el ID del usuario, ejemplo: ID1, ID2) *El usuario debe estar registrado en MyBOT List"
+                      name="devs"
+                      value={data["devs"]}
+                      onChange={handleDevs("devs")}
+                      rows={4}
+                      defaultValue={devs.map(user => user.id_user).join(', ')}
+                      variant="outlined"
+                      fullWidth
+                    />
 
                   </Grid>
                   <Grid container direction="row" justify="flex-end" >
@@ -332,16 +332,16 @@ export default function EditBot() {
 
                   </Grid>
                   <Grid item xs={12}>
-                      <TextField
-                        id="DescBOT"
-                        label="Descripción de su Bot. (Se acepta el formato Markdown MD)"
-                        multiline
-                        rows={10}
-                        defaultValue={desc}
-                        onChange={e => setDesc(e.target.value)}
-                        variant="outlined"
-                        fullWidth
-                      />
+                    <TextField
+                      id="DescBOT"
+                      label="Descripción de su Bot. (Se acepta el formato Markdown MD)"
+                      multiline
+                      rows={10}
+                      defaultValue={desc}
+                      onChange={e => setDesc(e.target.value)}
+                      variant="outlined"
+                      fullWidth
+                    />
                   </Grid>
                 </Grid>
                 {submitting &&
