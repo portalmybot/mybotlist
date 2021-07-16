@@ -28,7 +28,7 @@ export default function PayPayPal() {
                 description: "MyBOT List Premium Estándar por 3 meses",
                 amount: {
                   currency_code: "USD",
-                  value: 1.0,
+                  value: 5.0,
                 },
               },
             ],

@@ -105,7 +105,6 @@ export const addBot = async ({ data }) => {
   
   await http.post("/bots/bg/add", postBG);
   
-  
   sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', data, premium.result, userLogin.social_id)
   
 };
