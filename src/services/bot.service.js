@@ -102,9 +102,9 @@ export const addBot = async ({ data }) => {
   }
 
   await http.post("/bots", postData);
-  if(premium.result) {
-    await http.post("/bots/bg/add", postBG);
-  }
+  
+  await http.post("/bots/bg/add", postBG);
+  
   
   sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', data, premium.result, userLogin.social_id)
   
@@ -129,7 +129,7 @@ export const deleteDevsBot = async ({ data }) => {
 export const updateBot = async (data) => {
   let dataObj = data.data;
   dataObj["longDesc_bot"] = data.longDesc_bot ? data.longDesc_bot : null
-  
+
   await http.put(`/bots/${dataObj.id_bot}`, dataObj);
   window.location.href = `${process.env.REACT_APP_URL_BASE}/me`;
 
