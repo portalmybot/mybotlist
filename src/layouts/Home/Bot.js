@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
      '&:hover': {
        boxShadow: '0px 3px 3px -2px rgb(0 0 0 / 21%), 0px 3px 4px 0px rgb(0 0 0 / 31%), 0px 1px 8px 0px rgb(0 0 0 / 56%)',
        transform: 'translateY(-3px)',
+       cursor: 'pointer',
      }
   },
   media: {
