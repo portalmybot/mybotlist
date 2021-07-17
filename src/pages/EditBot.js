@@ -192,7 +192,7 @@ export default function EditBot() {
 
       if (premium_bot < 1 && premium.result) {
         mutateBadgesBot.mutate({ id_bot: id })
-
+        
       }
 
       mutateUpdateBotBG.mutate({ id_bot: id, databg })

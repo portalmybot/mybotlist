@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-
+import { useQuery } from 'react-query'
 import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
@@ -25,6 +25,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import OfflineBoltIcon from '@material-ui/icons/OfflineBolt';
 
 import Divider from '@material-ui/core/Divider';
+import { getBackgroundBot } from '../../services/bot.service';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -89,7 +90,6 @@ const useStyles = makeStyles((theme) => ({
 
 const CardList = ({ value }) => {
   const classes = useStyles();
-
   const {
     id_bot,
     username_bot,
@@ -100,8 +100,11 @@ const CardList = ({ value }) => {
     badges,
     premium_bot
   } = value;
-  
-  const bgPremium = premium_bot ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://git-frontend.kyokobot.moe/assets/6b6e22785e00d29aa88e611055c15ed4.jpg) center top / cover no-repeat fixed` : null;
+
+  const { isLoading, data: urlPremium = {}} = useQuery(['getBotBGCard', {id: id_bot}], getBackgroundBot)
+  const { background_card } = urlPremium;
+
+  const bgPremium = premium_bot && !isLoading ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(${background_card}) center top / cover no-repeat` : null;
 
   return (
     <Card key={id_bot} className={classes.root} style={{background: `${bgPremium}`}} >

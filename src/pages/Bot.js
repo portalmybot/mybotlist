@@ -5,7 +5,7 @@ import { useQuery } from 'react-query'
 import { useParams, Redirect } from "react-router-dom";
 import { Adsense } from '@ctrl/react-adsense';
 
-import { getBot } from '../services/bot.service';
+import { getBot, getBackgroundBot } from '../services/bot.service';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -71,8 +71,11 @@ export default function Bot() {
     ['getbot',{ id: id }], getBot
   );
 
-  const bgPremium = bot.premium_bot ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(https://git-frontend.kyokobot.moe/assets/6b6e22785e00d29aa88e611055c15ed4.jpg) center top / cover no-repeat fixed` : null;
+  const { data: urlPremium = {}} = useQuery(['getBotBGPage', {id: id}], getBackgroundBot)
+  const { background_page } = urlPremium;
 
+  const bgPremium = bot.premium_bot && !isLoading ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(${background_page}) center top / cover no-repeat fixed` : null;
+  
   const classes = useStyles();
   
   return (

@@ -151,6 +151,7 @@ export const addBadgesBot = async (data) => {
   await http.put(`/bots/${data.id_bot}`, { premium_bot: 1 });
   
 };
+
 export const updateBotBackground = async (data) => {
   let dataBG = data.databg;
   await http.put(`/bots/bg/update/${data.id_bot}`, dataBG);
