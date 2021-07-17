@@ -14,7 +14,7 @@ import Chip from '@material-ui/core/Chip';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import Button from '@material-ui/core/Button';
 import { useSnackbar } from 'notistack';
-
+import { useQuery } from 'react-query'
 import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
@@ -33,7 +33,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 import Divider from '@material-ui/core/Divider';
 
-import { deleteBot } from '../../services/bot.service';
+import { deleteBot, getBackgroundBot } from '../../services/bot.service';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -194,11 +194,18 @@ const BotCard = ({ bot }) => {
     vote_bot,
     tags,
     badges,
-    status_bot
+    status_bot,
+    premium_bot
   } = bot;
   
+  const { isLoading, data: urlPremium = {}} = useQuery(['getBotBGCard', {id: id_bot}], getBackgroundBot)
+
+  const { background_card } = urlPremium;
+
+  const bgPremium = premium_bot && !isLoading ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(${background_card}) center top / cover no-repeat` : null;
+
   return (
-    <Card key={'botCard-'+id_bot} className={classes.root}>
+    <Card key={'botCard-'+id_bot} className={classes.root} style={{background: `${bgPremium}`}}>
       <CardHeader
         avatar={
           <Avatar alt="Image title" src={avatarUrl_bot} variant="square" className={classes.avatar} />
