@@ -26,7 +26,7 @@ import AlertInput from '../components/common/AlertInput';
 import LoadingPage from '../components/common/LoadingPage';
 import Seo from '../components/common/Seo';
 
-import { getBotEdit, getBackgroundBot, updateBot, updateBotBackground, addDevs, deleteDevsBot } from '../services/bot.service';
+import { getBotEdit, getBackgroundBot, updateBot, addBadgesBot, updateBotBackground, addDevs, deleteDevsBot } from '../services/bot.service';
 import { getUserPremium } from '../services/me.service';
 import { Box } from '@material-ui/core';
 
@@ -95,7 +95,7 @@ export default function EditBot() {
   const {isLoading, error, data: botQuery = {}} = useQuery(['getBotEdit', {id: id}], getBotEdit)
   const { data: premium } = useQuery('getUserPremium', getUserPremium);
   const { data: bgPremium = {}} = useQuery(['getBotBG', {id: id}], getBackgroundBot)
-  const { prefix_bot, shortDesc_bot, tag_bot, support_bot, web_bot, devs, longDesc_bot } = botQuery;
+  const { prefix_bot, shortDesc_bot, tag_bot, support_bot, web_bot, devs, longDesc_bot, premium_bot } = botQuery;
   const { background_page, background_card } = bgPremium;
 
   const [desc, setDesc] = useState();
@@ -126,6 +126,7 @@ export default function EditBot() {
   const [errors, setErrors] = useState({});
 
   const mutateUpdateBot = useMutation(updateBot);
+  const mutateBadgesBot = useMutation(addBadgesBot);
   const mutateUpdateBotBG = useMutation(updateBotBackground);
   const mutateDevsBot = useMutation(addDevs);
   const mutateDevsDelete = useMutation(deleteDevsBot);
@@ -188,9 +189,16 @@ export default function EditBot() {
           }
          }
       }
-      
-      mutateUpdateBot.mutate({ longDesc_bot: desc, data });
+
+      if (premium_bot < 1 && premium.result) {
+        mutateBadgesBot.mutate({ id_bot: id })
+
+      }
+
       mutateUpdateBotBG.mutate({ id_bot: id, databg })
+      mutateUpdateBot.mutate({ longDesc_bot: desc, data });
+
+
       setAlert({ success: true });
 
     }, 4000)

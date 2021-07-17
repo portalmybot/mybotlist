@@ -1,5 +1,5 @@
 import CookieService from "./CookieService";
-const expiresAt = 60 * 168;
+const expiresAt = 60 * 360;
 class AuthService {
   handleLoginSuccess(response, remember) {
     if(!remember) {

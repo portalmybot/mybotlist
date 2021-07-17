@@ -100,9 +100,17 @@ export const addBot = async ({ data }) => {
   const postBG = {
     id_bot: data.id_bot,
   }
+  
+  if (premium.result) {
+    const postBadge = {
+      id_bot: data.id_bot,
+      name_badge: 'premium'
+    }
+    await http.post("/bots/add/badge", postBadge);
+    
+  }
 
   await http.post("/bots", postData);
-  
   await http.post("/bots/bg/add", postBG);
   
   sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', data, premium.result, userLogin.social_id)
@@ -131,11 +139,20 @@ export const updateBot = async (data) => {
 
   await http.put(`/bots/${dataObj.id_bot}`, dataObj);
   window.location.href = `${process.env.REACT_APP_URL_BASE}/me`;
+  
+};
+export const addBadgesBot = async (data) => {
+  const postBadge = {
+    id_bot: data.id_bot,
+    name_badge: 'premium'
+  }
 
+  await http.post("/bots/add/badge", postBadge);
+  await http.put(`/bots/${data.id_bot}`, { premium_bot: 1 });
+  
 };
 export const updateBotBackground = async (data) => {
   let dataBG = data.databg;
-
   await http.put(`/bots/bg/update/${data.id_bot}`, dataBG);
 };
 
