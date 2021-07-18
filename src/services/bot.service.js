@@ -107,7 +107,6 @@ export const addBot = async ({ data }) => {
       name_badge: 'premium'
     }
     await http.post("/bots/add/badge", postBadge);
-    
   }
 
   await http.post("/bots", postData);
