@@ -189,11 +189,12 @@ export const addVote = async (data) => {
 export const addTags = async (data) => {
   const id_bot = data.id_bot;
   data.tags.map(async (tag) => {
+    
     const postData = {
       id_bot: id_bot,
       name_tag: tag,
     }
-    
+
     await http.post("/bots/add/tag", postData);
   })
 
