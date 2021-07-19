@@ -27,7 +27,7 @@ export const sendWebHook = async (url, username, data, premium, userid) => {
         {
           "name": "Premium",
           "value": `${premium ? 'Si' : 'No'}`,
-          
+          "inline": true
         },
         {
           "name": "User",
@@ -36,7 +36,8 @@ export const sendWebHook = async (url, username, data, premium, userid) => {
         },
         {
           "name": "Enlace",
-          "value": `[Enlace de Invitación](https://discord.com/oauth2/authorize?client_id=${userid}&permissions=0&scope=bot)`,
+          "value": `[Enlace de Invitación](https://discord.com/oauth2/authorize?client_id=${data.id_bot}&permissions=0&scope=bot)`,
+          "inline": true
         },
       ],
       "color": 4631003,
