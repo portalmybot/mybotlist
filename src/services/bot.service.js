@@ -154,15 +154,18 @@ export const addBadgesBot = async (data) => {
 export const updateBotBackground = async (data) => {
   let dataBG = data.databg;
   await http.put(`/bots/bg/update/${data.id_bot}`, dataBG);
+  
 };
 
 export const getTags = async () => {
   const response = await http.get("/tags");
   return response.data;
+
 };
 export const getTagsHome = async () => {
   const response = await http.get("/home/tags");
   return response.data;
+
 };
 
 export const deleteBot = async (data) => {
@@ -170,6 +173,7 @@ export const deleteBot = async (data) => {
  
   await http.delete(`/bots/${id_bot}`);
   window.location.href = `${process.env.REACT_APP_URL_BASE}/me`;
+
 }
 
 export const addVote = async (data) => {
