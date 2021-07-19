@@ -98,7 +98,8 @@ export const addBot = async ({ data }) => {
     premium_bot: premium.result ? 1 : 0,
   }
   const postBG = {
-    id_bot: data.id_bot,
+    id_bot: data.id_bot
+
   }
   
   if (premium.result) {
@@ -133,6 +134,7 @@ export const deleteDevsBot = async ({ data }) => {
 }
 
 export const updateBot = async (data) => {
+
   let dataObj = data.data;
   dataObj["longDesc_bot"] = data.longDesc_bot ? data.longDesc_bot : null
 
@@ -154,7 +156,7 @@ export const addBadgesBot = async (data) => {
 export const updateBotBackground = async (data) => {
   let dataBG = data.databg;
   await http.put(`/bots/bg/update/${data.id_bot}`, dataBG);
-  
+
 };
 
 export const getTags = async () => {
