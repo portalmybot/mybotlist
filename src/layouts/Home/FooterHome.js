@@ -97,7 +97,7 @@ export default function FooterHome() {
             </Typography>
             <ul className={classes.footerList}>
               <li key='team'>
-                <Link href="https://portalmybot.com/mybotlist/team" target="_blank" rel="noopener" variant="subtitle1" color="textSecondary">
+                <Link href="https://portalmybot.com/list/team" target="_blank" rel="noopener" variant="subtitle1" color="textSecondary">
                    Team
                 </Link>
               </li>
@@ -130,12 +130,12 @@ export default function FooterHome() {
                 </Link>
               </li>
               <li key='certi'>
-                <Link href="https://portalmybot.com/mybotlist/certificado" variant="subtitle1" target="_blank" rel="noopener" color="textSecondary">
+                <Link href="#" variant="subtitle1" /* target="_blank" rel="noopener" */ color="textSecondary">
                    Certificado
                 </Link>
               </li>
               <li key='tos'>
-                <Link href="https://portalmybot.com/mybotlist/tos" variant="subtitle1" target="_blank" rel="noopener" color="textSecondary">
+                <Link href="#" variant="subtitle1" /* target="_blank" rel="noopener" */ color="textSecondary">
                    Términos y condiciones
                 </Link>
               </li>

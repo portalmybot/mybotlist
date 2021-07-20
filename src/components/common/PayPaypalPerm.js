@@ -8,6 +8,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import { green, grey } from '@material-ui/core/colors';
 import { useMutation } from "react-query";
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import { Typography } from '@material-ui/core';
 
 export default function PayPayPalPerm() {
   const [paid, setPaid] = useState(false);
@@ -81,7 +84,27 @@ export default function PayPayPalPerm() {
         </ListItemAvatar>
         <ListItemText primary="Total: $12 Dolares" secondary="MyBOT List Premium Permanente" />
       </ListItem>
+      
       <div ref={paypalRef} />
+      <Grid item xs={12} sm={12}>
+          <Box display="flex">
+            <Box m="auto">
+              <Typography variant="subtitle1" gutterBottom>
+                Condiciones
+              </Typography>
+              <Typography variant="subtitle2" gutterBottom>
+                Las compras son únicas para recibir los beneficios. 
+                Puedes comprar tantas veces como quieras y se acumularán.
+                Una compra solo se puede transferir a un usuario diferente una vez. 
+                No se permite la reventa de Premium.
+              </Typography>
+              <Typography variant="subtitle2" gutterBottom>
+                Si tiene alguna pregunta adicional o desea solicitar un reembolso, no dude en contactarnos.
+              </Typography>
+              
+            </Box>
+          </Box>
+        </Grid>
     </>
   );
 }

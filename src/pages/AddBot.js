@@ -220,7 +220,7 @@ export default function AddBot() {
                 error={errors["shortDesc_bot"] ? true : false}
                 fullWidth
                 id="TitleBOT"
-                label="Un breve titulo de su BOT (minimo de 10 caracteres)"
+                label="Una breve descripción como titulo de su BOT (minimo de 10 caracteres)"
               />
             </Grid>
             <Grid item xs={12}>

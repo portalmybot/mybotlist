@@ -1,4 +1,5 @@
 import http from "./HttpService";
+import { sendWebHook } from "./WebHookService";
 
 export const getUser = async () => {
   const { data } = await http.get("/user");
@@ -16,6 +17,7 @@ export const addUserPremium = async () => {
     id_user: userLogin.social_id,
   }
   await http.post("user/premium/add", postData);
+  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `USER PREMIUM: ${userLogin.social_id}`, 15277667)
   
 };
 export const addUserPremiumPerm = async () => {
@@ -25,7 +27,7 @@ export const addUserPremiumPerm = async () => {
     status_premium: 1
   }
   await http.post("user/premium/add", postData);
-
+  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `USER PREMIUM +: ${userLogin.social_id}`, 15277667)
 };
 
 export const logoutUser = async () => {
