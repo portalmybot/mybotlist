@@ -198,7 +198,6 @@ export default function EditBot() {
       mutateUpdateBotBG.mutate({ id_bot: id, databg })
       mutateUpdateBot.mutate({ longDesc_bot: desc, data });
 
-
       setAlert({ success: true });
 
     }, 4000)
