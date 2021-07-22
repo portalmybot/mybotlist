@@ -130,12 +130,12 @@ export default function FooterHome() {
                 </Link>
               </li>
               <li key='certi'>
-                <Link href="#" variant="subtitle1" /* target="_blank" rel="noopener" */ color="textSecondary">
+                <Link href="https://portalmybot.com/list/certificado" variant="subtitle1" /* target="_blank" rel="noopener" */ color="textSecondary">
                    Certificado
                 </Link>
               </li>
               <li key='tos'>
-                <Link href="#" variant="subtitle1" /* target="_blank" rel="noopener" */ color="textSecondary">
+                <Link href="https://portalmybot.com/list/tos" variant="subtitle1" /* target="_blank" rel="noopener" */ color="textSecondary">
                    Términos y condiciones
                 </Link>
               </li>

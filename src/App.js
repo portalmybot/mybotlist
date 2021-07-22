@@ -23,6 +23,7 @@ import Login from './Login';
 import Me from './pages/Me';
 import Premium from './pages/Premium';
 import Subscribe from './pages/Subscribe';
+import Team from './pages/Team';
 
 
 const guestRoutes = [
@@ -33,6 +34,7 @@ const guestRoutes = [
   { path: "/tag/:id", component: Tag, exact: true },
   { path: "/bots/:id", component: List, exact: true },
   { path: "/premium", component: Subscribe, exact: true },
+  { path: "/team", component: Team, exact: true },
 ];
 
 const protectedRoutes = [

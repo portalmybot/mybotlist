@@ -51,7 +51,7 @@ export const getHomeTagBots = async (name) => {
 
 };
 export const getBackgroundBot = async (id) => {
-  const { data } = await http.get(`/bots/bg/${id.queryKey[1].id}`);
+  const { data } = await http.get(`/home/bots/bg/${id.queryKey[1].id}`);
   return data[0];
 
 };
