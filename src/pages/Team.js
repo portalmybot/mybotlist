@@ -51,6 +51,47 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
+const userList = [
+  {
+    username: 'CraterMaik',
+    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    main: true,
+    data: {
+      rol: 'Admin',
+      social: {
+        twitter: 'https://twitter.com/cratermaik',
+        github: 'https://github.com/cratermaik',
+        web: 'https://portalmybot.com'
+      }
+    }
+  },
+  {
+    username: 'Jenny',
+    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    main: true,
+    data: {
+      rol: 'Admin',
+      social: {
+        twitter: 'https://twitter.com/cratermaik',
+        github: 'https://github.com/cratermaik',
+        web: 'https://portalmybot.com'
+      }
+    }
+  },
+  {
+    username: 'AndreMor',
+    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    main: false,
+    data: {
+      rol: 'Gestor',
+      social: {
+        twitter: 'https://twitter.com/cratermaik',
+        github: 'https://github.com/cratermaik',
+        web: 'https://portalmybot.com'
+      }
+    }
+  },
+]
 const TeamPage = () => {
 
   const classes = useStyles();
@@ -71,25 +112,22 @@ const TeamPage = () => {
 
                         <Container maxWidth="lg" component="main" className={classes.heroContent}>
                           <Typography  variant="h4" component="h1" className={classes.title} align="center" color="textPrimary" gutterBottom>
-                            MyBOT List Premium
+                            Team MyBOT List
                           </Typography>
                           <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                            ¡Consigue personalizar tus bots de Discord y destacar dentro de la plataforma, no vuelva a ver un anuncio, obtén insignias geniales y muchas cosas mas!
-                          </Typography>
-                          <Typography variant="subtitle1" align="center" style={{ fontWeight: 700 } }component="p">
-                            Por lanzamiento consigue MyBOT List Premium a precios especiales por poco tiempo y muestra tu apoyo a nuestra comunidad :)
+                            Información sobre MyBOT List y los increíbles gestores y colaboradores que hacen posible la plataforma
                           </Typography>
                         </Container>
 
                         <Container maxWidth="md" component="main">
                           <Grid container spacing={2}>
 
-                            {[0, 1, 2, 3].map((value) => {
+                            {userList.map((user) => {
 
-                              const cardId = `card-id-${value}`;
+                              const cardId = `card-id-${user.username}`;
                               return (
                                 <Grid item lg={3} xs={6} >
-                                 <CardListStyle id_key={cardId} />
+                                 <CardListStyle user={user} id_key={cardId} />
                                 </Grid>
                               );
                               
