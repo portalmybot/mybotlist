@@ -91,6 +91,19 @@ const userList = [
       }
     }
   },
+  {
+    username: 'Abiiee',
+    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    main: false,
+    data: {
+      rol: 'Gestor',
+      social: {
+        twitter: 'https://twitter.com/cratermaik',
+        github: 'https://github.com/cratermaik',
+        web: 'https://portalmybot.com'
+      }
+    }
+  },
 ]
 const TeamPage = () => {
 
