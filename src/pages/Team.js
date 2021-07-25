@@ -56,8 +56,9 @@ const userList = [
     username: 'CraterMaik',
     avatar: 'https://i.imgur.com/DC0Kp0D.png',
     main: true,
+    color: '#673ab7',
     data: {
-      rol: 'Admin',
+      rol: 'CEO, Admin',
       social: {
         twitter: 'https://twitter.com/cratermaik',
         github: 'https://github.com/cratermaik',
@@ -69,6 +70,21 @@ const userList = [
     username: 'Jenny',
     avatar: 'https://i.imgur.com/DC0Kp0D.png',
     main: true,
+    color: '#673ab7',
+    data: {
+      rol: 'Bot Dev, Admin',
+      social: {
+        twitter: 'https://twitter.com/cratermaik',
+        github: 'https://github.com/cratermaik',
+        web: 'https://portalmybot.com'
+      }
+    }
+  },
+  {
+    username: 'Hyuuh',
+    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    main: true,
+    color: '#673ab7',
     data: {
       rol: 'Admin',
       social: {
@@ -79,11 +95,12 @@ const userList = [
     }
   },
   {
-    username: 'AndreMor',
+    username: 'ManU',
     avatar: 'https://i.imgur.com/DC0Kp0D.png',
-    main: false,
+    main: true,
+    color: '#673ab7',
     data: {
-      rol: 'Gestor',
+      rol: 'Admin',
       social: {
         twitter: 'https://twitter.com/cratermaik',
         github: 'https://github.com/cratermaik',
@@ -95,6 +112,63 @@ const userList = [
     username: 'Abiiee',
     avatar: 'https://i.imgur.com/DC0Kp0D.png',
     main: false,
+    color: '#fb395d',
+    data: {
+      rol: 'Gestor Head',
+      social: {
+        twitter: 'https://twitter.com/cratermaik',
+        github: 'https://github.com/cratermaik',
+        web: 'https://portalmybot.com'
+      }
+    }
+  },
+  {
+    username: 'K3VITOX',
+    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    main: false,
+    color: '#fb395d',
+    data: {
+      rol: 'Gestor',
+      social: {
+        twitter: 'https://twitter.com/cratermaik',
+        github: 'https://github.com/cratermaik',
+        web: 'https://portalmybot.com'
+      }
+    }
+  },
+  {
+    username: 'SirNice',
+    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    main: false,
+    color: '#fb395d',
+    data: {
+      rol: 'Gestor',
+      social: {
+        twitter: 'https://twitter.com/cratermaik',
+        github: 'https://github.com/cratermaik',
+        web: 'https://portalmybot.com'
+      }
+    }
+  },
+  {
+    username: 'Jimbolo',
+    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    main: false,
+    color: '#fb395d',
+    data: {
+      rol: 'Gestor',
+      social: {
+        twitter: 'https://twitter.com/cratermaik',
+        github: 'https://github.com/cratermaik',
+        web: 'https://portalmybot.com'
+      }
+    }
+  },
+  {
+    username: 'CrisKop',
+    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    main: false,
+    color: '#fb395d',
     data: {
       rol: 'Gestor',
       social: {
@@ -133,6 +207,9 @@ const TeamPage = () => {
                         </Container>
 
                         <Container maxWidth="md" component="main">
+                          <Typography variant="h5" color="textPrimary" component="h2">
+                            Conoce al equipo
+                          </Typography>
                           <Grid container spacing={2}>
 
                             {userList.map((user) => {

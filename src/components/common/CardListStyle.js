@@ -37,7 +37,7 @@ export default function MediaCard({id_key, user}) {
   const classes = useStyles();
 
   return (
-    <Card key={id_key} className={classes.root} style={{ borderTop: `2px solid #673ab7`}}>
+    <Card key={id_key} className={classes.root} style={{ borderTop: `2px solid ${user.color}`}}>
       <CardContent>
         <Box className={classes.avatar}>
           <Avatar alt="Remy Sharp" src={user.avatar} className={classes.large} />
@@ -45,7 +45,7 @@ export default function MediaCard({id_key, user}) {
         <Typography gutterBottom variant="h6" component="h2">
           {user.username}
         </Typography>
-        <Chip label={user.data.rol} size="small"  color={user.main ? 'secondary' : 'default'}/>
+        <Chip label={user.data.rol} size="small" style={{ backgroundColor: user.color }}/>
       </CardContent>
       <CardActions className={classes.actions}>
         <Link href={user.data.social.twitter} variant="subtitle1" target="_blank" rel="noopener" color="textSecondary">
