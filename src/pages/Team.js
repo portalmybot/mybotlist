@@ -48,6 +48,9 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(2),
     flex: 1,
   },
+  titleUsers: {
+    padding: theme.spacing(4, 0, 2)
+  }
 
 }));
 
@@ -178,6 +181,20 @@ const userList = [
       }
     }
   },
+  {
+    username: 'ExpErgio',
+    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    main: false,
+    color: '#FFB300',
+    data: {
+      rol: 'Premium',
+      social: {
+        twitter: 'https://twitter.com/cratermaik',
+        github: 'https://github.com/cratermaik',
+        web: 'https://portalmybot.com'
+      }
+    }
+  },
 ]
 const TeamPage = () => {
 
@@ -207,12 +224,29 @@ const TeamPage = () => {
                         </Container>
 
                         <Container maxWidth="md" component="main">
-                          <Typography variant="h5" color="textPrimary" component="h2">
+                          <Typography variant="h5" color="textPrimary" component="h2" className={classes.titleUsers}>
                             Conoce al equipo
                           </Typography>
                           <Grid container spacing={2}>
 
-                            {userList.map((user) => {
+                            {userList.filter((u) => !u.data.rol.includes('Premium')).map((user) => {
+
+                              const cardId = `card-id-${user.username}`;
+                              return (
+                                <Grid item lg={3} xs={6} >
+                                 <CardListStyle user={user} id_key={cardId} />
+                                </Grid>
+                              );
+                              
+                            })}
+
+                          </Grid>
+                          <Typography variant="h5" color="textPrimary" component="h2" className={classes.titleUsers}>
+                            Contribuidores
+                          </Typography>
+                          <Grid container spacing={2}>
+
+                            {userList.filter((u) => u.data.rol.includes('Premium')).map((user) => {
 
                               const cardId = `card-id-${user.username}`;
                               return (
