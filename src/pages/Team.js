@@ -256,7 +256,6 @@ const TeamPage = () => {
                               );
                               
                             })}
-
                           </Grid>
                         </Container>
                       </Grid>
