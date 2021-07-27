@@ -276,7 +276,7 @@ const TeamPage = () => {
                               </Grid>
                             </Grid>
                           </Grid>
-                          <Typography variant="h5" color="textPrimary" component="h2" className={classes.titleUsers}>
+                          <Typography variant="h4" color="textPrimary" component="h2" className={classes.titleUsers}>
                             Conoce al equipo
                           </Typography>
                           <Grid container spacing={2}>
@@ -293,7 +293,7 @@ const TeamPage = () => {
                             })}
 
                           </Grid>
-                          <Typography variant="h5" color="textPrimary" component="h2" className={classes.titleUsers}>
+                          <Typography variant="h4" color="textPrimary" component="h2" className={classes.titleUsers}>
                             Contribuidores
                           </Typography>
                           <Grid container spacing={2}>
