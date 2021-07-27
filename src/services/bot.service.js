@@ -23,6 +23,11 @@ export const getHomeBotsVerified = async () => {
   return response.data;
 
 };
+export const getHomeBotsPremium = async () => {
+  const response = await http.get("/home/bots/premium");
+  return response.data;
+
+};
 export const getHomeBotsNews = async () => {
   const response = await http.get("/home/bots/news");
   return response.data;
@@ -36,6 +41,11 @@ export const getListTopBots = async () => {
 };
 export const getListVerifiedBots = async () => {
   const response = await http.get("/list/verified");
+  return response.data;
+
+};
+export const getListPremiumBots = async () => {
+  const response = await http.get("/list/premium");
   return response.data;
 
 };

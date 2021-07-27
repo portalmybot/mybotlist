@@ -3,15 +3,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import BotVoteTop from '../../components/home/BotVoteTop';
+import BotPremium from '../../components/home/BotPremium';
 import BotNews from '../../components/home/BotNews';
 import BotVerified from '../../components/home/BotVerified';
 
 import Typography from '@material-ui/core/Typography';
-import { amber, cyan, green } from '@material-ui/core/colors';
+import { amber, cyan, green, yellow } from '@material-ui/core/colors';
 
 import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 import FiberNewIcon from '@material-ui/icons/FiberNew';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
+import OfflineBoltIcon from '@material-ui/icons/OfflineBolt';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -41,7 +43,7 @@ const TitleContent = (textTitle) => {
   return (
     <>
        <Typography variant="subtitle1" color="inherit" className={classes.textContent} paragraph>
-          {textTitle.icon === 'vote' ?  <EmojiEventsIcon className={classes.iconText} style={{ color: amber[600] }} /> : textTitle.icon === 'new' ? <FiberNewIcon className={classes.iconText} style={{ color: cyan[700] }} /> : textTitle.icon === 'veri' ? <VerifiedUserIcon className={classes.iconText} style={{ color: green['A400'] }} /> : null } {textTitle.title}
+          {textTitle.icon === 'vote' ? <EmojiEventsIcon className={classes.iconText} style={{ color: amber[600] }} /> : textTitle.icon === 'new' ? <FiberNewIcon className={classes.iconText} style={{ color: cyan[700] }} /> : textTitle.icon === 'veri' ? <VerifiedUserIcon className={classes.iconText} style={{ color: green['A400'] }} /> : textTitle.icon === 'premium' ? <OfflineBoltIcon className={classes.iconText} style={{ color: yellow[500] }} /> : null } {textTitle.title}
          
         </Typography>
 
@@ -61,6 +63,9 @@ const BotList = () => {
 
         <TitleContent icon="vote" title="DISCORD BOTS TOPS" subtitle="¡Este es el ranking de los bots que recibieron más reputaciones!" />
         <BotVoteTop />
+
+        <TitleContent icon="premium" title="DISCORD BOTS PREMIUMS" subtitle="!Bots premiums de MyBOT List!" />
+        <BotPremium />
 
         <TitleContent icon="new" title="DISCORD BOTS RECIENTES" subtitle="¡Lista de bots recientemente agregados a la lista!" />
         <BotNews />

@@ -245,12 +245,11 @@ const TeamPage = () => {
                                 <Grid key={'carac-1'} xs={4} item>
                                   <EmojiEventsIcon style={{ fontSize: 40, color: amber[600] }} />
                                   <Typography variant="subtitle1" color="textPrimary" component="p">
-                                   
                                     Sistema de reputaciones
                                   </Typography>
                                   <Typography variant="subtitle2" color="textSecondary" component="p">
-                                    Un sistema de reputaciones para recompesar a los bots útiles, y tendran la opciones de
-                                    destacar en las primeras lista de bots.
+                                    Un sistema de reputaciones para recompensar a los bots útiles, y tendran la opciones de
+                                    destacar en las primeras listas.
                                   </Typography>
                                 </Grid>
                                 <Grid key={'carac-2'} xs={4} item>
@@ -259,7 +258,7 @@ const TeamPage = () => {
                                     Fondos personalizados
                                   </Typography>
                                   <Typography variant="subtitle2" color="textSecondary" component="p">
-                                    Puede personalizar y darle estilo a sus Bots con fondos animados.
+                                    Puedes personalizar y darle estilo a tus Bots con fondos animados.
                                   </Typography>
                                 </Grid>
                                 <Grid key={'carac-2'} xs={4} item>
@@ -268,8 +267,8 @@ const TeamPage = () => {
                                     Sistema de verificación
                                   </Typography>
                                   <Typography variant="subtitle2" color="textSecondary" component="p">
-                                    Proporcionamos a los usuarios bots de confianza mediante nuesta verificación de Bots,
-                                    administrado por nuestro gestores.
+                                    Proporcionamos a los usuarios bots de confianza mediante nuestro sistema de verificación,
+                                    administrado por gestores de la comunidad MyBOT Team.
                                   </Typography>
                                 </Grid>
                                 

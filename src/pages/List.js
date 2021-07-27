@@ -6,6 +6,7 @@ import HeroTags from '../layouts/Home/HeroTags';
 import ContainerTops from '../layouts/List/ContainerTops';
 import ContainerVerified from '../layouts/List/ContainerVerified';
 import ContainerNew from '../layouts/List/ContainerNew';
+import ContainerPremium from '../layouts/List/ContainerPremium';
 
 export default function List() {
   const { id } = useParams();
@@ -32,6 +33,12 @@ export default function List() {
     linkText = 'bots/verified'
     titleText = 'Discord Bots agregados recientemente'
     descText = 'Lista de los Bots Discord agregados recientemente'
+
+  } else if(id === 'premium') {
+    ContainerType = <ContainerPremium />
+    linkText = 'bots/premium'
+    titleText = 'Discord Bots premium'
+    descText = 'Lista de los Bots Discord premiums'
 
   }
 
