@@ -6,6 +6,10 @@ import Seo from '../components/common/Seo';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
+import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
+import ImageIcon from '@material-ui/icons/Image';
+import { amber, green, pink } from '@material-ui/core/colors';
 
 import CardListStyle from '../components/common/CardListStyle';
 
@@ -71,127 +75,127 @@ const userList = [
   },
   {
     username: 'Jenny',
-    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    avatar: 'https://i.imgur.com/lVnRZEB.gif',
     main: true,
     color: '#673ab7',
     data: {
       rol: 'Bot Dev, Admin',
       social: {
-        twitter: 'https://twitter.com/cratermaik',
-        github: 'https://github.com/cratermaik',
-        web: 'https://portalmybot.com'
+        twitter: '#',
+        github: 'https://github.com/JennyTS',
+        web: 'https://www.twitch.tv/jenny_jt'
       }
     }
   },
   {
     username: 'Hyuuh',
-    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    avatar: 'https://i.imgur.com/2K1mTgh.gif',
     main: true,
     color: '#673ab7',
     data: {
       rol: 'Admin',
       social: {
-        twitter: 'https://twitter.com/cratermaik',
-        github: 'https://github.com/cratermaik',
-        web: 'https://portalmybot.com'
+        twitter: '#',
+        github: 'https://github.com/Hyuuh',
+        web: 'https://www.reddit.com/u/-Hyuuh-'
       }
     }
   },
   {
     username: 'ManU',
-    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    avatar: 'https://i.imgur.com/5kznHIK.gif',
     main: true,
     color: '#673ab7',
     data: {
       rol: 'Admin',
       social: {
-        twitter: 'https://twitter.com/cratermaik',
-        github: 'https://github.com/cratermaik',
-        web: 'https://portalmybot.com'
+        twitter: '#',
+        github: 'https://github.com/manu522',
+        web: 'https://steamcommunity.com/profiles/76561198128090572'
       }
     }
   },
   {
     username: 'Abiiee',
-    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    avatar: 'https://i.imgur.com/cKIKBxg.gif',
     main: false,
     color: '#fb395d',
     data: {
       rol: 'Gestor Head',
       social: {
-        twitter: 'https://twitter.com/cratermaik',
-        github: 'https://github.com/cratermaik',
-        web: 'https://portalmybot.com'
+        twitter: 'https://twitter.com/Abiiee__',
+        github: 'https://github.com/Abiiee',
+        web: 'https://abiiee.netlify.app/'
       }
     }
   },
   {
     username: 'K3VITOX',
-    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    avatar: 'https://imgur.com/W1uo9HE.png',
     main: false,
     color: '#fb395d',
     data: {
       rol: 'Gestor',
       social: {
-        twitter: 'https://twitter.com/cratermaik',
-        github: 'https://github.com/cratermaik',
-        web: 'https://portalmybot.com'
+        twitter: 'https://twitter.com/ToxVi?s=09',
+        github: 'https://github.com/K3VITOX',
+        web: 'https://wall-e-web.affaibli.xyz/'
       }
     }
   },
   {
     username: 'SirNice',
-    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    avatar: 'https://i.imgur.com/whpTnx9.png',
     main: false,
     color: '#fb395d',
     data: {
       rol: 'Gestor',
       social: {
-        twitter: 'https://twitter.com/cratermaik',
-        github: 'https://github.com/cratermaik',
-        web: 'https://portalmybot.com'
+        twitter: 'https://twitter.com/M1chaelLiendo',
+        github: 'https://github.com/SirNice',
+        web: 'https://www.youtube.com/channel/UCpvDw1oFFfI2DkU0A0XCdYw'
       }
     }
   },
   {
     username: 'Jimbolo',
-    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    avatar: 'https://i.imgur.com/bIynsfw.gif',
     main: false,
     color: '#fb395d',
     data: {
       rol: 'Gestor',
       social: {
-        twitter: 'https://twitter.com/cratermaik',
-        github: 'https://github.com/cratermaik',
-        web: 'https://portalmybot.com'
+        twitter: '#',
+        github: 'https://github.com/Jimbolo25',
+        web: 'https://www.twitch.tv/jimbolof'
       }
     }
   },
   {
     username: 'CrisKop',
-    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    avatar: 'https://i.imgur.com/nAHzkpx.png',
     main: false,
     color: '#fb395d',
     data: {
       rol: 'Gestor',
       social: {
-        twitter: 'https://twitter.com/cratermaik',
-        github: 'https://github.com/cratermaik',
-        web: 'https://portalmybot.com'
+        twitter: '#',
+        github: '#',
+        web: 'https://www.youtube.com/channel/UC_s--WhZeBuWpld8V_TqUDA'
       }
     }
   },
   {
     username: 'ExpErgio',
-    avatar: 'https://i.imgur.com/DC0Kp0D.png',
+    avatar: 'https://i.imgur.com/bZoj9vI.png',
     main: false,
     color: '#FFB300',
     data: {
       rol: 'Premium',
       social: {
-        twitter: 'https://twitter.com/cratermaik',
-        github: 'https://github.com/cratermaik',
-        web: 'https://portalmybot.com'
+        twitter: 'https://twitter.com/Excelsior_DS',
+        github: '#',
+        web: 'https://www.youtube.com/channel/UCPasiIXZKSPjBHYs6ifZuFg'
       }
     }
   },
@@ -219,11 +223,59 @@ const TeamPage = () => {
                             Team MyBOT List
                           </Typography>
                           <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                            Información sobre MyBOT List y los increíbles gestores y colaboradores que hacen posible la plataforma
+                            Información sobre MyBOT List y los increíbles gestores y contribuidores que hacen posible la plataforma.
+                            
                           </Typography>
                         </Container>
 
                         <Container maxWidth="md" component="main">
+                          <Typography variant="h4" color="textPrimary" component="h2" className={classes.titleUsers}>
+                            Introducción
+                          </Typography>
+                          <Typography variant="subtitle1" color="textSecondary" component="p">
+                            MyBOT List es una lista de Bots publicos de Discord en español, donde podra encontrar el bot adecuado para su servidor, tambien puede registrar su bot usted mismo y personalizarlo para una mejor visibilidad.
+                          </Typography>
+                          <Typography variant="h4" color="textPrimary" component="h2" className={classes.titleUsers}>
+                            Característica
+                          </Typography>
+                          <Grid container className={classes.root} spacing={2}>
+                            <Grid item xs={12}>
+                              <Grid container justifyContent="center" spacing={2}>
+
+                                <Grid key={'carac-1'} xs={4} item>
+                                  <EmojiEventsIcon style={{ fontSize: 40, color: amber[600] }} />
+                                  <Typography variant="subtitle1" color="textPrimary" component="p">
+                                   
+                                    Sistema de reputaciones
+                                  </Typography>
+                                  <Typography variant="subtitle2" color="textSecondary" component="p">
+                                    Un sistema de reputaciones para recompesar a los bots útiles, y tendran la opciones de
+                                    destacar en las primeras lista de bots.
+                                  </Typography>
+                                </Grid>
+                                <Grid key={'carac-2'} xs={4} item>
+                                  <ImageIcon style={{ fontSize: 40, color: pink['A400'] }} />
+                                  <Typography variant="subtitle1" color="textPrimary" component="p">
+                                    Fondos personalizados
+                                  </Typography>
+                                  <Typography variant="subtitle2" color="textSecondary" component="p">
+                                    Puede personalizar y darle estilo a sus Bots con fondos animados.
+                                  </Typography>
+                                </Grid>
+                                <Grid key={'carac-2'} xs={4} item>
+                                  <VerifiedUserIcon style={{ fontSize: 40, color: green['A400'] }} />
+                                  <Typography variant="subtitle1" color="textPrimary" component="p">
+                                    Sistema de verificación
+                                  </Typography>
+                                  <Typography variant="subtitle2" color="textSecondary" component="p">
+                                    Proporcionamos a los usuarios bots de confianza mediante nuesta verificación de Bots,
+                                    administrado por nuestro gestores.
+                                  </Typography>
+                                </Grid>
+                                
+                              </Grid>
+                            </Grid>
+                          </Grid>
                           <Typography variant="h5" color="textPrimary" component="h2" className={classes.titleUsers}>
                             Conoce al equipo
                           </Typography>

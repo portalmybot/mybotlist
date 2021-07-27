@@ -18,6 +18,9 @@ const AppLink = () => {
   return (
       
     <Typography className={classes.root}>
+      <Link component={RouterLink} to="/team" color="inherit">
+        Team 
+      </Link>
       <Link component={RouterLink} to="/premium" color="inherit">
         Premium 
       </Link>

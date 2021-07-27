@@ -113,7 +113,7 @@ export const addBot = async ({ data }) => {
   await http.post("/bots", postData);
   await http.post("/bots/bg/add", postBG);
   
-  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `NUEVO BOT AGREGADO: ${data.id_bot}`, 3066993)
+  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `NUEVO BOT AGREGADO: [${data.id_bot}](https://portalmybot.com/list/bot/${data.id_bot})`, 3066993)
   
 };
 
@@ -139,7 +139,7 @@ export const updateBot = async (data) => {
   dataObj["longDesc_bot"] = data.longDesc_bot ? data.longDesc_bot : null
 
   await http.put(`/bots/${dataObj.id_bot}`, dataObj);
-  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `BOT EDITADO: ${dataObj.id_bot}`, 3066993)
+  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `BOT EDITADO: <@${dataObj.id_bot}> [${dataObj.id_bot}](https://portalmybot.com/list/bot/${dataObj.id_bot})`, 3066993)
   window.location.href = `${process.env.REACT_APP_URL_BASE}/me`;
   
 };
@@ -157,7 +157,7 @@ export const addBadgesBot = async (data) => {
 export const updateBotBackground = async (data) => {
   let dataBG = data.databg;
   await http.put(`/bots/bg/update/${data.id_bot}`, dataBG);
-  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `BOT EDITADO (FONDOS): ${data.id_bot}`, 3066993)
+  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `BOT EDITADO (FONDOS): <@${data.id_bot}> [${data.id_bot}](https://portalmybot.com/list/bot/${data.id_bot})`, 3447003)
 };
 
 export const getTags = async () => {
@@ -175,7 +175,7 @@ export const deleteBot = async (data) => {
   const id_bot = data.id_bot;
  
   await http.delete(`/bots/${id_bot}`);
-  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `BOT ELIMINADO: ${data.id_bot}`, 3066993)
+  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `BOT ELIMINADO: <@${data.id_bot}> [${data.id_bot}](https://portalmybot.com/list/bot/${data.id_bot})`, 3426654)
   window.location.href = `${process.env.REACT_APP_URL_BASE}/me`;
 
 }
@@ -191,7 +191,7 @@ export const addVote = async (data) => {
 
   await http.post(`/bots/vote/${id_bot}`);
   await http.post("/bots/add/vote", postData);
-  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `REP. AGREGADO: ${data.id_bot}`, 3066993)
+  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `REP. AGREGADO: <@${data.id_bot}> [${data.id_bot}](https://portalmybot.com/list/bot/${data.id_bot})`, 15844367)
 };
 
 export const addTags = async (data) => {
