@@ -13,7 +13,7 @@ import { useQuery } from 'react-query'
 import Bot from '../Home/Bot';
 import BotLoading from '../../components/skeleton/BotLoading';
 
-import { getListVerifiedBots } from '../../services/bot.service';
+import { getListPremiumBots } from '../../services/bot.service';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -39,9 +39,9 @@ const useStyles = makeStyles((theme) => ({
 
 const SLoading = [1,2,3,4,5,6,7,8,9]
 
-const ListVerifiedBots = () => {
+const ListPremiumBots = () => {
   const classes = useStyles();
-  const {isLoading, data: listVerifiedBots} = useQuery('listVerifiedBots', getListVerifiedBots)
+  const {isLoading, data: listPremiumBots} = useQuery('listPremiumBots', getListPremiumBots)
 
   return (
     <>
@@ -68,10 +68,10 @@ const ListVerifiedBots = () => {
               }
             </>
           )}
-          {!isLoading && listVerifiedBots ? 
+          {!isLoading && listPremiumBots ? 
             <>
               { 
-                listVerifiedBots.data.map((bot) => {
+                listPremiumBots.data.map((bot) => {
                   return (
                     <Grid key={`${bot.id}-bot`} item xs={12} sm={6} md={4} lg={3}>
                       <Bot value={bot} />
@@ -87,4 +87,4 @@ const ListVerifiedBots = () => {
   )
 
 }
-export default ListVerifiedBots
+export default ListPremiumBots

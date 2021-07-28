@@ -72,7 +72,7 @@ export default function PayPayPalPerm() {
       <Box display="flex">
         <Box m="auto">
           <Typography variant="subtitle1" gutterBottom>
-             Condiciones
+            Condiciones
           </Typography>
           <Typography variant="subtitle2" gutterBottom>
             Las compras son únicas para recibir los beneficios. 
