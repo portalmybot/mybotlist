@@ -81,9 +81,9 @@ const userList = [
     data: {
       rol: 'Bot Dev, Admin',
       social: {
-        twitter: '#',
+        twitter: 'https://twitter.com/jtas15',
         github: 'https://github.com/JennyTS',
-        web: 'https://www.twitch.tv/jenny_jt'
+        web: 'https://portalmybot.com/u/jenny'
       }
     }
   },
