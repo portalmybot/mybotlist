@@ -11,23 +11,25 @@ export const getUserPremium = async () => {
   return data;
 
 };
-export const addUserPremium = async () => {
+export const addUserPremium = async (data) => {
   const userLogin = await getUser();
   const postData = {
+    order_id: data.orderID,
     id_user: userLogin.social_id,
   }
-  await http.post("user/premium/add", postData);
-  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `USER PREMIUM: ${userLogin.social_id}`, 15277667)
+  await http.post("user/orders/add", postData);
+  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `ORDEN USER PREMIUM: ${userLogin.social_id}`, 15277667)
   
 };
-export const addUserPremiumPerm = async () => {
+export const addUserPremiumPerm = async (data) => {
   const userLogin = await getUser();
   const postData = {
+    order_id: data.orderID,
     id_user: userLogin.social_id,
-    status_premium: 1
+    order_status: 1
   }
-  await http.post("user/premium/add", postData);
-  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `USER PREMIUM +: ${userLogin.social_id}`, 15277667)
+  await http.post("user/orders/add", postData);
+  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `ORDEN USER PREMIUM +: ${userLogin.social_id}`, 15277667)
 };
 
 export const logoutUser = async () => {

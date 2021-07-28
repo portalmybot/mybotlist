@@ -30,7 +30,7 @@ export default function PayPayPalPerm() {
             <CheckCircleIcon style={{ color: grey[50] }} />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Pago completado" secondary="MyBOT List Premium Permanente" />
+        <ListItemText primary="Pago completado, en breve te contactaran via Discord para validar tu compra." secondary="MyBOT List Premium Permanente" />
 
       </ListItem>
     );
@@ -55,10 +55,9 @@ export default function PayPayPalPerm() {
       <PayPalButton
         amount = '12.00'
         onSuccess = {(details, data) => {
-          console.log(details.payer)
-          console.log(data.orderID)
+     
           setPaid(true);
-          mutate.mutate();
+          mutate.mutate({ orderID: data.orderID });
         }}
         catchError = {(err) => {
           setError(err)

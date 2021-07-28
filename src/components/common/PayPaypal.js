@@ -28,7 +28,7 @@ export default function PayPayPal() {
             <CheckCircleIcon style={{ color: grey[50] }} />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Pago completado" secondary="MyBOT List Premium Estándar" />
+        <ListItemText primary="Pago completado, en breve te contactaran via Discord para validar tu compra." secondary="MyBOT List Premium Estándar" />
 
       </ListItem>
     );
@@ -53,10 +53,9 @@ export default function PayPayPal() {
       <PayPalButton
         amount = '5.00'
         onSuccess = {(details, data) => {
-          console.log(details.payer)
-          console.log(data.orderID)
+  
           setPaid(true);
-          mutate.mutate();
+          mutate.mutate({ orderID: data.orderID });
         }}
         catchError = {(err) => {
           setError(err)
