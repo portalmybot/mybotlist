@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
    }
  })
 )
+
 const ColorButton = withStyles((theme) => ({
   root: {
     color: theme.palette.common.white,
@@ -77,6 +78,7 @@ const BotsVerified = () => {
       </>
 
   )
+  
 
 }
 export default BotsVerified
