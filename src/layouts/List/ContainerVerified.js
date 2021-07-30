@@ -33,7 +33,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.spacing(5),
     marginTop: theme.spacing(.3)
   }
+
  })
+
 )
 
 const SLoading = [1,2,3,4,5,6,7,8,9]
@@ -61,6 +63,7 @@ const ListVerifiedBots = () => {
                   return (
                    <Grid item key={load} xs={12} sm={6} md={3}>
                       <BotLoading />
+                      
                     </Grid>
                   )
                 })
