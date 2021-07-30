@@ -63,7 +63,7 @@ const ListVerifiedBots = () => {
                   return (
                    <Grid item key={load} xs={12} sm={6} md={3}>
                       <BotLoading />
-                      
+
                     </Grid>
                   )
                 })
@@ -77,6 +77,7 @@ const ListVerifiedBots = () => {
                   return (
                     <Grid key={`${bot.id}-bot`} item xs={12} sm={6} md={4} lg={3}>
                       <Bot value={bot} />
+                      
                     </Grid>
                   )
                 })
