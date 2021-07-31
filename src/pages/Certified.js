@@ -14,6 +14,7 @@ import StarIcon from '@material-ui/icons/Star';
 import { amber, green } from '@material-ui/core/colors';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import Button from '@material-ui/core/Button';
+import { sendCertified } from '../services/me.service';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,6 +61,11 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
+const handleCertified = (event) => {
+  sendCertified()
+
+}
+
 const CertifiedPage = () => {
 
   const classes = useStyles();
@@ -93,7 +99,7 @@ const CertifiedPage = () => {
                           </Typography>
                           <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
                             <div>
-                              <Button variant="contained" size="large" color="primary" className={classes.margin}>
+                              <Button variant="contained" size="large" color="primary" onClick={handleCertified} className={classes.margin}>
                                 Enviar Solicitud
                               </Button>
                             </div>
@@ -132,12 +138,7 @@ const CertifiedPage = () => {
                                 </ListItemIcon>
                                 <ListItemText primary="Almacenamiento seguro y confiable" />
                               </ListItem>
-                              <ListItem button>
-                                <ListItemIcon>
-                                  <StarIcon style={{ color: amber[500] }} />
-                                </ListItemIcon>
-                                <ListItemText primary="Debe existir un contenido principal representativo" />
-                              </ListItem>
+                              
                               <ListItem button>
                                 <ListItemIcon>
                                   <StarIcon style={{ color: amber[500] }} />

@@ -11,6 +11,12 @@ export const getUserPremium = async () => {
   return data;
 
 };
+export const sendCertified = async () => {
+  const userLogin = await getUser();
+  
+  sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK_CERTIFIED, 'MyBOT List', `SOLICITUB DE CERTIFICADO PARA : <@${userLogin.social_id}> (${userLogin.social_id})`, 15277667)
+  
+};
 export const addUserPremium = async (data) => {
   const userLogin = await getUser();
   const postData = {
