@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from '../components/Layout';
@@ -15,6 +15,8 @@ import { amber, green } from '@material-ui/core/colors';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import Button from '@material-ui/core/Button';
 import { sendCertified } from '../services/me.service';
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,42 +35,29 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
     marginBottom: theme.spacing(4),
   },
-  cardHeader: {
-    backgroundColor: theme.palette.grey[700],
-  },
-  cardPricing: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'baseline',
-    marginBottom: theme.spacing(2),
-  },
-  liContent: {
-    margin: 0,
-    padding: 0,
-    listStyle: 'none',
-    marginBottom: theme.spacing(1),
-  },
-  appBar: {
-    position: 'relative',
-  },
-  titleDialog: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
-  },
   titleUsers: {
-    padding: theme.spacing(4, 0, 2)
+    margin: theme.spacing(3, 0, 1)
+  },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
   }
 
 }));
 
-const handleCertified = (event) => {
-  sendCertified()
-
-}
 
 const CertifiedPage = () => {
 
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleCertified = () => {
+    setOpen(!open);
+    //sendCertified
+  };
   return (
       <Layout>
         {
@@ -187,7 +176,7 @@ const CertifiedPage = () => {
                           </Typography>
                           <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
                             <div>
-                              <Button variant="contained" size="large" color="primary" className={classes.margin}>
+                              <Button variant="contained" size="large" onClick={handleCertified} color="primary" className={classes.margin}>
                                 Enviar Solicitud
                               </Button>
                             </div>
@@ -195,6 +184,9 @@ const CertifiedPage = () => {
                           
                         </Container>
                       </Grid>
+                      <Backdrop className={classes.backdrop}  open={open} onClick={handleClose}>
+                        <CircularProgress color="inherit" />
+                      </Backdrop>
                   </div>
                  
               </Container>

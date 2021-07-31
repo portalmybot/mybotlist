@@ -26,25 +26,27 @@ import Subscribe from './pages/Subscribe';
 import Team from './pages/Team';
 import Certified from './pages/Certified';
 
-
 const guestRoutes = [
   { path: "/", component: Home, exact: true },
   { path: "/auth/discord", component: Login, exact: true },
   { path: "/register", component: Register, exact: true },
   { path: "/bot/:id", component: Bot, exact: true },
+  { path: "/certified", component: Certified, exact: true },
   { path: "/tag/:id", component: Tag, exact: true },
   { path: "/bots/:id", component: List, exact: true },
   { path: "/premium", component: Subscribe, exact: true },
   { path: "/team", component: Team, exact: true },
-  { path: "/certified", component: Certified, exact: true },
+  
 ];
 
 const protectedRoutes = [
   { path: "/me", component: Me, exact: true },
   { path: "/me/premium", component: Premium, exact: true },
+ /*  { path: "/certified", component: Certified, exact: true }, */
   { path: "/add", component: Add, exact: true },
   { path: "/bot/:id/edit", component: Edit, exact: true },
   { path: "/bot/:id/vote", component: Vote, exact: true },
+  
 ];
 
 function App() {
