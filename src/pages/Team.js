@@ -95,9 +95,9 @@ const userList = [
     data: {
       rol: 'Admin',
       social: {
-        twitter: '#',
+        twitter: 'https://twitter.com/LilHyuuh',
         github: 'https://github.com/Hyuuh',
-        web: 'https://www.reddit.com/u/-Hyuuh-'
+        web: 'https://mybo.me/axel'
       }
     }
   },
@@ -111,7 +111,7 @@ const userList = [
       social: {
         twitter: '#',
         github: 'https://github.com/manu522',
-        web: 'https://steamcommunity.com/profiles/76561198128090572'
+        web: 'https://mybo.me/manu'
       }
     }
   },

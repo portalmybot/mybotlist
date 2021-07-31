@@ -6,12 +6,14 @@ import Seo from '../components/common/Seo';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
-import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
-import ImageIcon from '@material-ui/icons/Image';
-import { amber, green, pink } from '@material-ui/core/colors';
-
-import CardListStyle from '../components/common/CardListStyle';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import StarIcon from '@material-ui/icons/Star';
+import { amber, green } from '@material-ui/core/colors';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -81,59 +83,114 @@ const CertifiedPage = () => {
                             Certificado MyBOT List
                           </Typography>
                           <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                            Los bots de confianza en la lista coreana de Discordbot son un esquema para dar fiabilidad sobre una base más detallada que la certificación de discordia.
-                            Son bots de confianza certificados por MyBOT Team!
-                            
+                            Los bots certificados en MyBOT List es un esquema para dar fiabilidad y confianza a los usuarios y servidores en Discord por MyBOT Team!
                           </Typography>
+                          
+                        </Container>
+                        <Container maxWidth="lg" component="section" className={classes.heroContent}>
+                          <Typography  variant="h4" component="h1" className={classes.title} align="center" color="textPrimary" gutterBottom>
+                            Aplicar Ahora
+                          </Typography>
+                          <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+                            <div>
+                              <Button variant="contained" size="large" color="primary" className={classes.margin}>
+                                Enviar Solicitud
+                              </Button>
+                            </div>
+                          </Typography>
+                          
                         </Container>
 
-                        <Container maxWidth="md" component="main">
-                          <Typography variant="h4" color="textPrimary" component="h2" className={classes.titleUsers}>
-                            Introducción
-                          </Typography>
-                          <Typography variant="subtitle1" color="textSecondary" component="p">
-                            MyBOT List es una lista de Bots publicos de Discord en español, donde podra encontrar el bot adecuado para su servidor, tambien puede registrar su bot usted mismo y personalizarlo para una mejor visibilidad.
-                          </Typography>
-                          <Typography variant="h4" color="textPrimary" component="h2" className={classes.titleUsers}>
-                            Característica
+                        <Container maxWidth="md" component="section">
+                          
+                          <Typography variant="h6" color="textPrimary" component="h3" className={classes.titleUsers}>
+                            Para demostrar que es un bot de confianza, debe cumplir todos los siguientes criterios:
                           </Typography>
                           <Grid container className={classes.root} spacing={2}>
-                            <Grid item xs={12}>
-                              <Grid container justifyContent="center" spacing={2}>
-
-                                <Grid key={'carac-1'} xs={4} item>
-                                  <EmojiEventsIcon style={{ fontSize: 40, color: amber[600] }} />
-                                  <Typography variant="subtitle1" color="textPrimary" component="p">
-                                    Sistema de reputaciones
-                                  </Typography>
-                                  <Typography variant="subtitle2" color="textSecondary" component="p">
-                                    Un sistema de reputaciones para recompensar a los bots útiles, y tendran la opciones de
-                                    destacar en las primeras listas.
-                                  </Typography>
-                                </Grid>
-                                <Grid key={'carac-2'} xs={4} item>
-                                  <ImageIcon style={{ fontSize: 40, color: pink['A400'] }} />
-                                  <Typography variant="subtitle1" color="textPrimary" component="p">
-                                    Fondos personalizados
-                                  </Typography>
-                                  <Typography variant="subtitle2" color="textSecondary" component="p">
-                                    Puedes personalizar y darle estilo a tus Bots con fondos animados.
-                                  </Typography>
-                                </Grid>
-                                <Grid key={'carac-2'} xs={4} item>
-                                  <VerifiedUserIcon style={{ fontSize: 40, color: green['A400'] }} />
-                                  <Typography variant="subtitle1" color="textPrimary" component="p">
-                                    Sistema de verificación
-                                  </Typography>
-                                  <Typography variant="subtitle2" color="textSecondary" component="p">
-                                    Proporcionamos a los usuarios bots de confianza mediante nuestro sistema de verificación,
-                                    administrado por gestores de la comunidad MyBOT Team.
-                                  </Typography>
-                                </Grid>
-                                
-                              </Grid>
-                            </Grid>
+                            <List component="nav" className={classes.root} aria-label="contacts">
+                              <ListItem button>
+                                <ListItemIcon>
+                                  <StarIcon style={{ color: amber[500] }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Más de 1000 servidores" />
+                              </ListItem>
+                              <ListItem button>
+                                <ListItemIcon>
+                                  <StarIcon style={{ color: amber[500] }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Bots certificados por Discord" />
+                              </ListItem>
+                              <ListItem button>
+                                <ListItemIcon>
+                                  <StarIcon style={{ color: amber[500] }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Más del 90 por ciento de tiempo de actividad en promedio" />
+                              </ListItem>
+                              <ListItem button>
+                                <ListItemIcon>
+                                  <StarIcon style={{ color: amber[500] }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Almacenamiento seguro y confiable" />
+                              </ListItem>
+                              <ListItem button>
+                                <ListItemIcon>
+                                  <StarIcon style={{ color: amber[500] }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Debe existir un contenido principal representativo" />
+                              </ListItem>
+                              <ListItem button>
+                                <ListItemIcon>
+                                  <StarIcon style={{ color: amber[500] }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Debe existir un contenido principal representativo" />
+                              </ListItem>
+                            </List>
                           </Grid>
+                          <Typography variant="h6" color="textPrimary" component="h3" className={classes.titleUsers}>
+                            Beneficios:
+                          </Typography>
+                          <Grid container className={classes.root} spacing={2}>
+                            <List component="nav" className={classes.root} aria-label="contacts">
+
+                              <ListItem button>
+                                <ListItemIcon>
+                                  <CheckCircleIcon style={{ color: green[500] }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Fondos Personalizados" />
+                              </ListItem>
+                              <ListItem button>
+                                <ListItemIcon>
+                                  <CheckCircleIcon style={{ color: green[500] }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Insignia Bot Certificado" />
+                              </ListItem>
+                              <ListItem button>
+                                <ListItemIcon>
+                                  <CheckCircleIcon style={{ color: green[500] }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Logro MyBOT Especial" />
+                              </ListItem>
+                              <ListItem button>
+                                <ListItemIcon>
+                                  <CheckCircleIcon style={{ color: green[500] }} />
+                                </ListItemIcon>
+                                <ListItemText primary="Posicionamiento de sus Bots" />
+                              </ListItem>
+                            
+                            </List>
+                          </Grid>
+                        </Container>
+                        <Container maxWidth="lg" component="section" className={classes.heroContent}>
+                          <Typography  variant="h4" component="h1" className={classes.title} align="center" color="textPrimary" gutterBottom>
+                            Aplicar Ahora
+                          </Typography>
+                          <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+                            <div>
+                              <Button variant="contained" size="large" color="primary" className={classes.margin}>
+                                Enviar Solicitud
+                              </Button>
+                            </div>
+                          </Typography>
                           
                         </Container>
                       </Grid>

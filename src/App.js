@@ -24,6 +24,7 @@ import Me from './pages/Me';
 import Premium from './pages/Premium';
 import Subscribe from './pages/Subscribe';
 import Team from './pages/Team';
+import Certified from './pages/Certified';
 
 
 const guestRoutes = [
@@ -35,6 +36,7 @@ const guestRoutes = [
   { path: "/bots/:id", component: List, exact: true },
   { path: "/premium", component: Subscribe, exact: true },
   { path: "/team", component: Team, exact: true },
+  { path: "/certified", component: Certified, exact: true },
 ];
 
 const protectedRoutes = [
