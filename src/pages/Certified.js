@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from '../components/Layout';
@@ -17,6 +17,15 @@ import Button from '@material-ui/core/Button';
 import { sendCertified } from '../services/me.service';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
+
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,14 +59,33 @@ const CertifiedPage = () => {
 
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  const [openSuccess, setOpenSuccess] = useState(false);
+  const timer = React.useRef();
+
+  useEffect(() => {
+    clearTimeout(timer.current);
+    
+  }, []);
 
   const handleClose = () => {
     setOpen(false);
+    setOpenSuccess(false)
+
   };
   const handleCertified = () => {
     setOpen(!open);
+    
+    timer.current = window.setTimeout(() => {
+      
+      setOpenSuccess(!openSuccess)
+
+    }, 2000);
     //sendCertified
   };
+
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
       <Layout>
         {
@@ -184,9 +212,28 @@ const CertifiedPage = () => {
                           
                         </Container>
                       </Grid>
-                      <Backdrop className={classes.backdrop}  open={open} onClick={handleClose}>
+                      <Backdrop className={classes.backdrop}  open={open}>
                         <CircularProgress color="inherit" />
                       </Backdrop>
+                      <Dialog
+                        fullScreen={fullScreen}
+                        open={openSuccess}
+                        onClose={handleClose}
+                        aria-labelledby="responsive-dialog-title"
+                      >
+                        <DialogTitle id="responsive-dialog-title">{"Certificado MyBOT List"}</DialogTitle>
+                        <DialogContent>
+                          <DialogContentText>
+                            Solicitud de certificado MyBOT List enviado correctamente.
+                            Se pondran en contacto con usted via Discord, gracias por enviar su solicitud.
+                          </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                          <Button onClick={handleClose} color="secondary" autoFocus>
+                            Cerrar
+                          </Button>
+                        </DialogActions>
+                      </Dialog>
                   </div>
                  
               </Container>
