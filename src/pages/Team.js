@@ -199,6 +199,34 @@ const userList = [
       }
     }
   },
+  {
+    username: 'Batman',
+    avatar: 'https://i.imgur.com/cluASyM.png',
+    main: false,
+    color: '#FFB300',
+    data: {
+      rol: 'Premium',
+      social: {
+        twitter: 'https://twitter.com/__MrAsshole__',
+        github: '#',
+        web: 'https://steamcommunity.com/profiles/76561198330944594'
+      }
+    }
+  },
+  {
+    username: 'MendozaX',
+    avatar: 'https://i.imgur.com/kxFrA33.png',
+    main: false,
+    color: '#FFB300',
+    data: {
+      rol: 'Premium',
+      social: {
+        twitter: 'https://twitter.com/mendozax_',
+        github: 'https://www.reddit.com/u/mendozaax',
+        web: 'https://steamcommunity.com/profiles/76561198330944594'
+      }
+    }
+  },
 ]
 const TeamPage = () => {
 
