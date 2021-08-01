@@ -121,7 +121,6 @@ const CertifiedPage = () => {
                               </Button>
                             </div>
                           </Typography>
-                          
                         </Container>
 
                         <Container maxWidth="md" component="section">
