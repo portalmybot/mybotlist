@@ -223,8 +223,8 @@ const CertifiedPage = () => {
                         <DialogTitle id="responsive-dialog-title">{"Certificado MyBOT List"}</DialogTitle>
                         <DialogContent>
                           <DialogContentText>
-                            Solicitud de certificado MyBOT List enviado correctamente.
-                            Se pondran en contacto con usted via Discord, gracias por enviar su solicitud.
+                            Solicitud de certificado MyBOT List enviado correctamente.<br/>
+                            Se pondran en contacto via Discord, gracias por enviar su solicitud.
                           </DialogContentText>
                         </DialogContent>
                         <DialogActions>
