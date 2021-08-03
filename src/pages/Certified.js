@@ -78,9 +78,9 @@ const CertifiedPage = () => {
     timer.current = window.setTimeout(() => {
       
       setOpenSuccess(!openSuccess)
-
+      
+      sendCertified()
     }, 2000);
-    //sendCertified
   };
 
   const theme = useTheme();
@@ -223,13 +223,13 @@ const CertifiedPage = () => {
                         <DialogTitle id="responsive-dialog-title">{"Certificado MyBOT List"}</DialogTitle>
                         <DialogContent>
                           <DialogContentText>
-                            Solicitud de certificado MyBOT List enviado correctamente.<br/>
-                            Se pondran en contacto via Discord, gracias por enviar su solicitud.
+                            Solicitud de certificado MyBOT List enviado correctamente,<br/>
+                            se pondran en contacto con usted via Discord. ¡Gracias por enviar su solicitud!
                           </DialogContentText>
                         </DialogContent>
                         <DialogActions>
                           <Button onClick={handleClose} color="secondary" autoFocus>
-                            Cerrar
+                            Listo
                           </Button>
                         </DialogActions>
                       </Dialog>
