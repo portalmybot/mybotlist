@@ -129,8 +129,8 @@ export default function FooterHome() {
                    Soporte
                 </Link>
               </li>
-              <li key='certi'>
-                <Link href="https://portalmybot.com/list/certificado" variant="subtitle1" /* target="_blank" rel="noopener" */ color="textSecondary">
+              <li key='certified'>
+                <Link component={RouterLink} to="/certificado" variant="subtitle1" color="textSecondary">
                    Certificado
                 </Link>
               </li>
