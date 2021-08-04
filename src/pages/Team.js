@@ -158,20 +158,6 @@ const userList = [
     }
   },
   {
-    username: 'Jimbolo',
-    avatar: 'https://i.imgur.com/bIynsfw.gif',
-    main: false,
-    color: '#fb395d',
-    data: {
-      rol: 'Gestor',
-      social: {
-        twitter: '#',
-        github: 'https://github.com/Jimbolo25',
-        web: 'https://www.twitch.tv/jimbolof'
-      }
-    }
-  },
-  {
     username: 'CrisKop',
     avatar: 'https://i.imgur.com/nAHzkpx.png',
     main: false,
