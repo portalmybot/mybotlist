@@ -25,6 +25,7 @@ import Premium from './pages/Premium';
 import Subscribe from './pages/Subscribe';
 import Team from './pages/Team';
 import Certified from './pages/Certified';
+import Terms from './pages/Terms';
 
 const guestRoutes = [
   { path: "/", component: Home, exact: true },
@@ -35,6 +36,7 @@ const guestRoutes = [
   { path: "/bots/:id", component: List, exact: true },
   { path: "/premium", component: Subscribe, exact: true },
   { path: "/team", component: Team, exact: true },
+  { path: "/terms", component: Terms, exact: true },
   
 ];
 
