@@ -134,7 +134,7 @@ const CertifiedPage = () => {
                                 <ListItemIcon>
                                   <StarIcon style={{ color: amber[500] }} />
                                 </ListItemIcon>
-                                <ListItemText primary="Más de 1000 servidores" />
+                                <ListItemText primary="Más de 500 servidores" />
                               </ListItem>
                               <ListItem button>
                                 <ListItemIcon>
