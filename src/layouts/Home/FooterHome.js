@@ -135,7 +135,7 @@ export default function FooterHome() {
                 </Link>
               </li>
               <li key='tos'>
-                <Link href="https://portalmybot.com/list/tos" variant="subtitle1" /* target="_blank" rel="noopener" */ color="textSecondary">
+                <Link component={RouterLink} to="/terms" variant="subtitle1" color="textSecondary">
                    Términos y condiciones
                 </Link>
               </li>

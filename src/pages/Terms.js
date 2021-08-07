@@ -135,6 +135,29 @@ const TosPage = () => {
                           </Typography>
                           <Typography variant="subtitle2" color="textSecondary" component="p">
                             Usted comprende y acepta que no seremos responsables ante usted ni ante ningún tercero por ninguna pérdida de ganancias, uso, buena voluntad o datos, o por cualquier daño incidental, indirecto, especial, consecuente o ejemplar, como sea que surja, que resulte de:
+
+                            <ul>
+                              <li>El uso, divulgación o exhibición de su Contenido generado por el usuario.</li>
+                              <li>Su uso o incapacidad para usar el Servicio.</li>
+                              <li>Cualquier modificación, cambio de precio, suspensión o interrupción del Servicio.</li>
+                              <li>El servicio en general o el software o los sistemas que hacen que el Servicio esté disponible.</li>
+                              <li>Acceso no autorizado o alteraciones de sus transmisiones o datos.</li>
+                              <li>Declaraciones o conducta de terceros en el Servicio.</li>
+                              <li>Cualquier otra interacción de usuario que ingrese o reciba a través de su uso del Servicio.</li>
+                              <li>Cualquier otro asunto relacionado con el Servicio.</li>
+                              
+                            </ul>
+                            Nuestra responsabilidad es limitada ya sea que se nos haya informado o no de la posibilidad de tales daños, e incluso si se determina que un recurso establecido en este Acuerdo no ha cumplido con su propósito esencial.No tendremos ninguna responsabilidad por cualquier falla o retraso debido a asuntos fuera de nuestro control razonable.
+
+                          </Typography>
+
+                          <Typography variant="h6" color="textPrimary" component="h3" className={classes.titleUsers}>
+                            Cambios en los términos
+                          </Typography>
+                          <Typography variant="subtitle2" color="textSecondary" component="p">
+                            Nos reservamos el derecho, a nuestro exclusivo criterio, de modificar estos Términos de servicio en cualquier momento. Su uso continuado del sitio web constituye su aceptación de nuestras revisiones de estos Términos de servicio.
+                            <br />
+                            Nos reservamos el derecho, en cualquier momento y de vez en cuando, de modificar o interrumpir, temporal o permanentemente, el sitio web(o cualquier parte del mismo) con o sin previo aviso.
                           </Typography>
                           
                         </Container>
