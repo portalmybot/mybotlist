@@ -6,12 +6,6 @@ import Seo from '../components/common/Seo';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import StarIcon from '@material-ui/icons/Star';
-import { amber } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -121,7 +115,7 @@ const TosPage = () => {
                             Propiedad intelectual
                           </Typography>
                           <Typography variant="subtitle2" color="textSecondary" component="p">
-                            Se le otorga una licencia no exclusiva, intransferible y revocable para acceder y utilizar https://portalmybot.com estrictamente de acuerdo con estos términos de uso. Como condición para el uso del Sitio, usted garantiza a PortalMyBOT que no utilizará el Sitio para ningún propósito que sea ilegal o esté prohibido por estos Términos. No puede usar el Sitio de ninguna manera que pueda dañar, deshabilitar, sobrecargar o deteriorar el Sitio o interferir con el uso y disfrute del Sitio por parte de terceros. No puede obtener ni intentar obtener ningún material o información a través de ningún medio que no esté disponible o proporcionado intencionalmente a través del Sitio.
+                            Se le otorga una licencia no exclusiva, intransferible y revocable para acceder y utilizar <a href="https://portalmybot.com/" className={classes.alinks}>https://portalmybot.com/</a> estrictamente de acuerdo con estos términos de uso. Como condición para el uso del Sitio, usted garantiza a PortalMyBOT que no utilizará el Sitio para ningún propósito que sea ilegal o esté prohibido por estos Términos. No puede usar el Sitio de ninguna manera que pueda dañar, deshabilitar, sobrecargar o deteriorar el Sitio o interferir con el uso y disfrute del Sitio por parte de terceros. No puede obtener ni intentar obtener ningún material o información a través de ningún medio que no esté disponible o proporcionado intencionalmente a través del Sitio.
 
                             <br/><br/>
                             Todo el contenido incluido como parte del Servicio, como texto, gráficos, logotipos, imágenes, así como la compilación de los mismos, y cualquier software utilizado en el Sitio, es propiedad de PortalMyBOT o sus proveedores y está protegido por derechos de autor y otras leyes que proteger la propiedad intelectual y los derechos de propiedad. Usted acepta observar y cumplir con todos los avisos de derechos de autor y otros avisos de propiedad, leyendas u otras restricciones contenidas en dicho contenido y no realizará ningún cambio al mismo.
