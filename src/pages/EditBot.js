@@ -95,7 +95,7 @@ export default function EditBot() {
   const {isLoading, error, data: botQuery = {}} = useQuery(['getBotEdit', {id: id}], getBotEdit)
   const { data: premium } = useQuery('getUserPremium', getUserPremium);
   const { data: bgPremium = {}} = useQuery(['getBotBG', {id: id}], getBackgroundBot)
-  const { prefix_bot, shortDesc_bot, tag_bot, support_bot, web_bot, devs, longDesc_bot, premium_bot } = botQuery;
+  const { prefix_bot, shortDesc_bot, tag_bot, support_bot, web_bot, devs, longDesc_bot, premium_bot, type_bot } = botQuery;
   const { background_page, background_card } = bgPremium;
 
   const [desc, setDesc] = useState();
@@ -194,7 +194,7 @@ export default function EditBot() {
         mutateBadgesBot.mutate({ id_bot: id })
         
       }
-
+      
       mutateUpdateBotBG.mutate({ id_bot: id, databg })
       mutateUpdateBot.mutate({ longDesc_bot: desc, data });
 
@@ -286,7 +286,34 @@ export default function EditBot() {
                         />
                       </Grid>
                     </>
-                  : null }
+                  : type_bot > 0 ? 
+                    <>
+                      <Grid item xs={12}>
+                        <TextField
+                          variant="outlined"
+                          name="background_page"
+                          defaultValue={background_page}
+                          value={data["background_page"]}
+                          onChange={e => setDataBG({ background_page: e.target.value, background_card: databg.background_card})}
+                          fullWidth
+                          id="Premium_Page_BOT"
+                          helperText="Agrege un enlace (URL) para el fondo de la pagina de su BOT"
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                          variant="outlined"
+                          name="background_card"
+                          defaultValue={background_card}
+                          value={data["background_card"]}
+                          onChange={e => setDataBG({ background_card: e.target.value, background_page: databg.background_page})}
+                          fullWidth
+                          id="Premium_Card_BOT"
+                          helperText="Agrege un enlace (URL) para el fondo de su BOT en lista"
+                        />
+                      </Grid>
+                    </>
+                  : null}
 
                   <Grid item xs={12}>
                     <TextField

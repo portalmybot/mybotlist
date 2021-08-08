@@ -140,7 +140,7 @@ const CertifiedPage = () => {
                                 <ListItemIcon>
                                   <StarIcon style={{ color: amber[500] }} />
                                 </ListItemIcon>
-                                <ListItemText primary="Bots certificados por Discord" />
+                                <ListItemText primary="Bot certificado por Discord" />
                               </ListItem>
                               <ListItem button>
                                 <ListItemIcon>
@@ -152,14 +152,14 @@ const CertifiedPage = () => {
                                 <ListItemIcon>
                                   <StarIcon style={{ color: amber[500] }} />
                                 </ListItemIcon>
-                                <ListItemText primary="Almacenamiento seguro y confiable" />
+                                <ListItemText primary="Almacenamiento seguro y confiable (Hosting/VPS)" />
                               </ListItem>
                               
                               <ListItem button>
                                 <ListItemIcon>
                                   <StarIcon style={{ color: amber[500] }} />
                                 </ListItemIcon>
-                                <ListItemText primary="Debe existir un contenido principal representativo" />
+                                <ListItemText primary="Debe existir un contenido principal representativo (Modulos de comandos)" />
                               </ListItem>
                             </List>
                           </Grid>
