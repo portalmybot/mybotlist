@@ -99,13 +99,14 @@ const CardList = ({ value }) => {
     vote_bot,
     tags,
     badges,
-    premium_bot
+    premium_bot,
+    type_bot
   } = value;
 
   const { isLoading, data: urlPremium = {}} = useQuery(['getBotBGCard', {id: id_bot}], getBackgroundBot)
   const { background_card } = urlPremium;
 
-  const bgPremium = premium_bot && !isLoading ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(${background_card}) center top / cover no-repeat` : null;
+  const bgPremium = premium_bot && !isLoading ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(${background_card}) center top / cover no-repeat` : type_bot > 0 && !isLoading ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(${background_card}) center top / cover no-repeat` : null;
 
   return (
     <Card key={id_bot} className={classes.root} style={{background: `${bgPremium}`}} >

@@ -74,7 +74,7 @@ export default function Bot() {
   const { data: urlPremium = {}} = useQuery(['getBotBGPage', {id: id}], getBackgroundBot)
   const { background_page } = urlPremium;
 
-  const bgPremium = bot.premium_bot && !isLoading ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(${background_page}) center top / cover no-repeat fixed` : null;
+  const bgPremium = bot.premium_bot && !isLoading ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(${background_page}) center top / cover no-repeat fixed` : bot.type_bot > 0 && !isLoading ? `linear-gradient(to right, rgba(34, 36, 38, 0.68), rgba(34, 36, 38, 0.68)), url(${background_page}) center top / cover no-repeat fixed` : null;
   
   const classes = useStyles();
   
