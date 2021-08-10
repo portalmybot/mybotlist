@@ -31,15 +31,17 @@ export const addUserPremium = async (data) => {
 
 export const addUserPremiumPerm = async (data) => {
   const userLogin = await getUser();
+  
   const postData = {
     order_id: data.orderID,
     id_user: userLogin.social_id,
     order_status: 1
+
   }
 
   await http.post("user/orders/add", postData);
   sendWebHook(process.env.REACT_APP_DISCORD_WEBHOOK, 'MyBOT List', `ORDEN USER PREMIUM +: ${userLogin.social_id}`, 15277667)
-  
+
 };
 
 export const logoutUser = async () => {
