@@ -86,11 +86,11 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1, 0, 0.5),
   },
 
-  
 }));
 
 const CardList = ({ value }) => {
   const classes = useStyles();
+
   const {
     id_bot,
     username_bot,
