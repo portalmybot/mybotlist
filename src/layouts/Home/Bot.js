@@ -117,7 +117,6 @@ const CardList = ({ value }) => {
         action={
           <Chip label={vote_bot} icon={<ImportExportIcon />} variant="outlined"/>
         }
-
         subheader= {
           badges && 
             badges.map((badge) => {
@@ -149,13 +148,11 @@ const CardList = ({ value }) => {
                       classes.icon
                     }
                     /> : null
-
                   }
                 </>
               )
             })
         }
-
       />
 
       <CardContent className={classes.section1}>
