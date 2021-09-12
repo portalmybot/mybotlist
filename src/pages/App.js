@@ -26,36 +26,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
     
   },
-  heroContent: {
-    padding: theme.spacing(1),
-    marginBottom: theme.spacing(4),
-  },
-  cardHeader: {
-    backgroundColor: theme.palette.grey[700],
-  },
-  cardPricing: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'baseline',
-    marginBottom: theme.spacing(2),
-  },
-  liContent: {
-    margin: 0,
-    padding: 0,
-    listStyle: 'none',
-    marginBottom: theme.spacing(1),
-  },
-  appBar: {
-    position: 'relative',
-  },
-  titleDialog: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
-  },
-  titleUsers: {
-    padding: theme.spacing(4, 0, 2)
-  }
-
+  
+  
 }));
 
 
@@ -76,7 +48,6 @@ const TeamPage = () => {
                 
                   <div className={classes.root}>
                     <Grid container spacing={1} justify='center'>
-
                         <Container maxWidth="md" component="main">
                           <Typography  variant="h4" component="h1" className={classes.title} align="center" color="textPrimary" gutterBottom>
                             APP

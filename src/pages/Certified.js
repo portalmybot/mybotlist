@@ -95,6 +95,7 @@ const CertifiedPage = () => {
                 description='Lista de Bots públicos de Discord en español, descubre nuevos Bots desarrollados por los miembros de la comunidad MyBOT Team'
                 url='https://portalmybot.com/list/'
                 image='https://i.imgur.com/DC0Kp0D.png' />
+              
 
               <Container maxWidth={'lg'} className={classes.containerbg}>
                 
