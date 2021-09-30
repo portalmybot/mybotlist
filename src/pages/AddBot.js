@@ -256,7 +256,7 @@ export default function AddBot() {
           }
           <Divider />
           {success &&
-            <AlertInput message={'Su BOT fue agreado correctamente.'} />
+            <AlertInput message={'Su BOT fue agregado correctamente.'} />
           }
           <Button
             size="large"
