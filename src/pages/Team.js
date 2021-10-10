@@ -213,6 +213,20 @@ const userList = [
       }
     }
   },
+  {
+    username: 'Samuel',
+    avatar: 'https://i.imgur.com/ebKTmL8.png',
+    main: false,
+    color: '#FFB300',
+    data: {
+      rol: 'Premium',
+      social: {
+        twitter: 'https://twitter.com/iSamuelCO',
+        github: 'https://github.com/iSamuelCO',
+        web: 'https://capestar.net/'
+      }
+    }
+  },
 ]
 
 
