@@ -109,7 +109,7 @@ const userList = [
     data: {
       rol: 'Admin',
       social: {
-        twitter: '#',
+        twitter: '/',
         github: 'https://github.com/manu522',
         web: 'https://mybo.me/manu'
       }
@@ -123,7 +123,7 @@ const userList = [
     data: {
       rol: 'Gestor Head',
       social: {
-        twitter: 'https://twitter.com/ToxVi?s=09',
+        twitter: 'https://twitter.com/ToxVi',
         github: 'https://github.com/K3VITOX',
         web: 'https://wall-e-web.affaibli.xyz/'
       }
@@ -179,7 +179,7 @@ const userList = [
     data: {
       rol: 'Gestor',
       social: {
-        twitter: 'ttps://twitter.com/@DeathMario_',
+        twitter: 'https://twitter.com/@DeathMario_',
         github: 'https://github.com/DeathMario',
         web: 'https://portalmybot.com/u/gato'
       }
