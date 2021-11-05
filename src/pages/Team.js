@@ -116,26 +116,12 @@ const userList = [
     }
   },
   {
-    username: 'Abiiee',
-    avatar: 'https://i.imgur.com/cKIKBxg.gif',
-    main: false,
-    color: '#fb395d',
-    data: {
-      rol: 'Gestor Head',
-      social: {
-        twitter: 'https://twitter.com/Abiiee__',
-        github: 'https://github.com/Abiiee',
-        web: 'https://abiiee.netlify.app/'
-      }
-    }
-  },
-  {
     username: 'K3VITOX',
     avatar: 'https://imgur.com/W1uo9HE.png',
     main: false,
     color: '#fb395d',
     data: {
-      rol: 'Gestor',
+      rol: 'Gestor Head',
       social: {
         twitter: 'https://twitter.com/ToxVi?s=09',
         github: 'https://github.com/K3VITOX',
@@ -158,16 +144,44 @@ const userList = [
     }
   },
   {
-    username: 'CrisKop',
-    avatar: 'https://i.imgur.com/nAHzkpx.png',
+    username: 'JainaGam3r45',
+    avatar: 'https://i.imgur.com/66vtoJ6.png',
     main: false,
     color: '#fb395d',
     data: {
       rol: 'Gestor',
       social: {
-        twitter: '#',
-        github: '#',
-        web: 'https://www.youtube.com/channel/UC_s--WhZeBuWpld8V_TqUDA'
+        twitter: 'https://twitter.com/YuzoDiscord',
+        github: 'https://github.com/JainaGam3r45',
+        web: 'https://portalmybot.com/u/hackermaik'
+      }
+    }
+  },
+  {
+    username: '! xTheSebaSx',
+    avatar: 'https://i.imgur.com/XJVIvjf.png',
+    main: false,
+    color: '#fb395d',
+    data: {
+      rol: 'Gestor',
+      social: {
+        twitter: 'https://twitter.com/xElSebaSx',
+        github: 'https://github.com/xTheSebaSx-afk',
+        web: 'https://portalmybot.com/u/xthesebasx'
+      }
+    }
+  },
+  {
+    username: 'Gato',
+    avatar: 'https://i.imgur.com/XCjwRpf.png',
+    main: false,
+    color: '#fb395d',
+    data: {
+      rol: 'Gestor',
+      social: {
+        twitter: 'ttps://twitter.com/@DeathMario_',
+        github: 'https://github.com/DeathMario',
+        web: 'https://portalmybot.com/u/gato'
       }
     }
   },
